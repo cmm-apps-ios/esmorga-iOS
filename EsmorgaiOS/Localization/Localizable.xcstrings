@@ -1,0 +1,83 @@
+{
+  "sourceLanguage" : "es",
+  "strings" : {
+    "event_list_empty_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay eventos disponibles. Por favor vuelve más tarde."
+          }
+        }
+      }
+    },
+    "event_list_error_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reintentar"
+          }
+        }
+      }
+    },
+    "event_list_error_subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inténtalo de nuevo más tarde"
+          }
+        }
+      }
+    },
+    "event_list_error_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Algo ha ido mal!"
+          }
+        }
+      }
+    },
+    "event_list_loading_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando eventos…"
+          }
+        }
+      }
+    },
+    "event_list_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Listado de Eventos"
+          }
+        }
+      }
+    },
+    "no_internet_snackbar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No internet connection"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

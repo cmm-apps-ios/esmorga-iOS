@@ -1,4 +1,5 @@
-name: Run  Unit & Component Tests
+name: Run  Unit & Component Tests on iOS
+
 run-name: ${{ github.actor }} is testing PR ${{ github.ref }} new code 🚀
 on:
   pull_request:

@@ -9,7 +9,7 @@ import Foundation
 
 enum EventModels {
 
-    struct Event: Identifiable, DataConvertible {
+    struct Event: Identifiable, DataConvertible, Equatable {
 
         var id: String { eventId }
 
@@ -58,6 +58,17 @@ enum EventModels {
                                      longitude: managedObject.longitude,
                                      location: managedObject.location!,
                                      creationDate: managedObject.creationDate!)
+        }
+
+        static func == (lhs: Event, rhs: Event) -> Bool {
+            return lhs.eventId == rhs.eventId
+            && lhs.name == rhs.name
+            && lhs.date == rhs.date
+            && lhs.details == rhs.details
+            && lhs.eventType == rhs.eventType
+            && lhs.imageURL == rhs.imageURL
+            && lhs.latitude == rhs.latitude
+            && lhs.longitude == rhs.longitude
         }
     }
 }

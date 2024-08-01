@@ -1,0 +1,134 @@
+{
+    "totalEvents": 120,
+    "events": [
+        {
+            "eventId": "66697f9a3c001d5dfd76bd4d",
+            "eventName": "test💥",
+            "eventDate": "2025-03-08T10:05:30.915Z",
+            "description": "sdf",
+            "eventType": "Party",
+            "imageUrl": "img.url",
+            "location": {
+                "lat": 8.41937931298951,
+                "long": -8.41937931298951,
+                "name": "asdasdads"
+            },
+            "tags": [
+                "M1S",
+                "M2S",
+                "M3S",
+                "MUSIC4",
+                "MUSICS5",
+                "MUSICS6",
+                "MUSICS7",
+                "MUSICS8",
+                "MUSICS9",
+                "MUSICS10"
+            ]
+        },
+        {
+            "eventId": "6669bf57749531913abd5721",
+            "eventName": "End of the World Party",
+            "eventDate": "2025-03-08T10:05:30.915Z",
+            "description": "Join us for an unforgettable celebration as we dance into the apocalypse.",
+            "eventType": "Party",
+            "imageUrl": "img.url",
+            "location": {
+                "lat": 43.35525182148881,
+                "long": -8.41937931298951,
+                "name": "A Coruña"
+            }
+        },
+        {
+            "eventId": "666a8b86749531913abd572d",
+            "eventName": "Event Name",
+            "eventDate": "2025-03-08T10:05:30.915Z",
+            "description": "Best party in the world",
+            "eventType": "Party",
+            "imageUrl": "img.url",
+            "location": {
+                "lat": 43.355251,
+                "long": -8.419379,
+                "name": "Vigo"
+            }
+        },
+        {
+            "eventId": "666bdbd1749531913abd5740",
+            "eventName": "Event Name",
+            "eventDate": "2025-03-08T10:05:30.915Z",
+            "description": "Best party in the world",
+            "eventType": "Party",
+            "imageUrl": "img.url",
+            "location": {
+                "lat": 43.355251,
+                "long": -8.419379,
+                "name": "Vigo"
+            }
+        },
+        {
+            "eventId": "666bdbec749531913abd5743",
+            "eventName": "Event Name",
+            "eventDate": "2025-03-08T10:05:30.915Z",
+            "description": "Best party in the world",
+            "eventType": "Party",
+            "imageUrl": "img.url",
+            "location": {
+                "lat": 43.355251,
+                "long": -8.419379,
+                "name": "Vigo"
+            }
+        },
+        {
+            "eventId": "666bdda2749531913abd574c",
+            "eventName": "Event Name",
+            "eventDate": "2025-03-08T10:05:30.915Z",
+            "description": "Best party in the world",
+            "eventType": "Party",
+            "imageUrl": "img.url",
+            "location": {
+                "lat": 43.355251,
+                "long": -8.419379,
+                "name": "Vigo"
+            }
+        },
+        {
+            "eventId": "666be73d749531913abd5756",
+            "eventName": "Event Name",
+            "eventDate": "2025-03-08T10:05:30.915Z",
+            "description": "Best party in the world",
+            "eventType": "Party",
+            "imageUrl": "img.url",
+            "location": {
+                "lat": 43.355251,
+                "long": -8.419379,
+                "name": "Vigo"
+            }
+        },
+        {
+            "eventId": "666bfdc6339302a3ac87b740",
+            "eventName": "Event Name",
+            "eventDate": "2025-03-08T10:05:30.915Z",
+            "description": "Best party in the world",
+            "eventType": "Party",
+            "imageUrl": "img.url",
+            "location": {
+                "lat": 43.355251,
+                "long": -8.419379,
+                "name": "Vigo"
+            }
+        },
+        {
+            "eventId": "666c0eb4339302a3ac87b75e",
+            "eventName": "Event Name",
+            "eventDate": "2025-03-08T10:05:30.915Z",
+            "description": "Best party in the world",
+            "eventType": "Party",
+            "imageUrl": "img.url",
+            "location": {
+                "lat": 43.355251,
+                "long": -8.419379,
+                "name": "Vigo"
+            }
+        }
+    ]
+}

@@ -35,8 +35,16 @@ class LocalEventsDataSource: LocalEventsDataSourceProtocol {
             return []
         }
     }
-
+    
     func saveEvents(_ events: [EventModels.Event]) async throws -> () {
+        clearAll()
+
+        events.forEach { _ = $0.convert(in: container.viewContext) }
+        try? container.viewContext.save()
+        return ()
+    }
+
+    func clearAll() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MOEvent")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
         do {
@@ -44,9 +52,5 @@ class LocalEventsDataSource: LocalEventsDataSourceProtocol {
         } catch {
             print(error.localizedDescription)
         }
-
-        events.forEach { _ = $0.convert(in: container.viewContext) }
-        try? container.viewContext.save()
-        return ()
     }
 }

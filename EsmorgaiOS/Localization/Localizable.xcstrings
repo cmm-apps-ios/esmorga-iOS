@@ -67,6 +67,9 @@
         }
       }
     },
+    "Hello, World!" : {
+
+    },
     "no_internet_snackbar" : {
       "extractionState" : "manual",
       "localizations" : {

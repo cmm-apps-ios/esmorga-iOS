@@ -55,13 +55,8 @@ enum TextStyle {
 
     var fontColor: Color {
         switch self {
-        case .title: return .darkGrey
-        case .heading1: return .darkGrey
-        case .heading2: return .darkGrey
-        case .body1: return .darkGrey
-        case .body1Accent: return .sepia
-        case .caption: return .sepia
-        case .button: return .darkGrey
+        case .title, .heading1, .heading2, .body1, .button: return .onSurface
+        case .body1Accent, .caption: return .onSurfaceVariant
         }
     }
 

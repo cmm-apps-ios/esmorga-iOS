@@ -7,10 +7,10 @@
 
 import Foundation
 
-typealias GetEventListResult = Result<[EventModels.Event], Error>
+typealias GetEventListResult = Result<(data: [EventModels.Event], error: Bool), Error>
 
 protocol GetEventListUseCaseProtocol {
-    func getEventList() async -> GetEventListResult
+    func getEventList(forceRefresh: Bool) async -> GetEventListResult
 }
 
 class GetEventListUseCase: GetEventListUseCaseProtocol {
@@ -21,9 +21,9 @@ class GetEventListUseCase: GetEventListUseCaseProtocol {
         self.eventsRepsitory = eventsRepsitory
     }
 
-    func getEventList() async -> GetEventListResult {
+    func getEventList(forceRefresh: Bool) async -> GetEventListResult {
         do {
-            let events = try await eventsRepsitory.getEventList()
+            let events = try await eventsRepsitory.getEventList(refresh: forceRefresh)
             return .success(events)
         } catch let error {
             return .failure(error)

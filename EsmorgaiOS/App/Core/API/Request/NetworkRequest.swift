@@ -31,25 +31,27 @@ struct NetworkRequest: NetworkRequestProtocol {
                 case .success(let data):
                     print(String(data: data, encoding: .utf8) ?? "")
                     guard let decodeData = try? JSONDecoder().decode(T.self, from: data) else {
-                        let error = NSError(domain: "NetworkAPIError",
-                                      code: 3,
-                                      userInfo: [NSLocalizedDescriptionKey: "JSON decode error"])
-                        continuation.resume(throwing: error)
+                        continuation.resume(throwing: NetworkError.mappingError)
                         return
                     }
                     continuation.resume(returning: decodeData)
 
                 case .failure(let error):
-                    let errorCode = response.response?.statusCode ?? error.code
+                    let errorCode = response.response?.statusCode ?? error.underlyingError?.code ?? error.code
                     guard errorCode != NSURLErrorCancelled else { return }
-                    continuation.resume(throwing: error)
+                    var networkError: NetworkError {
+                        if errorCode == NSURLErrorNotConnectedToInternet {
+                            return .noInternetConnection
+                        } else {
+                            return .genaralError(code: errorCode)
+                        }
+                    }
+                    continuation.resume(throwing: networkError)
                 }
             }
 
         }
     }
-
-
 }
 
 extension Error {

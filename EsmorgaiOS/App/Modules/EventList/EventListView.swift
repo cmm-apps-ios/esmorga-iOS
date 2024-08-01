@@ -36,19 +36,23 @@ struct EventListView: View {
                                      title: Localize.localize(key: LocaliationKeys.EventListKeys.eventListErrorTitle),
                                      subtitle: Localize.localize(key: LocaliationKeys.EventListKeys.eventListErrorSubtitle))
                             CustomButton(title: Localize.localize(key: LocaliationKeys.EventListKeys.eventListErrorButtonTitle),
-                                         buttonStyle: .primary,
-                                         action: viewModel.errorButtonAction)
+                                         buttonStyle: .primary) {
+                                viewModel.getEventList(forceRefresh: true)
+                            }
                             .frame(maxWidth: .infinity, alignment: .center)
                         }.padding(16)
                     } else {
                         LazyVStack(spacing: 0) {
                             if !viewModel.events.isEmpty {
-                                ForEach(viewModel.events) { event in
-                                    EventListCell(imageUrl: event.imageURL,
-                                                  title: event.name,
-                                                  subtitle: event.date.description,
-                                                  secondary: event.location)
+                                    ForEach(viewModel.events) { event in
+                                        NavigationLink(destination: EventDetailsView()) {
+                                        EventListCell(imageUrl: event.imageURL,
+                                                      title: event.name,
+                                                      subtitle: event.date.description,
+                                                      secondary: event.location)
+                                    }
                                 }
+
                             } else {
                                 EventListCell(title: Localize.localize(key: LocaliationKeys.EventListKeys.emptyEventListText),
                                               titleAlignment: .center)
@@ -58,27 +62,22 @@ struct EventListView: View {
                 }.frame(maxWidth: .infinity, alignment: .leading)
 
             }
-            .background(.lavender)
-            .task {
-                if !networkMonitor.isConnected {
-                    appManager.showSnackbarWith(text: Localize.localize(key: LocaliationKeys.CommonKeys.noConnectionText))
-                }
-                await viewModel.getEventList()
+            .background(.surface)
+            .onAppear {
+                viewModel.getEventList(forceRefresh: false)
             }
-            .onChange(of: networkMonitor.isConnected) { oldValue, newValue in
-                if newValue {
-                    appManager.hideToast()
-                } else {
-                    appManager.showSnackbarWith(text: Localize.localize(key: LocaliationKeys.CommonKeys.noConnectionText))
-                }
-            }
-        }.snackbar(message: appManager.snackbarMessage, isShowing: $appManager.showSnackbar)
+//            .task {
+//                if !networkMonitor.isConnected {
+//                    appManager.showSnackbarWith(text: Localize.localize(key: LocaliationKeys.CommonKeys.noConnectionText))
+//                }
+//            }
+//            .onChange(of: networkMonitor.isConnected) { oldValue, newValue in
+//                if newValue {
+//                    appManager.hideToast()
+//                } else {
+//                    appManager.showSnackbarWith(text: Localize.localize(key: LocaliationKeys.CommonKeys.noConnectionText))
+//                }
+//            }
+        }.snackbar(message: Localize.localize(key: LocaliationKeys.CommonKeys.noConnectionText), isShowing: $viewModel.showSnackbar)
     }
 }
-
-
-
-
-
-
-

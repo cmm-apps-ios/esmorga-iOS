@@ -23,7 +23,7 @@ struct CardView: View {
                         .aspectRatio(1/1, contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                 }
                 .frame(width: 48, height: 48, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .background(.whiteSmoke)
+                .background(.surfaceContainerLow)
                 .modifier(CardModifier())
                 VStack(alignment: .leading) {
                     Text(NSLocalizedString("event_list_error_title", comment: "Error"))
@@ -35,8 +35,7 @@ struct CardView: View {
             }
             .padding(.leading, 16)
             .padding(.trailing, 8)
-            .padding(.top, 16)
-            .padding(.bottom, 16)
+            .padding(.vertical, 16)
         }
         .frame(maxWidth: .infinity, alignment: .center)
         .background(.white)

@@ -12,29 +12,36 @@ class EventListViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var events: [EventModels.Event] = []
     @Published var hasError: Bool = false
-    @Published var showSnackBar: Bool = false
-
-    var errorButtonAction: (() -> Void)?
+    @Published var showSnackbar: Bool = false
 
     private var getEventListUseCase: GetEventListUseCaseProtocol
     init(getEventListUseCase: GetEventListUseCaseProtocol = GetEventListUseCase()) {
         self.getEventListUseCase = getEventListUseCase
     }
 
-
-    @MainActor func getEventList() async {
+    func getEventList(forceRefresh: Bool) {
 
         hasError = false
         isLoading = true
 
-        let result = await getEventListUseCase.getEventList()
-        self.isLoading = false
+        Task { [weak self] in
+            guard let self else { return }
 
-        switch result {
-        case .success(let events):
-            self.events = events
-        case .failure:
-            self.hasError = true
+            let result = await getEventListUseCase.getEventList(forceRefresh: forceRefresh)
+
+            await MainActor.run {
+                self.isLoading = false
+
+                switch result {
+                case .success(let events):
+                    self.events = events.data
+                    if events.error {
+                        self.showSnackbar = true
+                    }
+                case .failure:
+                    self.hasError = true
+                }
+            }
         }
     }
 }

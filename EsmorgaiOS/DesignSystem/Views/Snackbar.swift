@@ -28,8 +28,7 @@ struct Snackbar: ViewModifier {
                     Text(message)
                         .foregroundColor(config.textColor)
                         .font(config.font)
-                        .padding(.vertical, 16)
-                        .padding(.horizontal, 16)
+                        .padding(.all, 16)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .background(config.backgroundColor)

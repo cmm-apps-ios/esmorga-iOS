@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF3158532C53D9EE00DE157A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158522C53D9EE00DE157A /* NetworkError.swift */; };
+		EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158552C53DC8200DE157A /* EventDetailsView.swift */; };
+		EF3158592C5937E800DE157A /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = EF3158582C5937E800DE157A /* Nimble */; };
+		EF31585B2C59384800DE157A /* GetEventListUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31585A2C59384800DE157A /* GetEventListUseCaseTests.swift */; };
+		EF3158622C5A221400DE157A /* CacheRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158612C5A221400DE157A /* CacheRuleTests.swift */; };
+		EF3158652C5A27DF00DE157A /* EventsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158642C5A27DF00DE157A /* EventsRepositoryTests.swift */; };
+		EF3158672C5A281D00DE157A /* MockEventsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158662C5A281D00DE157A /* MockEventsRepository.swift */; };
+		EF3158692C5A373A00DE157A /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158682C5A373A00DE157A /* String+Date.swift */; };
+		EF31586C2C5A5D8B00DE157A /* MockRemoteEventsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31586B2C5A5D8B00DE157A /* MockRemoteEventsDataSource.swift */; };
+		EF31586E2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31586D2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift */; };
+		EF3158702C5A5DED00DE157A /* LocalEventsDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31586F2C5A5DED00DE157A /* LocalEventsDataSourceTests.swift */; };
+		EF3158732C5A608F00DE157A /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = EF3158722C5A608F00DE157A /* OHHTTPStubs */; };
+		EF3158752C5A608F00DE157A /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF3158742C5A608F00DE157A /* OHHTTPStubsSwift */; };
+		EF3158772C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158762C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift */; };
+		EF31587A2C5A78B900DE157A /* mock_event_list.json in Resources */ = {isa = PBXBuildFile; fileRef = EF3158792C5A78B900DE157A /* mock_event_list.json */; };
+		EF31587C2C5A7DA800DE157A /* mock_dummy_file.json in Resources */ = {isa = PBXBuildFile; fileRef = EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */; };
+		EF3158802C5A7E7100DE157A /* EventListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31587F2C5A7E7100DE157A /* EventListViewModelTests.swift */; };
+		EF3158822C5A80AC00DE157A /* MockGetEventListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */; };
+		EF3158842C5B872100DE157A /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EF3158832C5B872100DE157A /* Config.xcconfig */; };
 		EF4213C12C3EC9DE00686033 /* EventModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213C02C3EC9DE00686033 /* EventModels.swift */; };
 		EF4213C52C3ECB4400686033 /* DataConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213C42C3ECB4400686033 /* DataConvertible.swift */; };
 		EF4213C72C3ECBC400686033 /* NSManagedObject+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213C62C3ECBC400686033 /* NSManagedObject+Helpers.swift */; };
@@ -35,7 +54,6 @@
 		EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE0A9832C3E8CCA00E28953 /* LocalEventsDataSource.swift */; };
 		EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */; };
 		EFF7A1B32C354BD00024704A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFF7A1B22C354BD00024704A /* Assets.xcassets */; };
-		EFF7A1C02C354BD00024704A /* EsmorgaiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1BF2C354BD00024704A /* EsmorgaiOSTests.swift */; };
 		EFF7A1CA2C354BD00024704A /* EsmorgaiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1C92C354BD00024704A /* EsmorgaiOSUITests.swift */; };
 		EFF7A1CC2C354BD00024704A /* EsmorgaiOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1CB2C354BD00024704A /* EsmorgaiOSUITestsLaunchTests.swift */; };
 		EFF7A1DE2C3587810024704A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1DD2C3587810024704A /* CustomButton.swift */; };
@@ -62,6 +80,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF3158522C53D9EE00DE157A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		EF3158552C53DC8200DE157A /* EventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsView.swift; sourceTree = "<group>"; };
+		EF31585A2C59384800DE157A /* GetEventListUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventListUseCaseTests.swift; sourceTree = "<group>"; };
+		EF3158612C5A221400DE157A /* CacheRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheRuleTests.swift; sourceTree = "<group>"; };
+		EF3158642C5A27DF00DE157A /* EventsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsRepositoryTests.swift; sourceTree = "<group>"; };
+		EF3158662C5A281D00DE157A /* MockEventsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEventsRepository.swift; sourceTree = "<group>"; };
+		EF3158682C5A373A00DE157A /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
+		EF31586B2C5A5D8B00DE157A /* MockRemoteEventsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRemoteEventsDataSource.swift; sourceTree = "<group>"; };
+		EF31586D2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocalEventsDataSource.swift; sourceTree = "<group>"; };
+		EF31586F2C5A5DED00DE157A /* LocalEventsDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEventsDataSourceTests.swift; sourceTree = "<group>"; };
+		EF3158762C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEventsDataSourceTests.swift; sourceTree = "<group>"; };
+		EF3158792C5A78B900DE157A /* mock_event_list.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_event_list.json; sourceTree = "<group>"; };
+		EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_dummy_file.json; sourceTree = "<group>"; };
+		EF31587F2C5A7E7100DE157A /* EventListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModelTests.swift; sourceTree = "<group>"; };
+		EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetEventListUseCase.swift; sourceTree = "<group>"; };
+		EF3158832C5B872100DE157A /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		EF4213C02C3EC9DE00686033 /* EventModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModels.swift; sourceTree = "<group>"; };
 		EF4213C42C3ECB4400686033 /* DataConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConvertible.swift; sourceTree = "<group>"; };
 		EF4213C62C3ECBC400686033 /* NSManagedObject+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Helpers.swift"; sourceTree = "<group>"; };
@@ -91,7 +125,6 @@
 		EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsmorgaiOSApp.swift; sourceTree = "<group>"; };
 		EFF7A1B22C354BD00024704A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFF7A1BB2C354BD00024704A /* EsmorgaiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFF7A1BF2C354BD00024704A /* EsmorgaiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsmorgaiOSTests.swift; sourceTree = "<group>"; };
 		EFF7A1C52C354BD00024704A /* EsmorgaiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF7A1C92C354BD00024704A /* EsmorgaiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsmorgaiOSUITests.swift; sourceTree = "<group>"; };
 		EFF7A1CB2C354BD00024704A /* EsmorgaiOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsmorgaiOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -115,6 +148,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF3158592C5937E800DE157A /* Nimble in Frameworks */,
+				EF3158752C5A608F00DE157A /* OHHTTPStubsSwift in Frameworks */,
+				EF3158732C5A608F00DE157A /* OHHTTPStubs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +164,97 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF3158542C53DC6800DE157A /* EventDetails */ = {
+			isa = PBXGroup;
+			children = (
+				EF3158552C53DC8200DE157A /* EventDetailsView.swift */,
+			);
+			path = EventDetails;
+			sourceTree = "<group>";
+		};
+		EF31585C2C5A21B700DE157A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EF31587D2C5A7E5000DE157A /* Modules */,
+				EF31585D2C5A21BE00DE157A /* Data */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EF31585D2C5A21BE00DE157A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EF3158782C5A788E00DE157A /* MockFiles */,
+				EF31586A2C5A5D7800DE157A /* DataSource */,
+				EF3158632C5A27CA00DE157A /* Repository */,
+				EF31585F2C5A21EA00DE157A /* Helpers */,
+				EF31585E2C5A21C600DE157A /* UseCase */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EF31585E2C5A21C600DE157A /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				EF31585A2C59384800DE157A /* GetEventListUseCaseTests.swift */,
+				EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		EF31585F2C5A21EA00DE157A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EF3158612C5A221400DE157A /* CacheRuleTests.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		EF3158632C5A27CA00DE157A /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				EF3158642C5A27DF00DE157A /* EventsRepositoryTests.swift */,
+				EF3158662C5A281D00DE157A /* MockEventsRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		EF31586A2C5A5D7800DE157A /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				EF31586B2C5A5D8B00DE157A /* MockRemoteEventsDataSource.swift */,
+				EF31586D2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift */,
+				EF31586F2C5A5DED00DE157A /* LocalEventsDataSourceTests.swift */,
+				EF3158762C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		EF3158782C5A788E00DE157A /* MockFiles */ = {
+			isa = PBXGroup;
+			children = (
+				EF3158792C5A78B900DE157A /* mock_event_list.json */,
+				EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */,
+			);
+			path = MockFiles;
+			sourceTree = "<group>";
+		};
+		EF31587D2C5A7E5000DE157A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				EF31587E2C5A7E5900DE157A /* EventList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		EF31587E2C5A7E5900DE157A /* EventList */ = {
+			isa = PBXGroup;
+			children = (
+				EF31587F2C5A7E7100DE157A /* EventListViewModelTests.swift */,
+			);
+			path = EventList;
+			sourceTree = "<group>";
+		};
 		EF4213BE2C3EC9AC00686033 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +312,7 @@
 		EFD7EEF12C3C415F00C8CE70 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EF3158542C53DC6800DE157A /* EventDetails */,
 				EFD7EEF22C3C417900C8CE70 /* EventList */,
 			);
 			path = Modules;
@@ -267,6 +395,7 @@
 		EFD7EF1A2C3D867D00C8CE70 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EF3158832C5B872100DE157A /* Config.xcconfig */,
 				EFF7A1B22C354BD00024704A /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -286,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				EFD7EF162C3D75CB00C8CE70 /* NetworkRequest.swift */,
+				EF3158522C53D9EE00DE157A /* NetworkError.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -319,6 +449,7 @@
 		EFE0A97C2C3D92AC00E28953 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EF3158682C5A373A00DE157A /* String+Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -367,7 +498,7 @@
 		EFF7A1BE2C354BD00024704A /* EsmorgaiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				EFF7A1BF2C354BD00024704A /* EsmorgaiOSTests.swift */,
+				EF31585C2C5A21B700DE157A /* App */,
 			);
 			path = EsmorgaiOSTests;
 			sourceTree = "<group>";
@@ -449,6 +580,11 @@
 				EFF7A1BD2C354BD00024704A /* PBXTargetDependency */,
 			);
 			name = EsmorgaiOSTests;
+			packageProductDependencies = (
+				EF3158582C5937E800DE157A /* Nimble */,
+				EF3158722C5A608F00DE157A /* OHHTTPStubs */,
+				EF3158742C5A608F00DE157A /* OHHTTPStubsSwift */,
+			);
 			productName = EsmorgaiOSTests;
 			productReference = EFF7A1BB2C354BD00024704A /* EsmorgaiOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -506,6 +642,8 @@
 			mainGroup = EFF7A1A22C354BCD0024704A;
 			packageReferences = (
 				EFD7EF0B2C3D4AE500C8CE70 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				EF3158572C5937E800DE157A /* XCRemoteSwiftPackageReference "Nimble" */,
+				EF3158712C5A608F00DE157A /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
 			);
 			productRefGroup = EFF7A1AC2C354BCD0024704A /* Products */;
 			projectDirPath = "";
@@ -524,6 +662,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFD7EF1C2C3D871100C8CE70 /* Localizable.xcstrings in Resources */,
+				EF3158842C5B872100DE157A /* Config.xcconfig in Resources */,
 				EFF7A1E32C36D9400024704A /* epilogue_flex.ttf in Resources */,
 				EFF7A1B32C354BD00024704A /* Assets.xcassets in Resources */,
 				EFF7A1E22C36D9400024704A /* plus_jakarta_flex.ttf in Resources */,
@@ -534,6 +673,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF31587C2C5A7DA800DE157A /* mock_dummy_file.json in Resources */,
+				EF31587A2C5A78B900DE157A /* mock_event_list.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFD7EF232C3D8F2400C8CE70 /* RemoteEventListModel.swift in Sources */,
+				EF3158532C53D9EE00DE157A /* NetworkError.swift in Sources */,
 				EF4213D22C4134B500686033 /* NetworkMonitor.swift in Sources */,
 				EFD7EF022C3D3BB100C8CE70 /* RemoteEventsDataSource.swift in Sources */,
 				EF4213C12C3EC9DE00686033 /* EventModels.swift in Sources */,
@@ -560,6 +702,7 @@
 				EF4213D82C41412300686033 /* AppManager.swift in Sources */,
 				EFE0A97F2C3D92F200E28953 /* Text+TextStyle.swift in Sources */,
 				EFE0A9822C3E8AE000E28953 /* Esmorga.xcdatamodeld in Sources */,
+				EF3158692C5A373A00DE157A /* String+Date.swift in Sources */,
 				EFD7EF072C3D41EC00C8CE70 /* EventsRepository.swift in Sources */,
 				EFD7EF152C3D740700C8CE70 /* EventsNetworkService.swift in Sources */,
 				EF4213D02C3FF9E500686033 /* CacheRule.swift in Sources */,
@@ -567,6 +710,7 @@
 				EFD7EF102C3D72CA00C8CE70 /* NetworkService.swift in Sources */,
 				EFD7EF0A2C3D44A300C8CE70 /* GetEventListUseCase.swift in Sources */,
 				EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */,
+				EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */,
 				EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */,
 				EFD7EEF62C3C41A500C8CE70 /* EventListViewModel.swift in Sources */,
 				EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */,
@@ -585,7 +729,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFF7A1C02C354BD00024704A /* EsmorgaiOSTests.swift in Sources */,
+				EF3158672C5A281D00DE157A /* MockEventsRepository.swift in Sources */,
+				EF3158772C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift in Sources */,
+				EF3158622C5A221400DE157A /* CacheRuleTests.swift in Sources */,
+				EF3158822C5A80AC00DE157A /* MockGetEventListUseCase.swift in Sources */,
+				EF3158652C5A27DF00DE157A /* EventsRepositoryTests.swift in Sources */,
+				EF31586E2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift in Sources */,
+				EF31586C2C5A5D8B00DE157A /* MockRemoteEventsDataSource.swift in Sources */,
+				EF3158802C5A7E7100DE157A /* EventListViewModelTests.swift in Sources */,
+				EF3158702C5A5DED00DE157A /* LocalEventsDataSourceTests.swift in Sources */,
+				EF31585B2C59384800DE157A /* GetEventListUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,7 +819,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -723,7 +876,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -735,13 +888,16 @@
 		};
 		EFF7A1D02C354BD00024704A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF3158832C5B872100DE157A /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD)";
 				DEVELOPMENT_ASSET_PATHS = "\"EsmorgaiOS/Resources\"";
-				DEVELOPMENT_TEAM = CF2534U498;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EsmorgaiOS/Info.plist;
@@ -750,13 +906,16 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cmm-studio.EsmorgaiOS";
+				MARKETING_VERSION = "$(VERSION)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Dev: com.mobilestudio.esmorga";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -765,13 +924,16 @@
 		};
 		EFF7A1D12C354BD00024704A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF3158832C5B872100DE157A /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD)";
 				DEVELOPMENT_ASSET_PATHS = "\"EsmorgaiOS/Resources\"";
-				DEVELOPMENT_TEAM = CF2534U498;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EsmorgaiOS/Info.plist;
@@ -780,13 +942,16 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cmm-studio.EsmorgaiOS";
+				MARKETING_VERSION = "$(VERSION)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ent: com.mobilestudio.esmorga";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -802,7 +967,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CF2534U498;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cmm-studio.EsmorgaiOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -822,7 +987,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CF2534U498;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cmm-studio.EsmorgaiOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -841,6 +1006,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CF2534U498;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cmm-studio.EsmorgaiOSUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -859,6 +1025,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CF2534U498;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cmm-studio.EsmorgaiOSUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -911,6 +1078,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EF3158572C5937E800DE157A /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = exactVersion;
+				version = 13.3.0;
+			};
+		};
+		EF3158712C5A608F00DE157A /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs";
+			requirement = {
+				kind = exactVersion;
+				version = 9.1.0;
+			};
+		};
 		EFD7EF0B2C3D4AE500C8CE70 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -922,6 +1105,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EF3158582C5937E800DE157A /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF3158572C5937E800DE157A /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		EF3158722C5A608F00DE157A /* OHHTTPStubs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF3158712C5A608F00DE157A /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubs;
+		};
+		EF3158742C5A608F00DE157A /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF3158712C5A608F00DE157A /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubsSwift;
+		};
 		EFD7EF0C2C3D4AE500C8CE70 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EFD7EF0B2C3D4AE500C8CE70 /* XCRemoteSwiftPackageReference "Alamofire" */;

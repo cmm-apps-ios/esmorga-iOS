@@ -9,14 +9,16 @@ import SwiftUI
 
 @main
 struct EsmorgaiOSApp: App {
-    
+
     @State var networkMonitor = NetworkMonitor()
 
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                EventListView()
-                    .environment(networkMonitor)
+            if NSClassFromString("XCTest") == nil {
+                NavigationStack {
+                    EventListView()
+                        .environment(networkMonitor)
+                }
             }
         }
     }

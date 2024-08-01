@@ -8,7 +8,7 @@
 import Foundation
 
 protocol EventsRepositoryProtocol {
-    func getEventList() async throws -> [EventModels.Event]
+    func getEventList(refresh: Bool) async throws -> ([EventModels.Event], Bool)
 }
 
 class EventsRepository: EventsRepositoryProtocol {
@@ -22,25 +22,27 @@ class EventsRepository: EventsRepositoryProtocol {
         self.localEventsDataSource = localEventsDataSource
     }
 
-    func getEventList() async throws -> [EventModels.Event] {
+    func getEventList(refresh: Bool) async throws -> ([EventModels.Event], Bool) {
 
         let storedEvents = await localEventsDataSource.getEvents()
         let shouldShowCache = CacheRule.shouldShowCache(date: storedEvents.first?.creationDate)
 
-        if !storedEvents.isEmpty && shouldShowCache {
-            return storedEvents
+        guard !(!refresh && !storedEvents.isEmpty && shouldShowCache) else {
+            return (storedEvents, false)
         }
 
         do {
             if let events = try await remoteDataSource.fetchEvents() {
                 let mappedEvents = events.compactMap { $0.toDomain() }
                 try await saveEvents(mappedEvents)
-                return mappedEvents
+                return (mappedEvents, false)
             } else {
-                return storedEvents
+                return (storedEvents, false)
             }
 
-        } catch let error {
+        } catch NetworkError.noInternetConnection {
+            return (storedEvents, true)
+        } catch {
             throw error
         }
     }

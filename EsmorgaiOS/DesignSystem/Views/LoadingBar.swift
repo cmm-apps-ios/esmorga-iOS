@@ -16,7 +16,7 @@ struct LoadingBar: View {
             ZStack(alignment: .leading) {
                 Rectangle()
                     .frame(height: height)
-                    .foregroundColor(.pearl)
+                    .foregroundColor(.surfaceVariant)
                     .cornerRadius(height / 2)
                 Rectangle()
                     .frame(width: geometry.size.width * CGFloat(progress), height: height)

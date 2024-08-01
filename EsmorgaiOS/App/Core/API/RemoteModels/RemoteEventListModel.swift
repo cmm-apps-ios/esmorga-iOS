@@ -32,7 +32,7 @@ class RemoteEventListModel {
         func toDomain(creationDate: Date = Date.now) -> EventModels.Event {
             return EventModels.Event(eventId: eventId,
                                      name: eventName,
-                                     date: Date(),
+                                     date: eventDate.date(format: .iso8601) ?? Date(),
                                      details: description,
                                      eventType: eventType,
                                      imageURL: URL(string: imageUrl ?? ""),

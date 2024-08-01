@@ -5,11 +5,10 @@
 //  Created by Vidal Pérez, Omar on 12/7/24.
 //
 
-import Observation
 import Network
+import Foundation
 
-@Observable
-class NetworkMonitor {
+class NetworkMonitor: ObservableObject {
     private let networkMonitor = NWPathMonitor()
     private let workerQueue = DispatchQueue(label: "Monitor")
     var isConnected = true

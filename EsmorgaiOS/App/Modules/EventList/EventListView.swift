@@ -9,7 +9,6 @@ import SwiftUI
 
 struct EventListView: View {
 
-    @Environment(NetworkMonitor.self) private var networkMonitor: NetworkMonitor
     @StateObject private var viewModel = EventListViewModel()
     @StateObject private var appManager = AppManager.shared
 
@@ -66,18 +65,6 @@ struct EventListView: View {
             .onAppear {
                 viewModel.getEventList(forceRefresh: false)
             }
-//            .task {
-//                if !networkMonitor.isConnected {
-//                    appManager.showSnackbarWith(text: Localize.localize(key: LocaliationKeys.CommonKeys.noConnectionText))
-//                }
-//            }
-//            .onChange(of: networkMonitor.isConnected) { oldValue, newValue in
-//                if newValue {
-//                    appManager.hideToast()
-//                } else {
-//                    appManager.showSnackbarWith(text: Localize.localize(key: LocaliationKeys.CommonKeys.noConnectionText))
-//                }
-//            }
         }.snackbar(message: Localize.localize(key: LocaliationKeys.CommonKeys.noConnectionText), isShowing: $viewModel.showSnackbar)
     }
 }

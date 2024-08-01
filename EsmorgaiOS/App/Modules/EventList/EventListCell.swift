@@ -21,12 +21,14 @@ struct EventListCell: View {
             AsyncImage(url: imageUrl) { image in
                 image.resizable()
                     .aspectRatio(16/9, contentMode: .fill)
-                    .presentationCornerRadius(8)
+                    .cornerRadius(8)
+//                    .presentationCornerRadius(8)
             } placeholder: {
                 Image("Placeholder")
                     .resizable()
                     .aspectRatio(16/9, contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                    .presentationCornerRadius(8)
+                    .cornerRadius(8)
+//                    .presentationCornerRadius(8)
             }
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .padding(.bottom, 16)

@@ -17,7 +17,6 @@ struct EsmorgaiOSApp: App {
             if NSClassFromString("XCTest") == nil {
                 NavigationStack {
                     EventListView()
-                        .environment(networkMonitor)
                 }
             }
         }

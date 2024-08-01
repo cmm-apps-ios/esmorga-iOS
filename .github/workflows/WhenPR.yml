@@ -52,4 +52,4 @@ jobs:
               cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
   
         - name: Test 
-          run: xcodebuild test -scheme EsmorgaiOS -project EsmorgaiOS.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.4'
+          run: xcodebuild test -scheme EsmorgaiOS -project EsmorgaiOS.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.4' -allowProvisioningUpdates

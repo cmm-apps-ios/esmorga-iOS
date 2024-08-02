@@ -54,9 +54,10 @@ jobs:
         - name: Test 
 
           run: 
-            xcodebuild -scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO
-#            CODE_SIGN_IDENTITY="iPhone Developer" \
+#            xcodebuild -scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO
+            xcodebuild test --scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.4'
+
+            #            CODE_SIGN_IDENTITY="iPhone Developer" \
 #            PROVISIONING_PROFILE_SPECIFIER="your-provisioning-profile-uuid" \
 #            DEVELOPMENT_TEAM="your-team-id" \
-#            xcodebuild test -scheme EsmorgaiOS -project EsmorgaiOS.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.4' -configuration Debug          
     

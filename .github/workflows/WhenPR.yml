@@ -54,10 +54,11 @@ jobs:
         - name: Test 
 
           run: 
-#            xcodebuild -scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO
+            |
+            xcodebuild -scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.4' build-for-testing | xcpretty --color --simple
+            xcodebuild -scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.4' test-without-building  -enableCodeCoverage YES -only-testing:Tests | xcpretty --color --simple
+            #            xcodebuild -scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO
 #            xcodebuild test -scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.4'
             #            CODE_SIGN_IDENTITY="iPhone Developer" \
 #            PROVISIONING_PROFILE_SPECIFIER="your-provisioning-profile-uuid" \
 #            DEVELOPMENT_TEAM="your-team-id" \
-            xcodebuild -scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.4' build-for-testing | xcpretty --color --simple
-            xcodebuild -scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.4' test-without-building  -enableCodeCoverage YES -only-testing:Tests | xcpretty --color --simple

@@ -27,14 +27,14 @@ final class RemoteEventsDataSourceTests: XCTestCase {
         try super.tearDownWithError()
     }
 
-    func test_test() async {
+    func test_given_get_events_when_success_response_then_events_are_not_nil() async {
 
         stubRequest(file: "mock_event_list.json")
         let results = try? await sut.fetchEvents()
         expect(results).toNot(beNil())
     }
 
-    func test_tes2() async {
+    func test_given_get_events_when_success_response_but_incorrect_format_then_mapping_error_is_throw() async {
 
         stubRequest(file: "mock_dummy_file.json")
         do {

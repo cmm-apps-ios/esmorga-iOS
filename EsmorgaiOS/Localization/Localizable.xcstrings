@@ -1,6 +1,28 @@
 {
   "sourceLanguage" : "es",
   "strings" : {
+    "event_details_location_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ubicación"
+          }
+        }
+      }
+    },
+    "event_details_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detalles del evento"
+          }
+        }
+      }
+    },
     "event_list_empty_text" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -67,8 +89,16 @@
         }
       }
     },
-    "Hello, World!" : {
-
+    "navigate_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Navegar"
+          }
+        }
+      }
     },
     "no_internet_snackbar" : {
       "extractionState" : "manual",

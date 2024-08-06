@@ -36,7 +36,7 @@ final class EventListViewModelTests: XCTestCase {
         sut.getEventList(forceRefresh: false)
 
         await expect(self.sut.events).toEventually(equal(events))
-        await expect(self.sut.hasError).toEventually(beFalse())
+        await expect(self.sut.state).toEventually(equal(.loaded))
         await expect(self.sut.showSnackbar).toEventually(beFalse())
     }
 
@@ -50,7 +50,7 @@ final class EventListViewModelTests: XCTestCase {
         sut.getEventList(forceRefresh: false)
 
         await expect(self.sut.events).toEventually(equal(events))
-        await expect(self.sut.hasError).toEventually(beFalse())
+        await expect(self.sut.state).toEventually(equal(.loaded))
         await expect(self.sut.showSnackbar).toEventually(beTrue())
     }
 
@@ -59,7 +59,7 @@ final class EventListViewModelTests: XCTestCase {
         sut.getEventList(forceRefresh: false)
 
         await expect(self.sut.events).toEventually(beEmpty())
-        await expect(self.sut.hasError).toEventually(beTrue())
+        await expect(self.sut.state).toEventually(equal(.error))
         await expect(self.sut.showSnackbar).toEventually(beFalse())
     }
 }

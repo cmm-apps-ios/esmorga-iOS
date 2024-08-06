@@ -8,11 +8,11 @@
 import Foundation
 @testable import EsmorgaiOS
 
-final class MockGetEventListUseCase: GetEventListUseCaseProtocol {
+final class MockGetEventListUseCase: GetEventListUseCaseAlias {
 
     var mockResponse: (data: [EventModels.Event], error: Bool)?
 
-    func getEventList(forceRefresh: Bool) async -> GetEventListResult {
+    override func job(input: Bool) async -> GetEventListResult {
         guard let mockResponse else {
             return .failure(NetworkError.genaralError(code: 500))
         }

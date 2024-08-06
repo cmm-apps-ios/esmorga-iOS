@@ -18,7 +18,7 @@ struct CustomButton: View {
             action?()
         } label: {
             Text(title)
-                .style(.body1, textColor: buttonStyle.textColor)
+                .style(.button, textColor: buttonStyle.textColor)
                 .frame(maxWidth: .infinity, alignment: .center)
         }
         .buttonStyle(FilledButton(style: buttonStyle))
@@ -49,7 +49,7 @@ enum CustomButtonStyle {
     var textColor: Color {
         switch self {
         case .primary: return .white
-        case .secondary: return .white
+        case .secondary: return .onSurface
         }
     }
 }

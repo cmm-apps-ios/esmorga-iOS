@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class LocaliationKeys {
+class LocalizationKeys {
 
     enum EventListKeys {
         static let title: String = "event_list_title"
@@ -16,6 +16,12 @@ class LocaliationKeys {
         static let eventListErrorTitle: String = "event_list_error_title"
         static let eventListErrorSubtitle: String = "event_list_error_subtitle"
         static let eventListErrorButtonTitle: String = "event_list_error_button"
+    }
+
+    enum EventDetailsKeys {
+        static let title: String = "event_details_title"
+        static let locationTitle: String = "event_details_location_title"
+        static let navigateButtonText: String = "navigate_button"
     }
 
     enum CommonKeys {

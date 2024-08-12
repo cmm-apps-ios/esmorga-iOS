@@ -10,6 +10,8 @@ import UIKit
 
 struct EventDetailsView: View {
 
+    @EnvironmentObject private var coordinator: Coordinator
+    @EnvironmentObject private var splashManager: SplashManager
     @Environment(\.dismiss) private var dismiss
 
     @StateObject private var viewModel = EventDetailsViewModel()
@@ -27,7 +29,7 @@ struct EventDetailsView: View {
                     image.resizable()
                         .aspectRatio(16/9, contentMode: .fill)
                 } placeholder: {
-                    Image("Placeholder")
+                    Image("placeholder-esmorga")
                         .resizable()
                         .aspectRatio(16/9, contentMode: .fill)
                 }
@@ -54,7 +56,8 @@ struct EventDetailsView: View {
                     VStack(spacing: 32) {
                         CustomButton(title: Localize.localize(key: LocalizationKeys.EventDetailsKeys.navigateButtonText),
                                      buttonStyle: .secondary) {
-                            viewModel.openAppleMaps(latitude: event.latitude, longitude: event.longitude)
+//                            viewModel.openAppleMaps(latitude: event.latitude, longitude: event.longitude)
+                            splashManager.state = .notlogged
                         }
                     }.padding(.top, 32)
 

@@ -1,6 +1,17 @@
 {
   "sourceLanguage" : "es",
   "strings" : {
+    "enter_guest_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrar como invitado"
+          }
+        }
+      }
+    },
     "event_details_location_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -89,6 +100,20 @@
         }
       }
     },
+    "Login" : {
+
+    },
+    "login_registration_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login / Registro"
+          }
+        }
+      }
+    },
     "navigate_button" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -110,6 +135,9 @@
           }
         }
       }
+    },
+    "TODO" : {
+
     }
   },
   "version" : "1.0"

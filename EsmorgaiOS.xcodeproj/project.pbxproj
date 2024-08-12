@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF2983CB2C6A15D800C2393E /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983CA2C6A15D800C2393E /* SplashView.swift */; };
+		EF2983CD2C6A162A00C2393E /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983CC2C6A162A00C2393E /* SplashViewModel.swift */; };
+		EF2983E12C6A210400C2393E /* RoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983DE2C6A210300C2393E /* RoutingView.swift */; };
+		EF2983E22C6A210400C2393E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983DF2C6A210400C2393E /* Router.swift */; };
+		EF2983E32C6A210400C2393E /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983E02C6A210400C2393E /* Routable.swift */; };
 		EF3158532C53D9EE00DE157A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158522C53D9EE00DE157A /* NetworkError.swift */; };
 		EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158552C53DC8200DE157A /* EventDetailsView.swift */; };
 		EF3158592C5937E800DE157A /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = EF3158582C5937E800DE157A /* Nimble */; };
@@ -29,6 +34,10 @@
 		EF3158872C5BD63400DE157A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158862C5BD63400DE157A /* BaseView.swift */; };
 		EF3158892C5CF0A700DE157A /* EventDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158882C5CF0A700DE157A /* EventDetailsViewModel.swift */; };
 		EF31588C2C62346B00DE157A /* BaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31588B2C62346B00DE157A /* BaseUseCase.swift */; };
+		EF3158972C627EEF00DE157A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFF7A1B22C354BD00024704A /* Assets.xcassets */; };
+		EF3158992C62811500DE157A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF3158982C62811500DE157A /* Colors.xcassets */; };
+		EF31589C2C63755E00DE157A /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31589B2C63755E00DE157A /* WelcomeScreenView.swift */; };
+		EF31589E2C63757600DE157A /* WelcomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31589D2C63757600DE157A /* WelcomeScreenViewModel.swift */; };
 		EF4213C12C3EC9DE00686033 /* EventModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213C02C3EC9DE00686033 /* EventModels.swift */; };
 		EF4213C52C3ECB4400686033 /* DataConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213C42C3ECB4400686033 /* DataConvertible.swift */; };
 		EF4213C72C3ECBC400686033 /* NSManagedObject+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213C62C3ECBC400686033 /* NSManagedObject+Helpers.swift */; };
@@ -56,7 +65,6 @@
 		EFE0A9822C3E8AE000E28953 /* Esmorga.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFE0A9802C3E8AE000E28953 /* Esmorga.xcdatamodeld */; };
 		EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE0A9832C3E8CCA00E28953 /* LocalEventsDataSource.swift */; };
 		EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */; };
-		EFF7A1B32C354BD00024704A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFF7A1B22C354BD00024704A /* Assets.xcassets */; };
 		EFF7A1CA2C354BD00024704A /* EsmorgaiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1C92C354BD00024704A /* EsmorgaiOSUITests.swift */; };
 		EFF7A1CC2C354BD00024704A /* EsmorgaiOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1CB2C354BD00024704A /* EsmorgaiOSUITestsLaunchTests.swift */; };
 		EFF7A1DE2C3587810024704A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1DD2C3587810024704A /* CustomButton.swift */; };
@@ -83,6 +91,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF2983CA2C6A15D800C2393E /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		EF2983CC2C6A162A00C2393E /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		EF2983DE2C6A210300C2393E /* RoutingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingView.swift; sourceTree = "<group>"; };
+		EF2983DF2C6A210400C2393E /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		EF2983E02C6A210400C2393E /* Routable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
 		EF3158522C53D9EE00DE157A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		EF3158552C53DC8200DE157A /* EventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsView.swift; sourceTree = "<group>"; };
 		EF31585A2C59384800DE157A /* GetEventListUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventListUseCaseTests.swift; sourceTree = "<group>"; };
@@ -102,6 +115,9 @@
 		EF3158862C5BD63400DE157A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		EF3158882C5CF0A700DE157A /* EventDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewModel.swift; sourceTree = "<group>"; };
 		EF31588B2C62346B00DE157A /* BaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUseCase.swift; sourceTree = "<group>"; };
+		EF3158982C62811500DE157A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		EF31589B2C63755E00DE157A /* WelcomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenView.swift; sourceTree = "<group>"; };
+		EF31589D2C63757600DE157A /* WelcomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewModel.swift; sourceTree = "<group>"; };
 		EF4213C02C3EC9DE00686033 /* EventModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModels.swift; sourceTree = "<group>"; };
 		EF4213C42C3ECB4400686033 /* DataConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConvertible.swift; sourceTree = "<group>"; };
 		EF4213C62C3ECBC400686033 /* NSManagedObject+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Helpers.swift"; sourceTree = "<group>"; };
@@ -170,6 +186,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF2983C92C6A15B600C2393E /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				EF2983CA2C6A15D800C2393E /* SplashView.swift */,
+				EF2983CC2C6A162A00C2393E /* SplashViewModel.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		EF2983DD2C6A20A900C2393E /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				EF2983E02C6A210400C2393E /* Routable.swift */,
+				EF2983DF2C6A210400C2393E /* Router.swift */,
+				EF2983DE2C6A210300C2393E /* RoutingView.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
 		EF3158542C53DC6800DE157A /* EventDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +313,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		EF31589A2C63751600DE157A /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				EF31589B2C63755E00DE157A /* WelcomeScreenView.swift */,
+				EF31589D2C63757600DE157A /* WelcomeScreenViewModel.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
 		EF4213BE2C3EC9AC00686033 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,9 +379,12 @@
 		EFD7EEF12C3C415F00C8CE70 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EF2983DD2C6A20A900C2393E /* Routing */,
+				EF2983C92C6A15B600C2393E /* Splash */,
 				EF3158852C5BD61800DE157A /* Base */,
 				EF3158542C53DC6800DE157A /* EventDetails */,
 				EFD7EEF22C3C417900C8CE70 /* EventList */,
+				EF31589A2C63751600DE157A /* Welcome */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -422,6 +469,7 @@
 			children = (
 				EF3158832C5B872100DE157A /* Config.xcconfig */,
 				EFF7A1B22C354BD00024704A /* Assets.xcassets */,
+				EF3158982C62811500DE157A /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -656,7 +704,7 @@
 				};
 			};
 			buildConfigurationList = EFF7A1A62C354BCD0024704A /* Build configuration list for PBXProject "EsmorgaiOS" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.3";
 			developmentRegion = es;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -689,8 +737,9 @@
 				EFD7EF1C2C3D871100C8CE70 /* Localizable.xcstrings in Resources */,
 				EF3158842C5B872100DE157A /* Config.xcconfig in Resources */,
 				EFF7A1E32C36D9400024704A /* epilogue_flex.ttf in Resources */,
-				EFF7A1B32C354BD00024704A /* Assets.xcassets in Resources */,
+				EF3158992C62811500DE157A /* Colors.xcassets in Resources */,
 				EFF7A1E22C36D9400024704A /* plus_jakarta_flex.ttf in Resources */,
+				EF3158972C627EEF00DE157A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +770,7 @@
 				EF3158532C53D9EE00DE157A /* NetworkError.swift in Sources */,
 				EF4213D22C4134B500686033 /* NetworkMonitor.swift in Sources */,
 				EFD7EF022C3D3BB100C8CE70 /* RemoteEventsDataSource.swift in Sources */,
+				EF2983CD2C6A162A00C2393E /* SplashViewModel.swift in Sources */,
 				EF4213C12C3EC9DE00686033 /* EventModels.swift in Sources */,
 				EF4213D62C413FC800686033 /* Snackbar.swift in Sources */,
 				EFE0A9792C3D925600E28953 /* TextStyles.swift in Sources */,
@@ -734,11 +784,14 @@
 				EFD7EF152C3D740700C8CE70 /* EventsNetworkService.swift in Sources */,
 				EF4213D02C3FF9E500686033 /* CacheRule.swift in Sources */,
 				EFD7EEFE2C3D387800C8CE70 /* LocaliationKeys.swift in Sources */,
+				EF2983CB2C6A15D800C2393E /* SplashView.swift in Sources */,
 				EFD7EF102C3D72CA00C8CE70 /* NetworkService.swift in Sources */,
 				EFD7EF0A2C3D44A300C8CE70 /* GetEventListUseCase.swift in Sources */,
 				EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */,
 				EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */,
 				EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */,
+				EF31589C2C63755E00DE157A /* WelcomeScreenView.swift in Sources */,
+				EF2983E22C6A210400C2393E /* Router.swift in Sources */,
 				EF3158872C5BD63400DE157A /* BaseView.swift in Sources */,
 				EFD7EEF62C3C41A500C8CE70 /* EventListViewModel.swift in Sources */,
 				EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */,
@@ -747,9 +800,12 @@
 				EF4213C72C3ECBC400686033 /* NSManagedObject+Helpers.swift in Sources */,
 				EFF7A1DE2C3587810024704A /* CustomButton.swift in Sources */,
 				EF4213C52C3ECB4400686033 /* DataConvertible.swift in Sources */,
+				EF2983E12C6A210400C2393E /* RoutingView.swift in Sources */,
 				EFD7EF202C3D8E9F00C8CE70 /* EventListCell.swift in Sources */,
+				EF31589E2C63757600DE157A /* WelcomeScreenViewModel.swift in Sources */,
 				EF4213CB2C3ED66200686033 /* CardView.swift in Sources */,
 				EFD7EF172C3D75CB00C8CE70 /* NetworkRequest.swift in Sources */,
+				EF2983E32C6A210400C2393E /* Routable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,10 +976,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD)";
-				DEVELOPMENT_ASSET_PATHS = "\"EsmorgaiOS/Resources\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
 				ENABLE_PREVIEWS = YES;
@@ -940,6 +997,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = "$(VERSION)";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -956,10 +1014,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD)";
-				DEVELOPMENT_ASSET_PATHS = "\"EsmorgaiOS/Resources\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
 				ENABLE_PREVIEWS = YES;
@@ -976,6 +1035,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = "$(VERSION)";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

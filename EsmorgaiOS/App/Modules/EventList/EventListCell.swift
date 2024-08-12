@@ -24,7 +24,7 @@ struct EventListCell: View {
                     .cornerRadius(8)
 //                    .presentationCornerRadius(8)
             } placeholder: {
-                Image("Placeholder")
+                Image("placeholder-esmorga")
                     .resizable()
                     .aspectRatio(16/9, contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                     .cornerRadius(8)

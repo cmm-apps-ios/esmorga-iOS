@@ -24,6 +24,11 @@ class LocalizationKeys {
         static let navigateButtonText: String = "navigate_button"
     }
 
+    enum WelcomeScreen {
+        static let primaryButtonText: String = "login_registration_button"
+        static let secondaryButtonText: String = "enter_guest_button"
+    }
+
     enum CommonKeys {
         static let noConnectionText: String = "no_internet_snackbar"
     }

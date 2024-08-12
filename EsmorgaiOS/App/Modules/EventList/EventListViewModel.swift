@@ -17,13 +17,20 @@ enum EventListViewStates: ViewStateProtocol {
 
 class EventListViewModel: BaseViewModel<EventListViewStates> {
 
-//    @Published var isLoading: Bool = false
     var events: [EventModels.Event] = []
     @Published var showSnackbar: Bool = false
 
     private var getEventListUseCase: GetEventListUseCaseAlias
-    init(getEventListUseCase: GetEventListUseCaseAlias = GetEventListUseCase()) {
+    private let router: EventListRouterProtocol
+
+    init(getEventListUseCase: GetEventListUseCaseAlias = GetEventListUseCase(),
+         router: EventListRouterProtocol) {
         self.getEventListUseCase = getEventListUseCase
+        self.router = router
+    }
+
+    func eventTapped() {
+        router.navigateToDetails()
     }
 
     func getEventList(forceRefresh: Bool) {
@@ -53,6 +60,28 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
                     self.changeState(.error)
                 }
             }
+        }
+    }
+}
+
+protocol EventListRouterProtocol {
+    func navigateToDetails()
+}
+
+class EventListRouter<T: Routable>: EventListRouterProtocol {
+
+    private let router: Router<T>
+
+    init(router: Router<T>) {
+        self.router = router
+    }
+
+    func navigateToDetails() {
+        switch router {
+        case let mainRoute as Router<MainRoute>:
+            mainRoute.routeTo(.details)
+        default:
+            print("Error")
         }
     }
 }

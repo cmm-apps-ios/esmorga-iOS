@@ -9,11 +9,12 @@ import SwiftUI
 
 struct EventListView: View {
 
-    @StateObject private var viewModel = EventListViewModel()
+    @EnvironmentObject private var coordinator: Coordinator
+    @StateObject var viewModel: EventListViewModel
     @StateObject private var appManager = AppManager.shared
 
     var body: some View {
-        BaseView(viewModel: viewModel){
+        BaseView(viewModel: viewModel) {
             ZStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
@@ -46,7 +47,10 @@ struct EventListView: View {
                         case .loaded:
                             LazyVStack(spacing: 0) {
                                 ForEach(viewModel.events) { event in
-                                    NavigationLink(destination: EventDetailsView(event: event)) {
+
+                                    Button {
+                                        viewModel.eventTapped()
+                                    } label: {
                                         EventListCell(imageUrl: event.imageURL,
                                                       title: event.name,
                                                       subtitle: event.date.string(format: .dayMonthHour),
@@ -66,6 +70,7 @@ struct EventListView: View {
                     viewModel.getEventList(forceRefresh: false)
                 }
             }.snackbar(message: Localize.localize(key: LocalizationKeys.CommonKeys.noConnectionText), isShowing: $viewModel.showSnackbar)
+//                .navigationBarBackButtonHidden(true)
         }
     }
 }

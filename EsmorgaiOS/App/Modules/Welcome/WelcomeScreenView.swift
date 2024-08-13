@@ -9,7 +9,6 @@ import SwiftUI
 
 struct WelcomeScreenView: View {
     @StateObject var viewModel: WelcomeScreenViewModel
-//    @EnvironmentObject private var coordinator: Coordinator
 
     var body: some View {
         BaseView(viewModel: viewModel) {
@@ -34,11 +33,5 @@ struct WelcomeScreenView: View {
                 Spacer()
             }
         }
-//        .navigationBarBackButtonHidden(true)
     }
-
 }
-
-//#Preview {
-//    WelcomeScreenView()
-//}

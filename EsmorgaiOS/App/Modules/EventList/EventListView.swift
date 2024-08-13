@@ -9,7 +9,6 @@ import SwiftUI
 
 struct EventListView: View {
 
-    @EnvironmentObject private var coordinator: Coordinator
     @StateObject var viewModel: EventListViewModel
     @StateObject private var appManager = AppManager.shared
 
@@ -47,9 +46,8 @@ struct EventListView: View {
                         case .loaded:
                             LazyVStack(spacing: 0) {
                                 ForEach(viewModel.events) { event in
-
                                     Button {
-                                        viewModel.eventTapped()
+                                        viewModel.eventTapped(event)
                                     } label: {
                                         EventListCell(imageUrl: event.imageURL,
                                                       title: event.name,
@@ -70,7 +68,7 @@ struct EventListView: View {
                     viewModel.getEventList(forceRefresh: false)
                 }
             }.snackbar(message: Localize.localize(key: LocalizationKeys.CommonKeys.noConnectionText), isShowing: $viewModel.showSnackbar)
-//                .navigationBarBackButtonHidden(true)
+                .navigationBarBackButtonHidden(true)
         }
     }
 }

@@ -64,7 +64,7 @@ class WelcomeRouter<T: Routable>: WelcomeRouterProtocol {
 enum MainRoute: Routable {
     case login
     case list
-    case details
+    case details(EventModels.Event)
 
     @ViewBuilder
     func viewToDisplay(router: Router<MainRoute>) -> some View {
@@ -73,8 +73,8 @@ enum MainRoute: Routable {
             Text("Login")
         case .list:
             EventListView(viewModel: EventListViewModel(router: EventListRouter(router: router)))
-        case .details:
-            EventDetailsView(event: EventModels.Event(eventId: "12", name: "341234", date: .now, details: "sfasd", eventType: "asdf", imageURL: nil, latitude: nil, longitude: nil, location: "dfads", creationDate: .now))
+        case .details(let event):
+            EventDetailsView(event: event)
         }
     }
 

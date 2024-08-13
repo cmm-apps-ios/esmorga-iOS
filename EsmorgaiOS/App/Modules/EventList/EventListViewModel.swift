@@ -29,8 +29,8 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
         self.router = router
     }
 
-    func eventTapped() {
-        router.navigateToDetails()
+    func eventTapped(_ event: EventModels.Event) {
+        router.navigateToDetails(event: event)
     }
 
     func getEventList(forceRefresh: Bool) {
@@ -65,7 +65,7 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
 }
 
 protocol EventListRouterProtocol {
-    func navigateToDetails()
+    func navigateToDetails(event: EventModels.Event)
 }
 
 class EventListRouter<T: Routable>: EventListRouterProtocol {
@@ -76,10 +76,10 @@ class EventListRouter<T: Routable>: EventListRouterProtocol {
         self.router = router
     }
 
-    func navigateToDetails() {
+    func navigateToDetails(event: EventModels.Event) {
         switch router {
         case let mainRoute as Router<MainRoute>:
-            mainRoute.routeTo(.details)
+            mainRoute.routeTo(.details(event))
         default:
             print("Error")
         }

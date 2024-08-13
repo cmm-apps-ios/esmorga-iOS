@@ -10,10 +10,7 @@ import UIKit
 
 struct EventDetailsView: View {
 
-    @EnvironmentObject private var coordinator: Coordinator
-    @EnvironmentObject private var splashManager: SplashManager
     @Environment(\.dismiss) private var dismiss
-
     @StateObject private var viewModel = EventDetailsViewModel()
 
     private var event: EventModels.Event
@@ -56,8 +53,7 @@ struct EventDetailsView: View {
                     VStack(spacing: 32) {
                         CustomButton(title: Localize.localize(key: LocalizationKeys.EventDetailsKeys.navigateButtonText),
                                      buttonStyle: .secondary) {
-//                            viewModel.openAppleMaps(latitude: event.latitude, longitude: event.longitude)
-                            splashManager.state = .notlogged
+                            viewModel.openAppleMaps(latitude: event.latitude, longitude: event.longitude)
                         }
                     }.padding(.top, 32)
 

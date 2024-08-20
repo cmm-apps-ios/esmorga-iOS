@@ -10,7 +10,6 @@ import SwiftUI
 struct EventListView: View {
 
     @StateObject var viewModel: EventListViewModel
-    @StateObject private var appManager = AppManager.shared
 
     var body: some View {
         BaseView(viewModel: viewModel) {
@@ -67,7 +66,8 @@ struct EventListView: View {
                 .onAppear {
                     viewModel.getEventList(forceRefresh: false)
                 }
-            }.snackbar(message: Localize.localize(key: LocalizationKeys.CommonKeys.noConnectionText), isShowing: $viewModel.showSnackbar)
+            }.snackbar(message: Localize.localize(key: LocalizationKeys.CommonKeys.noConnectionText), 
+                       isShowing: $viewModel.showSnackbar)
                 .navigationBarBackButtonHidden(true)
         }
     }

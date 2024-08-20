@@ -13,15 +13,19 @@ final class EventListViewModelTests: XCTestCase {
 
     private var sut: EventListViewModel!
     private var mockGetEventListUseCase: MockGetEventListUseCase!
+    private var spyEventListRouter: SpyEventListRouter!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
         mockGetEventListUseCase = MockGetEventListUseCase()
-        sut = EventListViewModel(getEventListUseCase: mockGetEventListUseCase)
+        spyEventListRouter = SpyEventListRouter()
+        sut = EventListViewModel(getEventListUseCase: mockGetEventListUseCase,
+                                 router: spyEventListRouter)
     }
 
     override func tearDownWithError() throws {
         mockGetEventListUseCase = nil
+        spyEventListRouter = nil
         sut = nil
         try super.tearDownWithError()
     }
@@ -61,5 +65,21 @@ final class EventListViewModelTests: XCTestCase {
         await expect(self.sut.events).toEventually(beEmpty())
         await expect(self.sut.state).toEventually(equal(.error))
         await expect(self.sut.showSnackbar).toEventually(beFalse())
+    }
+
+    func test_given_event_tapped_then_navigate_to_details_is_called() {
+
+        sut.eventTapped(EventBuilder().with(eventId: "1").build())
+
+        expect(self.spyEventListRouter.navigateToDetailsCalled).toEventually(beTrue())
+    }
+}
+
+final class SpyEventListRouter: EventListRouterProtocol {
+
+    var navigateToDetailsCalled: Bool = false
+
+    func navigateToDetails(event: EventModels.Event) {
+        navigateToDetailsCalled = true
     }
 }

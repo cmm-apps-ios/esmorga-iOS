@@ -63,25 +63,3 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
         }
     }
 }
-
-protocol EventListRouterProtocol {
-    func navigateToDetails(event: EventModels.Event)
-}
-
-class EventListRouter<T: Routable>: EventListRouterProtocol {
-
-    private let router: Router<T>
-
-    init(router: Router<T>) {
-        self.router = router
-    }
-
-    func navigateToDetails(event: EventModels.Event) {
-        switch router {
-        case let mainRoute as Router<MainRoute>:
-            mainRoute.routeTo(.details(event))
-        default:
-            print("Error")
-        }
-    }
-}

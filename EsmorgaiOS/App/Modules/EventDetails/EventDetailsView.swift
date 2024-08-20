@@ -11,13 +11,8 @@ import UIKit
 struct EventDetailsView: View {
 
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel = EventDetailsViewModel()
-
-    private var event: EventModels.Event
-
-    init(event: EventModels.Event) {
-        self.event = event
-    }
+    @StateObject var viewModel: EventDetailsViewModel
+    var event: EventModels.Event
 
     var body: some View {
         BaseView(viewModel: viewModel){
@@ -76,7 +71,3 @@ struct EventDetailsView: View {
         }
     }
 }
-
-//#Preview {
-//    EventDetailsView()
-//}

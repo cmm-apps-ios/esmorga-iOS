@@ -14,13 +14,15 @@ enum EventDetailsViewStates: ViewStateProtocol {
 
 class EventDetailsViewModel: BaseViewModel<EventDetailsViewStates> {
 
+    private let router: EventDetailsRouterProtocol
+
+    init(router: EventDetailsRouterProtocol) {
+        self.router = router
+    }
+
     func openAppleMaps(latitude: Double?, longitude: Double?) {
 
         guard let latitude, let longitude else { return }
-        guard let url = URL(string: "maps://?saddr=&daddr=\(latitude),\(longitude)") else { return }
-
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
+        router.openMaps(lat: latitude, long: longitude)
     }
 }

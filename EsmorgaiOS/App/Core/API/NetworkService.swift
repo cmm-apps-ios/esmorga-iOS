@@ -14,4 +14,5 @@ public protocol NetworkService {
     var method: HTTPMethod { get }
     var parameters: [String: Any]? { get }
     var headers: HTTPHeaders { get }
+    var body: Data? { get }
 }

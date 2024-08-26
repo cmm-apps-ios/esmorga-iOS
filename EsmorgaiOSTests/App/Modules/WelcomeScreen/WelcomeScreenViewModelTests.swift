@@ -39,7 +39,6 @@ final class WelcomeScreenViewModelTests: XCTestCase {
 
         expect(self.spyWelcomeScreenRouter.navigateToEventListCalled).toEventually(beTrue())
     }
-
 }
 
 final class SpyWelcomeScreenRouter: WelcomeScreenRouterProtocol {

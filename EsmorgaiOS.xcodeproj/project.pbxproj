@@ -75,6 +75,29 @@
 		EFE0A97F2C3D92F200E28953 /* Text+TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE0A97E2C3D92F100E28953 /* Text+TextStyle.swift */; };
 		EFE0A9822C3E8AE000E28953 /* Esmorga.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFE0A9802C3E8AE000E28953 /* Esmorga.xcdatamodeld */; };
 		EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE0A9832C3E8CCA00E28953 /* LocalEventsDataSource.swift */; };
+		EFE34D922C74957A00724DDC /* AccountNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D912C74957A00724DDC /* AccountNetworkService.swift */; };
+		EFE34D942C74A34A00724DDC /* AccountLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D932C74A34A00724DDC /* AccountLoginModel.swift */; };
+		EFE34D962C74A59800724DDC /* UserRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D952C74A59800724DDC /* UserRemoteDataSource.swift */; };
+		EFE34D982C74A6FB00724DDC /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D972C74A6FB00724DDC /* UserRepository.swift */; };
+		EFE34D9B2C74A7DC00724DDC /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D9A2C74A7DC00724DDC /* UserModels.swift */; };
+		EFE34D9D2C74A92800724DDC /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D9C2C74A92800724DDC /* LoginUseCase.swift */; };
+		EFE34DA02C74AAD500724DDC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D9F2C74AAD500724DDC /* LoginView.swift */; };
+		EFE34DA22C74ABC200724DDC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DA12C74ABC200724DDC /* LoginViewModel.swift */; };
+		EFE34DA42C74AF2E00724DDC /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DA32C74AF2E00724DDC /* LoginBuilder.swift */; };
+		EFE34DA62C77790900724DDC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DA52C77790900724DDC /* CustomTextField.swift */; };
+		EFE34DA92C77859D00724DDC /* ErrorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DA82C77859D00724DDC /* ErrorDialog.swift */; };
+		EFE34DAB2C7796AC00724DDC /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DAA2C7796AC00724DDC /* LoginRouter.swift */; };
+		EFE34DB12C7C94B800724DDC /* UserRemoteDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DB02C7C94B800724DDC /* UserRemoteDataSourceTests.swift */; };
+		EFE34DB32C7C95B600724DDC /* mock_account_login.json in Resources */ = {isa = PBXBuildFile; fileRef = EFE34DB22C7C95B600724DDC /* mock_account_login.json */; };
+		EFE34DB52C7C990400724DDC /* MockUserRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DB42C7C990400724DDC /* MockUserRemoteDataSource.swift */; };
+		EFE34DB92C7C99B500724DDC /* UserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DB82C7C99B500724DDC /* UserRepositoryTests.swift */; };
+		EFE34DBB2C7CBA9F00724DDC /* MockUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DBA2C7CBA9F00724DDC /* MockUserRepository.swift */; };
+		EFE34DC12C7CBB9300724DDC /* AccountLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DC02C7CBB9300724DDC /* AccountLoginModel.swift */; };
+		EFE34DC52C7CBC6300724DDC /* LoginUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DC42C7CBC6300724DDC /* LoginUseCaseTests.swift */; };
+		EFE34DC72C7CBFC500724DDC /* MockLoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DC62C7CBFC500724DDC /* MockLoginUseCase.swift */; };
+		EFE34DCA2C7CC07700724DDC /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DC92C7CC07700724DDC /* LoginViewModelTests.swift */; };
+		EFE34DCC2C7CC88600724DDC /* String+RegexValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DCB2C7CC88600724DDC /* String+RegexValidation.swift */; };
+		EFE34DCE2C7CC9F900724DDC /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DCD2C7CC9F900724DDC /* LoginModels.swift */; };
 		EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */; };
 		EFF7A1CA2C354BD00024704A /* EsmorgaiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1C92C354BD00024704A /* EsmorgaiOSUITests.swift */; };
 		EFF7A1CC2C354BD00024704A /* EsmorgaiOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1CB2C354BD00024704A /* EsmorgaiOSUITestsLaunchTests.swift */; };
@@ -165,6 +188,29 @@
 		EFE0A97E2C3D92F100E28953 /* Text+TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+TextStyle.swift"; sourceTree = "<group>"; };
 		EFE0A9812C3E8AE000E28953 /* Esmorga.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Esmorga.xcdatamodel; sourceTree = "<group>"; };
 		EFE0A9832C3E8CCA00E28953 /* LocalEventsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEventsDataSource.swift; sourceTree = "<group>"; };
+		EFE34D912C74957A00724DDC /* AccountNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNetworkService.swift; sourceTree = "<group>"; };
+		EFE34D932C74A34A00724DDC /* AccountLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginModel.swift; sourceTree = "<group>"; };
+		EFE34D952C74A59800724DDC /* UserRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSource.swift; sourceTree = "<group>"; };
+		EFE34D972C74A6FB00724DDC /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		EFE34D9A2C74A7DC00724DDC /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
+		EFE34D9C2C74A92800724DDC /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		EFE34D9F2C74AAD500724DDC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EFE34DA12C74ABC200724DDC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EFE34DA32C74AF2E00724DDC /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
+		EFE34DA52C77790900724DDC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		EFE34DA82C77859D00724DDC /* ErrorDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialog.swift; sourceTree = "<group>"; };
+		EFE34DAA2C7796AC00724DDC /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		EFE34DB02C7C94B800724DDC /* UserRemoteDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSourceTests.swift; sourceTree = "<group>"; };
+		EFE34DB22C7C95B600724DDC /* mock_account_login.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_account_login.json; sourceTree = "<group>"; };
+		EFE34DB42C7C990400724DDC /* MockUserRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserRemoteDataSource.swift; sourceTree = "<group>"; };
+		EFE34DB82C7C99B500724DDC /* UserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTests.swift; sourceTree = "<group>"; };
+		EFE34DBA2C7CBA9F00724DDC /* MockUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserRepository.swift; sourceTree = "<group>"; };
+		EFE34DC02C7CBB9300724DDC /* AccountLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginModel.swift; sourceTree = "<group>"; };
+		EFE34DC42C7CBC6300724DDC /* LoginUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCaseTests.swift; sourceTree = "<group>"; };
+		EFE34DC62C7CBFC500724DDC /* MockLoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginUseCase.swift; sourceTree = "<group>"; };
+		EFE34DC92C7CC07700724DDC /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		EFE34DCB2C7CC88600724DDC /* String+RegexValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RegexValidation.swift"; sourceTree = "<group>"; };
+		EFE34DCD2C7CC9F900724DDC /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
 		EFF7A1AB2C354BCD0024704A /* EsmorgaiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EsmorgaiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsmorgaiOSApp.swift; sourceTree = "<group>"; };
 		EFF7A1B22C354BD00024704A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -249,6 +295,7 @@
 		EF31585C2C5A21B700DE157A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				EFE34DBC2C7CBB2D00724DDC /* Core */,
 				EF31587D2C5A7E5000DE157A /* Modules */,
 				EF31585D2C5A21BE00DE157A /* Data */,
 			);
@@ -270,8 +317,8 @@
 		EF31585E2C5A21C600DE157A /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				EF31585A2C59384800DE157A /* GetEventListUseCaseTests.swift */,
-				EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */,
+				EFE34DC32C7CBC4A00724DDC /* User */,
+				EFE34DC22C7CBC3E00724DDC /* Events */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -287,8 +334,8 @@
 		EF3158632C5A27CA00DE157A /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				EF3158642C5A27DF00DE157A /* EventsRepositoryTests.swift */,
-				EF3158662C5A281D00DE157A /* MockEventsRepository.swift */,
+				EFE34DB72C7C99A800724DDC /* User */,
+				EFE34DB62C7C999C00724DDC /* Events */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -296,10 +343,8 @@
 		EF31586A2C5A5D7800DE157A /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				EF31586B2C5A5D8B00DE157A /* MockRemoteEventsDataSource.swift */,
-				EF31586D2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift */,
-				EF31586F2C5A5DED00DE157A /* LocalEventsDataSourceTests.swift */,
-				EF3158762C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift */,
+				EFE34DAF2C7C94AA00724DDC /* User */,
+				EFE34DAE2C7C94A000724DDC /* Events */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -308,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				EF3158792C5A78B900DE157A /* mock_event_list.json */,
+				EFE34DB22C7C95B600724DDC /* mock_account_login.json */,
 				EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */,
 			);
 			path = MockFiles;
@@ -316,6 +362,7 @@
 		EF31587D2C5A7E5000DE157A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EFE34DC82C7CC06B00724DDC /* Login */,
 				EFBBE6EF2C7489A90085632A /* WelcomeScreen */,
 				EF2983F82C6B986200C2393E /* EventDetails */,
 				EF31587E2C5A7E5900DE157A /* EventList */,
@@ -363,6 +410,7 @@
 		EF4213BE2C3EC9AC00686033 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EFE34D992C74A7CA00724DDC /* User */,
 				EF4213BF2C3EC9C100686033 /* Events */,
 			);
 			path = Models;
@@ -425,6 +473,8 @@
 		EFD7EEF12C3C415F00C8CE70 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EFE34DA72C77858100724DDC /* Dialogs */,
+				EFE34D9E2C74AAC500724DDC /* Login */,
 				EF2983DD2C6A20A900C2393E /* Routing */,
 				EF2983C92C6A15B600C2393E /* Splash */,
 				EF3158852C5BD61800DE157A /* Base */,
@@ -472,8 +522,8 @@
 		EFD7EF002C3D3B8A00C8CE70 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				EFD7EF012C3D3BB100C8CE70 /* RemoteEventsDataSource.swift */,
-				EFE0A9832C3E8CCA00E28953 /* LocalEventsDataSource.swift */,
+				EFE34DAD2C7C948F00724DDC /* User */,
+				EFE34DAC2C7C948300724DDC /* Events */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -482,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				EFD7EF062C3D41EC00C8CE70 /* EventsRepository.swift */,
+				EFE34D972C74A6FB00724DDC /* UserRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -490,6 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				EFD7EF092C3D44A300C8CE70 /* GetEventListUseCase.swift */,
+				EFE34D9C2C74A92800724DDC /* LoginUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -497,6 +549,7 @@
 		EFD7EF0E2C3D72B000C8CE70 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				EFE34D902C74956300724DDC /* Account */,
 				EFD7EF212C3D8F0100C8CE70 /* RemoteModels */,
 				EFD7EF1E2C3D8D9900C8CE70 /* Request */,
 				EFD7EF132C3D73F300C8CE70 /* Events */,
@@ -546,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				EFD7EF222C3D8F2400C8CE70 /* RemoteEventListModel.swift */,
+				EFE34D932C74A34A00724DDC /* AccountLoginModel.swift */,
 			);
 			path = RemoteModels;
 			sourceTree = "<group>";
@@ -572,6 +626,7 @@
 			isa = PBXGroup;
 			children = (
 				EF3158682C5A373A00DE157A /* String+Date.swift */,
+				EFE34DCB2C7CC88600724DDC /* String+RegexValidation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -583,6 +638,155 @@
 				EF4213D32C413F9100686033 /* View+Snackbar.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EFE34D902C74956300724DDC /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34D912C74957A00724DDC /* AccountNetworkService.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		EFE34D992C74A7CA00724DDC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34D9A2C74A7DC00724DDC /* UserModels.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		EFE34D9E2C74AAC500724DDC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34D9F2C74AAD500724DDC /* LoginView.swift */,
+				EFE34DA12C74ABC200724DDC /* LoginViewModel.swift */,
+				EFE34DA32C74AF2E00724DDC /* LoginBuilder.swift */,
+				EFE34DAA2C7796AC00724DDC /* LoginRouter.swift */,
+				EFE34DCD2C7CC9F900724DDC /* LoginModels.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		EFE34DA72C77858100724DDC /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34DA82C77859D00724DDC /* ErrorDialog.swift */,
+			);
+			path = Dialogs;
+			sourceTree = "<group>";
+		};
+		EFE34DAC2C7C948300724DDC /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				EFE0A9832C3E8CCA00E28953 /* LocalEventsDataSource.swift */,
+				EFD7EF012C3D3BB100C8CE70 /* RemoteEventsDataSource.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		EFE34DAD2C7C948F00724DDC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34D952C74A59800724DDC /* UserRemoteDataSource.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		EFE34DAE2C7C94A000724DDC /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				EF31586B2C5A5D8B00DE157A /* MockRemoteEventsDataSource.swift */,
+				EF31586D2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift */,
+				EF31586F2C5A5DED00DE157A /* LocalEventsDataSourceTests.swift */,
+				EF3158762C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		EFE34DAF2C7C94AA00724DDC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34DB02C7C94B800724DDC /* UserRemoteDataSourceTests.swift */,
+				EFE34DB42C7C990400724DDC /* MockUserRemoteDataSource.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		EFE34DB62C7C999C00724DDC /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				EF3158642C5A27DF00DE157A /* EventsRepositoryTests.swift */,
+				EF3158662C5A281D00DE157A /* MockEventsRepository.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		EFE34DB72C7C99A800724DDC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34DB82C7C99B500724DDC /* UserRepositoryTests.swift */,
+				EFE34DBA2C7CBA9F00724DDC /* MockUserRepository.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		EFE34DBC2C7CBB2D00724DDC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34DBE2C7CBB5700724DDC /* API */,
+				EFE34DBD2C7CBB3400724DDC /* Models */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		EFE34DBD2C7CBB3400724DDC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EFE34DBE2C7CBB5700724DDC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34DBF2C7CBB6C00724DDC /* RemoteModels */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		EFE34DBF2C7CBB6C00724DDC /* RemoteModels */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34DC02C7CBB9300724DDC /* AccountLoginModel.swift */,
+			);
+			path = RemoteModels;
+			sourceTree = "<group>";
+		};
+		EFE34DC22C7CBC3E00724DDC /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				EF31585A2C59384800DE157A /* GetEventListUseCaseTests.swift */,
+				EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		EFE34DC32C7CBC4A00724DDC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34DC42C7CBC6300724DDC /* LoginUseCaseTests.swift */,
+				EFE34DC62C7CBFC500724DDC /* MockLoginUseCase.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		EFE34DC82C7CC06B00724DDC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34DC92C7CC07700724DDC /* LoginViewModelTests.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		EFF7A1A22C354BCD0024704A = {
@@ -661,6 +865,7 @@
 				EFF7A1E72C36DECC0024704A /* LoadingBar.swift */,
 				EF4213CA2C3ED66200686033 /* CardView.swift */,
 				EF4213D52C413FC800686033 /* Snackbar.swift */,
+				EFE34DA52C77790900724DDC /* CustomTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -797,6 +1002,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF31587C2C5A7DA800DE157A /* mock_dummy_file.json in Resources */,
+				EFE34DB32C7C95B600724DDC /* mock_account_login.json in Resources */,
 				EF31587A2C5A78B900DE157A /* mock_event_list.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -818,41 +1024,55 @@
 				EFD7EF232C3D8F2400C8CE70 /* RemoteEventListModel.swift in Sources */,
 				EF3158532C53D9EE00DE157A /* NetworkError.swift in Sources */,
 				EF4213D22C4134B500686033 /* NetworkMonitor.swift in Sources */,
+				EFE34D982C74A6FB00724DDC /* UserRepository.swift in Sources */,
 				EFD7EF022C3D3BB100C8CE70 /* RemoteEventsDataSource.swift in Sources */,
 				EF2983CD2C6A162A00C2393E /* SplashViewModel.swift in Sources */,
 				EF2983F52C6B95D500C2393E /* BaseViewModel.swift in Sources */,
 				EF4213C12C3EC9DE00686033 /* EventModels.swift in Sources */,
+				EFE34D962C74A59800724DDC /* UserRemoteDataSource.swift in Sources */,
 				EF4213D62C413FC800686033 /* Snackbar.swift in Sources */,
 				EF2983E72C6B729A00C2393E /* WelcomeScreenBuilder.swift in Sources */,
 				EF2983F12C6B76FB00C2393E /* EventDetailsRouter.swift in Sources */,
 				EFE0A9792C3D925600E28953 /* TextStyles.swift in Sources */,
 				EF4213D82C41412300686033 /* AppManager.swift in Sources */,
+				EFE34D9D2C74A92800724DDC /* LoginUseCase.swift in Sources */,
 				EFE0A97F2C3D92F200E28953 /* Text+TextStyle.swift in Sources */,
 				EFE0A9822C3E8AE000E28953 /* Esmorga.xcdatamodeld in Sources */,
+				EFE34DA22C74ABC200724DDC /* LoginViewModel.swift in Sources */,
+				EFE34D9B2C74A7DC00724DDC /* UserModels.swift in Sources */,
 				EF3158892C5CF0A700DE157A /* EventDetailsViewModel.swift in Sources */,
 				EF31588C2C62346B00DE157A /* BaseUseCase.swift in Sources */,
 				EF3158692C5A373A00DE157A /* String+Date.swift in Sources */,
 				EFD7EF072C3D41EC00C8CE70 /* EventsRepository.swift in Sources */,
+				EFE34DA02C74AAD500724DDC /* LoginView.swift in Sources */,
 				EFD7EF152C3D740700C8CE70 /* EventsNetworkService.swift in Sources */,
 				EF4213D02C3FF9E500686033 /* CacheRule.swift in Sources */,
 				EFD7EEFE2C3D387800C8CE70 /* LocaliationKeys.swift in Sources */,
 				EF2983CB2C6A15D800C2393E /* SplashView.swift in Sources */,
 				EFD7EF102C3D72CA00C8CE70 /* NetworkService.swift in Sources */,
+				EFE34DAB2C7796AC00724DDC /* LoginRouter.swift in Sources */,
 				EFD7EF0A2C3D44A300C8CE70 /* GetEventListUseCase.swift in Sources */,
 				EF2983ED2C6B758100C2393E /* EventListBuilder.swift in Sources */,
 				EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */,
 				EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */,
 				EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */,
 				EF31589C2C63755E00DE157A /* WelcomeScreenView.swift in Sources */,
+				EFE34DA42C74AF2E00724DDC /* LoginBuilder.swift in Sources */,
 				EF2983E22C6A210400C2393E /* Router.swift in Sources */,
+				EFE34D922C74957A00724DDC /* AccountNetworkService.swift in Sources */,
+				EFE34DA92C77859D00724DDC /* ErrorDialog.swift in Sources */,
 				EF3158872C5BD63400DE157A /* BaseView.swift in Sources */,
+				EFE34D942C74A34A00724DDC /* AccountLoginModel.swift in Sources */,
 				EFD7EEF62C3C41A500C8CE70 /* EventListViewModel.swift in Sources */,
+				EFE34DA62C77790900724DDC /* CustomTextField.swift in Sources */,
 				EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */,
 				EFF7A1E82C36DECC0024704A /* LoadingBar.swift in Sources */,
 				EF4213D42C413F9100686033 /* View+Snackbar.swift in Sources */,
 				EF2983EF2C6B762600C2393E /* EventDetailsBuilder.swift in Sources */,
 				EF4213C72C3ECBC400686033 /* NSManagedObject+Helpers.swift in Sources */,
+				EFE34DCC2C7CC88600724DDC /* String+RegexValidation.swift in Sources */,
 				EFF7A1DE2C3587810024704A /* CustomButton.swift in Sources */,
+				EFE34DCE2C7CC9F900724DDC /* LoginModels.swift in Sources */,
 				EF4213C52C3ECB4400686033 /* DataConvertible.swift in Sources */,
 				EF2983E12C6A210400C2393E /* RoutingView.swift in Sources */,
 				EF2983F32C6B78B000C2393E /* MainRoute.swift in Sources */,
@@ -871,17 +1091,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE34DCA2C7CC07700724DDC /* LoginViewModelTests.swift in Sources */,
 				EF3158672C5A281D00DE157A /* MockEventsRepository.swift in Sources */,
+				EFE34DB92C7C99B500724DDC /* UserRepositoryTests.swift in Sources */,
 				EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */,
 				EF3158772C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift in Sources */,
+				EFE34DB52C7C990400724DDC /* MockUserRemoteDataSource.swift in Sources */,
 				EF3158622C5A221400DE157A /* CacheRuleTests.swift in Sources */,
 				EF3158822C5A80AC00DE157A /* MockGetEventListUseCase.swift in Sources */,
+				EFE34DB12C7C94B800724DDC /* UserRemoteDataSourceTests.swift in Sources */,
 				EF3158652C5A27DF00DE157A /* EventsRepositoryTests.swift in Sources */,
+				EFE34DC72C7CBFC500724DDC /* MockLoginUseCase.swift in Sources */,
 				EF2983FA2C6B987A00C2393E /* EventDetailsViewModelTests.swift in Sources */,
 				EF31586E2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift in Sources */,
+				EFE34DC52C7CBC6300724DDC /* LoginUseCaseTests.swift in Sources */,
 				EF31586C2C5A5D8B00DE157A /* MockRemoteEventsDataSource.swift in Sources */,
+				EFE34DBB2C7CBA9F00724DDC /* MockUserRepository.swift in Sources */,
 				EF3158802C5A7E7100DE157A /* EventListViewModelTests.swift in Sources */,
 				EF3158702C5A5DED00DE157A /* LocalEventsDataSourceTests.swift in Sources */,
+				EFE34DC12C7CBB9300724DDC /* AccountLoginModel.swift in Sources */,
 				EF31585B2C59384800DE157A /* GetEventListUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

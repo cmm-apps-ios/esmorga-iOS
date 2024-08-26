@@ -18,9 +18,8 @@ enum EventListViewStates: ViewStateProtocol {
 class EventListViewModel: BaseViewModel<EventListViewStates> {
 
     var events: [EventModels.Event] = []
-    @Published var showSnackbar: Bool = false
 
-    private var getEventListUseCase: GetEventListUseCaseAlias
+    private let getEventListUseCase: GetEventListUseCaseAlias
     private let router: EventListRouterProtocol
 
     init(getEventListUseCase: GetEventListUseCaseAlias = GetEventListUseCase(),
@@ -54,7 +53,8 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
                     }
 
                     if events.error {
-                        self.showSnackbar = true
+                        self.snackBar = .init(message: Localize.localize(key: LocalizationKeys.CommonKeys.noConnectionText),
+                                              isShown: true)
                     }
                 case .failure:
                     self.changeState(.error)

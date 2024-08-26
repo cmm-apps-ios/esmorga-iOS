@@ -9,6 +9,7 @@ import Foundation
 
 class BaseViewModel<E: ViewStateProtocol>: ObservableObject {
     @Published var state: E = .ready
+    @Published var snackBar: Snackbar.ViewModel = .init()
 
     func changeState(_ state: E) {
         DispatchQueue.main.async { [weak self] in

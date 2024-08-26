@@ -16,6 +16,7 @@ public enum NavigationType {
 public protocol Routable: Hashable, Identifiable {
     associatedtype ViewType: View
     var navigationType: NavigationType { get }
+
     func viewToDisplay(router: Router<Self>) -> ViewType
 }
 
@@ -26,27 +27,3 @@ extension Routable {
         hasher.combine(id)
     }
 }
-
-class Router2: ObservableObject {
-
-    @Published var stack = [Route]()
-
-    func push(to view: Route) {
-        stack.append(view)
-    }
-
-    func pop() {
-        stack.removeLast()
-    }
-
-    func popToRootView() {
-        stack.removeAll()
-    }
-}
-
-enum Route {
-    case fooView
-    case barView
-}
-
-extension Route: Hashable {}

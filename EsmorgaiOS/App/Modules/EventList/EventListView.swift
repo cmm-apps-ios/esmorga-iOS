@@ -16,7 +16,7 @@ struct EventListView: View {
             ZStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
-                        Text(Localize.localize(key: LocalizationKeys.EventListKeys.title))
+                        Text(Localize.localize(key: LocalizationKeys.EventList.title))
                             .style(.heading1)
                             .padding(.horizontal, 16)
                             .padding(.bottom, 12)
@@ -25,7 +25,7 @@ struct EventListView: View {
                         switch viewModel.state {
                         case .ready, .loading:
                             VStack(alignment: .leading, spacing: 12) {
-                                Text(Localize.localize(key: LocalizationKeys.EventListKeys.loadingText))
+                                Text(Localize.localize(key: LocalizationKeys.EventList.loadingText))
                                     .style(.heading2)
                                 LoadingBar()
                             }
@@ -34,9 +34,9 @@ struct EventListView: View {
                         case .error:
                             VStack(alignment: .leading, spacing: 32) {
                                 CardView(imageName: "Alert",
-                                         title: Localize.localize(key: LocalizationKeys.EventListKeys.eventListErrorTitle),
-                                         subtitle: Localize.localize(key: LocalizationKeys.EventListKeys.eventListErrorSubtitle))
-                                CustomButton(title: Localize.localize(key: LocalizationKeys.EventListKeys.eventListErrorButtonTitle),
+                                         title: Localize.localize(key: LocalizationKeys.EventList.eventListErrorTitle),
+                                         subtitle: Localize.localize(key: LocalizationKeys.EventList.eventListErrorSubtitle))
+                                CustomButton(title: Localize.localize(key: LocalizationKeys.EventList.eventListErrorButtonTitle),
                                              buttonStyle: .primary) {
                                     viewModel.getEventList(forceRefresh: true)
                                 }
@@ -57,7 +57,7 @@ struct EventListView: View {
                             }
                         case .empty:
                             LazyVStack(spacing: 0) {
-                                EventListCell(title: Localize.localize(key: LocalizationKeys.EventListKeys.emptyEventListText),
+                                EventListCell(title: Localize.localize(key: LocalizationKeys.EventList.emptyEventListText),
                                               titleAlignment: .center)
                             }
                         }
@@ -66,9 +66,8 @@ struct EventListView: View {
                 .onAppear {
                     viewModel.getEventList(forceRefresh: false)
                 }
-            }.snackbar(message: Localize.localize(key: LocalizationKeys.CommonKeys.noConnectionText), 
-                       isShowing: $viewModel.showSnackbar)
-                .navigationBarBackButtonHidden(true)
+            }
+            .navigationBarBackButtonHidden(true)
         }
     }
 }

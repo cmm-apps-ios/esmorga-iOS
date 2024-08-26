@@ -20,11 +20,15 @@ struct NetworkRequest: NetworkRequestProtocol {
         let url = networkService.url.appending(path: networkService.path)
 
         return try await withUnsafeThrowingContinuation { continuation in
-            AF.request(url,
-                       method: networkService.method,
-                       parameters: networkService.parameters,
-                       headers: networkService.headers,
-                       requestModifier: { $0.timeoutInterval = self.requestTimeout })
+
+            var urlRequest = URLRequest(url: url,
+                                        cachePolicy: .useProtocolCachePolicy,
+                                        timeoutInterval: self.requestTimeout)
+            urlRequest.headers = networkService.headers
+            urlRequest.method = networkService.method
+            urlRequest.httpBody = networkService.body
+
+            AF.request(urlRequest)
             .responseData { response in
                 print(response.request ?? "")
                 switch response.result {

@@ -15,5 +15,3 @@ class EventDetailsBuilder {
         return EventDetailsView(viewModel: viewModel, event: event)
     }
 }
-
-

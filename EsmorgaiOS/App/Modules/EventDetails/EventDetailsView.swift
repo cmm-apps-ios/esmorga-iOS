@@ -15,7 +15,7 @@ struct EventDetailsView: View {
     var event: EventModels.Event
 
     var body: some View {
-        BaseView(viewModel: viewModel){
+        BaseView(viewModel: viewModel) {
             ScrollView {
                 AsyncImage(url: event.imageURL) { image in
                     image.resizable()
@@ -33,20 +33,20 @@ struct EventDetailsView: View {
                     Text(event.date.string(format: .dayMonthHour) ?? "")
                         .style(.body1Accent)
                         .padding(.bottom, 29)
-                    Text(Localize.localize(key: LocalizationKeys.EventDetailsKeys.title))
+                    Text(Localize.localize(key: LocalizationKeys.EventDetails.title))
                         .style(.heading1)
                         .padding(.bottom, 16)
                     Text(event.details)
                         .style(.body1)
                         .padding(.bottom, 32)
-                    Text(Localize.localize(key: LocalizationKeys.EventDetailsKeys.locationTitle))
+                    Text(Localize.localize(key: LocalizationKeys.EventDetails.locationTitle))
                         .style(.heading1)
                         .padding(.bottom, 16)
                     Text(event.location)
                         .style(.body1)
                         .padding(.bottom, 12)
                     VStack(spacing: 32) {
-                        CustomButton(title: Localize.localize(key: LocalizationKeys.EventDetailsKeys.navigateButtonText),
+                        CustomButton(title: Localize.localize(key: LocalizationKeys.EventDetails.navigateButtonText),
                                      buttonStyle: .secondary) {
                             viewModel.openAppleMaps(latitude: event.latitude, longitude: event.longitude)
                         }

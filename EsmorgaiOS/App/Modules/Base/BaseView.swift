@@ -23,5 +23,6 @@ struct BaseView<Content: View, ViewState: ViewStateProtocol, VM: BaseViewModel<V
             bgColor.edgesIgnoringSafeArea(.all)
             content
         }
+        .snackbar(model: $baseViewModel.snackBar)
     }
 }

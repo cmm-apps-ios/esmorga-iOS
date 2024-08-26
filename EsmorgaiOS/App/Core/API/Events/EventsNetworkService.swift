@@ -27,4 +27,5 @@ enum EventsNetworkService: NetworkService {
 
     var parameters: [String : Any]? { nil }
     var headers: HTTPHeaders { ["Content-Type": "application/json"] }
+    var body: Data? { nil }
 }

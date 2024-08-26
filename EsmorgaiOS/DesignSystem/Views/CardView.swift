@@ -26,9 +26,9 @@ struct CardView: View {
                 .background(.surfaceContainerLow)
                 .modifier(CardModifier())
                 VStack(alignment: .leading) {
-                    Text(NSLocalizedString("event_list_error_title", comment: "Error"))
+                    Text(title)
                         .style(.heading2)
-                    Text(NSLocalizedString("event_list_error_subtitle", comment: "Error"))
+                    Text(subtitle)
                         .style(.body1)
                 }
                 Spacer()

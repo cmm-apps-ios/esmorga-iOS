@@ -12,16 +12,22 @@ enum MainRoute: Routable {
     case login
     case list
     case details(EventModels.Event)
+    case register
+    case dialog(ErrorDialog.Model)
 
     @ViewBuilder
     func viewToDisplay(router: Router<MainRoute>) -> some View {
         switch self {
         case .login:
-            Text("Login")
+            LoginBuilder().build(mainRouter: router)
         case .list:
             EventListBuilder().build(mainRouter: router)
         case .details(let event):
             EventDetailsBuilder().build(mainRouter: router, event: event)
+        case .register:
+            Text("TODO")
+        case .dialog(let model):
+            ErrorDialog(model: model)
         }
     }
 

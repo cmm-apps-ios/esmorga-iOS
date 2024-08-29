@@ -30,7 +30,7 @@ final class GetEventListUseCaseTests: XCTestCase {
         let mockResult = ([EventBuilder().build()], false)
         mockEventsRepository.mockResult = mockResult
 
-        let result = await self.sut.getEventList(forceRefresh: true)
+        let result = await self.sut.execute(input: true)
         switch result {
         case .success(let data):
             expect(data).to(equal(mockResult))
@@ -42,7 +42,7 @@ final class GetEventListUseCaseTests: XCTestCase {
 
     func test_given_get_event_list_when_failure_result_then_return_correct_error() async {
 
-        let result = await self.sut.getEventList(forceRefresh: true)
+        let result = await self.sut.execute(input: true)
         switch result {
         case .success:
             XCTFail("Unexpected error: Success Result")

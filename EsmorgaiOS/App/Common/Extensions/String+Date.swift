@@ -18,9 +18,19 @@ extension String {
     }
 }
 
+extension Date {
+
+    func string(format: DateFormatter.Format) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format.rawValue
+        return dateFormatter.string(from: self)
+    }
+}
+
 extension DateFormatter {
 
     enum Format: String {
         case iso8601 = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        case dayMonthHour = "dd 'de' MMMM 'a las' HH:mm"
     }
 }

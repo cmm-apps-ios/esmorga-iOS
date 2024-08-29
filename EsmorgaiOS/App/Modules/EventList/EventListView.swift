@@ -9,62 +9,65 @@ import SwiftUI
 
 struct EventListView: View {
 
-    @StateObject private var viewModel = EventListViewModel()
-    @StateObject private var appManager = AppManager.shared
+    @StateObject var viewModel: EventListViewModel
 
     var body: some View {
-        ZStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text(Localize.localize(key: LocaliationKeys.EventListKeys.title))
-                        .style(.heading1)
-                        .padding(.horizontal, 16)
-                        .padding(.bottom, 12)
-                        .padding(.top, 20)
-                    if viewModel.isLoading {
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text(Localize.localize(key: LocaliationKeys.EventListKeys.loadingText))
-                                .style(.heading2)
-                            LoadingBar()
-                        }
-                        .padding(.horizontal, 16)
-                        .padding(.top, 20)
-                    } else if viewModel.hasError {
-                        VStack(alignment: .leading, spacing: 32) {
-                            CardView(imageName: "Alert",
-                                     title: Localize.localize(key: LocaliationKeys.EventListKeys.eventListErrorTitle),
-                                     subtitle: Localize.localize(key: LocaliationKeys.EventListKeys.eventListErrorSubtitle))
-                            CustomButton(title: Localize.localize(key: LocaliationKeys.EventListKeys.eventListErrorButtonTitle),
-                                         buttonStyle: .primary) {
-                                viewModel.getEventList(forceRefresh: true)
+        BaseView(viewModel: viewModel) {
+            ZStack {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text(Localize.localize(key: LocalizationKeys.EventList.title))
+                            .style(.heading1)
+                            .padding(.horizontal, 16)
+                            .padding(.bottom, 12)
+                            .padding(.top, 20)
+
+                        switch viewModel.state {
+                        case .ready, .loading:
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text(Localize.localize(key: LocalizationKeys.EventList.loadingText))
+                                    .style(.heading2)
+                                LoadingBar()
                             }
-                            .frame(maxWidth: .infinity, alignment: .center)
-                        }.padding(16)
-                    } else {
-                        LazyVStack(spacing: 0) {
-                            if !viewModel.events.isEmpty {
-                                    ForEach(viewModel.events) { event in
-                                        NavigationLink(destination: EventDetailsView()) {
+                            .padding(.horizontal, 16)
+                            .padding(.top, 20)
+                        case .error:
+                            VStack(alignment: .leading, spacing: 32) {
+                                CardView(imageName: "Alert",
+                                         title: Localize.localize(key: LocalizationKeys.EventList.eventListErrorTitle),
+                                         subtitle: Localize.localize(key: LocalizationKeys.EventList.eventListErrorSubtitle))
+                                CustomButton(title: Localize.localize(key: LocalizationKeys.EventList.eventListErrorButtonTitle),
+                                             buttonStyle: .primary) {
+                                    viewModel.getEventList(forceRefresh: true)
+                                }
+                                             .frame(maxWidth: .infinity, alignment: .center)
+                            }.padding(16)
+                        case .loaded:
+                            LazyVStack(spacing: 0) {
+                                ForEach(viewModel.events) { event in
+                                    Button {
+                                        viewModel.eventTapped(event)
+                                    } label: {
                                         EventListCell(imageUrl: event.imageURL,
                                                       title: event.name,
-                                                      subtitle: event.date.description,
+                                                      subtitle: event.date.string(format: .dayMonthHour),
                                                       secondary: event.location)
                                     }
                                 }
-
-                            } else {
-                                EventListCell(title: Localize.localize(key: LocaliationKeys.EventListKeys.emptyEventListText),
+                            }
+                        case .empty:
+                            LazyVStack(spacing: 0) {
+                                EventListCell(title: Localize.localize(key: LocalizationKeys.EventList.emptyEventListText),
                                               titleAlignment: .center)
                             }
                         }
-                    }
-                }.frame(maxWidth: .infinity, alignment: .leading)
-
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .onAppear {
+                    viewModel.getEventList(forceRefresh: false)
+                }
             }
-            .background(.surface)
-            .onAppear {
-                viewModel.getEventList(forceRefresh: false)
-            }
-        }.snackbar(message: Localize.localize(key: LocaliationKeys.CommonKeys.noConnectionText), isShowing: $viewModel.showSnackbar)
+            .navigationBarBackButtonHidden(true)
+        }
     }
 }

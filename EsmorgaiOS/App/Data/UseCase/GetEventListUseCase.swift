@@ -8,12 +8,9 @@
 import Foundation
 
 typealias GetEventListResult = Result<(data: [EventModels.Event], error: Bool), Error>
+typealias GetEventListUseCaseAlias = BaseUseCase<Bool, GetEventListResult>
 
-protocol GetEventListUseCaseProtocol {
-    func getEventList(forceRefresh: Bool) async -> GetEventListResult
-}
-
-class GetEventListUseCase: GetEventListUseCaseProtocol {
+class GetEventListUseCase: GetEventListUseCaseAlias {
 
     private var eventsRepsitory: EventsRepositoryProtocol
 
@@ -21,9 +18,9 @@ class GetEventListUseCase: GetEventListUseCaseProtocol {
         self.eventsRepsitory = eventsRepsitory
     }
 
-    func getEventList(forceRefresh: Bool) async -> GetEventListResult {
+    override func job(input: Bool) async -> GetEventListResult {
         do {
-            let events = try await eventsRepsitory.getEventList(refresh: forceRefresh)
+            let events = try await eventsRepsitory.getEventList(refresh: input)
             return .success(events)
         } catch let error {
             return .failure(error)

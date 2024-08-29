@@ -9,9 +9,19 @@ import SwiftUI
 
 struct Snackbar: ViewModifier {
 
-    let message: String
-    @Binding var isShowing: Bool
-    let config: Config
+    struct ViewModel {
+        let message: String?
+        var isShown: Bool
+        let autoDismiss: Bool
+
+        init(message: String? = nil, isShown: Bool = false, autoDismiss: Bool = true) {
+            self.message = message
+            self.isShown = isShown
+            self.autoDismiss = autoDismiss
+        }
+    }
+
+    @Binding var viewModel: ViewModel
 
     func body(content: Content) -> some View {
         ZStack {
@@ -23,23 +33,23 @@ struct Snackbar: ViewModifier {
     private var SnackbarView: some View {
         VStack {
             Spacer()
-            if isShowing {
+            if viewModel.isShown {
                 Group {
-                    Text(message)
-                        .foregroundColor(config.textColor)
-                        .font(config.font)
+                    Text(viewModel.message ?? "")
+                        .foregroundColor(.white)
+                        .font(.system(size: 14))
                         .padding(.all, 16)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .background(config.backgroundColor)
+                .background(.black.opacity(0.588))
                 .cornerRadius(8)
                 .onTapGesture {
-                    isShowing = false
+                    viewModel.isShown = false
                 }
                 .onAppear {
-                    if config.autoDismiss {
+                    if viewModel.autoDismiss {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                            isShowing = false
+                            viewModel.isShown = false
                         }
                     }
                 }
@@ -47,31 +57,8 @@ struct Snackbar: ViewModifier {
         }
         .padding(.horizontal, 16)
         .padding(.bottom, 18)
-        .animation(config.animation, value: isShowing)
-        .transition(config.transition)
+        .animation(.linear(duration: 0.3), value: viewModel.isShown)
+        .transition(.opacity)
         .frame(maxWidth: .infinity)
-    }
-
-    struct Config {
-        let textColor: Color
-        let font: Font
-        let backgroundColor: Color
-        let transition: AnyTransition
-        let animation: Animation
-        let autoDismiss: Bool
-
-        init(textColor: Color = .white,
-             font: Font = .system(size: 14),
-             backgroundColor: Color = .black.opacity(0.588),
-             transition: AnyTransition = .opacity,
-             animation: Animation = .linear(duration: 0.3),
-             autodismiss: Bool) {
-            self.textColor = textColor
-            self.font = font
-            self.backgroundColor = backgroundColor
-            self.transition = transition
-            self.animation = animation
-            self.autoDismiss = autodismiss
-        }
     }
 }

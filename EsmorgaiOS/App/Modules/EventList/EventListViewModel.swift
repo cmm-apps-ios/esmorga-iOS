@@ -7,39 +7,57 @@
 
 import Foundation
 
-class EventListViewModel: ObservableObject {
+enum EventListViewStates: ViewStateProtocol {
+    case ready
+    case loading
+    case loaded
+    case error
+    case empty
+}
 
-    @Published var isLoading: Bool = false
-    @Published var events: [EventModels.Event] = []
-    @Published var hasError: Bool = false
-    @Published var showSnackbar: Bool = false
+class EventListViewModel: BaseViewModel<EventListViewStates> {
 
-    private var getEventListUseCase: GetEventListUseCaseProtocol
-    init(getEventListUseCase: GetEventListUseCaseProtocol = GetEventListUseCase()) {
+    var events: [EventModels.Event] = []
+
+    private let getEventListUseCase: GetEventListUseCaseAlias
+    private let router: EventListRouterProtocol
+
+    init(getEventListUseCase: GetEventListUseCaseAlias = GetEventListUseCase(),
+         router: EventListRouterProtocol) {
         self.getEventListUseCase = getEventListUseCase
+        self.router = router
+    }
+
+    func eventTapped(_ event: EventModels.Event) {
+        router.navigateToDetails(event: event)
     }
 
     func getEventList(forceRefresh: Bool) {
 
-        hasError = false
-        isLoading = true
+        changeState(.loading)
 
         Task { [weak self] in
             guard let self else { return }
 
-            let result = await getEventListUseCase.getEventList(forceRefresh: forceRefresh)
+            let result = await getEventListUseCase.execute(input: forceRefresh)
 
             await MainActor.run {
-                self.isLoading = false
 
                 switch result {
                 case .success(let events):
                     self.events = events.data
+                    if events.data.isEmpty {
+                        self.changeState(.empty)
+                    } else {
+                        self.changeState(.loaded)
+                    }
+
                     if events.error {
-                        self.showSnackbar = true
+                        self.snackBar = .init(message: Localize.localize(key: LocalizationKeys.CommonKeys.noConnectionText),
+                                              isShown: true)
                     }
                 case .failure:
-                    self.hasError = true
+                    self.changeState(.error)
                 }
             }
         }

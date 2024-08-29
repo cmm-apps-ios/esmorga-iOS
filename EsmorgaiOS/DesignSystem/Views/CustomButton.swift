@@ -10,29 +10,45 @@ import SwiftUI
 struct CustomButton: View {
     @State var title = ""
     @State var buttonStyle = CustomButtonStyle.primary
+    @Binding var isLoading: Bool
+    @Binding var isDisabled: Bool
     var action: (() -> Void)? = nil
 
-    var body: some View {
+    init(title: String,
+         buttonStyle: CustomButtonStyle = .primary,
+         isLoading: Binding<Bool>? = nil,
+         isDisabled: Binding<Bool>? = nil,
+         action: (() -> Void)? = nil) {
+        self.title = title
+        self.buttonStyle = buttonStyle
+        self._isLoading = isLoading ?? .constant(false)
+        self._isDisabled = isDisabled ?? .constant(false)
+        self.action = action
+    }
 
+    var body: some View {
         Button {
-            action?()
+            if !isLoading {
+                withAnimation(.none) {
+                    action?()
+                }
+            }
         } label: {
-            Text(title)
-                .style(.body1, textColor: buttonStyle.textColor)
-                .frame(maxWidth: .infinity, alignment: .center)
+            if isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .frame(width: 14, height: 14)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .tint(buttonStyle.textColor)
+            } else {
+                Text(title)
+                    .style(.button, textColor: buttonStyle.textColor)
+                    .frame(maxWidth: .infinity, alignment: .center)
+            }
         }
         .buttonStyle(FilledButton(style: buttonStyle))
+        .disabled(isLoading || isDisabled)
     }
-}
-
-#Preview {
-    ForEach(ColorScheme.allCases, id: \.self) {
-        CustomButton(title: "Primary Button",
-                     buttonStyle: .secondary)
-            .preferredColorScheme($0)
-            .padding()
-    }
-
 }
 
 enum CustomButtonStyle {
@@ -49,7 +65,7 @@ enum CustomButtonStyle {
     var textColor: Color {
         switch self {
         case .primary: return .white
-        case .secondary: return .white
+        case .secondary: return .onSurface
         }
     }
 }

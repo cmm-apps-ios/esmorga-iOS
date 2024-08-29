@@ -22,13 +22,11 @@ struct EventListCell: View {
                 image.resizable()
                     .aspectRatio(16/9, contentMode: .fill)
                     .cornerRadius(8)
-//                    .presentationCornerRadius(8)
             } placeholder: {
-                Image("Placeholder")
+                Image("placeholder-esmorga")
                     .resizable()
                     .aspectRatio(16/9, contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                     .cornerRadius(8)
-//                    .presentationCornerRadius(8)
             }
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .padding(.bottom, 16)

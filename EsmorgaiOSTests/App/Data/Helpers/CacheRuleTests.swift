@@ -11,7 +11,7 @@ import XCTest
 
 final class CacheRuleTests: XCTestCase {
 
-    func testExample() throws {
+    func test_given_date_scenarios_for_cache_rule_then_return_correct_value() throws {
 
         typealias Scenario = (date: Date?, matcher: Matcher<Bool>)
 

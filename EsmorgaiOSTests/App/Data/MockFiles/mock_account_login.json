@@ -1,0 +1,10 @@
+{
+    "accessToken": "ACCESS_TOKEN",
+    "refreshToken": "REFRESH_TOKEN",
+    "ttl": 600,
+    "profile": {
+        "name": "John",
+        "lastName": "O'Donnel-Vic",
+        "email": "eventslogin01@yopmail.com"
+    }
+}

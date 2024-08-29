@@ -53,7 +53,8 @@ jobs:
   
               # import certificate to keychain
               #security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
-              security import $CERTIFICATE_PATH -k $KEYCHAIN_PATH -t cert -f x509 -A
+              security import $CERTIFICATE_PATH -A -t cert -f x509 -k $KEYCHAIN_PATH
+              security find-certificate -k $KEYCHAIN_PATH
               security set-key-partition-list -S apple-tool:,apple: -k "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
               security list-keychain -d user -s $KEYCHAIN_PATH
   

@@ -82,7 +82,8 @@ jobs:
         
                 xcodebuild -exportArchive \
                            -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
-                           -exportPath $OUTPUT_PATH 
+                           -exportPath $OUTPUT_PATH \
+                           -exportOptionsPlist github.plist
                 ls $OUTPUT_PATH/*.ipa
         - name: Clean up keychain and provisioning profile
           if: ${{ always() }}

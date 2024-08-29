@@ -90,6 +90,37 @@ jobs:
           run: |
                   security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
                   rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
+        - run: |
+          
+                rootDir="./" 
+                #GRADLE_FILE=$rootDir"app/build.gradle.kts"
+                fileQA=$rootDir"build/EsmorgaiOS.ipa"
+                name=iOS_Esmorga
+                #versionName=$(grep "versionName" $GRADLE_FILE | awk '{print $3}')
+                #versionCode=$(grep "versionCode" $GRADLE_FILE | awk '{print $3}')
+                versionName=1
+                versionCode=1
+                buildHash=$(md5sum $fileQA | awk '{print $4}')
+
+                project_id=2793
+                api_key=inml59pangaa
+                api_key_build=rqFyHkwuA12sUrq9mvxa2be84t2fyu
+                visibleClient=true
+                buildType="QA"
+                name="Esmorga [QA]"
+            
+                
+                curl -vvv -F "buiFile=@${fileQA}" \
+                    -F "buiName=${name}" \
+                    -F "buiVersion=${versionName}" \
+                    -F "buiBuildNum=${versionCode}" \
+                    -F "buiBuildType=${buildType}" \
+                    -F "buiTemplate=0" \
+                    -F "buiHash=${buildHash}" \
+                    -F "buiVisibleClient=${visibleClient}" \
+                    -F "buiChangeLog=none" \
+                    -F "buiUser=${{ secrets.BUIUSER }}" -F "buiPassword=${{ secrets.BUIPASSWORD }}" \
+                    "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
 #        - name: Test 
 #          run: 
 #            |

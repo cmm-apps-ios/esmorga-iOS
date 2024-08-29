@@ -52,14 +52,12 @@ jobs:
               cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
   
         - name: Test 
-
           run: 
             |
               xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' ONLY_ACTIVE_ARCH=YES
-#            xcodebuild -scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.4' build-for-testing | xcpretty --color --simple
-#            xcodebuild -scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.4' test-without-building  -enableCodeCoverage YES -only-testing:Tests | xcpretty --color --simple
-#            xcodebuild -scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO
-#            xcodebuild test -scheme EsmorgaiOS -configuration Debug CODE_SIGNING_ALLOWED=NO -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.4'
-            #            CODE_SIGN_IDENTITY="iPhone Developer" \
-#            PROVISIONING_PROFILE_SPECIFIER="your-provisioning-profile-uuid" \
-#            DEVELOPMENT_TEAM="your-team-id" \
+        - name: Clean up keychain and provisioning profile
+          if: ${{ always() }}
+          run: |
+                  security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
+                  rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
+

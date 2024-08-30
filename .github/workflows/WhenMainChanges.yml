@@ -16,8 +16,8 @@ on:
   workflow_dispatch:
   
 jobs:
-    Run-tests-on:
-      name: Run npm test
+    Run-tests-and-build:
+      name: Run npm test & build
       runs-on: macos-latest
       permissions:
         contents: write
@@ -64,10 +64,10 @@ jobs:
               mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
               cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
   
-        - name: Seek Cert
-          run: |  
-                security find-identity -p codesigning -v
-                ls ~/Library/MobileDevice/Provisioning\ Profiles/
+        - name: Test 
+          run: 
+            |
+              xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' ONLY_ACTIVE_ARCH=YES
     
         - name: Build .ipa file
           env:
@@ -93,13 +93,11 @@ jobs:
         - run: |
           
                 rootDir="./" 
-                #GRADLE_FILE=$rootDir"app/build.gradle.kts"
+                DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config.xcconfig"
                 fileQA=$rootDir"build/EsmorgaiOS.ipa"
                 name=iOS_Esmorga
-                #versionName=$(grep "versionName" $GRADLE_FILE | awk '{print $3}')
-                #versionCode=$(grep "versionCode" $GRADLE_FILE | awk '{print $3}')
-                versionName=1
-                versionCode=1
+                versionName=$(grep "VERSION" $DATA_FILE | awk '{print $3}')
+                versionCode=$(grep "PROJECT_BUILD" $DATA_FILE | awk '{print $3}')
                 buildHash=$(md5sum $fileQA | awk '{print $4}')
 
                 project_id=2793
@@ -121,7 +119,3 @@ jobs:
                     -F "buiChangeLog=none" \
                     -F "buiUser=${{ secrets.BUIUSER }}" -F "buiPassword=${{ secrets.BUIPASSWORD }}" \
                     "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
-#        - name: Test 
-#          run: 
-#            |
-#              xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' ONLY_ACTIVE_ARCH=YES

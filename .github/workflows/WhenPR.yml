@@ -2,12 +2,12 @@ name: Run  Unit & Component Tests on iOS
 
 run-name: ${{ github.actor }} is testing PR ${{ github.ref }} new code 🚀
 on:
-#  pull_request:
-#    types: [opened,reopened,edited,synchronize]
-#    branches:
-#      - main
-#    paths:
-#      - '**'
+  pull_request:
+    types: [opened,reopened,edited,synchronize]
+    branches:
+      - main
+    paths:
+      - '**'
   workflow_dispatch:
   
 jobs:

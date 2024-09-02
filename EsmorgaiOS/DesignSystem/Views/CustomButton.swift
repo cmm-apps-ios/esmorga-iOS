@@ -81,5 +81,7 @@ struct FilledButton: ButtonStyle {
             .background(style.backgroundColor)
             .cornerRadius(8)
             .frame(maxWidth: .infinity, alignment: .center)
+            .opacity(configuration.isPressed ? 0.7 : 1)
+            .animation(.spring, value: configuration.isPressed)
     }
 }

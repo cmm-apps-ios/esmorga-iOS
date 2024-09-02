@@ -1,19 +1,18 @@
 //
-//  LoginRouter.swift
+//  RegistrationRouter.swift
 //  EsmorgaiOS
 //
-//  Created by Vidal Pérez, Omar on 22/8/24.
+//  Created by Vidal Pérez, Omar on 27/8/24.
 //
 
 import Foundation
 
-protocol LoginRouterProtocol {
+protocol RegistrationRouterProtocol {
     func navigateToErrorDialog(model: ErrorDialog.Model)
     func navigateToList()
-    func navigateToRegister()
 }
 
-class LoginRouter<T: Routable>: LoginRouterProtocol {
+class RegistrationRouter<T: Routable>: RegistrationRouterProtocol {
 
     private let router: Router<T>
 
@@ -34,15 +33,6 @@ class LoginRouter<T: Routable>: LoginRouterProtocol {
         switch router {
         case let mainRoute as Router<MainRoute>:
             mainRoute.routeTo(.list)
-        default:
-            print("Error")
-        }
-    }
-
-    func navigateToRegister() {
-        switch router {
-        case let mainRoute as Router<MainRoute>:
-            mainRoute.routeTo(.register)
         default:
             print("Error")
         }

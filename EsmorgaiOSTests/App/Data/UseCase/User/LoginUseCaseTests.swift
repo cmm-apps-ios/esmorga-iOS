@@ -45,7 +45,7 @@ final class LoginUseCaseTests: XCTestCase {
         case .success:
             XCTFail("Unexpected error: Success Result")
         case .failure(let error):
-            expect(error).to(matchError(NetworkError.genaralError(code: 500)))
+            expect(error).to(matchError(NetworkError.generalError(code: 500)))
         }
     }
 }

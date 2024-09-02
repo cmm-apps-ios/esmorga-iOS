@@ -13,7 +13,7 @@ struct EsmorgaiOSApp: App {
     init() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithTransparentBackground()
-        navBarAppearance.backgroundColor = .clear
+        navBarAppearance.backgroundColor = .surface
         navBarAppearance.backgroundEffect = nil
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
         UINavigationBar.appearance().standardAppearance = navBarAppearance

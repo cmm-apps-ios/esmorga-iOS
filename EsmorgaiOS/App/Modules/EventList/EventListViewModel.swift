@@ -53,7 +53,7 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
                     }
 
                     if events.error {
-                        self.snackBar = .init(message: Localize.localize(key: LocalizationKeys.CommonKeys.noConnectionText),
+                        self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(),
                                               isShown: true)
                     }
                 case .failure:

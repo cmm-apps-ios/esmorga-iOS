@@ -13,13 +13,13 @@ enum LoginViewStates: ViewStateProtocol {
 
 class LoginViewModel: BaseViewModel<LoginViewStates> {
     @Published var emailTextField = LoginModels.TextFieldModel(text: "",
-                                                               title: Localize.localize(key: LocalizationKeys.Login.emailTitle),
-                                                               placeholder: "Introduce tu email",
+                                                               title: LocalizationKeys.TextField.Title.email.localize(),
+                                                               placeholder: LocalizationKeys.TextField.Placeholders.email.localize(),
                                                                isProtected: false)
 
     @Published var passTextField = LoginModels.TextFieldModel(text: "",
-                                                               title: Localize.localize(key: LocalizationKeys.Login.passwordTitle),
-                                                               placeholder: "Introduce tu contraseña",
+                                                               title: LocalizationKeys.TextField.Title.password.localize(),
+                                                               placeholder: LocalizationKeys.TextField.Placeholders.password.localize(),
                                                                isProtected: true)
 
     @Published var isLoading: Bool = false
@@ -33,42 +33,71 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
         self.router = router
     }
 
+    private func checkEmailIsEmpty() -> Bool {
+        if emailTextField.text.isEmpty {
+            emailTextField.errorMessage = LocalizationKeys.TextField.InlineError.emptyField.localize()
+            return true
+        } else {
+            emailTextField.errorMessage = nil
+            return false
+        }
+    }
+
+    private func checkPassIsEmpty() -> Bool {
+        if passTextField.text.isEmpty {
+            passTextField.errorMessage = LocalizationKeys.TextField.InlineError.emptyField.localize()
+            return true
+        } else {
+            passTextField.errorMessage = nil
+            return false
+        }
+    }
+
+    private func checkFieldsValidation() -> Bool {
+//        TODO IN FUTURE US
+//        let isValidEmail = checkEmailIsEmpty() && validateEmailField()
+//        let isValidPass = checkPassIsEmpty() && validatePassField()
+
+        let isValidEmail = validateEmailField()
+        let isValidPass = validatePassField()
+        return isValidEmail && isValidPass
+    }
+
     @discardableResult
-    func validateEmail() -> Bool {
+    func validateEmailField() -> Bool {
+
+//        guard !emailTextField.text.isEmpty else { return false }
         emailTextField.text = emailTextField.text.trimmingCharacters(in: .whitespacesAndNewlines)
         if emailTextField.text.isValid(regexPattern: .userEmail) {
             emailTextField.errorMessage = nil
             return true
         } else {
-            emailTextField.errorMessage = emailTextField.text.isEmpty ?
-            Localize.localize(key: LocalizationKeys.Login.emptyTextField) :
-            Localize.localize(key: LocalizationKeys.Login.invalidEmailText)
+            emailTextField.errorMessage = LocalizationKeys.TextField.InlineError.email.localize()
             return false
         }
     }
 
     @discardableResult
-    func validatePass() -> Bool {
-        passTextField.text = passTextField.text.trimmingCharacters(in: .whitespacesAndNewlines)
+    func validatePassField() -> Bool {
 
+//        guard !passTextField.text.isEmpty else { return false }
+        passTextField.text = passTextField.text.trimmingCharacters(in: .whitespacesAndNewlines)
         if passTextField.text.isValid(regexPattern: .userPassword) {
             passTextField.errorMessage = nil
             return true
         } else {
-            passTextField.errorMessage = passTextField.text.isEmpty ?
-            Localize.localize(key: LocalizationKeys.Login.emptyTextField) :
-            Localize.localize(key: LocalizationKeys.Login.invalidPasswordText)
+            passTextField.errorMessage = LocalizationKeys.TextField.InlineError.password.localize()
             return false
         }
     }
 
+    func navigateToRegister() {
+        router.navigateToRegister()
+    }
+
     func performLogin() {
 
-        let isValidEmail = validateEmail()
-        let isValidPass = validatePass()
-
-        guard isValidEmail && isValidPass else { return }
-
+        guard checkFieldsValidation()  else { return }
         self.isLoading = true
 
         Task { [weak self] in
@@ -84,7 +113,7 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
                     self.isLoading = false
                     switch error {
                     case NetworkError.noInternetConnection:
-                        self.snackBar = .init(message: Localize.localize(key: LocalizationKeys.CommonKeys.noConnectionText),
+                        self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(),
                                               isShown: true)
                     default:
                         self.showErrorDialog()
@@ -96,8 +125,8 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
 
     private func showErrorDialog() {
         let dialogModel = ErrorDialog.Model(image: "error_icon",
-                                            message: Localize.localize(key: LocalizationKeys.CommonKeys.errorTitle),
-                                            buttonText: Localize.localize(key: LocalizationKeys.CommonKeys.errorButtonText),
+                                            message: LocalizationKeys.DefaultError.titleExpanded.localize(),
+                                            buttonText: LocalizationKeys.Buttons.retry.localize(),
                                             handler: {
             self.passTextField.text = ""
             self.emailTextField.text = ""

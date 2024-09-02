@@ -14,7 +14,6 @@ class RemoteEventListModel {
     }
 
     struct Event: Codable {
-
         let eventId: String
         let eventName: String
         let eventDate: String

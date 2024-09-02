@@ -11,7 +11,7 @@ import Foundation
 final class MockRemoteEventsDataSource: RemoteEventsDataSourceProtocol {
 
     var mockEvents: [RemoteEventListModel.Event]?
-    var mockError: NetworkError = NetworkError.genaralError(code: 500)
+    var mockError: NetworkError = NetworkError.generalError(code: 500)
 
     func fetchEvents() async throws -> [RemoteEventListModel.Event]? {
         guard let mockEvents else {

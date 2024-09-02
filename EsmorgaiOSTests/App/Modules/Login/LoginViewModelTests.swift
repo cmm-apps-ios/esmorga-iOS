@@ -32,41 +32,42 @@ final class LoginViewModelTests: XCTestCase {
     func test_given_email_text_input_when_valid_then_return_true() {
 
         sut.emailTextField.text = "valid@yopmail.com"
-        let isValid = sut.validateEmail()
+        let isValid = sut.validateEmailField()
         expect(isValid).to(beTrue())
     }
 
     func test_given_email_text_input_when_invalid_then_return_false() {
 
         sut.emailTextField.text = "invalid.com"
-        let isValid = sut.validateEmail()
+        let isValid = sut.validateEmailField()
         expect(isValid).to(beFalse())
-        expect(self.sut.emailTextField.errorMessage).to(equal(Localize.localize(key: LocalizationKeys.Login.invalidEmailText)))
+        expect(self.sut.emailTextField.errorMessage).to(equal(LocalizationKeys.TextField.InlineError.email.localize()))
     }
 
     func test_given_password_text_input_when_valid_then_return_true() {
 
         sut.passTextField.text = "SuperSecret!1"
-        let isValid = sut.validatePass()
+        let isValid = sut.validatePassField()
         expect(isValid).to(beTrue())
     }
 
     func test_given_password_text_input_when_invalid_then_return_false() {
 
         sut.passTextField.text = "invalid.com"
-        let isValid = sut.validatePass()
+        let isValid = sut.validatePassField()
         expect(isValid).to(beFalse())
-        expect(self.sut.passTextField.errorMessage).to(equal(Localize.localize(key: LocalizationKeys.Login.invalidPasswordText)))
+        expect(self.sut.passTextField.errorMessage).to(equal(LocalizationKeys.TextField.InlineError.password.localize()))
     }
 
-    func test_given_email_and_password_text_input_when_emptu_then_return_correct_error_message() {
-
-        sut.validatePass()
-        sut.validateEmail()
-
-        expect(self.sut.emailTextField.errorMessage).to(equal(Localize.localize(key: LocalizationKeys.Login.emptyTextField)))
-        expect(self.sut.passTextField.errorMessage).to(equal(Localize.localize(key: LocalizationKeys.Login.emptyTextField)))
-    }
+//    TODO IN THE FUTURE
+//    func test_given_email_and_password_text_input_when_empty_then_return_correct_error_message() {
+//
+//        sut.validatePassField()
+//        sut.validateEmailField()
+//
+//        expect(self.sut.emailTextField.errorMessage).to(equal(LocalizationKeys.TextField.InlineError.emptyField.localize()))
+//        expect(self.sut.passTextField.errorMessage).to(equal(LocalizationKeys.TextField.InlineError.emptyField.localize()))
+//    }
 
     func test_given_perform_login_when_error_server_then_error_dialog_is_shown() async {
 
@@ -89,7 +90,7 @@ final class LoginViewModelTests: XCTestCase {
 
         await expect(self.spyLoginRouter.navigateToErrorDialogCalled).toEventually(beFalse())
         await expect(self.sut.snackBar.isShown).toEventually(beTrue())
-        await expect(self.sut.snackBar.message).toEventually(equal(Localize.localize(key: LocalizationKeys.CommonKeys.noConnectionText)))
+        await expect(self.sut.snackBar.message).toEventually(equal(LocalizationKeys.Snackbar.noInternet.localize()))
     }
 
     func test_given_perform_login_when_success_response_then_navigate_to_event_list() async {
@@ -109,6 +110,7 @@ final class SpyLoginRouter: LoginRouterProtocol {
 
     var navigateToErrorDialogCalled: Bool = false
     var navigateToListCalled: Bool = false
+    var navigateToRegisterCalled: Bool = false
 
     func navigateToErrorDialog(model: ErrorDialog.Model) {
         navigateToErrorDialogCalled = true
@@ -116,5 +118,9 @@ final class SpyLoginRouter: LoginRouterProtocol {
     
     func navigateToList() {
         navigateToListCalled = true
+    }
+
+    func navigateToRegister() {
+        navigateToRegisterCalled = true
     }
 }

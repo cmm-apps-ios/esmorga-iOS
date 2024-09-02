@@ -51,5 +51,5 @@ struct CardModifier: ViewModifier {
 }
 
 #Preview {
-    CardView(imageName: "Alert", title: "Error Title", subtitle: "Error Subtitle")
+    CardView(imageName: "AlertEsmorga", title: "Error Title", subtitle: "Error Subtitle")
 }

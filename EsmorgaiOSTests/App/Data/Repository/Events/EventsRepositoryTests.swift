@@ -128,7 +128,7 @@ final class EventsRepositoryTests: XCTestCase {
             _ = try await sut.getEventList(refresh: true)
             XCTFail("Expected error to be thrown")
         } catch {
-            expect(error).to(matchError(NetworkError.genaralError(code: 500)))
+            expect(error).to(matchError(NetworkError.generalError(code: 500)))
         }
     }
 }

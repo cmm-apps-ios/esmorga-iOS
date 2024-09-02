@@ -1,5 +1,5 @@
 //
-//  UserRemoteDataSource.swift
+//  LoginUserDataSource.swift
 //  EsmorgaiOS
 //
 //  Created by Vidal Pérez, Omar on 20/8/24.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol UserRemoteDataSourceProtocol {
+protocol LoginUserDataSourceProtocol {
     func login(email: String, password: String) async throws -> AccountLoginModel.Login
 }
 
-class UserRemoteDataSource: UserRemoteDataSourceProtocol {
+class LoginUserDataSource: LoginUserDataSourceProtocol {
 
     private let networkRequest: NetworkRequestProtocol
 

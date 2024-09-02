@@ -25,7 +25,7 @@ enum MainRoute: Routable {
         case .details(let event):
             EventDetailsBuilder().build(mainRouter: router, event: event)
         case .register:
-            Text("TODO")
+            RegistrationBuilder().build(mainRouter: router)
         case .dialog(let model):
             ErrorDialog(model: model)
         }

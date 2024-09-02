@@ -23,16 +23,16 @@ struct LoginView: View {
                         .frame(height: UIScreen.main.bounds.height * 0.3) // 30% of the screen height
                         .clipped()
                     LazyVStack(alignment: .leading, spacing: 10) {
-                        Text(Localize.localize(key: LocalizationKeys.Login.title))
+                        Text(LocalizationKeys.Login.title.localize())
                             .style(.heading1)
                             .padding(.top, 20)
                         CustomTextField(text: $viewModel.emailTextField.text,
                                         caption: $viewModel.emailTextField.errorMessage,
-                                        title: viewModel.emailTextField.placeholder,
+                                        title: viewModel.emailTextField.title,
                                         hint: viewModel.emailTextField.placeholder)
                         .onFocusChange { isFocused in
                             if !isFocused {
-                                viewModel.validateEmail()
+                                viewModel.validateEmailField()
                             }
                         }
                         CustomTextField(text: $viewModel.passTextField.text,
@@ -42,22 +42,22 @@ struct LoginView: View {
                                         hint: viewModel.passTextField.placeholder)
                         .onFocusChange{ isFocused in
                             if !isFocused {
-                                viewModel.validatePass()
+                                viewModel.validatePassField()
                             }
                         }
                     }
                     .padding(.horizontal, 16)
                     .padding(.bottom, 20)
                     LazyVStack(spacing: 16) {
-                        CustomButton(title: Localize.localize(key: LocalizationKeys.Login.buttonText),
+                        CustomButton(title: LocalizationKeys.Buttons.login.localize(),
                                      buttonStyle: .primary,
                                      isLoading: $viewModel.isLoading) {
                                 viewModel.performLogin()
                         }
-                        CustomButton(title: Localize.localize(key: LocalizationKeys.Login.createAccountText),
+                        CustomButton(title: LocalizationKeys.Buttons.createAccount.localize(),
                                      buttonStyle: .secondary,
                                      isDisabled: $viewModel.isLoading) {
-                            viewModel.performLogin()
+                            viewModel.navigateToRegister()
                         }
                     }
                     .padding(.horizontal, 16)
@@ -65,18 +65,8 @@ struct LoginView: View {
                 }
             }.frame(maxWidth: .infinity, alignment: .leading)
         }
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    HStack {
-                        Image(systemName: "arrow.left")
-                            .tint(.onSurface)
-                    }
-                }
-            }
+        .navigationBar {
+            dismiss()
         }
     }
 }

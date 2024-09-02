@@ -45,20 +45,8 @@ struct ErrorDialog: View {
             }
             .padding(16)
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    HStack {
-                        Image(systemName: "arrow.left")
-                            .tint(.onSurface)
-                    }
-                }
-            }
+        .navigationBar {
+            dismiss()
         }
-
     }
 }

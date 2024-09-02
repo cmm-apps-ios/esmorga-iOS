@@ -33,20 +33,20 @@ struct EventDetailsView: View {
                     Text(event.date.string(format: .dayMonthHour) ?? "")
                         .style(.body1Accent)
                         .padding(.bottom, 29)
-                    Text(Localize.localize(key: LocalizationKeys.EventDetails.title))
+                    Text(LocalizationKeys.EventDetails.description.localize())
                         .style(.heading1)
                         .padding(.bottom, 16)
                     Text(event.details)
                         .style(.body1)
                         .padding(.bottom, 32)
-                    Text(Localize.localize(key: LocalizationKeys.EventDetails.locationTitle))
+                    Text(LocalizationKeys.EventDetails.location.localize())
                         .style(.heading1)
                         .padding(.bottom, 16)
                     Text(event.location)
                         .style(.body1)
                         .padding(.bottom, 12)
                     VStack(spacing: 32) {
-                        CustomButton(title: Localize.localize(key: LocalizationKeys.EventDetails.navigateButtonText),
+                        CustomButton(title: LocalizationKeys.Buttons.navigate.localize(),
                                      buttonStyle: .secondary) {
                             viewModel.openAppleMaps(latitude: event.latitude, longitude: event.longitude)
                         }
@@ -55,19 +55,8 @@ struct EventDetailsView: View {
                 }.padding(.horizontal, 16)
             }
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    HStack {
-                        Image(systemName: "arrow.left")
-                            .tint(.onSurface)
-                    }
-                }
-            }
+        .navigationBar {
+            dismiss()
         }
     }
 }

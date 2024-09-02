@@ -27,12 +27,16 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      shouldAutocreateTestPlan = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <TestPlans>
+         <TestPlanReference
+            reference = "container:EsmorgaiOSTests/EsmorgaiOS.xctestplan"
+            default = "YES">
+         </TestPlanReference>
+      </TestPlans>
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EFF7A1BA2C354BD00024704A"
@@ -49,6 +53,16 @@
                BlueprintIdentifier = "EFF7A1C42C354BD00024704A"
                BuildableName = "EsmorgaiOSUITests.xctest"
                BlueprintName = "EsmorgaiOSUITests"
+               ReferencedContainer = "container:EsmorgaiOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EFF7A1BA2C354BD00024704A"
+               BuildableName = "EsmorgaiOSTests.xctest"
+               BlueprintName = "EsmorgaiOSTests"
                ReferencedContainer = "container:EsmorgaiOS.xcodeproj">
             </BuildableReference>
          </TestableReference>

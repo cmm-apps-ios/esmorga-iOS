@@ -54,7 +54,7 @@ final class RemoteEventsDataSourceTests: XCTestCase {
             _ = try await sut.fetchEvents()
             XCTFail("Expected error to be thrown")
         } catch {
-            expect(error).to(matchError(NetworkError.genaralError(code: 500)))
+            expect(error).to(matchError(NetworkError.generalError(code: 500)))
         }
     }
 

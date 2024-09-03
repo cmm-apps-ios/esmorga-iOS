@@ -1,4 +1,4 @@
-name: Build APP 
+name: Build APP
 run-name: ${{ github.actor }} is Building the APP 🚀
 on:
 #Delete this , just for test
@@ -10,24 +10,24 @@ on:
 #      - '**'
 
 
-  push:
+    push:
     branches:
-      - main
-  workflow_dispatch:
-  
+        - main
+    workflow_dispatch:
+
 jobs:
     Run-tests-and-build:
-      name: Run npm test & build
-      runs-on: macos-latest
-      permissions:
+        name: Run npm test & build
+        runs-on: macos-latest
+        permissions:
         contents: write
         pull-requests: write
-        
-      steps:
+
+        steps:
         - name: Checkout repository
-          uses: actions/checkout@v4
+            uses: actions/checkout@v4
         - name: Install the Apple certificate and provisioning profile
-          env:
+            env:
             BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
             DIST_CERTIFICATE_BASE64: ${{ secrets.DIST_CERTIFICATE_BASE64 }}
             P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
@@ -35,51 +35,51 @@ jobs:
             BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
             BUILD_ENT_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_ENT_PROVISION_PROFILE_BASE64 }}
             KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
-          run: |
+            run: |
               # create variables
               CERTIFICATE_DIS_PATH=$RUNNER_TEMP/dist_certificate.p12
               CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
               PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
               KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
-  
+
               # import certificate and provisioning profile from secrets
               echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_PATH
               echo -n "$DIST_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_DIS_PATH
               echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode -o $PP_PATH
-              echo -n "$BUILD_ENT_PROVISION_PROFILE_BASE64" | base64 --decode -o $PP_PATH 
+              echo -n "$BUILD_ENT_PROVISION_PROFILE_BASE64" | base64 --decode -o $PP_PATH
 
               # create temporary keychain
               security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
               security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
               security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-  
+
               # import certificate to keychain
               security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
               security import $CERTIFICATE_DIS_PATH -P "$P12_DISS_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
               security find-certificate $KEYCHAIN_PATH
               security set-key-partition-list -S apple-tool:,apple: -k "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
               security list-keychain -d user -s $KEYCHAIN_PATH
-  
+
               # apply provisioning profile
               mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
               cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
-  
-        - name: Test 
-          run: 
-            |
-              xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' ONLY_ACTIVE_ARCH=YES
-    
+
+        - name: Test
+            run:
+              |
+                xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' ONLY_ACTIVE_ARCH=YES
+
         - name: Build QA .ipa file
-          env:
+            env:
             OUTPUT_PATH: ./build-qa
-          run: |
+            run: |
                 xcodebuild  \
                            -scheme EsmorgaiOS \
                            -sdk iphoneos \
                            -configuration Release-QA \
                            -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
                            clean archive
-        
+
                 xcodebuild -exportArchive \
                            -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
                            -exportPath $OUTPUT_PATH \
@@ -87,9 +87,9 @@ jobs:
                 ls $OUTPUT_PATH/*.ipa
 
         - name: Build PROD .ipa file
-          env:
+            env:
             OUTPUT_PATH: ./build-prod
-          run: |
+            run: |
                 xcodebuild  \
                            -scheme EsmorgaiOS \
                            -sdk iphoneos \
@@ -104,24 +104,24 @@ jobs:
                 ls $OUTPUT_PATH/*.ipa
 
         - name: Upload Release-QA build to OTA
-        - run: |
+            run: |
 
-                rootDir="./"
-                DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config-QA.xcconfig"
-                fileQA=$rootDir"build-qa/EsmorgaiOS.ipa"
-                name=iOS_Esmorga_QA
-                versionName=$(grep "VERSION" $DATA_FILE | awk '{print $3}')
-                versionCode=$(grep "PROJECT_BUILD" $DATA_FILE | awk '{print $3}')
-                buildHash=$(md5sum $fileQA | awk '{print $4}')
+                    rootDir="./"
+                    DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config-QA.xcconfig"
+                    fileQA=$rootDir"build-qa/EsmorgaiOS.ipa"
+                    name=iOS_Esmorga_QA
+                    versionName=$(grep "VERSION" $DATA_FILE | awk '{print $3}')
+                    versionCode=$(grep "PROJECT_BUILD" $DATA_FILE | awk '{print $3}')
+                    buildHash=$(md5sum $fileQA | awk '{print $4}')
 
-                project_id=2793
-                api_key=inml59pangaa
-                api_key_build=rqFyHkwuA12sUrq9mvxa2be84t2fyu
-                visibleClient=true
-                buildType="QA"
-                name="Esmorga [QA]"
+                    project_id=2793
+                    api_key=inml59pangaa
+                    api_key_build=rqFyHkwuA12sUrq9mvxa2be84t2fyu
+                    visibleClient=true
+                    buildType="QA"
+                    name="Esmorga [QA]"
 
-                curl -vvv -F "buiFile=@${fileQA}" \
+                    curl -vvv -F "buiFile=@${fileQA}" \
                     -F "buiName=${name}" \
                     -F "buiVersion=${versionName}" \
                     -F "buiBuildNum=${versionCode}" \
@@ -134,24 +134,24 @@ jobs:
                     "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
 
         - name: Upload Release-PROD build to OTA
-        - run: |
+            run: |
 
-                rootDir="./"
-                DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config-PROD.xcconfig"
-                fileQA=$rootDir"build-prod/EsmorgaiOS.ipa"
-                name=iOS_Esmorga_PROD
-                versionName=$(grep "VERSION" $DATA_FILE | awk '{print $3}')
-                versionCode=$(grep "PROJECT_BUILD" $DATA_FILE | awk '{print $3}')
-                buildHash=$(md5sum $fileQA | awk '{print $4}')
+                    rootDir="./"
+                    DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config-PROD.xcconfig"
+                    fileQA=$rootDir"build-prod/EsmorgaiOS.ipa"
+                    name=iOS_Esmorga_PROD
+                    versionName=$(grep "VERSION" $DATA_FILE | awk '{print $3}')
+                    versionCode=$(grep "PROJECT_BUILD" $DATA_FILE | awk '{print $3}')
+                    buildHash=$(md5sum $fileQA | awk '{print $4}')
 
-                project_id=2793
-                api_key=inml59pangaa
-                api_key_build=rqFyHkwuA12sUrq9mvxa2be84t2fyu
-                visibleClient=true
-                buildType="PROD"
-                name="Esmorga [PROD]"
+                    project_id=2793
+                    api_key=inml59pangaa
+                    api_key_build=rqFyHkwuA12sUrq9mvxa2be84t2fyu
+                    visibleClient=true
+                    buildType="PROD"
+                    name="Esmorga [PROD]"
 
-                curl -vvv -F "buiFile=@${fileQA}" \
+                    curl -vvv -F "buiFile=@${fileQA}" \
                     -F "buiName=${name}" \
                     -F "buiVersion=${versionName}" \
                     -F "buiBuildNum=${versionCode}" \
@@ -164,8 +164,8 @@ jobs:
                     "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
 
         - name: Clean up keychain and provisioning profile
-          if: ${{ always() }}
-          run: |
+            if: ${{ always() }}
+            run: |
                   security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
                   rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
 

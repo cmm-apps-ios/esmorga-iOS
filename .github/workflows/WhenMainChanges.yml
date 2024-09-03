@@ -104,7 +104,7 @@ jobs:
                 ls $OUTPUT_PATH/*.ipa
 
         - name: Upload Release-QA build to OTA
-        - run: |
+          run: |
 
                 rootDir="./"
                 DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config-QA.xcconfig"
@@ -134,7 +134,7 @@ jobs:
                     "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
 
         - name: Upload Release-PROD build to OTA
-        - run: |
+          run: |
 
                 rootDir="./"
                 DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config-PROD.xcconfig"

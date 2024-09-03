@@ -10,46 +10,78 @@ import SwiftUI
 class LocalizationKeys {
 
     enum EventList {
-        static let title: String = "event_list_title"
-        static let loadingText: String = "event_list_loading_text"
-        static let emptyEventListText: String = "event_list_empty_text"
-        static let eventListErrorTitle: String = "event_list_error_title"
-        static let eventListErrorSubtitle: String = "event_list_error_subtitle"
-        static let eventListErrorButtonTitle: String = "event_list_error_button"
+        static let title: String = "screen_event_list_title"
+        static let loading: String = "screen_event_list_loading"
+        static let empty: String = "screen_event_list_empty_text"
     }
 
     enum EventDetails {
-        static let title: String = "event_details_title"
-        static let locationTitle: String = "event_details_location_title"
-        static let navigateButtonText: String = "navigate_button"
+        static let description: String = "screen_event_details_description"
+        static let location: String = "screen_event_details_location"
     }
 
-    enum WelcomeScreen {
-        static let primaryButtonText: String = "login_registration_button"
-        static let secondaryButtonText: String = "enter_guest_button"
+    enum Buttons {
+        static let createAccount: String = "button_create_account"
+        static let guest: String = "button_guest"
+        static let login: String = "button_login"
+        static let loginRegister: String = "button_login_register"
+        static let navigate: String = "button_navigate"
+        static let register: String = "button_register"
+        static let retry: String = "button_retry"
+    }
+
+    enum TextField {
+
+        enum Title {
+            static let email: String = "field_title_email"
+            static let lastName: String = "field_title_last_name"
+            static let name: String = "field_title_name"
+            static let password: String = "field_title_password"
+            static let repeatPassword: String = "field_title_repeat_password"
+        }
+
+        enum InlineError {
+            static let email: String = "inline_error_email"
+            static let emailAlreadyUsed: String = "inline_error_email_already_used"
+            static let lastName: String = "inline_error_last_name"
+            static let name: String = "inline_error_name"
+            static let password: String = "inline_error_password"
+            static let passwordInvalid: String = "inline_error_password_invalid"
+            static let passwordMismatch: String = "inline_error_password_mismatch"
+            static let emptyField: String = "inline_error_empty_field"
+        }
+
+        enum Placeholders {
+            static let password: String = "placeholder_password"
+            static let confirmPassword: String = "placeholder_confirm_password"
+            static let email: String = "placeholder_email"
+            static let lastName: String = "placeholder_last_name"
+            static let name: String = "placeholder_name"
+        }
+    }
+
+    enum DefaultError {
+        static let title: String = "default_error_title"
+        static let titleExpanded: String = "default_error_title_expanded"
+        static let body: String = "default_error_body"
     }
 
     enum Login {
-        static let title: String = "login_screen_title"
-        static let emailTitle = "login_screen_email"
-        static let passwordTitle = "login_screen_password"
-        static let buttonText = "login_button"
-        static let createAccountText = "login_screen_create_account_button"
-        static let emptyTextField = "login_empty_field"
-        static let invalidEmailText = "login_email_invalid"
-        static let invalidPasswordText = "login_password_invalid"
+        static let title: String = "screen_login_title"
     }
 
-    enum CommonKeys {
-        static let noConnectionText: String = "no_internet_snackbar"
-        static let errorTitle: String = "default_error_title"
-        static let errorButtonText: String = "default_error_button"
+    enum Registration {
+        static let title: String = "screen_registration_title"
+    }
+
+    enum Snackbar {
+        static let noInternet: String = "snackbar_no_internet"
     }
 }
 
-class Localize {
+extension String {
 
-    static func localize(key: String) -> String {
-        NSLocalizedString(key, comment: key)
+    func localize() -> String {
+        NSLocalizedString(self, comment: self)
     }
 }

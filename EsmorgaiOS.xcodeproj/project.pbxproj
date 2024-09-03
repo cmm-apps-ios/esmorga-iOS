@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF2128372C85D42800D00887 /* RegisterUserDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2128362C85D42800D00887 /* RegisterUserDataSourceTests.swift */; };
+		EF2128392C85D5C200D00887 /* MockRegisterUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2128382C85D5C200D00887 /* MockRegisterUserDataSource.swift */; };
+		EF21283B2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21283A2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift */; };
+		EF21283D2C85D98800D00887 /* MockRegisterUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21283C2C85D98800D00887 /* MockRegisterUserUseCase.swift */; };
+		EF2128402C85DA0000D00887 /* RegistrationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21283F2C85DA0000D00887 /* RegistrationViewModelTests.swift */; };
+		EF2128442C86103800D00887 /* RegistrationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2128432C86103800D00887 /* RegistrationModels.swift */; };
+		EF2128462C86106400D00887 /* Binding+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2128452C86106400D00887 /* Binding+Bool.swift */; };
 		EF2983CB2C6A15D800C2393E /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983CA2C6A15D800C2393E /* SplashView.swift */; };
 		EF2983CD2C6A162A00C2393E /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983CC2C6A162A00C2393E /* SplashViewModel.swift */; };
 		EF2983E12C6A210400C2393E /* RoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983DE2C6A210300C2393E /* RoutingView.swift */; };
@@ -55,7 +62,7 @@
 		EF4213D02C3FF9E500686033 /* CacheRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213CF2C3FF9E500686033 /* CacheRule.swift */; };
 		EF4213D22C4134B500686033 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D12C4134B500686033 /* NetworkMonitor.swift */; };
 		EF4213D42C413F9100686033 /* View+Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D32C413F9100686033 /* View+Snackbar.swift */; };
-		EF4213D62C413FC800686033 /* Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D52C413FC800686033 /* Snackbar.swift */; };
+		EF4213D62C413FC800686033 /* SnackbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D52C413FC800686033 /* SnackbarView.swift */; };
 		EF4213D82C41412300686033 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D72C41412300686033 /* AppManager.swift */; };
 		EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBBE6F02C7489BC0085632A /* WelcomeScreenViewModelTests.swift */; };
 		EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7EEF32C3C419100C8CE70 /* EventListView.swift */; };
@@ -77,7 +84,7 @@
 		EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE0A9832C3E8CCA00E28953 /* LocalEventsDataSource.swift */; };
 		EFE34D922C74957A00724DDC /* AccountNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D912C74957A00724DDC /* AccountNetworkService.swift */; };
 		EFE34D942C74A34A00724DDC /* AccountLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D932C74A34A00724DDC /* AccountLoginModel.swift */; };
-		EFE34D962C74A59800724DDC /* UserRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D952C74A59800724DDC /* UserRemoteDataSource.swift */; };
+		EFE34D962C74A59800724DDC /* LoginUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D952C74A59800724DDC /* LoginUserDataSource.swift */; };
 		EFE34D982C74A6FB00724DDC /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D972C74A6FB00724DDC /* UserRepository.swift */; };
 		EFE34D9B2C74A7DC00724DDC /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D9A2C74A7DC00724DDC /* UserModels.swift */; };
 		EFE34D9D2C74A92800724DDC /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D9C2C74A92800724DDC /* LoginUseCase.swift */; };
@@ -98,6 +105,15 @@
 		EFE34DCA2C7CC07700724DDC /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DC92C7CC07700724DDC /* LoginViewModelTests.swift */; };
 		EFE34DCC2C7CC88600724DDC /* String+RegexValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DCB2C7CC88600724DDC /* String+RegexValidation.swift */; };
 		EFE34DCE2C7CC9F900724DDC /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DCD2C7CC9F900724DDC /* LoginModels.swift */; };
+		EFE34DD12C7DE0D300724DDC /* RegisterUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DD02C7DE0D300724DDC /* RegisterUserDataSource.swift */; };
+		EFE34DD32C7DE28D00724DDC /* RegisterUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DD22C7DE28D00724DDC /* RegisterUserUseCase.swift */; };
+		EFE34DD62C7DE6D900724DDC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DD52C7DE6D900724DDC /* RegistrationView.swift */; };
+		EFE34DD92C7DE6F300724DDC /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DD82C7DE6F300724DDC /* RegistrationViewModel.swift */; };
+		EFE34DDB2C7DE6FD00724DDC /* RegistrationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DDA2C7DE6FD00724DDC /* RegistrationRouter.swift */; };
+		EFE34DDD2C7DE70900724DDC /* RegistrationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DDC2C7DE70900724DDC /* RegistrationBuilder.swift */; };
+		EFE34DDF2C81CD5C00724DDC /* View+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DDE2C81CD5C00724DDC /* View+NavigationBar.swift */; };
+		EFE34DE22C81CDA500724DDC /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DE12C81CDA500724DDC /* NavigationBar.swift */; };
+		EFE34DE42C81CEA000724DDC /* Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DE32C81CEA000724DDC /* Snackbar.swift */; };
 		EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */; };
 		EFF7A1CA2C354BD00024704A /* EsmorgaiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1C92C354BD00024704A /* EsmorgaiOSUITests.swift */; };
 		EFF7A1CC2C354BD00024704A /* EsmorgaiOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1CB2C354BD00024704A /* EsmorgaiOSUITestsLaunchTests.swift */; };
@@ -125,6 +141,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF2128362C85D42800D00887 /* RegisterUserDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserDataSourceTests.swift; sourceTree = "<group>"; };
+		EF2128382C85D5C200D00887 /* MockRegisterUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRegisterUserDataSource.swift; sourceTree = "<group>"; };
+		EF21283A2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserUseCaseTests.swift; sourceTree = "<group>"; };
+		EF21283C2C85D98800D00887 /* MockRegisterUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRegisterUserUseCase.swift; sourceTree = "<group>"; };
+		EF21283F2C85DA0000D00887 /* RegistrationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelTests.swift; sourceTree = "<group>"; };
+		EF2128422C860F3700D00887 /* EsmorgaiOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EsmorgaiOS.xctestplan; sourceTree = "<group>"; };
+		EF2128432C86103800D00887 /* RegistrationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModels.swift; sourceTree = "<group>"; };
+		EF2128452C86106400D00887 /* Binding+Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Bool.swift"; sourceTree = "<group>"; };
 		EF2983CA2C6A15D800C2393E /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		EF2983CC2C6A162A00C2393E /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		EF2983DE2C6A210300C2393E /* RoutingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingView.swift; sourceTree = "<group>"; };
@@ -169,7 +193,7 @@
 		EF4213CF2C3FF9E500686033 /* CacheRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheRule.swift; sourceTree = "<group>"; };
 		EF4213D12C4134B500686033 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		EF4213D32C413F9100686033 /* View+Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Snackbar.swift"; sourceTree = "<group>"; };
-		EF4213D52C413FC800686033 /* Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snackbar.swift; sourceTree = "<group>"; };
+		EF4213D52C413FC800686033 /* SnackbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarView.swift; sourceTree = "<group>"; };
 		EF4213D72C41412300686033 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		EFBBE6F02C7489BC0085632A /* WelcomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewModelTests.swift; sourceTree = "<group>"; };
 		EFD7EEF32C3C419100C8CE70 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
@@ -190,7 +214,7 @@
 		EFE0A9832C3E8CCA00E28953 /* LocalEventsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEventsDataSource.swift; sourceTree = "<group>"; };
 		EFE34D912C74957A00724DDC /* AccountNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNetworkService.swift; sourceTree = "<group>"; };
 		EFE34D932C74A34A00724DDC /* AccountLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginModel.swift; sourceTree = "<group>"; };
-		EFE34D952C74A59800724DDC /* UserRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSource.swift; sourceTree = "<group>"; };
+		EFE34D952C74A59800724DDC /* LoginUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserDataSource.swift; sourceTree = "<group>"; };
 		EFE34D972C74A6FB00724DDC /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		EFE34D9A2C74A7DC00724DDC /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
 		EFE34D9C2C74A92800724DDC /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
@@ -211,6 +235,15 @@
 		EFE34DC92C7CC07700724DDC /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		EFE34DCB2C7CC88600724DDC /* String+RegexValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RegexValidation.swift"; sourceTree = "<group>"; };
 		EFE34DCD2C7CC9F900724DDC /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
+		EFE34DD02C7DE0D300724DDC /* RegisterUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserDataSource.swift; sourceTree = "<group>"; };
+		EFE34DD22C7DE28D00724DDC /* RegisterUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserUseCase.swift; sourceTree = "<group>"; };
+		EFE34DD52C7DE6D900724DDC /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		EFE34DD82C7DE6F300724DDC /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		EFE34DDA2C7DE6FD00724DDC /* RegistrationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRouter.swift; sourceTree = "<group>"; };
+		EFE34DDC2C7DE70900724DDC /* RegistrationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationBuilder.swift; sourceTree = "<group>"; };
+		EFE34DDE2C81CD5C00724DDC /* View+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+NavigationBar.swift"; sourceTree = "<group>"; };
+		EFE34DE12C81CDA500724DDC /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		EFE34DE32C81CEA000724DDC /* Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snackbar.swift; sourceTree = "<group>"; };
 		EFF7A1AB2C354BCD0024704A /* EsmorgaiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EsmorgaiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsmorgaiOSApp.swift; sourceTree = "<group>"; };
 		EFF7A1B22C354BD00024704A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -254,6 +287,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF21283E2C85D9E800D00887 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				EF21283F2C85DA0000D00887 /* RegistrationViewModelTests.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 		EF2983C92C6A15B600C2393E /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +403,7 @@
 		EF31587D2C5A7E5000DE157A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EF21283E2C85D9E800D00887 /* Registration */,
 				EFE34DC82C7CC06B00724DDC /* Login */,
 				EFBBE6EF2C7489A90085632A /* WelcomeScreen */,
 				EF2983F82C6B986200C2393E /* EventDetails */,
@@ -461,6 +503,7 @@
 		EFD7EEF02C3C415500C8CE70 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				EFD7EF0E2C3D72B000C8CE70 /* API */,
 				EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */,
 				EFE0A97B2C3D92A400E28953 /* Common */,
 				EFD7EF1D2C3D8D7100C8CE70 /* Core */,
@@ -473,6 +516,7 @@
 		EFD7EEF12C3C415F00C8CE70 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EFE34DD42C7DE6BF00724DDC /* Registration */,
 				EFE34DA72C77858100724DDC /* Dialogs */,
 				EFE34D9E2C74AAC500724DDC /* Login */,
 				EF2983DD2C6A20A900C2393E /* Routing */,
@@ -542,6 +586,7 @@
 			children = (
 				EFD7EF092C3D44A300C8CE70 /* GetEventListUseCase.swift */,
 				EFE34D9C2C74A92800724DDC /* LoginUseCase.swift */,
+				EFE34DD22C7DE28D00724DDC /* RegisterUserUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -581,7 +626,6 @@
 			children = (
 				EF4213C22C3ECABD00686033 /* CoreData */,
 				EF4213BE2C3EC9AC00686033 /* Models */,
-				EFD7EF0E2C3D72B000C8CE70 /* API */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -627,6 +671,7 @@
 			children = (
 				EF3158682C5A373A00DE157A /* String+Date.swift */,
 				EFE34DCB2C7CC88600724DDC /* String+RegexValidation.swift */,
+				EF2128452C86106400D00887 /* Binding+Bool.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -636,6 +681,7 @@
 			children = (
 				EFE0A97E2C3D92F100E28953 /* Text+TextStyle.swift */,
 				EF4213D32C413F9100686033 /* View+Snackbar.swift */,
+				EFE34DDE2C81CD5C00724DDC /* View+NavigationBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -688,7 +734,8 @@
 		EFE34DAD2C7C948F00724DDC /* User */ = {
 			isa = PBXGroup;
 			children = (
-				EFE34D952C74A59800724DDC /* UserRemoteDataSource.swift */,
+				EFE34D952C74A59800724DDC /* LoginUserDataSource.swift */,
+				EFE34DD02C7DE0D300724DDC /* RegisterUserDataSource.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -709,6 +756,8 @@
 			children = (
 				EFE34DB02C7C94B800724DDC /* UserRemoteDataSourceTests.swift */,
 				EFE34DB42C7C990400724DDC /* MockUserRemoteDataSource.swift */,
+				EF2128362C85D42800D00887 /* RegisterUserDataSourceTests.swift */,
+				EF2128382C85D5C200D00887 /* MockRegisterUserDataSource.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -777,6 +826,8 @@
 			children = (
 				EFE34DC42C7CBC6300724DDC /* LoginUseCaseTests.swift */,
 				EFE34DC62C7CBFC500724DDC /* MockLoginUseCase.swift */,
+				EF21283A2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift */,
+				EF21283C2C85D98800D00887 /* MockRegisterUserUseCase.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -787,6 +838,27 @@
 				EFE34DC92C7CC07700724DDC /* LoginViewModelTests.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		EFE34DD42C7DE6BF00724DDC /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34DD52C7DE6D900724DDC /* RegistrationView.swift */,
+				EFE34DD82C7DE6F300724DDC /* RegistrationViewModel.swift */,
+				EFE34DDA2C7DE6FD00724DDC /* RegistrationRouter.swift */,
+				EFE34DDC2C7DE70900724DDC /* RegistrationBuilder.swift */,
+				EF2128432C86103800D00887 /* RegistrationModels.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		EFE34DE02C81CD9000724DDC /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34DE12C81CDA500724DDC /* NavigationBar.swift */,
+				EFE34DE32C81CEA000724DDC /* Snackbar.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		EFF7A1A22C354BCD0024704A = {
@@ -824,6 +896,7 @@
 		EFF7A1BE2C354BD00024704A /* EsmorgaiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				EF2128422C860F3700D00887 /* EsmorgaiOS.xctestplan */,
 				EF31585C2C5A21B700DE157A /* App */,
 			);
 			path = EsmorgaiOSTests;
@@ -841,6 +914,7 @@
 		EFF7A1DA2C354D440024704A /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				EFE34DE02C81CD9000724DDC /* ViewModifiers */,
 				EFE0A97D2C3D92D800E28953 /* Extensions */,
 				EFE0A97A2C3D926000E28953 /* Styles */,
 				EFF7A1EC2C3802410024704A /* Views */,
@@ -864,7 +938,7 @@
 				EFF7A1DD2C3587810024704A /* CustomButton.swift */,
 				EFF7A1E72C36DECC0024704A /* LoadingBar.swift */,
 				EF4213CA2C3ED66200686033 /* CardView.swift */,
-				EF4213D52C413FC800686033 /* Snackbar.swift */,
+				EF4213D52C413FC800686033 /* SnackbarView.swift */,
 				EFE34DA52C77790900724DDC /* CustomTextField.swift */,
 			);
 			path = Views;
@@ -1025,12 +1099,15 @@
 				EF3158532C53D9EE00DE157A /* NetworkError.swift in Sources */,
 				EF4213D22C4134B500686033 /* NetworkMonitor.swift in Sources */,
 				EFE34D982C74A6FB00724DDC /* UserRepository.swift in Sources */,
+				EFE34DDF2C81CD5C00724DDC /* View+NavigationBar.swift in Sources */,
 				EFD7EF022C3D3BB100C8CE70 /* RemoteEventsDataSource.swift in Sources */,
+				EFE34DE22C81CDA500724DDC /* NavigationBar.swift in Sources */,
 				EF2983CD2C6A162A00C2393E /* SplashViewModel.swift in Sources */,
+				EFE34DD12C7DE0D300724DDC /* RegisterUserDataSource.swift in Sources */,
 				EF2983F52C6B95D500C2393E /* BaseViewModel.swift in Sources */,
 				EF4213C12C3EC9DE00686033 /* EventModels.swift in Sources */,
-				EFE34D962C74A59800724DDC /* UserRemoteDataSource.swift in Sources */,
-				EF4213D62C413FC800686033 /* Snackbar.swift in Sources */,
+				EFE34D962C74A59800724DDC /* LoginUserDataSource.swift in Sources */,
+				EF4213D62C413FC800686033 /* SnackbarView.swift in Sources */,
 				EF2983E72C6B729A00C2393E /* WelcomeScreenBuilder.swift in Sources */,
 				EF2983F12C6B76FB00C2393E /* EventDetailsRouter.swift in Sources */,
 				EFE0A9792C3D925600E28953 /* TextStyles.swift in Sources */,
@@ -1039,6 +1116,7 @@
 				EFE0A97F2C3D92F200E28953 /* Text+TextStyle.swift in Sources */,
 				EFE0A9822C3E8AE000E28953 /* Esmorga.xcdatamodeld in Sources */,
 				EFE34DA22C74ABC200724DDC /* LoginViewModel.swift in Sources */,
+				EFE34DDB2C7DE6FD00724DDC /* RegistrationRouter.swift in Sources */,
 				EFE34D9B2C74A7DC00724DDC /* UserModels.swift in Sources */,
 				EF3158892C5CF0A700DE157A /* EventDetailsViewModel.swift in Sources */,
 				EF31588C2C62346B00DE157A /* BaseUseCase.swift in Sources */,
@@ -1053,6 +1131,8 @@
 				EFE34DAB2C7796AC00724DDC /* LoginRouter.swift in Sources */,
 				EFD7EF0A2C3D44A300C8CE70 /* GetEventListUseCase.swift in Sources */,
 				EF2983ED2C6B758100C2393E /* EventListBuilder.swift in Sources */,
+				EFE34DD62C7DE6D900724DDC /* RegistrationView.swift in Sources */,
+				EFE34DD92C7DE6F300724DDC /* RegistrationViewModel.swift in Sources */,
 				EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */,
 				EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */,
 				EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */,
@@ -1069,6 +1149,8 @@
 				EFF7A1E82C36DECC0024704A /* LoadingBar.swift in Sources */,
 				EF4213D42C413F9100686033 /* View+Snackbar.swift in Sources */,
 				EF2983EF2C6B762600C2393E /* EventDetailsBuilder.swift in Sources */,
+				EFE34DE42C81CEA000724DDC /* Snackbar.swift in Sources */,
+				EFE34DD32C7DE28D00724DDC /* RegisterUserUseCase.swift in Sources */,
 				EF4213C72C3ECBC400686033 /* NSManagedObject+Helpers.swift in Sources */,
 				EFE34DCC2C7CC88600724DDC /* String+RegexValidation.swift in Sources */,
 				EFF7A1DE2C3587810024704A /* CustomButton.swift in Sources */,
@@ -1079,11 +1161,14 @@
 				EFD7EF202C3D8E9F00C8CE70 /* EventListCell.swift in Sources */,
 				EF2983EB2C6B754700C2393E /* EventListRouter.swift in Sources */,
 				EF2983F72C6B95F500C2393E /* ViewState.swift in Sources */,
+				EF2128442C86103800D00887 /* RegistrationModels.swift in Sources */,
 				EF31589E2C63757600DE157A /* WelcomeScreenViewModel.swift in Sources */,
 				EF4213CB2C3ED66200686033 /* CardView.swift in Sources */,
 				EF2983E92C6B74D100C2393E /* WelcomeScreenRouter.swift in Sources */,
+				EFE34DDD2C7DE70900724DDC /* RegistrationBuilder.swift in Sources */,
 				EFD7EF172C3D75CB00C8CE70 /* NetworkRequest.swift in Sources */,
 				EF2983E32C6A210400C2393E /* Routable.swift in Sources */,
+				EF2128462C86106400D00887 /* Binding+Bool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1093,9 +1178,12 @@
 			files = (
 				EFE34DCA2C7CC07700724DDC /* LoginViewModelTests.swift in Sources */,
 				EF3158672C5A281D00DE157A /* MockEventsRepository.swift in Sources */,
+				EF2128392C85D5C200D00887 /* MockRegisterUserDataSource.swift in Sources */,
 				EFE34DB92C7C99B500724DDC /* UserRepositoryTests.swift in Sources */,
+				EF21283B2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift in Sources */,
 				EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */,
 				EF3158772C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift in Sources */,
+				EF2128372C85D42800D00887 /* RegisterUserDataSourceTests.swift in Sources */,
 				EFE34DB52C7C990400724DDC /* MockUserRemoteDataSource.swift in Sources */,
 				EF3158622C5A221400DE157A /* CacheRuleTests.swift in Sources */,
 				EF3158822C5A80AC00DE157A /* MockGetEventListUseCase.swift in Sources */,
@@ -1103,10 +1191,12 @@
 				EF3158652C5A27DF00DE157A /* EventsRepositoryTests.swift in Sources */,
 				EFE34DC72C7CBFC500724DDC /* MockLoginUseCase.swift in Sources */,
 				EF2983FA2C6B987A00C2393E /* EventDetailsViewModelTests.swift in Sources */,
+				EF21283D2C85D98800D00887 /* MockRegisterUserUseCase.swift in Sources */,
 				EF31586E2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift in Sources */,
 				EFE34DC52C7CBC6300724DDC /* LoginUseCaseTests.swift in Sources */,
 				EF31586C2C5A5D8B00DE157A /* MockRemoteEventsDataSource.swift in Sources */,
 				EFE34DBB2C7CBA9F00724DDC /* MockUserRepository.swift in Sources */,
+				EF2128402C85DA0000D00887 /* RegistrationViewModelTests.swift in Sources */,
 				EF3158802C5A7E7100DE157A /* EventListViewModelTests.swift in Sources */,
 				EF3158702C5A5DED00DE157A /* LocalEventsDataSourceTests.swift in Sources */,
 				EFE34DC12C7CBB9300724DDC /* AccountLoginModel.swift in Sources */,
@@ -1339,14 +1429,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CF2534U498;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 49934BYA74;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cmm-studio.EsmorgaiOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorgaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1359,14 +1453,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CF2534U498;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 49934BYA74;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cmm-studio.EsmorgaiOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorgaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

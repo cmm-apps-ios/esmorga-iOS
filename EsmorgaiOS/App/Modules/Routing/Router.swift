@@ -30,10 +30,10 @@ public class Router<Destination: Routable>: ObservableObject {
     }
     
     /// Routes to the specified `Routable`.
-    public func routeTo(_ route: Destination, shouldClean: Bool = false) {
+    public func routeTo(_ route: Destination) {
         switch route.navigationType {
         case .push:
-            push(route, cleanStack: shouldClean)
+            push(route)
         case .sheet:
             presentSheet(route)
         case .fullScreenCover:
@@ -76,13 +76,8 @@ public class Router<Destination: Routable>: ObservableObject {
         }
     }
 
-    private func push(_ appRoute: Destination, cleanStack: Bool) {
+    private func push(_ appRoute: Destination) {
         path.append(appRoute)
-        if cleanStack {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.path.removeFirst(self.path.count - 1)
-            }
-        }
     }
     
     private func presentSheet(_ route: Destination) {

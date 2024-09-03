@@ -42,11 +42,13 @@ struct CustomTextField: View {
                     }
                     if isProtected && isSecure {
                         SecureField("", text: $text)
+                            .autocorrectionDisabled()
                             .focused($isFocused)
                             .frame(minHeight: 22)
                             .padding()
                     } else {
                         TextField("", text: $text)
+                            .autocorrectionDisabled()
                             .focused($isFocused)
                             .frame(minHeight: 22)
                             .padding()

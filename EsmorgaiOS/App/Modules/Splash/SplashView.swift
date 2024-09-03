@@ -20,7 +20,7 @@ struct SplashView: View {
                     getWelcomeRoutingView()
                         .transition(transition)
                 case .loggedIn, .ready:
-                    Text("TODO")
+                    Text("")
                 }
             }
             .onAppear {

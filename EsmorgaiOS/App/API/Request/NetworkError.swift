@@ -10,5 +10,5 @@ import Foundation
 enum NetworkError: Error, Equatable {
     case noInternetConnection
     case mappingError
-    case genaralError(code: Int)
+    case generalError(code: Int)
 }

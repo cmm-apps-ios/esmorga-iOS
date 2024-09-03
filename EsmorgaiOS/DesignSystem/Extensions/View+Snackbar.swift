@@ -9,7 +9,7 @@ import SwiftUI
 
 extension View {
 
-    func snackbar(model: Binding<Snackbar.ViewModel>) -> some View {
+    func snackbar(model: Binding<SnackbarView.ViewModel>) -> some View {
         self.modifier(Snackbar(viewModel: model))
     }
 }

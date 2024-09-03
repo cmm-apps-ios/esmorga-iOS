@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EventListView: View {
 
+    @Environment(\.dismiss) private var dismiss
     @StateObject var viewModel: EventListViewModel
 
     var body: some View {
@@ -16,7 +17,7 @@ struct EventListView: View {
             ZStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
-                        Text(Localize.localize(key: LocalizationKeys.EventList.title))
+                        Text(LocalizationKeys.EventList.title.localize())
                             .style(.heading1)
                             .padding(.horizontal, 16)
                             .padding(.bottom, 12)
@@ -25,7 +26,7 @@ struct EventListView: View {
                         switch viewModel.state {
                         case .ready, .loading:
                             VStack(alignment: .leading, spacing: 12) {
-                                Text(Localize.localize(key: LocalizationKeys.EventList.loadingText))
+                                Text(LocalizationKeys.EventList.loading.localize())
                                     .style(.heading2)
                                 LoadingBar()
                             }
@@ -33,10 +34,10 @@ struct EventListView: View {
                             .padding(.top, 20)
                         case .error:
                             VStack(alignment: .leading, spacing: 32) {
-                                CardView(imageName: "Alert",
-                                         title: Localize.localize(key: LocalizationKeys.EventList.eventListErrorTitle),
-                                         subtitle: Localize.localize(key: LocalizationKeys.EventList.eventListErrorSubtitle))
-                                CustomButton(title: Localize.localize(key: LocalizationKeys.EventList.eventListErrorButtonTitle),
+                                CardView(imageName: "AlertEsmorga",
+                                         title: LocalizationKeys.DefaultError.title.localize(),
+                                         subtitle: LocalizationKeys.DefaultError.body.localize())
+                                CustomButton(title: LocalizationKeys.Buttons.retry.localize(),
                                              buttonStyle: .primary) {
                                     viewModel.getEventList(forceRefresh: true)
                                 }
@@ -57,7 +58,7 @@ struct EventListView: View {
                             }
                         case .empty:
                             LazyVStack(spacing: 0) {
-                                EventListCell(title: Localize.localize(key: LocalizationKeys.EventList.emptyEventListText),
+                                EventListCell(title: LocalizationKeys.EventList.empty.localize(),
                                               titleAlignment: .center)
                             }
                         }
@@ -66,6 +67,9 @@ struct EventListView: View {
                 .onAppear {
                     viewModel.getEventList(forceRefresh: false)
                 }
+            }
+            .navigationBar {
+                dismiss()
             }
             .navigationBarBackButtonHidden(true)
         }

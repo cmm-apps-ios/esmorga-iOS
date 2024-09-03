@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Snackbar: ViewModifier {
+struct SnackbarView: View {
 
     struct ViewModel {
         let message: String?
@@ -23,14 +23,7 @@ struct Snackbar: ViewModifier {
 
     @Binding var viewModel: ViewModel
 
-    func body(content: Content) -> some View {
-        ZStack {
-            content
-            SnackbarView
-        }
-    }
-
-    private var SnackbarView: some View {
+    var body: some View {
         VStack {
             Spacer()
             if viewModel.isShown {

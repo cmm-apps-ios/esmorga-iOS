@@ -11,7 +11,7 @@ import Foundation
 final class MockLoginUseCase: LoginUseCaseAlias {
 
     var mockUser: UserModels.User?
-    var mockError: NetworkError = NetworkError.genaralError(code: 500)
+    var mockError: NetworkError = NetworkError.generalError(code: 500)
 
     override func job(input: LoginUseCaseInput) async -> LoginResult {
         guard let mockUser else {

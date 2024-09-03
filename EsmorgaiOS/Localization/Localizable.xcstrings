@@ -4,183 +4,7 @@
     "" : {
 
     },
-    "default_error_button" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reintentar"
-          }
-        }
-      }
-    },
-    "default_error_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Algo ha fallado, inténtalo de nuevo"
-          }
-        }
-      }
-    },
-    "enter_guest_button" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Entrar como invitado"
-          }
-        }
-      }
-    },
-    "event_details_location_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ubicación"
-          }
-        }
-      }
-    },
-    "event_details_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Detalles del evento"
-          }
-        }
-      }
-    },
-    "event_list_empty_text" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No hay eventos disponibles. Por favor vuelve más tarde."
-          }
-        }
-      }
-    },
-    "event_list_error_button" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reintentar"
-          }
-        }
-      }
-    },
-    "event_list_error_subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Inténtalo de nuevo más tarde"
-          }
-        }
-      }
-    },
-    "event_list_error_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Algo ha ido mal!"
-          }
-        }
-      }
-    },
-    "event_list_loading_text" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cargando eventos…"
-          }
-        }
-      }
-    },
-    "event_list_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Listado de Eventos"
-          }
-        }
-      }
-    },
-    "login_button" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Iniciar sesión"
-          }
-        }
-      }
-    },
-    "login_email_invalid" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Email inválido"
-          }
-        }
-      }
-    },
-    "login_empty_field" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Campo requerido"
-          }
-        }
-      }
-    },
-    "login_password_invalid" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "login_password_invalid"
-          }
-        }
-      }
-    },
-    "login_registration_button" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Login / Registro"
-          }
-        }
-      }
-    },
-    "login_screen_create_account_button" : {
+    "button_create_account" : {
       "extractionState" : "manual",
       "localizations" : {
         "es" : {
@@ -191,40 +15,40 @@
         }
       }
     },
-    "login_screen_email" : {
+    "button_guest" : {
       "extractionState" : "manual",
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Email"
+            "value" : "Entrar como invitado"
           }
         }
       }
     },
-    "login_screen_password" : {
+    "button_login" : {
       "extractionState" : "manual",
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Password"
+            "value" : "Iniciar sesión"
           }
         }
       }
     },
-    "login_screen_title" : {
+    "button_login_register" : {
       "extractionState" : "manual",
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "¡Hola de nuevo!"
+            "value" : "Login / Registro"
           }
         }
       }
     },
-    "navigate_button" : {
+    "button_navigate" : {
       "extractionState" : "manual",
       "localizations" : {
         "es" : {
@@ -235,19 +59,357 @@
         }
       }
     },
-    "no_internet_snackbar" : {
+    "button_register" : {
       "extractionState" : "manual",
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No internet connection"
+            "value" : "Registrarme"
           }
         }
       }
     },
-    "TODO" : {
-
+    "button_retry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reintentar"
+          }
+        }
+      }
+    },
+    "default_error_body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inténtalo de nuevo más tarde"
+          }
+        }
+      }
+    },
+    "default_error_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algo ha fallado"
+          }
+        }
+      }
+    },
+    "default_error_title_expanded" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algo ha fallado, por favor inténtalo de nuevo más tarde"
+          }
+        }
+      }
+    },
+    "field_title_email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        }
+      }
+    },
+    "field_title_last_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apellido"
+          }
+        }
+      }
+    },
+    "field_title_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre"
+          }
+        }
+      }
+    },
+    "field_title_password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contraseña"
+          }
+        }
+      }
+    },
+    "field_title_repeat_password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repetir contraseña"
+          }
+        }
+      }
+    },
+    "inline_error_email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formato no válido, sólo letras, números y _ - están disponibles"
+          }
+        }
+      }
+    },
+    "inline_error_email_already_used" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email ya ha sido usado"
+          }
+        }
+      }
+    },
+    "inline_error_empty_field" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Campo requerido"
+          }
+        }
+      }
+    },
+    "inline_error_last_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sólo letras, espacios y ' -  están disponibles"
+          }
+        }
+      }
+    },
+    "inline_error_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sólo letras, espacios y ' -  están disponibles"
+          }
+        }
+      }
+    },
+    "inline_error_password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contraseña inválida"
+          }
+        }
+      }
+    },
+    "inline_error_password_invalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mínimo 8 caracteres, debe incluir al menos 1 dígito, 1 letra y 1 símbolo"
+          }
+        }
+      }
+    },
+    "inline_error_password_mismatch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Las contraseñas no coinciden, inténtalo de nuevo!"
+          }
+        }
+      }
+    },
+    "placeholder_confirm_password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirma tu contraseña"
+          }
+        }
+      }
+    },
+    "placeholder_email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingresa tu email, ej: ejemplo@dominio.com"
+          }
+        }
+      }
+    },
+    "placeholder_last_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingresa tu apellido"
+          }
+        }
+      }
+    },
+    "placeholder_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingresa tu nombre"
+          }
+        }
+      }
+    },
+    "placeholder_password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingresa tu contraseña"
+          }
+        }
+      }
+    },
+    "screen_event_details_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detalles del evento"
+          }
+        }
+      }
+    },
+    "screen_event_details_location" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localización"
+          }
+        }
+      }
+    },
+    "screen_event_list_empty_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay eventos disponibles. Por favor vuelve más tarde."
+          }
+        }
+      }
+    },
+    "screen_event_list_loading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando eventos…"
+          }
+        }
+      }
+    },
+    "screen_event_list_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Listado de eventos"
+          }
+        }
+      }
+    },
+    "screen_homescreen_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Hola!"
+          }
+        }
+      }
+    },
+    "screen_login_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hola de nuevo!"
+          }
+        }
+      }
+    },
+    "screen_registration_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regístrate"
+          }
+        }
+      }
+    },
+    "snackbar_no_internet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay conexión a internet."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

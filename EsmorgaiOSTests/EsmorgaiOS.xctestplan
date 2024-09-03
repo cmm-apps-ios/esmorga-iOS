@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "BCEF412C-632E-4EF2-A530-360AE979EC16",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:EsmorgaiOS.xcodeproj",
+        "identifier" : "EFF7A1BA2C354BD00024704A",
+        "name" : "EsmorgaiOSTests"
+      }
+    }
+  ],
+  "version" : 1
+}

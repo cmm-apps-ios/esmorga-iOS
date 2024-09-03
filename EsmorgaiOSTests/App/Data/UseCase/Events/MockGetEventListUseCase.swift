@@ -14,7 +14,7 @@ final class MockGetEventListUseCase: GetEventListUseCaseAlias {
 
     override func job(input: Bool) async -> GetEventListResult {
         guard let mockResponse else {
-            return .failure(NetworkError.genaralError(code: 500))
+            return .failure(NetworkError.generalError(code: 500))
         }
         return .success(mockResponse)
     }

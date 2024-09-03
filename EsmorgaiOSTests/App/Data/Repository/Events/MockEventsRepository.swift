@@ -16,7 +16,7 @@ final class MockEventsRepository: EventsRepositoryProtocol {
     func getEventList(refresh: Bool) async throws -> ([EventModels.Event], Bool) {
         refreshValue = refresh
         guard let mockResult else {
-            throw NetworkError.genaralError(code: 500)
+            throw NetworkError.generalError(code: 500)
         }
         return mockResult
     }

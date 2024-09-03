@@ -1,0 +1,14 @@
+//
+//  Config-PROD.xcconfig
+//  EsmorgaiOS
+//
+//  Created by Vidal Pérez, Omar on 3/9/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "BaseConfig.xcconfig"
+
+PROJECT_BUILD = 10002
+APP_BASE_URL = https:/$()/esmorga.canarte.org

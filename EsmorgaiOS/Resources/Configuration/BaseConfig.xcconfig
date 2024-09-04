@@ -1,11 +1,10 @@
 //
-//  Config.xcconfig
+//  BaseConfig.xcconfig
 //  EsmorgaiOS
 //
-//  Created by Vidal Pérez, Omar on 1/8/24.
+//  Created by Vidal Pérez, Omar on 3/9/24.
 //
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 VERSION = 1.0.0
-PROJECT_BUILD = 10001

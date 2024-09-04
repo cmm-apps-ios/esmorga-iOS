@@ -69,14 +69,14 @@ jobs:
             |
               xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' ONLY_ACTIVE_ARCH=YES
     
-        - name: Build .ipa file
+        - name: Build QA .ipa file
           env:
-            OUTPUT_PATH: ./build
+            OUTPUT_PATH: ./build-qa
           run: |
                 xcodebuild  \
                            -scheme EsmorgaiOS \
                            -sdk iphoneos \
-                           -configuration Release \
+                           -configuration Release-QA \
                            -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
                            clean archive
         
@@ -85,17 +85,31 @@ jobs:
                            -exportPath $OUTPUT_PATH \
                            -exportOptionsPlist github.plist
                 ls $OUTPUT_PATH/*.ipa
-        - name: Clean up keychain and provisioning profile
-          if: ${{ always() }}
+
+        - name: Build PROD .ipa file
+          env:
+            OUTPUT_PATH: ./build-prod
           run: |
-                  security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
-                  rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
-        - run: |
-          
-                rootDir="./" 
-                DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config.xcconfig"
-                fileQA=$rootDir"build/EsmorgaiOS.ipa"
-                name=iOS_Esmorga
+                xcodebuild  \
+                           -scheme EsmorgaiOS \
+                           -sdk iphoneos \
+                           -configuration Release-PROD \
+                           -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
+                           clean archive
+
+                xcodebuild -exportArchive \
+                           -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
+                           -exportPath $OUTPUT_PATH \
+                           -exportOptionsPlist github.plist
+                ls $OUTPUT_PATH/*.ipa
+
+        - name: Upload Release-QA build to OTA
+          run: |
+
+                rootDir="./"
+                DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config-QA.xcconfig"
+                IPAfile=$rootDir"build-qa/EsmorgaiOS.ipa"
+                name=iOS_Esmorga_QA
                 versionName=$(grep "VERSION" $DATA_FILE | awk '{print $3}')
                 versionCode=$(grep "PROJECT_BUILD" $DATA_FILE | awk '{print $3}')
                 buildHash=$(md5sum $fileQA | awk '{print $4}')
@@ -106,9 +120,8 @@ jobs:
                 visibleClient=true
                 buildType="QA"
                 name="Esmorga [QA]"
-            
-                
-                curl -vvv -F "buiFile=@${fileQA}" \
+
+                curl -vvv -F "buiFile=@${IPAfile}" \
                     -F "buiName=${name}" \
                     -F "buiVersion=${versionName}" \
                     -F "buiBuildNum=${versionCode}" \
@@ -119,3 +132,40 @@ jobs:
                     -F "buiChangeLog=none" \
                     -F "buiUser=${{ secrets.BUIUSER }}" -F "buiPassword=${{ secrets.BUIPASSWORD }}" \
                     "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
+
+        - name: Upload Release-PROD build to OTA
+          run: |
+
+                rootDir="./"
+                DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config-PROD.xcconfig"
+                IPAfile=$rootDir"build-prod/EsmorgaiOS.ipa"
+                name=iOS_Esmorga_PROD
+                versionName=$(grep "VERSION" $DATA_FILE | awk '{print $3}')
+                versionCode=$(grep "PROJECT_BUILD" $DATA_FILE | awk '{print $3}')
+                buildHash=$(md5sum $fileQA | awk '{print $4}')
+
+                project_id=2793
+                api_key=inml59pangaa
+                api_key_build=rqFyHkwuA12sUrq9mvxa2be84t2fyu
+                visibleClient=true
+                buildType="PROD"
+                name="Esmorga [PROD]"
+
+                curl -vvv -F "buiFile=@${IPAfile}" \
+                    -F "buiName=${name}" \
+                    -F "buiVersion=${versionName}" \
+                    -F "buiBuildNum=${versionCode}" \
+                    -F "buiBuildType=${buildType}" \
+                    -F "buiTemplate=0" \
+                    -F "buiHash=${buildHash}" \
+                    -F "buiVisibleClient=${visibleClient}" \
+                    -F "buiChangeLog=none" \
+                    -F "buiUser=${{ secrets.BUIUSER }}" -F "buiPassword=${{ secrets.BUIPASSWORD }}" \
+                    "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
+
+        - name: Clean up keychain and provisioning profile
+          if: ${{ always() }}
+          run: |
+                  security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
+                  rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
+

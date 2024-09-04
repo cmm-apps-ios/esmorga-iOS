@@ -11,7 +11,7 @@ import Alamofire
 enum EventsNetworkService: NetworkService {
     case eventsList
 
-    var url: URL { URL(string: "https://qa.esmorga.canarte.org/v1")! }
+    var url: URL { URL(string: "\(Bundle.baseURL)/v1")! }
 
     var path: String {
         switch self {

@@ -32,7 +32,7 @@ jobs:
           git checkout main
           
           # Merge release into main
-          git merge release --no-ff -m "Auto-merge release into main [skip ci]"
+          git merge ${{ github.ref_name }} --no-ff -m "Auto-merge ${{ github.ref_name }} into main [skip ci]"
 
       # Step 4: Push changes to main
       - name: Push to Main

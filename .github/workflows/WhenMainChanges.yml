@@ -108,7 +108,7 @@ jobs:
 
                 rootDir="./"
                 DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config-QA.xcconfig"
-                fileQA=$rootDir"build-qa/EsmorgaiOS.ipa"
+                IPAfile=$rootDir"build-qa/EsmorgaiOS.ipa"
                 name=iOS_Esmorga_QA
                 versionName=$(grep "VERSION" $DATA_FILE | awk '{print $3}')
                 versionCode=$(grep "PROJECT_BUILD" $DATA_FILE | awk '{print $3}')
@@ -121,7 +121,7 @@ jobs:
                 buildType="QA"
                 name="Esmorga [QA]"
 
-                curl -vvv -F "buiFile=@${fileQA}" \
+                curl -vvv -F "buiFile=@${IPAfile}" \
                     -F "buiName=${name}" \
                     -F "buiVersion=${versionName}" \
                     -F "buiBuildNum=${versionCode}" \
@@ -138,7 +138,7 @@ jobs:
 
                 rootDir="./"
                 DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config-PROD.xcconfig"
-                fileQA=$rootDir"build-prod/EsmorgaiOS.ipa"
+                IPAfile=$rootDir"build-prod/EsmorgaiOS.ipa"
                 name=iOS_Esmorga_PROD
                 versionName=$(grep "VERSION" $DATA_FILE | awk '{print $3}')
                 versionCode=$(grep "PROJECT_BUILD" $DATA_FILE | awk '{print $3}')
@@ -151,7 +151,7 @@ jobs:
                 buildType="PROD"
                 name="Esmorga [PROD]"
 
-                curl -vvv -F "buiFile=@${fileQA}" \
+                curl -vvv -F "buiFile=@${IPAfile}" \
                     -F "buiName=${name}" \
                     -F "buiVersion=${versionName}" \
                     -F "buiBuildNum=${versionCode}" \

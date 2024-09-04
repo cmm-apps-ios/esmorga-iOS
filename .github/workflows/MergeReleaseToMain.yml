@@ -14,29 +14,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Fetch all history to allow merging
+          token: ${{ secrets.PAT_TOKEN }}
 
       # Step 2: Set up Git configuration
       - name: Configure Git
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.email "actions@github.com"
+          git config --local user.name "Github Actions"
 
       # Step 3: Merge release into main
       - name: Merge Release into Main
         run: |
-          # Fetch all branches
-          git fetch origin
-          
-          # Checkout main branch
+          git fetch --unshallow
           git checkout main
-          
-          # Merge release into main
-          git merge ${{ github.ref_name }} --no-ff -m "Auto-merge ${{ github.ref_name }} into main [skip ci]"
-
-      # Step 4: Push changes to main
-      - name: Push to Main
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-        run: |
-          git push origin main
+          git pull
+          git merge --no-ff ${{ github.ref }} -m "Auto-merge ${{ github.ref }} to develop"
+          git push

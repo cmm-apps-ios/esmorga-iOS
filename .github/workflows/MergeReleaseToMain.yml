@@ -37,6 +37,6 @@ jobs:
       # Step 4: Push changes to main
       - name: Push to Main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git push origin main

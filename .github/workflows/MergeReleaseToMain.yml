@@ -1,0 +1,32 @@
+name: Auto-Merge Release to Main
+
+on:
+  push:
+    branches:
+      - release/*  # Trigger the workflow on pushes to the release branch
+
+jobs:
+  merge-release-to-main:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+
+      # Step 2: Set up Git configuration
+      - name: Configure Git
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "Github Actions"
+
+      # Step 3: Merge release into main
+      - name: Merge Release into Main
+        run: |
+          git fetch --unshallow
+          git checkout main
+          git pull
+          git merge --no-ff ${{ github.ref }} -m "Auto-merge ${{ github.ref }} to develop"
+          git push

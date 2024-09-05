@@ -12,6 +12,9 @@ struct LoginView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject var viewModel: LoginViewModel
 
+    @FocusState private var focusedField: Field?
+
+
     var body: some View {
         BaseView(viewModel: viewModel) {
             ScrollView {
@@ -32,9 +35,10 @@ struct LoginView: View {
                                         hint: viewModel.emailTextField.placeholder)
                         .onFocusChange { isFocused in
                             if !isFocused {
-                                viewModel.validateEmailField()
+                                viewModel.validateEmailField(checkIsEmpty: false)
                             }
                         }
+                        .focused($focusedField, equals: .email)
                         CustomTextField(text: $viewModel.passTextField.text,
                                         caption: $viewModel.passTextField.errorMessage,
                                         isProtected: viewModel.passTextField.isProtected,
@@ -42,9 +46,10 @@ struct LoginView: View {
                                         hint: viewModel.passTextField.placeholder)
                         .onFocusChange{ isFocused in
                             if !isFocused {
-                                viewModel.validatePassField()
+                                viewModel.validatePassField(checkIsEmpty: false)
                             }
                         }
+                        .focused($focusedField, equals: .password)
                     }
                     .padding(.horizontal, 16)
                     .padding(.bottom, 20)
@@ -66,8 +71,53 @@ struct LoginView: View {
             }.frame(maxWidth: .infinity, alignment: .leading)
         }
         .navigationBar {
-            guard !viewModel.isLoading else { return }
             dismiss()
         }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+
+                Button(action: focusPreviousField) {
+                    Image(systemName: "chevron.up")
+                }
+                .disabled(!canFocusPreviousField()) // remove this to loop through fields
+                Button(action: focusNextField) {
+                    Image(systemName: "chevron.down")
+                }
+                .disabled(!canFocusNextField()) // remove this to loop through fields
+            }
+        }
+    }
+}
+
+extension LoginView {
+    private enum Field: Int, CaseIterable {
+        case email, password
+    }
+
+    private func focusPreviousField() {
+        focusedField = focusedField.map {
+            Field(rawValue: $0.rawValue - 1) ?? .password
+        }
+    }
+
+    private func focusNextField() {
+        focusedField = focusedField.map {
+            Field(rawValue: $0.rawValue + 1) ?? .email
+        }
+    }
+
+    private func canFocusPreviousField() -> Bool {
+        guard let currentFocusedField = focusedField else {
+            return false
+        }
+        return currentFocusedField.rawValue > 0
+    }
+
+    private func canFocusNextField() -> Bool {
+        guard let currentFocusedField = focusedField else {
+            return false
+        }
+        return currentFocusedField.rawValue < Field.allCases.count - 1
     }
 }

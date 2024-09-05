@@ -54,23 +54,21 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
     }
 
     private func checkFieldsValidation() -> Bool {
-//        TODO IN FUTURE US
-//        let isValidEmail = checkEmailIsEmpty() && validateEmailField()
-//        let isValidPass = checkPassIsEmpty() && validatePassField()
-
-        let isValidEmail = validateEmailField()
-        let isValidPass = validatePassField()
+        let isValidEmail = validateEmailField(checkIsEmpty: true)
+        let isValidPass = validatePassField(checkIsEmpty: true)
         return isValidEmail && isValidPass
     }
 
     @discardableResult
-    func validateEmailField() -> Bool {
+    func validateEmailField(checkIsEmpty: Bool) -> Bool {
 
-//        guard !emailTextField.text.isEmpty else { return false }
         emailTextField.text = emailTextField.text.trimmingCharacters(in: .whitespacesAndNewlines)
-        if emailTextField.text.isValid(regexPattern: .userEmail) {
+        if emailTextField.text.isValid(regexPattern: .userEmail) { 
             emailTextField.errorMessage = nil
             return true
+        } else if emailTextField.text.isEmpty {
+            emailTextField.errorMessage = checkIsEmpty ? LocalizationKeys.TextField.InlineError.emptyField.localize() : nil
+            return !checkIsEmpty
         } else {
             emailTextField.errorMessage = LocalizationKeys.TextField.InlineError.email.localize()
             return false
@@ -78,13 +76,15 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
     }
 
     @discardableResult
-    func validatePassField() -> Bool {
+    func validatePassField(checkIsEmpty: Bool) -> Bool {
 
-//        guard !passTextField.text.isEmpty else { return false }
         passTextField.text = passTextField.text.trimmingCharacters(in: .whitespacesAndNewlines)
         if passTextField.text.isValid(regexPattern: .userPassword) {
             passTextField.errorMessage = nil
             return true
+        } else if passTextField.text.isEmpty {
+            passTextField.errorMessage = checkIsEmpty ? LocalizationKeys.TextField.InlineError.emptyField.localize() : nil
+            return !checkIsEmpty
         } else {
             passTextField.errorMessage = LocalizationKeys.TextField.InlineError.password.localize()
             return false

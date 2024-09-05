@@ -17,7 +17,7 @@ struct SplashView: View {
             Group {
                 switch viewModel.state {
                 case .loggedOut:
-                    getEventListRoutingView()
+                    getWelcomeRoutingView()
                         .transition(transition)
                 case .loggedIn, .ready:
                     Text("")

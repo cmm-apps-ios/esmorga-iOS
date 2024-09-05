@@ -12,6 +12,8 @@ struct RegistrationView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject var viewModel: RegistrationViewModel
 
+    @FocusState private var focusedField: RegisterModels.TextFieldType?
+
     var body: some View {
         BaseView(viewModel: viewModel) {
             ScrollView {
@@ -31,6 +33,7 @@ struct RegistrationView: View {
                                     viewModel.validateTextField(type: viewModel.textFields[index].type, checkIsEmpty: false)
                                 }
                             }
+                            .focused($focusedField, equals: viewModel.textFields[index].type)
                         }
                     }
                     CustomButton(title: LocalizationKeys.Buttons.createAccount.localize(),
@@ -46,5 +49,48 @@ struct RegistrationView: View {
         .navigationBar {
             dismiss()
         }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+
+                Button(action: focusPreviousField) {
+                    Image(systemName: "chevron.up")
+                }
+                .disabled(!canFocusPreviousField()) // remove this to loop through fields
+                Button(action: focusNextField) {
+                    Image(systemName: "chevron.down")
+                }
+                .disabled(!canFocusNextField()) // remove this to loop through fields
+            }
+        }
+    }
+}
+
+extension RegistrationView {
+
+    private func focusPreviousField() {
+        focusedField = focusedField.map {
+            RegisterModels.TextFieldType(rawValue: $0.rawValue - 1) ?? .confirmPass
+        }
+    }
+
+    private func focusNextField() {
+        focusedField = focusedField.map {
+            RegisterModels.TextFieldType(rawValue: $0.rawValue + 1) ?? .name
+        }
+    }
+
+    private func canFocusPreviousField() -> Bool {
+        guard let currentFocusedField = focusedField else {
+            return false
+        }
+        return currentFocusedField.rawValue > 0
+    }
+
+    private func canFocusNextField() -> Bool {
+        guard let currentFocusedField = focusedField else {
+            return false
+        }
+        return currentFocusedField.rawValue < RegisterModels.TextFieldType.allCases.count - 1
     }
 }

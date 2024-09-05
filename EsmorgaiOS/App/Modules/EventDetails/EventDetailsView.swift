@@ -54,9 +54,18 @@ struct EventDetailsView: View {
 
                 }.padding(.horizontal, 16)
             }
+            .alert("Selecciona tu app de navigacion", isPresented: $viewModel.showMethodsAlert) {
+                ForEach(viewModel.navigationMethods, id: \.title) { method in
+                    Button(method.title) {
+                        viewModel.openNavigationMethod(method)
+                    }
+                }
+                Button("Cancelar", role: .cancel) { }
+            }
         }
         .navigationBar {
             dismiss()
         }
+
     }
 }

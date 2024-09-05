@@ -15,18 +15,21 @@ struct CustomTextField: View {
     @State var title: String
     @State var hint: String
 
+    private var submitLabel: SubmitLabel
     @State private var isSecure: Bool = true
     @FocusState private var isFocused: Bool // Focus state
 
     init(text: Binding<String>,
          caption: Binding<String?>? = nil,
          isProtected: Bool = false,
-         title: String, hint: String) {
+         title: String, hint: String,
+         submitLabel: SubmitLabel = .done) {
         self._text = text
         self._caption = caption ?? .constant(nil)
         self.isProtected = isProtected
         self.title = title
         self.hint = hint
+        self.submitLabel = submitLabel
     }
 
     var body: some View {
@@ -42,12 +45,14 @@ struct CustomTextField: View {
                     }
                     if isProtected && isSecure {
                         SecureField("", text: $text)
+                            .submitLabel(submitLabel)
                             .autocorrectionDisabled()
                             .focused($isFocused)
                             .frame(minHeight: 22)
                             .padding()
                     } else {
                         TextField("", text: $text)
+                            .submitLabel(submitLabel)
                             .autocorrectionDisabled()
                             .focused($isFocused)
                             .frame(minHeight: 22)

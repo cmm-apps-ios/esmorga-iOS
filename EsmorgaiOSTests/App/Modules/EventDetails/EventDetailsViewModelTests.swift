@@ -30,15 +30,15 @@ final class EventDetailsViewModelTests: XCTestCase {
 
         sut.openAppleMaps(latitude: 10, longitude: -7)
 
-        expect(self.spyEventDetailsRouter.openMapsCalled).toEventually(beTrue())
+        expect(self.spyEventDetailsRouter.openNavigationAppCalled).toEventually(beTrue())
     }
 }
 
 final class SpyEventDetailsRouter: EventDetailsRouterProtocol {
 
-    var openMapsCalled: Bool = false
+    var openNavigationAppCalled: Bool = false
 
-    func openMaps(lat: Double, long: Double) {
-        openMapsCalled = true
+    func openNavigationApp(_ method: NavigationModels.Method) {
+        openNavigationAppCalled = true
     }
 }

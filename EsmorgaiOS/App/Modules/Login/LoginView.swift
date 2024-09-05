@@ -66,6 +66,7 @@ struct LoginView: View {
             }.frame(maxWidth: .infinity, alignment: .leading)
         }
         .navigationBar {
+            guard !viewModel.isLoading else { return }
             dismiss()
         }
     }

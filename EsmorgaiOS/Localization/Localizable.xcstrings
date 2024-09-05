@@ -81,6 +81,9 @@
         }
       }
     },
+    "Cancelar" : {
+
+    },
     "default_error_body" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -399,6 +402,9 @@
           }
         }
       }
+    },
+    "Selecciona tu app de navigacion" : {
+
     },
     "snackbar_no_internet" : {
       "extractionState" : "manual",

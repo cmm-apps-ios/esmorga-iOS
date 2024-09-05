@@ -48,15 +48,24 @@ struct EventDetailsView: View {
                     VStack(spacing: 32) {
                         CustomButton(title: LocalizationKeys.Buttons.navigate.localize(),
                                      buttonStyle: .secondary) {
-                            viewModel.openAppleMaps(latitude: event.latitude, longitude: event.longitude)
+                            viewModel.openLocation(latitude: event.latitude, longitude: event.longitude)
                         }
                     }.padding(.top, 32)
 
                 }.padding(.horizontal, 16)
             }
+            .alert("Selecciona tu app de navigacion", isPresented: $viewModel.showMethodsAlert) {
+                ForEach(viewModel.navigationMethods, id: \.title) { method in
+                    Button(method.title) {
+                        viewModel.openNavigationMethod(method)
+                    }
+                }
+                Button("Cancelar", role: .cancel) { }
+            }
         }
         .navigationBar {
             dismiss()
         }
+
     }
 }

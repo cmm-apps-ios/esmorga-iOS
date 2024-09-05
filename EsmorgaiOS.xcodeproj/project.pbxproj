@@ -67,6 +67,8 @@
 		EF4213D42C413F9100686033 /* View+Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D32C413F9100686033 /* View+Snackbar.swift */; };
 		EF4213D62C413FC800686033 /* SnackbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D52C413FC800686033 /* SnackbarView.swift */; };
 		EF4213D82C41412300686033 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D72C41412300686033 /* AppManager.swift */; };
+		EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* NavigationManager.swift */; };
+		EF9CDB862C89C0BB0044FB29 /* NavigationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */; };
 		EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBBE6F02C7489BC0085632A /* WelcomeScreenViewModelTests.swift */; };
 		EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7EEF32C3C419100C8CE70 /* EventListView.swift */; };
 		EFD7EEF62C3C41A500C8CE70 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7EEF52C3C41A500C8CE70 /* EventListViewModel.swift */; };
@@ -201,6 +203,8 @@
 		EF4213D32C413F9100686033 /* View+Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Snackbar.swift"; sourceTree = "<group>"; };
 		EF4213D52C413FC800686033 /* SnackbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarView.swift; sourceTree = "<group>"; };
 		EF4213D72C41412300686033 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		EF9CDB832C89C0920044FB29 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModels.swift; sourceTree = "<group>"; };
 		EFBBE6F02C7489BC0085632A /* WelcomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewModelTests.swift; sourceTree = "<group>"; };
 		EFD7EEF32C3C419100C8CE70 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		EFD7EEF52C3C41A500C8CE70 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
@@ -508,6 +512,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		EF9CDB822C89C0800044FB29 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				EF9CDB832C89C0920044FB29 /* NavigationManager.swift */,
+				EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		EFBBE6EF2C7489A90085632A /* WelcomeScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -676,6 +689,7 @@
 		EFE0A97B2C3D92A400E28953 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EF9CDB822C89C0800044FB29 /* Navigation */,
 				EFE0A97C2C3D92AC00E28953 /* Extensions */,
 				EF4213D12C4134B500686033 /* NetworkMonitor.swift */,
 				EF4213D72C41412300686033 /* AppManager.swift */,
@@ -1143,6 +1157,7 @@
 				EFD7EF072C3D41EC00C8CE70 /* EventsRepository.swift in Sources */,
 				EFE34DA02C74AAD500724DDC /* LoginView.swift in Sources */,
 				EFD7EF152C3D740700C8CE70 /* EventsNetworkService.swift in Sources */,
+				EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */,
 				EF4213D02C3FF9E500686033 /* CacheRule.swift in Sources */,
 				EFD7EEFE2C3D387800C8CE70 /* LocaliationKeys.swift in Sources */,
 				EF2983CB2C6A15D800C2393E /* SplashView.swift in Sources */,
@@ -1186,6 +1201,7 @@
 				EF4213CB2C3ED66200686033 /* CardView.swift in Sources */,
 				EF2983E92C6B74D100C2393E /* WelcomeScreenRouter.swift in Sources */,
 				EFE34DDD2C7DE70900724DDC /* RegistrationBuilder.swift in Sources */,
+				EF9CDB862C89C0BB0044FB29 /* NavigationModels.swift in Sources */,
 				EFD7EF172C3D75CB00C8CE70 /* NetworkRequest.swift in Sources */,
 				EF2983E32C6A210400C2393E /* Routable.swift in Sources */,
 				EF2128462C86106400D00887 /* Binding+Bool.swift in Sources */,

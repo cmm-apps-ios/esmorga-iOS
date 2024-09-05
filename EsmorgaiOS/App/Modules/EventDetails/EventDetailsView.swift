@@ -48,7 +48,7 @@ struct EventDetailsView: View {
                     VStack(spacing: 32) {
                         CustomButton(title: LocalizationKeys.Buttons.navigate.localize(),
                                      buttonStyle: .secondary) {
-                            viewModel.openAppleMaps(latitude: event.latitude, longitude: event.longitude)
+                            viewModel.openLocation(latitude: event.latitude, longitude: event.longitude)
                         }
                     }.padding(.top, 32)
 

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol EventDetailsRouterProtocol {
-    func openMaps(lat: Double, long: Double)
+    func openNavigationApp(_ method: NavigationModels.Method)
 }
 
 class EventDetailsRouter<T: Routable>: EventDetailsRouterProtocol {
@@ -20,11 +20,7 @@ class EventDetailsRouter<T: Routable>: EventDetailsRouterProtocol {
         self.router = router
     }
 
-    func openMaps(lat: Double, long: Double) {
-
-        guard let url = URL(string: "maps://?saddr=&daddr=\(lat),\(long)") else { return }
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
+    func openNavigationApp(_ method: NavigationModels.Method) {
+        UIApplication.shared.open(method.url, options: [: ], completionHandler: nil)
     }
 }

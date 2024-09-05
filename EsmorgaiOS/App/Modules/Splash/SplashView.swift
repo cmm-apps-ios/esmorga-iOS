@@ -17,7 +17,7 @@ struct SplashView: View {
             Group {
                 switch viewModel.state {
                 case .loggedOut:
-                    getWelcomeRoutingView()
+                    getEventListRoutingView()
                         .transition(transition)
                 case .loggedIn, .ready:
                     Text("")
@@ -27,6 +27,12 @@ struct SplashView: View {
                 viewModel.getUserStatus()
             }
             .animation(.default, value: viewModel.state)
+        }
+    }
+
+    private func getEventListRoutingView() -> some View {
+        RoutingView(MainRoute.self) { router in
+            EventListBuilder().build(mainRouter: router)
         }
     }
 

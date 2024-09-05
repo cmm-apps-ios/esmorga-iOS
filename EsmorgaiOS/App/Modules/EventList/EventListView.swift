@@ -68,9 +68,6 @@ struct EventListView: View {
                     viewModel.getEventList(forceRefresh: false)
                 }
             }
-            .navigationBar {
-                dismiss()
-            }
             .navigationBarBackButtonHidden(true)
         }
     }

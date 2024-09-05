@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 enum EventDetailsViewStates: ViewStateProtocol {
     case ready
@@ -15,14 +14,29 @@ enum EventDetailsViewStates: ViewStateProtocol {
 class EventDetailsViewModel: BaseViewModel<EventDetailsViewStates> {
 
     private let router: EventDetailsRouterProtocol
+    private let navigationManager: NavigationManagerProtocol
 
-    init(router: EventDetailsRouterProtocol) {
+    @Published var showMethodsAlert: Bool = false
+    var navigationMethods = [NavigationModels.Method]()
+
+    init(router: EventDetailsRouterProtocol,
+         navigationManager: NavigationManagerProtocol = NavigationManager()) {
         self.router = router
+        self.navigationManager = navigationManager
     }
 
-    func openAppleMaps(latitude: Double?, longitude: Double?) {
+    func openLocation(latitude: Double?, longitude: Double?) {
 
         guard let latitude, let longitude else { return }
-        router.openMaps(lat: latitude, long: longitude)
+        navigationMethods = navigationManager.getMethods(latitude: latitude, longitude: longitude)
+        if navigationMethods.count == 1, let method = navigationMethods.first {
+            router.openNavigationApp(method)
+        } else {
+            showMethodsAlert = true
+        }
+    }
+
+    func openNavigationMethod(_ method: NavigationModels.Method) {
+        router.openNavigationApp(method)
     }
 }

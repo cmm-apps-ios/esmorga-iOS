@@ -9,7 +9,7 @@ import Foundation
 
 enum RegisterModels {
 
-    enum TextFieldType {
+    enum TextFieldType: Int, CaseIterable {
         case name
         case lastName
         case email

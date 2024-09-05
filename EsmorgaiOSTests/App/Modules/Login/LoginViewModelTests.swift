@@ -32,7 +32,7 @@ final class LoginViewModelTests: XCTestCase {
     func test_given_email_text_input_when_valid_then_return_true() {
 
         sut.emailTextField.text = "valid@yopmail.com"
-        let isValid = sut.validateEmailField()
+        let isValid = sut.validateEmailField(checkIsEmpty: false)
         expect(isValid).to(beTrue())
     }
 
@@ -47,7 +47,7 @@ final class LoginViewModelTests: XCTestCase {
                                    "invalid@domain.c"]
         for scenario in scenarios {
             sut.emailTextField.text = scenario
-            let isValid = sut.validateEmailField()
+            let isValid = sut.validateEmailField(checkIsEmpty: false)
             expect(isValid).to(beFalse())
             expect(self.sut.emailTextField.errorMessage).to(equal(LocalizationKeys.TextField.InlineError.email.localize()))
         }
@@ -56,7 +56,7 @@ final class LoginViewModelTests: XCTestCase {
     func test_given_password_text_input_when_valid_then_return_true() {
 
         sut.passTextField.text = "SuperSecret!1"
-        let isValid = sut.validatePassField()
+        let isValid = sut.validatePassField(checkIsEmpty: false)
         expect(isValid).to(beTrue())
     }
 
@@ -67,7 +67,7 @@ final class LoginViewModelTests: XCTestCase {
 
         for scenario in scenarios {
             sut.passTextField.text = scenario
-            let isValid = sut.validatePassField()
+            let isValid = sut.validatePassField(checkIsEmpty: false)
             expect(isValid).to(beFalse())
             expect(self.sut.passTextField.errorMessage).to(equal(LocalizationKeys.TextField.InlineError.password.localize()))
         }
@@ -77,14 +77,12 @@ final class LoginViewModelTests: XCTestCase {
     func test_given_empty_fields_then_error_inline_is_displayed() async {
 
         sut.passTextField.text = ""
-        let passIsValid = sut.validatePassField()
-        expect(passIsValid).to(beFalse())
-        expect(self.sut.passTextField.errorMessage).to(equal(LocalizationKeys.TextField.InlineError.password.localize()))
-
         sut.emailTextField.text = ""
-        let emailIsValid = sut.validateEmailField()
-        expect(emailIsValid).to(beFalse())
-        expect(self.sut.emailTextField.errorMessage).to(equal(LocalizationKeys.TextField.InlineError.email.localize()))
+
+        sut.performLogin()
+
+        expect(self.sut.passTextField.errorMessage).to(equal(LocalizationKeys.TextField.InlineError.emptyField.localize()))
+        expect(self.sut.emailTextField.errorMessage).to(equal(LocalizationKeys.TextField.InlineError.emptyField.localize()))
 
     }
 

@@ -13,6 +13,7 @@ on:
   push:
     branches:
       - main
+      - release/release*
   workflow_dispatch:
   
 jobs:
@@ -107,7 +108,7 @@ jobs:
           run: |
 
                 rootDir="./"
-                DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config-QA.xcconfig"
+                DATA_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/Config-QA.xcconfig"
                 IPAfile=$rootDir"build-qa/EsmorgaiOS.ipa"
                 name=iOS_Esmorga_QA
                 versionName=$(grep "VERSION" $DATA_FILE | awk '{print $3}')
@@ -137,7 +138,7 @@ jobs:
           run: |
 
                 rootDir="./"
-                DATA_FILE=$rootDir"EsmorgaiOS/Resources/Config-PROD.xcconfig"
+                DATA_FILE=$rootDir"EsmorgaiOS/Resources//Configuration/Config-PROD.xcconfig"
                 IPAfile=$rootDir"build-prod/EsmorgaiOS.ipa"
                 name=iOS_Esmorga_PROD
                 versionName=$(grep "VERSION" $DATA_FILE | awk '{print $3}')

@@ -69,6 +69,14 @@
 		EF4213D82C41412300686033 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D72C41412300686033 /* AppManager.swift */; };
 		EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* NavigationManager.swift */; };
 		EF9CDB862C89C0BB0044FB29 /* NavigationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */; };
+		EFA646382C8AFC9500D528F9 /* LocalUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA646372C8AFC9500D528F9 /* LocalUserDataSource.swift */; };
+		EFA6463A2C8B00BE00D528F9 /* GetLocalUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */; };
+		EFA6463D2C8B02B200D528F9 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6463C2C8B02B200D528F9 /* DomainError.swift */; };
+		EFA646402C8B093800D528F9 /* LocalUserDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6463F2C8B093800D528F9 /* LocalUserDataSourceTests.swift */; };
+		EFA646422C8B09E700D528F9 /* UserModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA646412C8B09E700D528F9 /* UserModelBuilder.swift */; };
+		EFA646442C8B0AC300D528F9 /* MockLocalUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA646432C8B0AC300D528F9 /* MockLocalUserDataSource.swift */; };
+		EFA646472C8B0C8400D528F9 /* SplashViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA646462C8B0C8400D528F9 /* SplashViewModelTests.swift */; };
+		EFA6464B2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6464A2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift */; };
 		EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBBE6F02C7489BC0085632A /* WelcomeScreenViewModelTests.swift */; };
 		EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7EEF32C3C419100C8CE70 /* EventListView.swift */; };
 		EFD7EEF62C3C41A500C8CE70 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7EEF52C3C41A500C8CE70 /* EventListViewModel.swift */; };
@@ -83,6 +91,8 @@
 		EFD7EF1C2C3D871100C8CE70 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EFD7EF1B2C3D871100C8CE70 /* Localizable.xcstrings */; };
 		EFD7EF202C3D8E9F00C8CE70 /* EventListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7EF1F2C3D8E9F00C8CE70 /* EventListCell.swift */; };
 		EFD7EF232C3D8F2400C8CE70 /* RemoteEventListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7EF222C3D8F2400C8CE70 /* RemoteEventListModel.swift */; };
+		EFDDF90B2C8B1A5B0087AD97 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = EFDDF90A2C8B1A5B0087AD97 /* ViewInspector */; };
+		EFDDF90D2C8B1AD00087AD97 /* SplashViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDDF90C2C8B1AD00087AD97 /* SplashViewTests.swift */; };
 		EFE0A9792C3D925600E28953 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE0A9782C3D925600E28953 /* TextStyles.swift */; };
 		EFE0A97F2C3D92F200E28953 /* Text+TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE0A97E2C3D92F100E28953 /* Text+TextStyle.swift */; };
 		EFE0A9822C3E8AE000E28953 /* Esmorga.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFE0A9802C3E8AE000E28953 /* Esmorga.xcdatamodeld */; };
@@ -205,6 +215,14 @@
 		EF4213D72C41412300686033 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		EF9CDB832C89C0920044FB29 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModels.swift; sourceTree = "<group>"; };
+		EFA646372C8AFC9500D528F9 /* LocalUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserDataSource.swift; sourceTree = "<group>"; };
+		EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocalUserUseCase.swift; sourceTree = "<group>"; };
+		EFA6463C2C8B02B200D528F9 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
+		EFA6463F2C8B093800D528F9 /* LocalUserDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserDataSourceTests.swift; sourceTree = "<group>"; };
+		EFA646412C8B09E700D528F9 /* UserModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelBuilder.swift; sourceTree = "<group>"; };
+		EFA646432C8B0AC300D528F9 /* MockLocalUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocalUserDataSource.swift; sourceTree = "<group>"; };
+		EFA646462C8B0C8400D528F9 /* SplashViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModelTests.swift; sourceTree = "<group>"; };
+		EFA6464A2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetLocalUserUseCase.swift; sourceTree = "<group>"; };
 		EFBBE6F02C7489BC0085632A /* WelcomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewModelTests.swift; sourceTree = "<group>"; };
 		EFD7EEF32C3C419100C8CE70 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		EFD7EEF52C3C41A500C8CE70 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
@@ -218,6 +236,7 @@
 		EFD7EF1B2C3D871100C8CE70 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EFD7EF1F2C3D8E9F00C8CE70 /* EventListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListCell.swift; sourceTree = "<group>"; };
 		EFD7EF222C3D8F2400C8CE70 /* RemoteEventListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEventListModel.swift; sourceTree = "<group>"; };
+		EFDDF90C2C8B1AD00087AD97 /* SplashViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewTests.swift; sourceTree = "<group>"; };
 		EFE0A9782C3D925600E28953 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		EFE0A97E2C3D92F100E28953 /* Text+TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+TextStyle.swift"; sourceTree = "<group>"; };
 		EFE0A9812C3E8AE000E28953 /* Esmorga.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Esmorga.xcdatamodel; sourceTree = "<group>"; };
@@ -284,6 +303,7 @@
 				EF3158592C5937E800DE157A /* Nimble in Frameworks */,
 				EF3158752C5A608F00DE157A /* OHHTTPStubsSwift in Frameworks */,
 				EF3158732C5A608F00DE157A /* OHHTTPStubs in Frameworks */,
+				EFDDF90B2C8B1A5B0087AD97 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +443,7 @@
 		EF31587D2C5A7E5000DE157A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EFA646452C8B0C6600D528F9 /* Splash */,
 				EF21283E2C85D9E800D00887 /* Registration */,
 				EFE34DC82C7CC06B00724DDC /* Login */,
 				EFBBE6EF2C7489A90085632A /* WelcomeScreen */,
@@ -521,6 +542,44 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		EFA6463B2C8B029E00D528F9 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				EF3158522C53D9EE00DE157A /* NetworkError.swift */,
+				EFA6463C2C8B02B200D528F9 /* DomainError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		EFA6463E2C8B092700D528F9 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				EF2128382C85D5C200D00887 /* MockRegisterUserDataSource.swift */,
+				EFE34DB42C7C990400724DDC /* MockUserRemoteDataSource.swift */,
+				EFA646432C8B0AC300D528F9 /* MockLocalUserDataSource.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		EFA646452C8B0C6600D528F9 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				EFA646462C8B0C8400D528F9 /* SplashViewModelTests.swift */,
+				EFDDF90C2C8B1AD00087AD97 /* SplashViewTests.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		EFA646492C8B0CCD00D528F9 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34DC62C7CBFC500724DDC /* MockLoginUseCase.swift */,
+				EF21283C2C85D98800D00887 /* MockRegisterUserUseCase.swift */,
+				EFA6464A2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		EFBBE6EF2C7489A90085632A /* WelcomeScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,6 +675,7 @@
 				EFD7EF092C3D44A300C8CE70 /* GetEventListUseCase.swift */,
 				EFE34D9C2C74A92800724DDC /* LoginUseCase.swift */,
 				EFE34DD22C7DE28D00724DDC /* RegisterUserUseCase.swift */,
+				EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -664,7 +724,6 @@
 			isa = PBXGroup;
 			children = (
 				EFD7EF162C3D75CB00C8CE70 /* NetworkRequest.swift */,
-				EF3158522C53D9EE00DE157A /* NetworkError.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -689,6 +748,7 @@
 		EFE0A97B2C3D92A400E28953 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EFA6463B2C8B029E00D528F9 /* Errors */,
 				EF9CDB822C89C0800044FB29 /* Navigation */,
 				EFE0A97C2C3D92AC00E28953 /* Extensions */,
 				EF4213D12C4134B500686033 /* NetworkMonitor.swift */,
@@ -768,6 +828,7 @@
 			children = (
 				EFE34D952C74A59800724DDC /* LoginUserDataSource.swift */,
 				EFE34DD02C7DE0D300724DDC /* RegisterUserDataSource.swift */,
+				EFA646372C8AFC9500D528F9 /* LocalUserDataSource.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -786,10 +847,10 @@
 		EFE34DAF2C7C94AA00724DDC /* User */ = {
 			isa = PBXGroup;
 			children = (
+				EFA6463E2C8B092700D528F9 /* Mocks */,
 				EFE34DB02C7C94B800724DDC /* UserRemoteDataSourceTests.swift */,
-				EFE34DB42C7C990400724DDC /* MockUserRemoteDataSource.swift */,
 				EF2128362C85D42800D00887 /* RegisterUserDataSourceTests.swift */,
-				EF2128382C85D5C200D00887 /* MockRegisterUserDataSource.swift */,
+				EFA6463F2C8B093800D528F9 /* LocalUserDataSourceTests.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -824,6 +885,7 @@
 		EFE34DBD2C7CBB3400724DDC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EFA646412C8B09E700D528F9 /* UserModelBuilder.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -856,10 +918,9 @@
 		EFE34DC32C7CBC4A00724DDC /* User */ = {
 			isa = PBXGroup;
 			children = (
+				EFA646492C8B0CCD00D528F9 /* Mocks */,
 				EFE34DC42C7CBC6300724DDC /* LoginUseCaseTests.swift */,
-				EFE34DC62C7CBFC500724DDC /* MockLoginUseCase.swift */,
 				EF21283A2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift */,
-				EF21283C2C85D98800D00887 /* MockRegisterUserUseCase.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1016,6 +1077,7 @@
 				EF3158582C5937E800DE157A /* Nimble */,
 				EF3158722C5A608F00DE157A /* OHHTTPStubs */,
 				EF3158742C5A608F00DE157A /* OHHTTPStubsSwift */,
+				EFDDF90A2C8B1A5B0087AD97 /* ViewInspector */,
 			);
 			productName = EsmorgaiOSTests;
 			productReference = EFF7A1BB2C354BD00024704A /* EsmorgaiOSTests.xctest */;
@@ -1076,6 +1138,7 @@
 				EFD7EF0B2C3D4AE500C8CE70 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				EF3158572C5937E800DE157A /* XCRemoteSwiftPackageReference "Nimble" */,
 				EF3158712C5A608F00DE157A /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
+				EFDDF9092C8B1A5B0087AD97 /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			productRefGroup = EFF7A1AC2C354BCD0024704A /* Products */;
 			projectDirPath = "";
@@ -1158,9 +1221,11 @@
 				EFE34DA02C74AAD500724DDC /* LoginView.swift in Sources */,
 				EFD7EF152C3D740700C8CE70 /* EventsNetworkService.swift in Sources */,
 				EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */,
+				EFA6463D2C8B02B200D528F9 /* DomainError.swift in Sources */,
 				EF4213D02C3FF9E500686033 /* CacheRule.swift in Sources */,
 				EFD7EEFE2C3D387800C8CE70 /* LocaliationKeys.swift in Sources */,
 				EF2983CB2C6A15D800C2393E /* SplashView.swift in Sources */,
+				EFA646382C8AFC9500D528F9 /* LocalUserDataSource.swift in Sources */,
 				EFD7EF102C3D72CA00C8CE70 /* NetworkService.swift in Sources */,
 				EFE34DAB2C7796AC00724DDC /* LoginRouter.swift in Sources */,
 				EFD7EF0A2C3D44A300C8CE70 /* GetEventListUseCase.swift in Sources */,
@@ -1187,6 +1252,7 @@
 				EFE34DE42C81CEA000724DDC /* Snackbar.swift in Sources */,
 				EFE34DD32C7DE28D00724DDC /* RegisterUserUseCase.swift in Sources */,
 				EF4213C72C3ECBC400686033 /* NSManagedObject+Helpers.swift in Sources */,
+				EFA6463A2C8B00BE00D528F9 /* GetLocalUserUseCase.swift in Sources */,
 				EFE34DCC2C7CC88600724DDC /* String+RegexValidation.swift in Sources */,
 				EFF7A1DE2C3587810024704A /* CustomButton.swift in Sources */,
 				EFE34DCE2C7CC9F900724DDC /* LoginModels.swift in Sources */,
@@ -1226,14 +1292,20 @@
 				EFE34DB12C7C94B800724DDC /* UserRemoteDataSourceTests.swift in Sources */,
 				EF3158652C5A27DF00DE157A /* EventsRepositoryTests.swift in Sources */,
 				EFE34DC72C7CBFC500724DDC /* MockLoginUseCase.swift in Sources */,
+				EFA646422C8B09E700D528F9 /* UserModelBuilder.swift in Sources */,
 				EF2983FA2C6B987A00C2393E /* EventDetailsViewModelTests.swift in Sources */,
 				EF21283D2C85D98800D00887 /* MockRegisterUserUseCase.swift in Sources */,
 				EF31586E2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift in Sources */,
 				EFE34DC52C7CBC6300724DDC /* LoginUseCaseTests.swift in Sources */,
+				EFA646442C8B0AC300D528F9 /* MockLocalUserDataSource.swift in Sources */,
+				EFA646402C8B093800D528F9 /* LocalUserDataSourceTests.swift in Sources */,
+				EFA6464B2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift in Sources */,
 				EF31586C2C5A5D8B00DE157A /* MockRemoteEventsDataSource.swift in Sources */,
 				EFE34DBB2C7CBA9F00724DDC /* MockUserRepository.swift in Sources */,
 				EF2128402C85DA0000D00887 /* RegistrationViewModelTests.swift in Sources */,
 				EF3158802C5A7E7100DE157A /* EventListViewModelTests.swift in Sources */,
+				EFA646472C8B0C8400D528F9 /* SplashViewModelTests.swift in Sources */,
+				EFDDF90D2C8B1AD00087AD97 /* SplashViewTests.swift in Sources */,
 				EF3158702C5A5DED00DE157A /* LocalEventsDataSourceTests.swift in Sources */,
 				EFE34DC12C7CBB9300724DDC /* AccountLoginModel.swift in Sources */,
 				EF31585B2C59384800DE157A /* GetEventListUseCaseTests.swift in Sources */,
@@ -1901,6 +1973,14 @@
 				version = 5.9.1;
 			};
 		};
+		EFDDF9092C8B1A5B0087AD97 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = exactVersion;
+				version = 0.9.11;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1923,6 +2003,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EFD7EF0B2C3D4AE500C8CE70 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		EFDDF90A2C8B1A5B0087AD97 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFDDF9092C8B1A5B0087AD97 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
 		};
 /* End XCSwiftPackageProductDependency section */
 

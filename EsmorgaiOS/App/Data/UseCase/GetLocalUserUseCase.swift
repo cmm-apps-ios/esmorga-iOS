@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias GetLocalUserResult = Result<UserModels.User, DomianError>
+typealias GetLocalUserResult = Result<UserModels.User, DomainError>
 typealias GetLocalUserUseCaseAlias = BaseUseCase<Void, GetLocalUserResult>
 
 class GetLocalUserUseCase: GetLocalUserUseCaseAlias {

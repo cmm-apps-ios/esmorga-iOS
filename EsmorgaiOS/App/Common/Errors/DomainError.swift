@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum DomianError: Error, Equatable {
+enum DomainError: Error, Equatable {
     case noCacheContent
 }

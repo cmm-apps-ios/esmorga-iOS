@@ -108,11 +108,12 @@ jobs:
           run: |
 
                 rootDir="./"
-                DATA_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/Config-QA.xcconfig"
+                CONFIG_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/BaseConfig.xcconfig"
+                QA_CONFIG_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/Config-QA.xcconfig"
                 IPAfile=$rootDir"build-qa/EsmorgaiOS.ipa"
                 name=iOS_Esmorga_QA
-                versionName=$(grep "VERSION" $DATA_FILE | awk '{print $3}')
-                versionCode=$(grep "PROJECT_BUILD" $DATA_FILE | awk '{print $3}')
+                versionName=$(grep "VERSION" $CONFIG_FILE | awk '{print $3}')
+                versionCode=$(grep "PROJECT_BUILD" $QA_CONFIG_FILE | awk '{print $3}')
                 buildHash=$(md5sum $fileQA | awk '{print $4}')
 
                 project_id=2793
@@ -138,11 +139,12 @@ jobs:
           run: |
 
                 rootDir="./"
-                DATA_FILE=$rootDir"EsmorgaiOS/Resources//Configuration/Config-PROD.xcconfig"
+                CONFIG_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/BaseConfig.xcconfig"
+                PROD_CONFIG_FILE=$rootDir"EsmorgaiOS/Resources//Configuration/Config-PROD.xcconfig"
                 IPAfile=$rootDir"build-prod/EsmorgaiOS.ipa"
                 name=iOS_Esmorga_PROD
-                versionName=$(grep "VERSION" $DATA_FILE | awk '{print $3}')
-                versionCode=$(grep "PROJECT_BUILD" $DATA_FILE | awk '{print $3}')
+                versionName=$(grep "VERSION" $CONFIG_FILE | awk '{print $3}')
+                versionCode=$(grep "PROJECT_BUILD" $PROD_CONFIG_FILE | awk '{print $3}')
                 buildHash=$(md5sum $fileQA | awk '{print $4}')
 
                 project_id=2793

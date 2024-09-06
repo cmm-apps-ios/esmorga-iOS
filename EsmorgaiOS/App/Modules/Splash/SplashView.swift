@@ -9,24 +9,52 @@ import SwiftUI
 
 struct SplashView: View {
 
-    @StateObject private var viewModel = SplashViewModel()
+    enum AccessibilityIds {
+        static let loading: String = "SplashView.loading"
+        static let welcome: String = "SplashView.welcomeScreen"
+        static let eventList: String = "SplashView.eventList"
+    }
+
+    @ObservedObject private var viewModel = SplashViewModel()
+    init(viewModel: SplashViewModel = SplashViewModel()) {
+        _viewModel = ObservedObject(wrappedValue: viewModel)
+    }
     let transition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading))
 
     var body: some View {
         BaseView(viewModel: viewModel) {
             Group {
                 switch viewModel.state {
+                case .ready:
+                    getLoadingView()
+                        .accessibilityIdentifier(AccessibilityIds.loading)
                 case .loggedOut:
                     getWelcomeRoutingView()
+                        .accessibilityIdentifier(AccessibilityIds.welcome)
                         .transition(transition)
-                case .loggedIn, .ready:
-                    Text("")
+                case .loggedIn:
+                    getEventListRoutingView()
+                        .accessibilityIdentifier(AccessibilityIds.eventList)
+                        .transition(transition)
                 }
             }
-            .onAppear {
-                viewModel.getUserStatus()
+            .task {
+                await viewModel.getUserStatus()
             }
             .animation(.default, value: viewModel.state)
+        }
+    }
+
+    private func getLoadingView() -> some View {
+        VStack {
+            Spacer()
+            Image("esmorga")
+                .resizable()
+                .aspectRatio(1/1, contentMode: .fill)
+                .cornerRadius(16)
+                .frame(width: 120, height: 120, alignment: .center)
+                .padding(.bottom, 72)
+            Spacer()
         }
     }
 

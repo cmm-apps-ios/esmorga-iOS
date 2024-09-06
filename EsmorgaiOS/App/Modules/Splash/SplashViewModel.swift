@@ -15,7 +15,20 @@ enum SplashViewStates: ViewStateProtocol {
 
 class SplashViewModel: BaseViewModel<SplashViewStates> {
 
-    func getUserStatus() {
-        changeState(.loggedOut)
+    private let getLocalUserUseCase: GetLocalUserUseCaseAlias
+
+    init(getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase()) {
+        self.getLocalUserUseCase = getLocalUserUseCase
+    }
+
+    func getUserStatus() async {
+        
+        let result = await getLocalUserUseCase.execute()
+        switch result {
+        case .success:
+            changeState(.loggedIn)
+        case .failure:
+            changeState(.loggedOut)
+        }
     }
 }

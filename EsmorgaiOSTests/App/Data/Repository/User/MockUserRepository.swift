@@ -26,4 +26,9 @@ final class MockUserRepository: UserRepositoryProtocol {
         }
         return mockUser
     }
+
+    func getLocalUser() async -> UserModels.User? {
+        return mockUser
+    }
+
 }

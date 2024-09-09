@@ -55,11 +55,11 @@ jobs:
         - name: Test 
           run: 
             |
-              xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES
+              xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES  -resultBundlePath TestResults
         - name: Prepare Test Report 
           run: 
             |
-              xcrun xccov view --report --json DerivedData/Build/Logs/Test/*.xcresult
+              xcrun xccov view --report --json TestResults/*.xcresult
 
         - name: Clean up keychain and provisioning profile
           if: ${{ always() }}

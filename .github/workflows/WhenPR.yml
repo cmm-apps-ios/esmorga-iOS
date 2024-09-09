@@ -56,10 +56,11 @@ jobs:
           run: 
             |
               xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES  -resultBundlePath TestResults
-        - name: Prepare Test Report 
-          run: 
-            |
-              xcrun xccov view --report --json TestResults.xcresult
+
+        - uses: kishikawakatsumi/xcresulttool@v1
+          with:
+            path: TestResults.xcresult
+          if: ${{ always() }}
 
         - name: Clean up keychain and provisioning profile
           if: ${{ always() }}

@@ -60,6 +60,7 @@ jobs:
         - uses: kishikawakatsumi/xcresulttool@v1
           with:
             path: TestResults.xcresult
+            token: secrets.GITHUB_TOKEN 
           if: ${{ always() }}
 
         - name: Clean up keychain and provisioning profile

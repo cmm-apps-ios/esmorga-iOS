@@ -59,7 +59,7 @@ jobs:
         - name: Prepare Test Report 
           run: 
             |
-              xcrun xccov view --report --json TestResults/*.xcresult
+              xcrun xccov view --report --json TestResults.xcresult
 
         - name: Clean up keychain and provisioning profile
           if: ${{ always() }}

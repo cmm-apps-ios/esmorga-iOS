@@ -56,10 +56,11 @@ jobs:
           run: 
             |
               xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES  -resultBundlePath TestResults
+              slather coverage --ignore "DerivedData/*" --scheme XXX --output-directory TestResults2 TestResults.xcresult
 
         - uses: kishikawakatsumi/xcresulttool@v1
           with:
-            path: TestResults.xcresult
+            path: TestResults2.xcresult
             token: ${{ secrets.GITHUB_TOKEN }}
             show-passed-tests: false
           if: ${{ always() }}

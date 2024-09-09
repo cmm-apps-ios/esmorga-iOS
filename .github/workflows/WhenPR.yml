@@ -61,6 +61,7 @@ jobs:
           with:
             path: TestResults.xcresult
             token: ${{ secrets.GITHUB_TOKEN }}
+            show-passed-tests: false
           if: ${{ always() }}
 
         - name: Clean up keychain and provisioning profile

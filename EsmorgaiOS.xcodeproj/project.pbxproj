@@ -2379,7 +2379,7 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		EF0811BB2C9093F900DE4887 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing?ref=swiftbeta.com";
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
 			requirement = {
 				kind = exactVersion;
 				version = 1.17.4;

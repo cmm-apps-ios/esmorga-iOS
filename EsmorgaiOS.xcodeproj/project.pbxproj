@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EF0811B32C9093C500DE4887 /* EsmorgaiOSSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* EsmorgaiOSSnapshotTests.swift */; };
+		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
 		EF0811C32C90943300DE4887 /* View+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811C22C90943300DE4887 /* View+UIViewController.swift */; };
@@ -168,7 +168,7 @@
 
 /* Begin PBXFileReference section */
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF0811B22C9093C500DE4887 /* EsmorgaiOSSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsmorgaiOSSnapshotTests.swift; sourceTree = "<group>"; };
+		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
 		EF2128362C85D42800D00887 /* RegisterUserDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserDataSourceTests.swift; sourceTree = "<group>"; };
 		EF2128382C85D5C200D00887 /* MockRegisterUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRegisterUserDataSource.swift; sourceTree = "<group>"; };
@@ -353,7 +353,6 @@
 			isa = PBXGroup;
 			children = (
 				EF0811C52C90944400DE4887 /* Login */,
-				EF0811B22C9093C500DE4887 /* EsmorgaiOSSnapshotTests.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -377,6 +376,7 @@
 		EF0811C52C90944400DE4887 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1292,7 +1292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF0811B32C9093C500DE4887 /* EsmorgaiOSSnapshotTests.swift in Sources */,
+				EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */,
 				EF0811C32C90943300DE4887 /* View+UIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

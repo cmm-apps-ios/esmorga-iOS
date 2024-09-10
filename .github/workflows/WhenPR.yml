@@ -55,7 +55,7 @@ jobs:
         - name: Test 
           run: 
             |
-              xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' ONLY_ACTIVE_ARCH=YES
+              xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' ONLY_ACTIVE_ARCH=YES
         - name: Clean up keychain and provisioning profile
           if: ${{ always() }}
           run: |

@@ -1,5 +1,5 @@
 {
-  "originHash" : "d66806443fe3a79381f954b8345208a86b15ef6a44d0494354d2135d4744a6c6",
+  "originHash" : "db30f0d78bdcc96240c5e2bfbb9489bdf5f3906cbe453d91c117d2c655537f60",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -44,6 +44,24 @@
       "state" : {
         "revision" : "12f19662426d0434d6c330c6974d53e2eb10ecd9",
         "version" : "9.1.0"
+      }
+    },
+    {
+      "identity" : "swift-snapshot-testing?ref=swiftbeta.com",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-snapshot-testing?ref=swiftbeta.com",
+      "state" : {
+        "revision" : "6d932a79e7173b275b96c600c86c603cf84f153c",
+        "version" : "1.17.4"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax",
+      "state" : {
+        "revision" : "515f79b522918f83483068d99c68daeb5116342d",
+        "version" : "600.0.0-prerelease-2024-09-04"
       }
     }
   ],

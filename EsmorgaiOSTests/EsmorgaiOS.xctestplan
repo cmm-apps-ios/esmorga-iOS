@@ -18,6 +18,13 @@
         "identifier" : "EFF7A1BA2C354BD00024704A",
         "name" : "EsmorgaiOSTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EsmorgaiOS.xcodeproj",
+        "identifier" : "EFB750C72C8F3C6F004C0ADA",
+        "name" : "EsmorgaiOSSnapshotTests"
+      }
     }
   ],
   "version" : 1

@@ -29,14 +29,14 @@ struct ErrorDialog: View {
     var body: some View {
         ZStack {
             Color.surface.edgesIgnoringSafeArea(.all)
-            VStack {
+            VStack(alignment: .center) {
                 Spacer()
                 Image(model.image)
                     .resizable()
                     .frame(width: 80, height: 80)
-
                 Text(model.message)
                     .style(.heading1)
+                    .multilineTextAlignment(.center)
                 Spacer()
                 CustomButton(title: model.buttonText, buttonStyle: .primary) {
                     model.handler?()
@@ -45,8 +45,6 @@ struct ErrorDialog: View {
             }
             .padding(16)
         }
-        .navigationBar {
-            dismiss()
-        }
+        .navigationBarBackButtonHidden(true)
     }
 }

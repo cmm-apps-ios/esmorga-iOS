@@ -69,6 +69,16 @@
 		EF4213D82C41412300686033 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D72C41412300686033 /* AppManager.swift */; };
 		EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* NavigationManager.swift */; };
 		EF9CDB862C89C0BB0044FB29 /* NavigationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */; };
+		EFB750EA2C8F3C6F004C0ADA /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = EFB750CA2C8F3C6F004C0ADA /* Nimble */; };
+		EFB750EB2C8F3C6F004C0ADA /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFB750CE2C8F3C6F004C0ADA /* OHHTTPStubsSwift */; };
+		EFB750EC2C8F3C6F004C0ADA /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = EFB750CC2C8F3C6F004C0ADA /* OHHTTPStubs */; };
+		EFB750EE2C8F3C6F004C0ADA /* mock_dummy_file.json in Resources */ = {isa = PBXBuildFile; fileRef = EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */; };
+		EFB750EF2C8F3C6F004C0ADA /* mock_account_login.json in Resources */ = {isa = PBXBuildFile; fileRef = EFE34DB22C7C95B600724DDC /* mock_account_login.json */; };
+		EFB750F02C8F3C6F004C0ADA /* mock_event_list.json in Resources */ = {isa = PBXBuildFile; fileRef = EF3158792C5A78B900DE157A /* mock_event_list.json */; };
+		EFB750FD2C8F3CF5004C0ADA /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB750FC2C8F3CF5004C0ADA /* LoginSnapshotTests.swift */; };
+		EFB751002C8F3D3F004C0ADA /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EFB750FF2C8F3D3F004C0ADA /* InlineSnapshotTesting */; };
+		EFB751022C8F3D3F004C0ADA /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EFB751012C8F3D3F004C0ADA /* SnapshotTesting */; };
+		EFB751072C906629004C0ADA /* View+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB751062C906629004C0ADA /* View+UIViewController.swift */; };
 		EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBBE6F02C7489BC0085632A /* WelcomeScreenViewModelTests.swift */; };
 		EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7EEF32C3C419100C8CE70 /* EventListView.swift */; };
 		EFD7EEF62C3C41A500C8CE70 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7EEF52C3C41A500C8CE70 /* EventListViewModel.swift */; };
@@ -129,6 +139,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EFB750C92C8F3C6F004C0ADA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFF7A1A32C354BCD0024704A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFF7A1AA2C354BCD0024704A;
+			remoteInfo = EsmorgaiOS;
+		};
 		EFF7A1BC2C354BD00024704A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EFF7A1A32C354BCD0024704A /* Project object */;
@@ -205,6 +222,9 @@
 		EF4213D72C41412300686033 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		EF9CDB832C89C0920044FB29 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModels.swift; sourceTree = "<group>"; };
+		EFB750F62C8F3C6F004C0ADA /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFB750FC2C8F3CF5004C0ADA /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginSnapshotTests.swift; path = EsmorgaiOSSnapshotTests/Modules/LoginSnapshotTests.swift; sourceTree = SOURCE_ROOT; };
+		EFB751062C906629004C0ADA /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
 		EFBBE6F02C7489BC0085632A /* WelcomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewModelTests.swift; sourceTree = "<group>"; };
 		EFD7EEF32C3C419100C8CE70 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		EFD7EEF52C3C41A500C8CE70 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
@@ -269,6 +289,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EFB750E92C8F3C6F004C0ADA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFB751022C8F3D3F004C0ADA /* SnapshotTesting in Frameworks */,
+				EFB750EA2C8F3C6F004C0ADA /* Nimble in Frameworks */,
+				EFB750EB2C8F3C6F004C0ADA /* OHHTTPStubsSwift in Frameworks */,
+				EFB751002C8F3D3F004C0ADA /* InlineSnapshotTesting in Frameworks */,
+				EFB750EC2C8F3C6F004C0ADA /* OHHTTPStubs in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EFF7A1A82C354BCD0024704A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -519,6 +551,58 @@
 				EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		EFB750F72C8F3C9F004C0ADA /* EsmorgaiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF2128422C860F3700D00887 /* EsmorgaiOS.xctestplan */,
+				EFB750F82C8F3CAE004C0ADA /* SnapshotTests */,
+				EFF7A1C82C354BD00024704A /* EsmorgaiOSUITests */,
+				EFF7A1BE2C354BD00024704A /* EsmorgaiOSTests */,
+			);
+			path = EsmorgaiOSTests;
+			sourceTree = "<group>";
+		};
+		EFB750F82C8F3CAE004C0ADA /* SnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				EFB751032C9065EA004C0ADA /* Common */,
+				EFB750F92C8F3CD0004C0ADA /* Modules */,
+			);
+			path = SnapshotTests;
+			sourceTree = "<group>";
+		};
+		EFB750F92C8F3CD0004C0ADA /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				EFB750FA2C8F3CD5004C0ADA /* Login */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		EFB750FA2C8F3CD5004C0ADA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EFB750FC2C8F3CF5004C0ADA /* LoginSnapshotTests.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		EFB751032C9065EA004C0ADA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EFB751052C9065F7004C0ADA /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EFB751052C9065F7004C0ADA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EFB751062C906629004C0ADA /* View+UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EFBBE6EF2C7489A90085632A /* WelcomeScreen */ = {
@@ -816,16 +900,8 @@
 			isa = PBXGroup;
 			children = (
 				EFE34DBE2C7CBB5700724DDC /* API */,
-				EFE34DBD2C7CBB3400724DDC /* Models */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		EFE34DBD2C7CBB3400724DDC /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		EFE34DBE2C7CBB5700724DDC /* API */ = {
@@ -897,8 +973,7 @@
 			isa = PBXGroup;
 			children = (
 				EFF7A1AD2C354BCD0024704A /* EsmorgaiOS */,
-				EFF7A1BE2C354BD00024704A /* EsmorgaiOSTests */,
-				EFF7A1C82C354BD00024704A /* EsmorgaiOSUITests */,
+				EFB750F72C8F3C9F004C0ADA /* EsmorgaiOSTests */,
 				EFF7A1AC2C354BCD0024704A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -909,6 +984,7 @@
 				EFF7A1AB2C354BCD0024704A /* EsmorgaiOS.app */,
 				EFF7A1BB2C354BD00024704A /* EsmorgaiOSTests.xctest */,
 				EFF7A1C52C354BD00024704A /* EsmorgaiOSUITests.xctest */,
+				EFB750F62C8F3C6F004C0ADA /* EsmorgaiOSSnapshotTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -927,7 +1003,6 @@
 		EFF7A1BE2C354BD00024704A /* EsmorgaiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				EF2128422C860F3700D00887 /* EsmorgaiOS.xctestplan */,
 				EF31585C2C5A21B700DE157A /* App */,
 			);
 			path = EsmorgaiOSTests;
@@ -978,6 +1053,31 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EFB750C72C8F3C6F004C0ADA /* EsmorgaiOSSnapshotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFB750F12C8F3C6F004C0ADA /* Build configuration list for PBXNativeTarget "EsmorgaiOSSnapshotTests" */;
+			buildPhases = (
+				EFB750CF2C8F3C6F004C0ADA /* Sources */,
+				EFB750E92C8F3C6F004C0ADA /* Frameworks */,
+				EFB750ED2C8F3C6F004C0ADA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFB750C82C8F3C6F004C0ADA /* PBXTargetDependency */,
+			);
+			name = EsmorgaiOSSnapshotTests;
+			packageProductDependencies = (
+				EFB750CA2C8F3C6F004C0ADA /* Nimble */,
+				EFB750CC2C8F3C6F004C0ADA /* OHHTTPStubs */,
+				EFB750CE2C8F3C6F004C0ADA /* OHHTTPStubsSwift */,
+				EFB750FF2C8F3D3F004C0ADA /* InlineSnapshotTesting */,
+				EFB751012C8F3D3F004C0ADA /* SnapshotTesting */,
+			);
+			productName = EsmorgaiOSTests;
+			productReference = EFB750F62C8F3C6F004C0ADA /* EsmorgaiOSSnapshotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		EFF7A1AA2C354BCD0024704A /* EsmorgaiOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFF7A1CF2C354BD00024704A /* Build configuration list for PBXNativeTarget "EsmorgaiOS" */;
@@ -1049,6 +1149,9 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					EFB750C72C8F3C6F004C0ADA = {
+						LastSwiftMigration = 1540;
+					};
 					EFF7A1AA2C354BCD0024704A = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -1076,6 +1179,7 @@
 				EFD7EF0B2C3D4AE500C8CE70 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				EF3158572C5937E800DE157A /* XCRemoteSwiftPackageReference "Nimble" */,
 				EF3158712C5A608F00DE157A /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
+				EFB750FE2C8F3D3F004C0ADA /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = EFF7A1AC2C354BCD0024704A /* Products */;
 			projectDirPath = "";
@@ -1084,11 +1188,22 @@
 				EFF7A1AA2C354BCD0024704A /* EsmorgaiOS */,
 				EFF7A1BA2C354BD00024704A /* EsmorgaiOSTests */,
 				EFF7A1C42C354BD00024704A /* EsmorgaiOSUITests */,
+				EFB750C72C8F3C6F004C0ADA /* EsmorgaiOSSnapshotTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EFB750ED2C8F3C6F004C0ADA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFB750EE2C8F3C6F004C0ADA /* mock_dummy_file.json in Resources */,
+				EFB750EF2C8F3C6F004C0ADA /* mock_account_login.json in Resources */,
+				EFB750F02C8F3C6F004C0ADA /* mock_event_list.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EFF7A1A92C354BCD0024704A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1124,6 +1239,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EFB750CF2C8F3C6F004C0ADA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFB750FD2C8F3CF5004C0ADA /* LoginSnapshotTests.swift in Sources */,
+				EFB751072C906629004C0ADA /* View+UIViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EFF7A1A72C354BCD0024704A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1252,6 +1376,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EFB750C82C8F3C6F004C0ADA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFF7A1AA2C354BCD0024704A /* EsmorgaiOS */;
+			targetProxy = EFB750C92C8F3C6F004C0ADA /* PBXContainerItemProxy */;
+		};
 		EFF7A1BD2C354BD00024704A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EFF7A1AA2C354BCD0024704A /* EsmorgaiOS */;
@@ -1546,7 +1675,113 @@
 			};
 			name = "Release-PROD";
 		};
-		EFF7A1CD2C354BD00024704A /* Debug-QA */ = {
+		EFB750F22C8F3C6F004C0ADA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 49934BYA74;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorgaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EsmorgaiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EsmorgaiOS";
+			};
+			name = Debug;
+		};
+		EFB750F32C8F3C6F004C0ADA /* Debug-PROD */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 49934BYA74;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorgaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EsmorgaiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EsmorgaiOS";
+			};
+			name = "Debug-PROD";
+		};
+		EFB750F42C8F3C6F004C0ADA /* Release-QA */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 49934BYA74;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorgaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EsmorgaiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EsmorgaiOS";
+			};
+			name = "Release-QA";
+		};
+		EFB750F52C8F3C6F004C0ADA /* Release-PROD */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 49934BYA74;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorgaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EsmorgaiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EsmorgaiOS";
+			};
+			name = "Release-PROD";
+		};
+		EFF7A1CD2C354BD00024704A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1607,7 +1842,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = "Debug-QA";
+			name = Debug;
 		};
 		EFF7A1CE2C354BD00024704A /* Release-QA */ = {
 			isa = XCBuildConfiguration;
@@ -1665,7 +1900,7 @@
 			};
 			name = "Release-QA";
 		};
-		EFF7A1D02C354BD00024704A /* Debug-QA */ = {
+		EFF7A1D02C354BD00024704A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF3158832C5B872100DE157A /* Config-QA.xcconfig */;
 			buildSettings = {
@@ -1701,7 +1936,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Debug-QA";
+			name = Debug;
 		};
 		EFF7A1D12C354BD00024704A /* Release-QA */ = {
 			isa = XCBuildConfiguration;
@@ -1741,7 +1976,7 @@
 			};
 			name = "Release-QA";
 		};
-		EFF7A1D32C354BD00024704A /* Debug-QA */ = {
+		EFF7A1D32C354BD00024704A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1763,7 +1998,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EsmorgaiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EsmorgaiOS";
 			};
-			name = "Debug-QA";
+			name = Debug;
 		};
 		EFF7A1D42C354BD00024704A /* Release-QA */ = {
 			isa = XCBuildConfiguration;
@@ -1789,7 +2024,7 @@
 			};
 			name = "Release-QA";
 		};
-		EFF7A1D62C354BD00024704A /* Debug-QA */ = {
+		EFF7A1D62C354BD00024704A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1806,7 +2041,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = EsmorgaiOS;
 			};
-			name = "Debug-QA";
+			name = Debug;
 		};
 		EFF7A1D72C354BD00024704A /* Release-QA */ = {
 			isa = XCBuildConfiguration;
@@ -1830,10 +2065,21 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EFB750F12C8F3C6F004C0ADA /* Build configuration list for PBXNativeTarget "EsmorgaiOSSnapshotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFB750F22C8F3C6F004C0ADA /* Debug */,
+				EFB750F32C8F3C6F004C0ADA /* Debug-PROD */,
+				EFB750F42C8F3C6F004C0ADA /* Release-QA */,
+				EFB750F52C8F3C6F004C0ADA /* Release-PROD */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release-QA";
+		};
 		EFF7A1A62C354BCD0024704A /* Build configuration list for PBXProject "EsmorgaiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFF7A1CD2C354BD00024704A /* Debug-QA */,
+				EFF7A1CD2C354BD00024704A /* Debug */,
 				EF2128502C8705E700D00887 /* Debug-PROD */,
 				EFF7A1CE2C354BD00024704A /* Release-QA */,
 				EF2128542C87060700D00887 /* Release-PROD */,
@@ -1844,7 +2090,7 @@
 		EFF7A1CF2C354BD00024704A /* Build configuration list for PBXNativeTarget "EsmorgaiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFF7A1D02C354BD00024704A /* Debug-QA */,
+				EFF7A1D02C354BD00024704A /* Debug */,
 				EF2128512C8705E700D00887 /* Debug-PROD */,
 				EFF7A1D12C354BD00024704A /* Release-QA */,
 				EF2128552C87060700D00887 /* Release-PROD */,
@@ -1855,7 +2101,7 @@
 		EFF7A1D22C354BD00024704A /* Build configuration list for PBXNativeTarget "EsmorgaiOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFF7A1D32C354BD00024704A /* Debug-QA */,
+				EFF7A1D32C354BD00024704A /* Debug */,
 				EF2128522C8705E700D00887 /* Debug-PROD */,
 				EFF7A1D42C354BD00024704A /* Release-QA */,
 				EF2128562C87060700D00887 /* Release-PROD */,
@@ -1866,7 +2112,7 @@
 		EFF7A1D52C354BD00024704A /* Build configuration list for PBXNativeTarget "EsmorgaiOSUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFF7A1D62C354BD00024704A /* Debug-QA */,
+				EFF7A1D62C354BD00024704A /* Debug */,
 				EF2128532C8705E700D00887 /* Debug-PROD */,
 				EFF7A1D72C354BD00024704A /* Release-QA */,
 				EF2128572C87060700D00887 /* Release-PROD */,
@@ -1891,6 +2137,30 @@
 			requirement = {
 				kind = exactVersion;
 				version = 9.1.0;
+			};
+		};
+		EFB750CB2C8F3C6F004C0ADA /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = exactVersion;
+				version = 13.3.0;
+			};
+		};
+		EFB750CD2C8F3C6F004C0ADA /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs";
+			requirement = {
+				kind = exactVersion;
+				version = 9.1.0;
+			};
+		};
+		EFB750FE2C8F3D3F004C0ADA /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing?ref=swiftbeta.com";
+			requirement = {
+				kind = exactVersion;
+				version = 1.17.4;
 			};
 		};
 		EFD7EF0B2C3D4AE500C8CE70 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -1918,6 +2188,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EF3158712C5A608F00DE157A /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
 			productName = OHHTTPStubsSwift;
+		};
+		EFB750CA2C8F3C6F004C0ADA /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFB750CB2C8F3C6F004C0ADA /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		EFB750CC2C8F3C6F004C0ADA /* OHHTTPStubs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFB750CD2C8F3C6F004C0ADA /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubs;
+		};
+		EFB750CE2C8F3C6F004C0ADA /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFB750CD2C8F3C6F004C0ADA /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubsSwift;
+		};
+		EFB750FF2C8F3D3F004C0ADA /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFB750FE2C8F3D3F004C0ADA /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		EFB751012C8F3D3F004C0ADA /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFB750FE2C8F3D3F004C0ADA /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
 		EFD7EF0C2C3D4AE500C8CE70 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

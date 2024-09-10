@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF0811B32C9093C500DE4887 /* EsmorgaiOSSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* EsmorgaiOSSnapshotTests.swift */; };
+		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
+		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
+		EF0811C32C90943300DE4887 /* View+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811C22C90943300DE4887 /* View+UIViewController.swift */; };
 		EF2128372C85D42800D00887 /* RegisterUserDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2128362C85D42800D00887 /* RegisterUserDataSourceTests.swift */; };
 		EF2128392C85D5C200D00887 /* MockRegisterUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2128382C85D5C200D00887 /* MockRegisterUserDataSource.swift */; };
 		EF21283B2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21283A2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift */; };
@@ -139,6 +143,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EF0811B42C9093C500DE4887 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFF7A1A32C354BCD0024704A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFF7A1AA2C354BCD0024704A;
+			remoteInfo = EsmorgaiOS;
+		};
 		EFF7A1BC2C354BD00024704A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EFF7A1A32C354BCD0024704A /* Project object */;
@@ -156,6 +167,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF0811B22C9093C500DE4887 /* EsmorgaiOSSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsmorgaiOSSnapshotTests.swift; sourceTree = "<group>"; };
+		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
 		EF2128362C85D42800D00887 /* RegisterUserDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserDataSourceTests.swift; sourceTree = "<group>"; };
 		EF2128382C85D5C200D00887 /* MockRegisterUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRegisterUserDataSource.swift; sourceTree = "<group>"; };
 		EF21283A2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserUseCaseTests.swift; sourceTree = "<group>"; };
@@ -288,6 +302,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EF0811AD2C9093C400DE4887 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */,
+				EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EFF7A1A82C354BCD0024704A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,6 +340,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF0811B12C9093C500DE4887 /* EsmorgaiOSSnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF0811C12C90941600DE4887 /* Common */,
+				EF0811C02C90940D00DE4887 /* Modules */,
+			);
+			path = EsmorgaiOSSnapshotTests;
+			sourceTree = "<group>";
+		};
+		EF0811C02C90940D00DE4887 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				EF0811C52C90944400DE4887 /* Login */,
+				EF0811B22C9093C500DE4887 /* EsmorgaiOSSnapshotTests.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		EF0811C12C90941600DE4887 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EF0811C42C90943D00DE4887 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EF0811C42C90943D00DE4887 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EF0811C22C90943300DE4887 /* View+UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EF0811C52C90944400DE4887 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		EF21283E2C85D9E800D00887 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
@@ -960,6 +1024,7 @@
 				EFF7A1AD2C354BCD0024704A /* EsmorgaiOS */,
 				EFF7A1BE2C354BD00024704A /* EsmorgaiOSTests */,
 				EFF7A1C82C354BD00024704A /* EsmorgaiOSUITests */,
+				EF0811B12C9093C500DE4887 /* EsmorgaiOSSnapshotTests */,
 				EFF7A1AC2C354BCD0024704A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -970,6 +1035,7 @@
 				EFF7A1AB2C354BCD0024704A /* EsmorgaiOS.app */,
 				EFF7A1BB2C354BD00024704A /* EsmorgaiOSTests.xctest */,
 				EFF7A1C52C354BD00024704A /* EsmorgaiOSUITests.xctest */,
+				EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1039,6 +1105,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EF0811AF2C9093C400DE4887 /* EsmorgaiOSSnapshotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF0811BA2C9093C500DE4887 /* Build configuration list for PBXNativeTarget "EsmorgaiOSSnapshotTests" */;
+			buildPhases = (
+				EF0811AC2C9093C400DE4887 /* Sources */,
+				EF0811AD2C9093C400DE4887 /* Frameworks */,
+				EF0811AE2C9093C400DE4887 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF0811B52C9093C500DE4887 /* PBXTargetDependency */,
+			);
+			name = EsmorgaiOSSnapshotTests;
+			packageProductDependencies = (
+				EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */,
+				EF0811BE2C9093F900DE4887 /* SnapshotTesting */,
+			);
+			productName = EsmorgaiOSSnapshotTests;
+			productReference = EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		EFF7A1AA2C354BCD0024704A /* EsmorgaiOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFF7A1CF2C354BD00024704A /* Build configuration list for PBXNativeTarget "EsmorgaiOS" */;
@@ -1111,6 +1199,10 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					EF0811AF2C9093C400DE4887 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = EFF7A1AA2C354BCD0024704A;
+					};
 					EFF7A1AA2C354BCD0024704A = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -1139,6 +1231,7 @@
 				EF3158572C5937E800DE157A /* XCRemoteSwiftPackageReference "Nimble" */,
 				EF3158712C5A608F00DE157A /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
 				EFDDF9092C8B1A5B0087AD97 /* XCRemoteSwiftPackageReference "ViewInspector" */,
+				EF0811BB2C9093F900DE4887 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = EFF7A1AC2C354BCD0024704A /* Products */;
 			projectDirPath = "";
@@ -1147,11 +1240,19 @@
 				EFF7A1AA2C354BCD0024704A /* EsmorgaiOS */,
 				EFF7A1BA2C354BD00024704A /* EsmorgaiOSTests */,
 				EFF7A1C42C354BD00024704A /* EsmorgaiOSUITests */,
+				EF0811AF2C9093C400DE4887 /* EsmorgaiOSSnapshotTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EF0811AE2C9093C400DE4887 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EFF7A1A92C354BCD0024704A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1187,6 +1288,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EF0811AC2C9093C400DE4887 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF0811B32C9093C500DE4887 /* EsmorgaiOSSnapshotTests.swift in Sources */,
+				EF0811C32C90943300DE4887 /* View+UIViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EFF7A1A72C354BCD0024704A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1324,6 +1434,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EF0811B52C9093C500DE4887 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFF7A1AA2C354BCD0024704A /* EsmorgaiOS */;
+			targetProxy = EF0811B42C9093C500DE4887 /* PBXContainerItemProxy */;
+		};
 		EFF7A1BD2C354BD00024704A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EFF7A1AA2C354BCD0024704A /* EsmorgaiOS */;
@@ -1337,6 +1452,308 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		EF0811B62C9093C500DE4887 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 49934BYA74;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmm-studio.EsmorgaiOSSnapshotTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EsmorgaiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EsmorgaiOS";
+			};
+			name = Debug;
+		};
+		EF0811B72C9093C500DE4887 /* Debug-PROD */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 49934BYA74;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmm-studio.EsmorgaiOSSnapshotTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EsmorgaiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EsmorgaiOS";
+			};
+			name = "Debug-PROD";
+		};
+		EF0811B82C9093C500DE4887 /* Release-QA */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 49934BYA74;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmm-studio.EsmorgaiOSSnapshotTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EsmorgaiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EsmorgaiOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release-QA";
+		};
+		EF0811B92C9093C500DE4887 /* Release-PROD */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 49934BYA74;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 49934BYA74;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmm-studio.EsmorgaiOSSnapshotTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EsmorgaiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EsmorgaiOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release-PROD";
+		};
 		EF2128502C8705E700D00887 /* Debug-PROD */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1618,7 +2035,7 @@
 			};
 			name = "Release-PROD";
 		};
-		EFF7A1CD2C354BD00024704A /* Debug-QA */ = {
+		EFF7A1CD2C354BD00024704A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1679,7 +2096,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = "Debug-QA";
+			name = Debug;
 		};
 		EFF7A1CE2C354BD00024704A /* Release-QA */ = {
 			isa = XCBuildConfiguration;
@@ -1737,7 +2154,7 @@
 			};
 			name = "Release-QA";
 		};
-		EFF7A1D02C354BD00024704A /* Debug-QA */ = {
+		EFF7A1D02C354BD00024704A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF3158832C5B872100DE157A /* Config-QA.xcconfig */;
 			buildSettings = {
@@ -1773,7 +2190,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Debug-QA";
+			name = Debug;
 		};
 		EFF7A1D12C354BD00024704A /* Release-QA */ = {
 			isa = XCBuildConfiguration;
@@ -1813,7 +2230,7 @@
 			};
 			name = "Release-QA";
 		};
-		EFF7A1D32C354BD00024704A /* Debug-QA */ = {
+		EFF7A1D32C354BD00024704A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1835,7 +2252,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EsmorgaiOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EsmorgaiOS";
 			};
-			name = "Debug-QA";
+			name = Debug;
 		};
 		EFF7A1D42C354BD00024704A /* Release-QA */ = {
 			isa = XCBuildConfiguration;
@@ -1861,7 +2278,7 @@
 			};
 			name = "Release-QA";
 		};
-		EFF7A1D62C354BD00024704A /* Debug-QA */ = {
+		EFF7A1D62C354BD00024704A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1878,7 +2295,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = EsmorgaiOS;
 			};
-			name = "Debug-QA";
+			name = Debug;
 		};
 		EFF7A1D72C354BD00024704A /* Release-QA */ = {
 			isa = XCBuildConfiguration;
@@ -1902,10 +2319,21 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EF0811BA2C9093C500DE4887 /* Build configuration list for PBXNativeTarget "EsmorgaiOSSnapshotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF0811B62C9093C500DE4887 /* Debug */,
+				EF0811B72C9093C500DE4887 /* Debug-PROD */,
+				EF0811B82C9093C500DE4887 /* Release-QA */,
+				EF0811B92C9093C500DE4887 /* Release-PROD */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release-QA";
+		};
 		EFF7A1A62C354BCD0024704A /* Build configuration list for PBXProject "EsmorgaiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFF7A1CD2C354BD00024704A /* Debug-QA */,
+				EFF7A1CD2C354BD00024704A /* Debug */,
 				EF2128502C8705E700D00887 /* Debug-PROD */,
 				EFF7A1CE2C354BD00024704A /* Release-QA */,
 				EF2128542C87060700D00887 /* Release-PROD */,
@@ -1916,7 +2344,7 @@
 		EFF7A1CF2C354BD00024704A /* Build configuration list for PBXNativeTarget "EsmorgaiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFF7A1D02C354BD00024704A /* Debug-QA */,
+				EFF7A1D02C354BD00024704A /* Debug */,
 				EF2128512C8705E700D00887 /* Debug-PROD */,
 				EFF7A1D12C354BD00024704A /* Release-QA */,
 				EF2128552C87060700D00887 /* Release-PROD */,
@@ -1927,7 +2355,7 @@
 		EFF7A1D22C354BD00024704A /* Build configuration list for PBXNativeTarget "EsmorgaiOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFF7A1D32C354BD00024704A /* Debug-QA */,
+				EFF7A1D32C354BD00024704A /* Debug */,
 				EF2128522C8705E700D00887 /* Debug-PROD */,
 				EFF7A1D42C354BD00024704A /* Release-QA */,
 				EF2128562C87060700D00887 /* Release-PROD */,
@@ -1938,7 +2366,7 @@
 		EFF7A1D52C354BD00024704A /* Build configuration list for PBXNativeTarget "EsmorgaiOSUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFF7A1D62C354BD00024704A /* Debug-QA */,
+				EFF7A1D62C354BD00024704A /* Debug */,
 				EF2128532C8705E700D00887 /* Debug-PROD */,
 				EFF7A1D72C354BD00024704A /* Release-QA */,
 				EF2128572C87060700D00887 /* Release-PROD */,
@@ -1949,6 +2377,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EF0811BB2C9093F900DE4887 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing?ref=swiftbeta.com";
+			requirement = {
+				kind = exactVersion;
+				version = 1.17.4;
+			};
+		};
 		EF3158572C5937E800DE157A /* XCRemoteSwiftPackageReference "Nimble" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Quick/Nimble";
@@ -1984,6 +2420,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF0811BB2C9093F900DE4887 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		EF0811BE2C9093F900DE4887 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF0811BB2C9093F900DE4887 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
 		EF3158582C5937E800DE157A /* Nimble */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EF3158572C5937E800DE157A /* XCRemoteSwiftPackageReference "Nimble" */;

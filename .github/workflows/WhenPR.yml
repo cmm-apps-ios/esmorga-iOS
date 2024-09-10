@@ -64,9 +64,6 @@ jobs:
           run: gem install bundler
         - name: Install Slather
           run: gem install slather
-        - name: Set up CocoaPods
-          run: pod install
-          working-directory: ./     
         - name: Test Filter 
           run: 
             |

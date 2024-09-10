@@ -67,11 +67,11 @@ jobs:
         - name: Test Filter 
           run: 
             |
-              slather coverage --ignore "DerivedData/*" --scheme EsmorgaiOS --output-directory TestResults2 TestResults.xcresult
+              slather coverage  --scheme Slather TestResults.xcresult
 
         - uses: kishikawakatsumi/xcresulttool@v1
           with:
-            path: TestResults2.xcresult
+            path: coverage
             token: ${{ secrets.GITHUB_TOKEN }}
             show-passed-tests: false
           if: ${{ always() }}

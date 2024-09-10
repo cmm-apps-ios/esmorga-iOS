@@ -1,0 +1,4 @@
+output_directory: coverage
+xcodeproj: EsmorgaiOS.xcodeproj
+ignore:
+    DerivedData/*

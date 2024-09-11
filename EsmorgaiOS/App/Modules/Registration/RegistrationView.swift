@@ -11,8 +11,13 @@ struct RegistrationView: View {
 
     @Environment(\.dismiss) private var dismiss
     @StateObject var viewModel: RegistrationViewModel
-
     @FocusState private var focusedField: RegisterModels.TextFieldType?
+
+    enum AccessibilityIds {
+        static let title: String = "RegistrationView.title"
+        static let textField: String = "RegistrationView.textfield"
+        static let button: String = "RegistrationView.RegistrationView"
+    }
 
     var body: some View {
         BaseView(viewModel: viewModel) {
@@ -21,6 +26,7 @@ struct RegistrationView: View {
                     Text(LocalizationKeys.Registration.title.localize())
                         .style(.heading1)
                         .padding(.top, 20)
+                        .accessibilityIdentifier(AccessibilityIds.title)
                     LazyVStack(alignment: .leading, spacing: 10) {
                         ForEach(viewModel.textFields.indices, id: \.self) { index in
                             CustomTextField(text: $viewModel.textFields[index].text,
@@ -34,6 +40,7 @@ struct RegistrationView: View {
                                 }
                             }
                             .focused($focusedField, equals: viewModel.textFields[index].type)
+                            .accessibilityIdentifier(AccessibilityIds.textField + "\(index)")
                         }
                     }
                     CustomButton(title: LocalizationKeys.Buttons.createAccount.localize(),
@@ -42,6 +49,7 @@ struct RegistrationView: View {
                         viewModel.performRegistration()
                     }
                                  .padding(.top, 37)
+                                 .accessibilityIdentifier(AccessibilityIds.button)
                 }
                 .padding(.horizontal, 16)
             }

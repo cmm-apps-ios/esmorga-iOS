@@ -11,6 +11,8 @@
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
 		EF0811C32C90943300DE4887 /* View+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811C22C90943300DE4887 /* View+UIViewController.swift */; };
+		EF0811C72C91915700DE4887 /* RegistrationViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811C62C91915700DE4887 /* RegistrationViewTests.swift */; };
+		EF0811C92C919B4F00DE4887 /* RegistrationSpanshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811C82C919B4F00DE4887 /* RegistrationSpanshotTests.swift */; };
 		EF2128372C85D42800D00887 /* RegisterUserDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2128362C85D42800D00887 /* RegisterUserDataSourceTests.swift */; };
 		EF2128392C85D5C200D00887 /* MockRegisterUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2128382C85D5C200D00887 /* MockRegisterUserDataSource.swift */; };
 		EF21283B2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21283A2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift */; };
@@ -170,6 +172,8 @@
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
+		EF0811C62C91915700DE4887 /* RegistrationViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewTests.swift; sourceTree = "<group>"; };
+		EF0811C82C919B4F00DE4887 /* RegistrationSpanshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSpanshotTests.swift; sourceTree = "<group>"; };
 		EF2128362C85D42800D00887 /* RegisterUserDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserDataSourceTests.swift; sourceTree = "<group>"; };
 		EF2128382C85D5C200D00887 /* MockRegisterUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRegisterUserDataSource.swift; sourceTree = "<group>"; };
 		EF21283A2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserUseCaseTests.swift; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 		EF0811C02C90940D00DE4887 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EF0811CA2C919B5700DE4887 /* Registration */,
 				EF0811C52C90944400DE4887 /* Login */,
 			);
 			path = Modules;
@@ -381,10 +386,19 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		EF0811CA2C919B5700DE4887 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				EF0811C82C919B4F00DE4887 /* RegistrationSpanshotTests.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 		EF21283E2C85D9E800D00887 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
 				EF21283F2C85DA0000D00887 /* RegistrationViewModelTests.swift */,
+				EF0811C62C91915700DE4887 /* RegistrationViewTests.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -1292,6 +1306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF0811C92C919B4F00DE4887 /* RegistrationSpanshotTests.swift in Sources */,
 				EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */,
 				EF0811C32C90943300DE4887 /* View+UIViewController.swift in Sources */,
 			);
@@ -1419,6 +1434,7 @@
 				EF3158702C5A5DED00DE157A /* LocalEventsDataSourceTests.swift in Sources */,
 				EFE34DC12C7CBB9300724DDC /* AccountLoginModel.swift in Sources */,
 				EF31585B2C59384800DE157A /* GetEventListUseCaseTests.swift in Sources */,
+				EF0811C72C91915700DE4887 /* RegistrationViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

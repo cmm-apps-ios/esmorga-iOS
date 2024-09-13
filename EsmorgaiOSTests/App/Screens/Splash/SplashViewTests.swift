@@ -8,6 +8,7 @@
 import XCTest
 import ViewInspector
 import SwiftUI
+import Nimble
 @testable import EsmorgaiOS
 
 final class SplashViewTests: XCTestCase {
@@ -46,6 +47,7 @@ final class SplashViewTests: XCTestCase {
     func test_given_splash_view_when_not_logged_user_then_welcome_screen_is_shown() async throws {
 
         await viewModel.getUserStatus()
+        await expect(self.viewModel.state).toEventually(equal(SplashViewStates.loggedOut))
 
         let inspected = try sut.inspect()
         XCTAssertNoThrow(try inspected.find(viewWithAccessibilityIdentifier: SplashView.AccessibilityIds.welcome))
@@ -57,6 +59,7 @@ final class SplashViewTests: XCTestCase {
         mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
 
         await viewModel.getUserStatus()
+        await expect(self.viewModel.state).toEventually(equal(SplashViewStates.loggedIn))
 
         let inspected = try sut.inspect()
         XCTAssertNoThrow(try inspected.find(viewWithAccessibilityIdentifier: SplashView.AccessibilityIds.dashboard))

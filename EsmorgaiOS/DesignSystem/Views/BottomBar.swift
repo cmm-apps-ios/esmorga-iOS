@@ -51,6 +51,7 @@ struct BottomBar: View {
                     .frame(width: 24, height: 24, alignment: .center)
                     .foregroundColor(selectedTab == item.tag ? .onSurfaceVariant : .onSurface)
                     .padding(.vertical, 4)
+                    .font(.system(size: 14, weight: .regular, design: .default))
                 Text(item.text)
                     .style(.caption, textColor: selectedTab == item.tag ? .onSurfaceVariant : .onSurface)
                     .padding(.top, 4)

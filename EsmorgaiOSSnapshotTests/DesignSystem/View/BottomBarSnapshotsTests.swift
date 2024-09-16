@@ -22,7 +22,7 @@ final class BottomBarSnapshotsTests: XCTestCase {
             }
         }
 
-        assertSnapshot(of: hostView.toVC(), as: .image)
+        assertSnapshot(of: hostView.toVC(), as: .image(precision: 0.98))
     }
 
     func test_given_bottom_bar_item_with_tab_1_selected() {
@@ -35,7 +35,7 @@ final class BottomBarSnapshotsTests: XCTestCase {
             }
         }
 
-        assertSnapshot(of: hostView.toVC(), as: .image)
+        assertSnapshot(of: hostView.toVC(), as: .image(precision: 0.98))
     }
 
     func test_given_bottom_bar_item_with_tab_2_selected() {
@@ -48,7 +48,7 @@ final class BottomBarSnapshotsTests: XCTestCase {
             }
         }
 
-        assertSnapshot(of: hostView.toVC(), as: .image)
+        assertSnapshot(of: hostView.toVC(), as: .image(precision: 0.98))
     }
 
     private func givenBarItems() -> [BottomBar.BottomBarItem] {

@@ -16,8 +16,10 @@ final class BottomBarSnapshotsTests: XCTestCase {
         @State var selectedTab = 0
 
         let hostView = HostView {
-            Spacer()
-            BottomBar(selectedTab: $selectedTab, barItems: givenBarItems())
+            VStack {
+                Spacer()
+                BottomBar(selectedTab: $selectedTab, barItems: givenBarItems())
+            }
         }
 
         assertSnapshot(of: hostView.toVC(), as: .image)
@@ -27,8 +29,10 @@ final class BottomBarSnapshotsTests: XCTestCase {
         @State var selectedTab = 1
 
         let hostView = HostView {
-            Spacer()
-            BottomBar(selectedTab: $selectedTab, barItems: givenBarItems())
+            VStack {
+                Spacer()
+                BottomBar(selectedTab: $selectedTab, barItems: givenBarItems())
+            }
         }
 
         assertSnapshot(of: hostView.toVC(), as: .image)
@@ -38,8 +42,10 @@ final class BottomBarSnapshotsTests: XCTestCase {
         @State var selectedTab = 2
 
         let hostView = HostView {
-            Spacer()
-            BottomBar(selectedTab: $selectedTab, barItems: givenBarItems())
+            VStack {
+                Spacer()
+                BottomBar(selectedTab: $selectedTab, barItems: givenBarItems())
+            }
         }
 
         assertSnapshot(of: hostView.toVC(), as: .image)
@@ -60,7 +66,10 @@ struct HostView<Content: View>: View {
     }
 
     var body: some View {
-        content
-            .frame(maxWidth: .infinity, maxHeight: .infinity) // Optional: to ensure it takes up full space
+        ZStack {
+            Color.surface
+                .edgesIgnoringSafeArea(.all)
+            content
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

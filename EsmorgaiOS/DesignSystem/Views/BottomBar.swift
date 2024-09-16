@@ -47,6 +47,7 @@ struct BottomBar: View {
             VStack {
                 Image(systemName: item.image)
                     .resizable()
+                    .aspectRatio(1/1, contentMode: .fill)
                     .frame(width: 24, height: 24, alignment: .center)
                     .foregroundColor(selectedTab == item.tag ? .onSurfaceVariant : .onSurface)
                     .padding(.vertical, 4)
@@ -54,7 +55,7 @@ struct BottomBar: View {
                     .style(.caption, textColor: selectedTab == item.tag ? .onSurfaceVariant : .onSurface)
                     .padding(.top, 4)
             }
-        }.frame(maxWidth: .infinity)
+        }.frame(maxWidth: .infinity, alignment: .center)
             .accessibilityIdentifier(AccessibilityIds.barItem + "\(item.tag)")
     }
 }

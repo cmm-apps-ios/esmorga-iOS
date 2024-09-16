@@ -9,12 +9,12 @@ import SwiftUI
 
 struct Snackbar: ViewModifier {
 
-    @Binding var viewModel: SnackbarView.ViewModel
+    @Binding var model: SnackbarView.Model
 
     func body(content: Content) -> some View {
         ZStack {
             content
-            SnackbarView(viewModel: $viewModel)
+            SnackbarView(model: $model)
         }
     }
 }

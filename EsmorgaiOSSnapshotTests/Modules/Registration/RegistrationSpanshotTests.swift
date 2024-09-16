@@ -12,14 +12,17 @@ import SnapshotTesting
 final class RegistrationSpanshotTests: XCTestCase {
 
     private var sut: RegistrationView!
+    private var viewModel: RegistrationViewModel!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        sut = RegistrationBuilder().build(mainRouter: Router<MainRoute>(isPresented: .constant(.none)))
+        viewModel = RegistrationViewModel(coordinator: nil)
+        sut = RegistrationView(viewModel: viewModel)
     }
 
     override func tearDownWithError() throws {
         sut = nil
+        viewModel = nil
         try super.tearDownWithError()
     }
 
@@ -29,19 +32,19 @@ final class RegistrationSpanshotTests: XCTestCase {
 
     func test_given_registration_screen_as_when_invalid_fields_then_screen_is_correct_with_inlines() throws {
 
-        sut.viewModel.textFields[0].text = "a"
-        sut.viewModel.textFields[1].text = "a"
-        sut.viewModel.textFields[2].text = "a"
-        sut.viewModel.textFields[3].text = "a"
-        sut.viewModel.textFields[4].text = "a"
-        sut.viewModel.performRegistration()
+        viewModel.textFields[0].text = "a"
+        viewModel.textFields[1].text = "a"
+        viewModel.textFields[2].text = "a"
+        viewModel.textFields[3].text = "a"
+        viewModel.textFields[4].text = "a"
+        viewModel.performRegistration()
 
         assertSnapshot(of: sut.toVC(), as: .image)
     }
 
     func test_given_registration_screen_as_when_empty_fields_then_screen_is_correct_with_inlines() throws {
 
-        sut.viewModel.performRegistration()
+        viewModel.performRegistration()
         assertSnapshot(of: sut.toVC(), as: .image)
     }
 }

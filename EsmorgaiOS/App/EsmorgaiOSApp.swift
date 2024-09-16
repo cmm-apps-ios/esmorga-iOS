@@ -23,7 +23,7 @@ struct EsmorgaiOSApp: App {
     var body: some Scene {
         WindowGroup {
             if NSClassFromString("XCTest") == nil {
-                SplashView()
+                MainCoordinatorView()
             }
         }
     }

@@ -4,6 +4,39 @@
     "" : {
 
     },
+    "bottom_bar_explore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explorar"
+          }
+        }
+      }
+    },
+    "bottom_bar_myevents" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mis Eventos"
+          }
+        }
+      }
+    },
+    "bottom_bar_myprofile" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil"
+          }
+        }
+      }
+    },
     "button_create_account" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -259,6 +292,12 @@
           }
         }
       }
+    },
+    "Mis Eventos Content" : {
+
+    },
+    "Perfil Content" : {
+
     },
     "placeholder_confirm_password" : {
       "extractionState" : "manual",

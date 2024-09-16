@@ -77,6 +77,12 @@ class LocalizationKeys {
     enum Snackbar {
         static let noInternet: String = "snackbar_no_internet"
     }
+
+    enum Dashboard {
+        static let explore: String = "bottom_bar_explore"
+        static let myEvents: String = "bottom_bar_myevents"
+        static let myProfile: String = "bottom_bar_myprofile"
+    }
 }
 
 extension String {

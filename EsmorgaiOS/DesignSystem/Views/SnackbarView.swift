@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SnackbarView: View {
 
-    struct ViewModel {
+    struct Model {
         let message: String?
         var isShown: Bool
         let autoDismiss: Bool
@@ -21,14 +21,14 @@ struct SnackbarView: View {
         }
     }
 
-    @Binding var viewModel: ViewModel
+    @Binding var model: Model
 
     var body: some View {
         VStack {
             Spacer()
-            if viewModel.isShown {
+            if model.isShown {
                 Group {
-                    Text(viewModel.message ?? "")
+                    Text(model.message ?? "")
                         .foregroundColor(.white)
                         .font(.system(size: 14))
                         .padding(.all, 16)
@@ -37,12 +37,12 @@ struct SnackbarView: View {
                 .background(.black.opacity(0.588))
                 .cornerRadius(8)
                 .onTapGesture {
-                    viewModel.isShown = false
+                    model.isShown = false
                 }
                 .onAppear {
-                    if viewModel.autoDismiss {
+                    if model.autoDismiss {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                            viewModel.isShown = false
+                            model.isShown = false
                         }
                     }
                 }
@@ -50,7 +50,7 @@ struct SnackbarView: View {
         }
         .padding(.horizontal, 16)
         .padding(.bottom, 18)
-        .animation(.linear(duration: 0.3), value: viewModel.isShown)
+        .animation(.linear(duration: 0.3), value: model.isShown)
         .transition(.opacity)
         .frame(maxWidth: .infinity)
     }

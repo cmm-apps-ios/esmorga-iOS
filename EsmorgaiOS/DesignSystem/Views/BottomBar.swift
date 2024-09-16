@@ -46,8 +46,8 @@ struct BottomBar: View {
         }) {
             VStack {
                 Image(systemName: item.image)
+                    .renderingMode(.template)
                     .resizable()
-                    .aspectRatio(1/1, contentMode: .fit)
                     .frame(width: 24, height: 24, alignment: .center)
                     .foregroundColor(selectedTab == item.tag ? .onSurfaceVariant : .onSurface)
                     .padding(.vertical, 4)

@@ -36,7 +36,7 @@ struct AccountSession: Equatable, Encodable, Decodable, KeychainCodable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(accessToken, forKey: .accessToken)
         try container.encode(refreshToken, forKey: .refreshToken)
-        try container.encode(expirationDate.timeIntervalSince1970, forKey: .expirationDate)
+        try container.encode(expirationDate, forKey: .expirationDate)
     }
 
     static var service: String { "\(Bundle.identifier)"}

@@ -7,7 +7,7 @@
 
 import Alamofire
 
-struct AccountCredential: Credential {
+class AccountCredential: Credential {
 
     typealias Token = AccountSession
     private let accountSessionKeychain: CodableKeychain<AccountSession>

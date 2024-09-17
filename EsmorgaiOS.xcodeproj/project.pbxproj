@@ -158,6 +158,10 @@
 		EFF9C87A2C99931500DE50BC /* NSNotification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8792C99930F00DE50BC /* NSNotification+Name.swift */; };
 		EFF9C87D2C99934900DE50BC /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C87C2C99934700DE50BC /* Credential.swift */; };
 		EFF9C87F2C99936400DE50BC /* AccountCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C87E2C99936000DE50BC /* AccountCredential.swift */; };
+		EFF9C8842C99997F00DE50BC /* AccountAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8832C99997C00DE50BC /* AccountAuthenticatorTests.swift */; };
+		EFF9C8872C999C8600DE50BC /* AccountCredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8862C999C8300DE50BC /* AccountCredentialTests.swift */; };
+		EFF9C88A2C99C7D300DE50BC /* AccountTokensRefresherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8892C99C7CA00DE50BC /* AccountTokensRefresherTests.swift */; };
+		EFF9C88C2C99C88C00DE50BC /* mock_refresh_token.json in Resources */ = {isa = PBXBuildFile; fileRef = EFF9C88B2C99C88000DE50BC /* mock_refresh_token.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -334,6 +338,10 @@
 		EFF9C8792C99930F00DE50BC /* NSNotification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+Name.swift"; sourceTree = "<group>"; };
 		EFF9C87C2C99934700DE50BC /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		EFF9C87E2C99936000DE50BC /* AccountCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredential.swift; sourceTree = "<group>"; };
+		EFF9C8832C99997C00DE50BC /* AccountAuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAuthenticatorTests.swift; sourceTree = "<group>"; };
+		EFF9C8862C999C8300DE50BC /* AccountCredentialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialTests.swift; sourceTree = "<group>"; };
+		EFF9C8892C99C7CA00DE50BC /* AccountTokensRefresherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTokensRefresherTests.swift; sourceTree = "<group>"; };
+		EFF9C88B2C99C88000DE50BC /* mock_refresh_token.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_refresh_token.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,9 +548,10 @@
 		EF31585C2C5A21B700DE157A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				EFE34DBE2C7CBB5700724DDC /* API */,
 				EFE34DBC2C7CBB2D00724DDC /* Core */,
-				EF31587D2C5A7E5000DE157A /* Screens */,
 				EF31585D2C5A21BE00DE157A /* Data */,
+				EF31587D2C5A7E5000DE157A /* Screens */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -597,6 +606,7 @@
 		EF3158782C5A788E00DE157A /* MockFiles */ = {
 			isa = PBXGroup;
 			children = (
+				EFF9C88B2C99C88000DE50BC /* mock_refresh_token.json */,
 				EF3158792C5A78B900DE157A /* mock_event_list.json */,
 				EFE34DB22C7C95B600724DDC /* mock_account_login.json */,
 				EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */,
@@ -1054,7 +1064,6 @@
 		EFE34DBC2C7CBB2D00724DDC /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				EFE34DBE2C7CBB5700724DDC /* API */,
 				EFE34DBD2C7CBB3400724DDC /* Models */,
 			);
 			path = Core;
@@ -1071,6 +1080,7 @@
 		EFE34DBE2C7CBB5700724DDC /* API */ = {
 			isa = PBXGroup;
 			children = (
+				EFF9C8812C99994700DE50BC /* Handlers */,
 				EFE34DBF2C7CBB6C00724DDC /* RemoteModels */,
 			);
 			path = API;
@@ -1250,6 +1260,40 @@
 			path = Session;
 			sourceTree = "<group>";
 		};
+		EFF9C8812C99994700DE50BC /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9C8882C99C7C200DE50BC /* Refresher */,
+				EFF9C8852C999C7800DE50BC /* Credential */,
+				EFF9C8822C99995600DE50BC /* Authenticator */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		EFF9C8822C99995600DE50BC /* Authenticator */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9C8832C99997C00DE50BC /* AccountAuthenticatorTests.swift */,
+			);
+			path = Authenticator;
+			sourceTree = "<group>";
+		};
+		EFF9C8852C999C7800DE50BC /* Credential */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9C8862C999C8300DE50BC /* AccountCredentialTests.swift */,
+			);
+			path = Credential;
+			sourceTree = "<group>";
+		};
+		EFF9C8882C99C7C200DE50BC /* Refresher */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9C8892C99C7CA00DE50BC /* AccountTokensRefresherTests.swift */,
+			);
+			path = Refresher;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1423,6 +1467,7 @@
 				EF31587C2C5A7DA800DE157A /* mock_dummy_file.json in Resources */,
 				EFE34DB32C7C95B600724DDC /* mock_account_login.json in Resources */,
 				EF31587A2C5A78B900DE157A /* mock_event_list.json in Resources */,
+				EFF9C88C2C99C88C00DE50BC /* mock_refresh_token.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1557,6 +1602,7 @@
 				EFE34DB92C7C99B500724DDC /* UserRepositoryTests.swift in Sources */,
 				EF21283B2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift in Sources */,
 				EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */,
+				EFF9C8872C999C8600DE50BC /* AccountCredentialTests.swift in Sources */,
 				EF3158772C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift in Sources */,
 				EF2128372C85D42800D00887 /* RegisterUserDataSourceTests.swift in Sources */,
 				EFE34DB52C7C990400724DDC /* MockUserRemoteDataSource.swift in Sources */,
@@ -1583,6 +1629,8 @@
 				EFDDF90D2C8B1AD00087AD97 /* SplashViewTests.swift in Sources */,
 				EF3158702C5A5DED00DE157A /* LocalEventsDataSourceTests.swift in Sources */,
 				EFE34DC12C7CBB9300724DDC /* AccountLoginModel.swift in Sources */,
+				EFF9C8842C99997F00DE50BC /* AccountAuthenticatorTests.swift in Sources */,
+				EFF9C88A2C99C7D300DE50BC /* AccountTokensRefresherTests.swift in Sources */,
 				EF31585B2C59384800DE157A /* GetEventListUseCaseTests.swift in Sources */,
 				EF0811C72C91915700DE4887 /* RegistrationViewTests.swift in Sources */,
 			);
@@ -2580,7 +2628,7 @@
 			repositoryURL = "https://github.com/nalexn/ViewInspector";
 			requirement = {
 				kind = exactVersion;
-				version = 0.9.11;
+				version = 0.10.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

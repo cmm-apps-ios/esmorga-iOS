@@ -10,11 +10,11 @@ import SwiftUI
 struct RegistrationView: View {
 
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: RegistrationViewModel
+    @StateObject var viewModel: RegistrationViewModel
     @FocusState private var focusedField: RegisterModels.TextFieldType?
 
     init(viewModel: RegistrationViewModel) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     enum AccessibilityIds {

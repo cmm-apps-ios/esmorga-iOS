@@ -10,10 +10,10 @@ import SwiftUI
 struct EventListView: View {
 
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: EventListViewModel
+    @StateObject var viewModel: EventListViewModel
 
     init(viewModel: EventListViewModel) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {

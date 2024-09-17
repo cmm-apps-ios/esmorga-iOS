@@ -10,11 +10,11 @@ import SwiftUI
 struct LoginView: View {
 
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: LoginViewModel
+    @StateObject var viewModel: LoginViewModel
     @FocusState private var focusedField: Field?
 
     init(viewModel: LoginViewModel) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {

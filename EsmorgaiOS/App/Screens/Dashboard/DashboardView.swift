@@ -16,10 +16,10 @@ struct  DashboardView: View {
         static let profile: String = "DashboardView.profile"
     }
 
-    @ObservedObject var viewModel: DashboardViewModel
+    @StateObject var viewModel: DashboardViewModel
 
     init(viewModel: DashboardViewModel) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {

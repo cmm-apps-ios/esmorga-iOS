@@ -11,12 +11,12 @@ import UIKit
 struct EventDetailsView: View {
 
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: EventDetailsViewModel
+    @StateObject var viewModel: EventDetailsViewModel
     var event: EventModels.Event
 
     init(viewModel: EventDetailsViewModel,
          event: EventModels.Event) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
         self.event = event
     }
 

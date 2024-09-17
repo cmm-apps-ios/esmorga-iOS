@@ -9,10 +9,10 @@ import SwiftUI
 
 struct WelcomeScreenView: View {
 
-    @ObservedObject var viewModel: WelcomeScreenViewModel
+    @StateObject var viewModel: WelcomeScreenViewModel
 
     init(viewModel: WelcomeScreenViewModel) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {

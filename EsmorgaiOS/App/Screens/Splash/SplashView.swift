@@ -15,11 +15,11 @@ struct SplashView: View {
         static let dashboard: String = "SplashView.dashboard"
     }
 
-    @ObservedObject var viewModel: SplashViewModel
+    @StateObject var viewModel: SplashViewModel
     let transition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading))
 
     init(viewModel: SplashViewModel) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {

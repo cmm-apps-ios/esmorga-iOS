@@ -9,7 +9,8 @@ import Foundation
 
 extension Bundle {
 
-    public static var baseURL: String {
+    static var identifier: String { Bundle.main.bundleIdentifier ?? "no.bundle" }
+    static var baseURL: String {
         guard let dictionary = Bundle.main.object(forInfoDictionaryKey: "CustomConfigurations") as? [String: String],
         let url = dictionary["kBaseURL"] else { return "missing.base.url" }
         return url

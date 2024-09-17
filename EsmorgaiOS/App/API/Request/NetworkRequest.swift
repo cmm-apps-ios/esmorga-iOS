@@ -14,7 +14,7 @@ protocol NetworkRequestProtocol {
 
 struct NetworkRequest: NetworkRequestProtocol {
 
-    private let requestTimeout: Double = 30 // Seconds
+    static let requestTimeout: Double = 30 // Seconds
 
     func request<T: Codable>(networkService: NetworkService) async throws -> T {
         let url = networkService.url.appending(path: networkService.path)
@@ -23,12 +23,12 @@ struct NetworkRequest: NetworkRequestProtocol {
 
             var urlRequest = URLRequest(url: url,
                                         cachePolicy: .useProtocolCachePolicy,
-                                        timeoutInterval: self.requestTimeout)
+                                        timeoutInterval: NetworkRequest.requestTimeout)
             urlRequest.headers = networkService.headers
             urlRequest.method = networkService.method
             urlRequest.httpBody = networkService.body
 
-            AF.request(urlRequest)
+            AF.request(urlRequest, interceptor: networkService.requestInterceptor)
                 .validate()
                 .responseData(emptyResponseCodes: Set([204, 200, 201])) { response in
                     print(response.request ?? "")

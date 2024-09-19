@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 
 enum EventsNetworkService: NetworkService {
+
     case eventsList
 
     var url: URL { URL(string: "\(Bundle.baseURL)/v1")! }
@@ -28,4 +29,5 @@ enum EventsNetworkService: NetworkService {
     var parameters: [String : Any]? { nil }
     var headers: HTTPHeaders { ["Content-Type": "application/json"] }
     var body: Data? { nil }
+    var requestInterceptor: RequestInterceptor? { nil }
 }

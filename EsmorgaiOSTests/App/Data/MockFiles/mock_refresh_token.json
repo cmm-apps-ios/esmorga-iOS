@@ -1,0 +1,5 @@
+{
+    "accessToken": "ACCESS_TOKEN",
+    "refreshToken": "REFRESH_TOKEN",
+    "ttl": 600
+}

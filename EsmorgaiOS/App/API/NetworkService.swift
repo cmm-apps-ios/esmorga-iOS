@@ -15,4 +15,5 @@ public protocol NetworkService {
     var parameters: [String: Any]? { get }
     var headers: HTTPHeaders { get }
     var body: Data? { get }
+    var requestInterceptor: RequestInterceptor? { get }
 }

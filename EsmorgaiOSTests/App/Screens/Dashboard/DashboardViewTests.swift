@@ -49,19 +49,19 @@ final class DashboardViewTests: XCTestCase {
         XCTAssertNoThrow(try inspected.find(viewWithAccessibilityIdentifier: DashboardView.AccessibilityIds.bottomBar))
 
         let eventsItem = try inspected.find(viewWithAccessibilityIdentifier: BottomBar.AccessibilityIds.barItem + "0")
-        let eventsText = try eventsItem.button().labelView().vStack().text(1)
+        let eventsText = try eventsItem.button().labelView().vStack().anyView(1).text()
         let eventsImage = try eventsItem.button().labelView().vStack().image(0)
         XCTAssertEqual(try eventsText.string(), LocalizationKeys.Dashboard.explore.localize())
         XCTAssertEqual(try eventsImage.actualImage().name(), "magnifyingglass")
 
         let myEventsItem = try inspected.find(viewWithAccessibilityIdentifier: BottomBar.AccessibilityIds.barItem + "1")
-        let myEventsText = try myEventsItem.button().labelView().vStack().text(1)
+        let myEventsText = try myEventsItem.button().labelView().vStack().anyView(1).text()
         let myEventsImage = try myEventsItem.button().labelView().vStack().image(0)
         XCTAssertEqual(try myEventsText.string(), LocalizationKeys.Dashboard.myEvents.localize())
         XCTAssertEqual(try myEventsImage.actualImage().name(), "calendar")
 
         let profileItem = try inspected.find(viewWithAccessibilityIdentifier: BottomBar.AccessibilityIds.barItem + "2")
-        let profileText = try profileItem.button().labelView().vStack().text(1)
+        let profileText = try profileItem.button().labelView().vStack().anyView(1).text()
         let profileImage = try profileItem.button().labelView().vStack().image(0)
         XCTAssertEqual(try profileText.string(), LocalizationKeys.Dashboard.myProfile.localize())
         XCTAssertEqual(try profileImage.actualImage().name(), "person")

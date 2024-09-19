@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mattgallagher/CwlCatchException.git",
       "state" : {
-        "revision" : "07b2ba21d361c223e25e3c1e924288742923f08c",
-        "version" : "2.2.1"
+        "revision" : "3ef6999c73b6938cc0da422f2c912d0158abb0a0",
+        "version" : "2.2.0"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mattgallagher/CwlPreconditionTesting.git",
       "state" : {
-        "revision" : "0139c665ebb45e6a9fbdb68aabfd7c39f3fe0071",
-        "version" : "2.2.2"
+        "revision" : "2ef56b2caf25f55fa7eef8784c30d5a767550f54",
+        "version" : "2.2.1"
       }
     },
     {
@@ -60,8 +60,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swiftlang/swift-syntax",
       "state" : {
-        "revision" : "515f79b522918f83483068d99c68daeb5116342d",
-        "version" : "600.0.0-prerelease-2024-09-04"
+        "revision" : "cb53fa1bd3219b0b23ded7dfdd3b2baff266fd25",
+        "version" : "600.0.0"
       }
     },
     {
@@ -69,8 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nalexn/ViewInspector",
       "state" : {
-        "revision" : "7b1732802ffe30e6a67754bda6c7819e5cb0eb70",
-        "version" : "0.9.11"
+        "revision" : "5acfa0a3c095ac9ad050abe51c60d1831e8321da",
+        "version" : "0.10.0"
       }
     }
   ],

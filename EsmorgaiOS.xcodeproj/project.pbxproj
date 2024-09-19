@@ -33,6 +33,10 @@
 		EF2128402C85DA0000D00887 /* RegistrationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21283F2C85DA0000D00887 /* RegistrationViewModelTests.swift */; };
 		EF2128442C86103800D00887 /* RegistrationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2128432C86103800D00887 /* RegistrationModels.swift */; };
 		EF2128462C86106400D00887 /* Binding+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2128452C86106400D00887 /* Binding+Bool.swift */; };
+		EF2128492C8614F900D00887 /* CodableKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2128482C8614F900D00887 /* CodableKeychain.swift */; };
+		EF21284B2C86153B00D00887 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21284A2C86153B00D00887 /* Keychain.swift */; };
+		EF21284D2C8615F000D00887 /* KeychainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21284C2C8615F000D00887 /* KeychainBuilder.swift */; };
+		EF21284F2C86161400D00887 /* KeychainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21284E2C86161400D00887 /* KeychainProtocols.swift */; };
 		EF21285A2C87099A00D00887 /* Config-PROD.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EF2128592C87099A00D00887 /* Config-PROD.xcconfig */; };
 		EF21285E2C8711D300D00887 /* Bundle+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21285D2C8711D300D00887 /* Bundle+Configuration.swift */; };
 		EF2983CB2C6A15D800C2393E /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983CA2C6A15D800C2393E /* SplashView.swift */; };
@@ -79,6 +83,8 @@
 		EF4213D42C413F9100686033 /* View+Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D32C413F9100686033 /* View+Snackbar.swift */; };
 		EF4213D62C413FC800686033 /* SnackbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D52C413FC800686033 /* SnackbarView.swift */; };
 		EF4213D82C41412300686033 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D72C41412300686033 /* AppManager.swift */; };
+		EF503C082C9874C000EE9128 /* AccountAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF503C072C9874C000EE9128 /* AccountAuthenticator.swift */; };
+		EF503C0A2C98753F00EE9128 /* AccountSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF503C092C98753F00EE9128 /* AccountSession.swift */; };
 		EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */; };
 		EF7DF9562C9C0E94005908B7 /* View+FirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */; };
 		EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* NavigationManager.swift */; };
@@ -148,6 +154,16 @@
 		EFF7A1E22C36D9400024704A /* plus_jakarta_flex.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFF7A1E02C36D9400024704A /* plus_jakarta_flex.ttf */; };
 		EFF7A1E32C36D9400024704A /* epilogue_flex.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFF7A1E12C36D9400024704A /* epilogue_flex.ttf */; };
 		EFF7A1E82C36DECC0024704A /* LoadingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1E72C36DECC0024704A /* LoadingBar.swift */; };
+		EFF9C8722C9991DA00DE50BC /* AccountTokensRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8712C9991D200DE50BC /* AccountTokensRefresher.swift */; };
+		EFF9C8752C99921100DE50BC /* TokensRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8742C99920F00DE50BC /* TokensRefresher.swift */; };
+		EFF9C8782C9992EF00DE50BC /* URLRequest+BearerToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8772C9992E600DE50BC /* URLRequest+BearerToken.swift */; };
+		EFF9C87A2C99931500DE50BC /* NSNotification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8792C99930F00DE50BC /* NSNotification+Name.swift */; };
+		EFF9C87D2C99934900DE50BC /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C87C2C99934700DE50BC /* Credential.swift */; };
+		EFF9C87F2C99936400DE50BC /* AccountCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C87E2C99936000DE50BC /* AccountCredential.swift */; };
+		EFF9C8842C99997F00DE50BC /* AccountAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8832C99997C00DE50BC /* AccountAuthenticatorTests.swift */; };
+		EFF9C8872C999C8600DE50BC /* AccountCredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8862C999C8300DE50BC /* AccountCredentialTests.swift */; };
+		EFF9C88A2C99C7D300DE50BC /* AccountTokensRefresherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8892C99C7CA00DE50BC /* AccountTokensRefresherTests.swift */; };
+		EFF9C88C2C99C88C00DE50BC /* mock_refresh_token.json in Resources */ = {isa = PBXBuildFile; fileRef = EFF9C88B2C99C88000DE50BC /* mock_refresh_token.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +216,10 @@
 		EF2128422C860F3700D00887 /* EsmorgaiOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EsmorgaiOS.xctestplan; sourceTree = "<group>"; };
 		EF2128432C86103800D00887 /* RegistrationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModels.swift; sourceTree = "<group>"; };
 		EF2128452C86106400D00887 /* Binding+Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Bool.swift"; sourceTree = "<group>"; };
+		EF2128482C8614F900D00887 /* CodableKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableKeychain.swift; sourceTree = "<group>"; };
+		EF21284A2C86153B00D00887 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		EF21284C2C8615F000D00887 /* KeychainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainBuilder.swift; sourceTree = "<group>"; };
+		EF21284E2C86161400D00887 /* KeychainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProtocols.swift; sourceTree = "<group>"; };
 		EF2128592C87099A00D00887 /* Config-PROD.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-PROD.xcconfig"; sourceTree = "<group>"; };
 		EF21285D2C8711D300D00887 /* Bundle+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Configuration.swift"; sourceTree = "<group>"; };
 		EF2983CA2C6A15D800C2393E /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -242,6 +262,8 @@
 		EF4213D32C413F9100686033 /* View+Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Snackbar.swift"; sourceTree = "<group>"; };
 		EF4213D52C413FC800686033 /* SnackbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarView.swift; sourceTree = "<group>"; };
 		EF4213D72C41412300686033 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		EF503C072C9874C000EE9128 /* AccountAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAuthenticator.swift; sourceTree = "<group>"; };
+		EF503C092C98753F00EE9128 /* AccountSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSession.swift; sourceTree = "<group>"; };
 		EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAppearModifier.swift; sourceTree = "<group>"; };
 		EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+FirstAppear.swift"; sourceTree = "<group>"; };
 		EF9CDB832C89C0920044FB29 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
@@ -314,6 +336,16 @@
 		EFF7A1E12C36D9400024704A /* epilogue_flex.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = epilogue_flex.ttf; sourceTree = "<group>"; };
 		EFF7A1E62C36DB1F0024704A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFF7A1E72C36DECC0024704A /* LoadingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingBar.swift; sourceTree = "<group>"; };
+		EFF9C8712C9991D200DE50BC /* AccountTokensRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTokensRefresher.swift; sourceTree = "<group>"; };
+		EFF9C8742C99920F00DE50BC /* TokensRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensRefresher.swift; sourceTree = "<group>"; };
+		EFF9C8772C9992E600DE50BC /* URLRequest+BearerToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+BearerToken.swift"; sourceTree = "<group>"; };
+		EFF9C8792C99930F00DE50BC /* NSNotification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+Name.swift"; sourceTree = "<group>"; };
+		EFF9C87C2C99934700DE50BC /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
+		EFF9C87E2C99936000DE50BC /* AccountCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredential.swift; sourceTree = "<group>"; };
+		EFF9C8832C99997C00DE50BC /* AccountAuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAuthenticatorTests.swift; sourceTree = "<group>"; };
+		EFF9C8862C999C8300DE50BC /* AccountCredentialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialTests.swift; sourceTree = "<group>"; };
+		EFF9C8892C99C7CA00DE50BC /* AccountTokensRefresherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTokensRefresherTests.swift; sourceTree = "<group>"; };
+		EFF9C88B2C99C88000DE50BC /* mock_refresh_token.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_refresh_token.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -468,6 +500,17 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
+		EF2128472C8614E200D00887 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				EF2128482C8614F900D00887 /* CodableKeychain.swift */,
+				EF21284A2C86153B00D00887 /* Keychain.swift */,
+				EF21284C2C8615F000D00887 /* KeychainBuilder.swift */,
+				EF21284E2C86161400D00887 /* KeychainProtocols.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
 		EF2128582C87095C00D00887 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,9 +552,10 @@
 		EF31585C2C5A21B700DE157A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				EFE34DBE2C7CBB5700724DDC /* API */,
 				EFE34DBC2C7CBB2D00724DDC /* Core */,
-				EF31587D2C5A7E5000DE157A /* Screens */,
 				EF31585D2C5A21BE00DE157A /* Data */,
+				EF31587D2C5A7E5000DE157A /* Screens */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -566,6 +610,7 @@
 		EF3158782C5A788E00DE157A /* MockFiles */ = {
 			isa = PBXGroup;
 			children = (
+				EFF9C88B2C99C88000DE50BC /* mock_refresh_token.json */,
 				EF3158792C5A78B900DE157A /* mock_event_list.json */,
 				EFE34DB22C7C95B600724DDC /* mock_account_login.json */,
 				EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */,
@@ -627,6 +672,7 @@
 		EF4213BE2C3EC9AC00686033 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EFF9C8802C99939700DE50BC /* Session */,
 				EFE34D992C74A7CA00724DDC /* User */,
 				EF4213BF2C3EC9C100686033 /* Events */,
 			);
@@ -667,6 +713,16 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		EF503C062C98749B00EE9128 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9C87B2C99933B00DE50BC /* Credential */,
+				EFF9C8762C9992C400DE50BC /* Authenticator */,
+				EFF9C8732C9991FD00DE50BC /* Refresher */,
+			);
+			path = Handlers;
+   			sourceTree = "<group>";
+		};         
 		EF7DF9522C9C0D98005908B7 /* ViewModifier */ = {
 			isa = PBXGroup;
 			children = (
@@ -824,6 +880,7 @@
 		EFD7EF0E2C3D72B000C8CE70 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				EF503C062C98749B00EE9128 /* Handlers */,
 				EFE34D902C74956300724DDC /* Account */,
 				EFD7EF212C3D8F0100C8CE70 /* RemoteModels */,
 				EFD7EF1E2C3D8D9900C8CE70 /* Request */,
@@ -855,6 +912,7 @@
 		EFD7EF1D2C3D8D7100C8CE70 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EF2128472C8614E200D00887 /* Keychain */,
 				EF4213C22C3ECABD00686033 /* CoreData */,
 				EF4213BE2C3EC9AC00686033 /* Models */,
 			);
@@ -903,6 +961,8 @@
 		EFE0A97C2C3D92AC00E28953 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EFF9C8792C99930F00DE50BC /* NSNotification+Name.swift */,
+				EFF9C8772C9992E600DE50BC /* URLRequest+BearerToken.swift */,
 				EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */,
 				EF3158682C5A373A00DE157A /* String+Date.swift */,
 				EFE34DCB2C7CC88600724DDC /* String+RegexValidation.swift */,
@@ -1019,7 +1079,6 @@
 		EFE34DBC2C7CBB2D00724DDC /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				EFE34DBE2C7CBB5700724DDC /* API */,
 				EFE34DBD2C7CBB3400724DDC /* Models */,
 			);
 			path = Core;
@@ -1036,6 +1095,7 @@
 		EFE34DBE2C7CBB5700724DDC /* API */ = {
 			isa = PBXGroup;
 			children = (
+				EFF9C8812C99994700DE50BC /* Handlers */,
 				EFE34DBF2C7CBB6C00724DDC /* RemoteModels */,
 			);
 			path = API;
@@ -1179,6 +1239,74 @@
 				EF0811D62C93262900DE4887 /* BottomBar.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EFF9C8732C9991FD00DE50BC /* Refresher */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9C8712C9991D200DE50BC /* AccountTokensRefresher.swift */,
+				EFF9C8742C99920F00DE50BC /* TokensRefresher.swift */,
+			);
+			path = Refresher;
+			sourceTree = "<group>";
+		};
+		EFF9C8762C9992C400DE50BC /* Authenticator */ = {
+			isa = PBXGroup;
+			children = (
+				EF503C072C9874C000EE9128 /* AccountAuthenticator.swift */,
+			);
+			path = Authenticator;
+			sourceTree = "<group>";
+		};
+		EFF9C87B2C99933B00DE50BC /* Credential */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9C87E2C99936000DE50BC /* AccountCredential.swift */,
+				EFF9C87C2C99934700DE50BC /* Credential.swift */,
+			);
+			path = Credential;
+			sourceTree = "<group>";
+		};
+		EFF9C8802C99939700DE50BC /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				EF503C092C98753F00EE9128 /* AccountSession.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		EFF9C8812C99994700DE50BC /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9C8882C99C7C200DE50BC /* Refresher */,
+				EFF9C8852C999C7800DE50BC /* Credential */,
+				EFF9C8822C99995600DE50BC /* Authenticator */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		EFF9C8822C99995600DE50BC /* Authenticator */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9C8832C99997C00DE50BC /* AccountAuthenticatorTests.swift */,
+			);
+			path = Authenticator;
+			sourceTree = "<group>";
+		};
+		EFF9C8852C999C7800DE50BC /* Credential */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9C8862C999C8300DE50BC /* AccountCredentialTests.swift */,
+			);
+			path = Credential;
+			sourceTree = "<group>";
+		};
+		EFF9C8882C99C7C200DE50BC /* Refresher */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9C8892C99C7CA00DE50BC /* AccountTokensRefresherTests.swift */,
+			);
+			path = Refresher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1354,6 +1482,7 @@
 				EF31587C2C5A7DA800DE157A /* mock_dummy_file.json in Resources */,
 				EFE34DB32C7C95B600724DDC /* mock_account_login.json in Resources */,
 				EF31587A2C5A78B900DE157A /* mock_event_list.json in Resources */,
+				EFF9C88C2C99C88C00DE50BC /* mock_refresh_token.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1383,9 +1512,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFF9C8782C9992EF00DE50BC /* URLRequest+BearerToken.swift in Sources */,
 				EFD7EF232C3D8F2400C8CE70 /* RemoteEventListModel.swift in Sources */,
 				EF3158532C53D9EE00DE157A /* NetworkError.swift in Sources */,
 				EF4213D22C4134B500686033 /* NetworkMonitor.swift in Sources */,
+				EF21284D2C8615F000D00887 /* KeychainBuilder.swift in Sources */,
 				EFE34D982C74A6FB00724DDC /* UserRepository.swift in Sources */,
 				EFE34DDF2C81CD5C00724DDC /* View+NavigationBar.swift in Sources */,
 				EFD7EF022C3D3BB100C8CE70 /* RemoteEventsDataSource.swift in Sources */,
@@ -1396,10 +1527,12 @@
 				EFE34DD12C7DE0D300724DDC /* RegisterUserDataSource.swift in Sources */,
 				EF2983F52C6B95D500C2393E /* BaseViewModel.swift in Sources */,
 				EF0811D12C9325C300DE4887 /* DashboardViewModel.swift in Sources */,
+				EFF9C87D2C99934900DE50BC /* Credential.swift in Sources */,
 				EF0811D72C93262900DE4887 /* BottomBar.swift in Sources */,
 				EF4213C12C3EC9DE00686033 /* EventModels.swift in Sources */,
 				EF0811D32C9325EF00DE4887 /* DashboardBuilder.swift in Sources */,
 				EFE34D962C74A59800724DDC /* LoginUserDataSource.swift in Sources */,
+				EF503C0A2C98753F00EE9128 /* AccountSession.swift in Sources */,
 				EF4213D62C413FC800686033 /* SnackbarView.swift in Sources */,
 				EF2983E72C6B729A00C2393E /* WelcomeScreenBuilder.swift in Sources */,
 				EFE0A9792C3D925600E28953 /* TextStyles.swift in Sources */,
@@ -1414,6 +1547,7 @@
 				EF3158692C5A373A00DE157A /* String+Date.swift in Sources */,
 				EFD7EF072C3D41EC00C8CE70 /* EventsRepository.swift in Sources */,
 				EFE34DA02C74AAD500724DDC /* LoginView.swift in Sources */,
+				EF21284F2C86161400D00887 /* KeychainProtocols.swift in Sources */,
 				EFD7EF152C3D740700C8CE70 /* EventsNetworkService.swift in Sources */,
 				EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */,
 				EFA6463D2C8B02B200D528F9 /* DomainError.swift in Sources */,
@@ -1437,10 +1571,15 @@
 				EFE34D922C74957A00724DDC /* AccountNetworkService.swift in Sources */,
 				EF0811CD2C91D2B400DE4887 /* DashboardView.swift in Sources */,
 				EF0811E02C932B3100DE4887 /* MainCoordinatorView.swift in Sources */,
+				EF2128492C8614F900D00887 /* CodableKeychain.swift in Sources */,
+				EFF9C87A2C99931500DE50BC /* NSNotification+Name.swift in Sources */,
 				EFE34DA92C77859D00724DDC /* ErrorDialog.swift in Sources */,
+				EFF9C8752C99921100DE50BC /* TokensRefresher.swift in Sources */,
 				EF3158872C5BD63400DE157A /* BaseView.swift in Sources */,
 				EFE34D942C74A34A00724DDC /* AccountLoginModel.swift in Sources */,
+				EF21284B2C86153B00D00887 /* Keychain.swift in Sources */,
 				EFD7EEF62C3C41A500C8CE70 /* EventListViewModel.swift in Sources */,
+				EFF9C87F2C99936400DE50BC /* AccountCredential.swift in Sources */,
 				EFE34DA62C77790900724DDC /* CustomTextField.swift in Sources */,
 				EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */,
 				EFF7A1E82C36DECC0024704A /* LoadingBar.swift in Sources */,
@@ -1452,6 +1591,7 @@
 				EFA6463A2C8B00BE00D528F9 /* GetLocalUserUseCase.swift in Sources */,
 				EFE34DCC2C7CC88600724DDC /* String+RegexValidation.swift in Sources */,
 				EFF7A1DE2C3587810024704A /* CustomButton.swift in Sources */,
+				EF503C082C9874C000EE9128 /* AccountAuthenticator.swift in Sources */,
 				EFE34DCE2C7CC9F900724DDC /* LoginModels.swift in Sources */,
 				EF4213C52C3ECB4400686033 /* DataConvertible.swift in Sources */,
 				EF0811DC2C9329F200DE4887 /* Destination.swift in Sources */,
@@ -1460,6 +1600,7 @@
 				EF2128442C86103800D00887 /* RegistrationModels.swift in Sources */,
 				EF31589E2C63757600DE157A /* WelcomeScreenViewModel.swift in Sources */,
 				EF4213CB2C3ED66200686033 /* CardView.swift in Sources */,
+				EFF9C8722C9991DA00DE50BC /* AccountTokensRefresher.swift in Sources */,
 				EFE34DDD2C7DE70900724DDC /* RegistrationBuilder.swift in Sources */,
 				EF9CDB862C89C0BB0044FB29 /* NavigationModels.swift in Sources */,
 				EFD7EF172C3D75CB00C8CE70 /* NetworkRequest.swift in Sources */,
@@ -1478,6 +1619,7 @@
 				EFE34DB92C7C99B500724DDC /* UserRepositoryTests.swift in Sources */,
 				EF21283B2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift in Sources */,
 				EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */,
+				EFF9C8872C999C8600DE50BC /* AccountCredentialTests.swift in Sources */,
 				EF3158772C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift in Sources */,
 				EF2128372C85D42800D00887 /* RegisterUserDataSourceTests.swift in Sources */,
 				EFE34DB52C7C990400724DDC /* MockUserRemoteDataSource.swift in Sources */,
@@ -1504,6 +1646,8 @@
 				EFDDF90D2C8B1AD00087AD97 /* SplashViewTests.swift in Sources */,
 				EF3158702C5A5DED00DE157A /* LocalEventsDataSourceTests.swift in Sources */,
 				EFE34DC12C7CBB9300724DDC /* AccountLoginModel.swift in Sources */,
+				EFF9C8842C99997F00DE50BC /* AccountAuthenticatorTests.swift in Sources */,
+				EFF9C88A2C99C7D300DE50BC /* AccountTokensRefresherTests.swift in Sources */,
 				EF31585B2C59384800DE157A /* GetEventListUseCaseTests.swift in Sources */,
 				EF0811C72C91915700DE4887 /* RegistrationViewTests.swift in Sources */,
 			);
@@ -2501,7 +2645,7 @@
 			repositoryURL = "https://github.com/nalexn/ViewInspector";
 			requirement = {
 				kind = exactVersion;
-				version = 0.9.11;
+				version = 0.10.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

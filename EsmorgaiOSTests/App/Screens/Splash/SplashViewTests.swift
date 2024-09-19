@@ -44,6 +44,7 @@ final class SplashViewTests: XCTestCase {
     }
 
     //MOB-TC-118
+    @MainActor
     func test_given_splash_view_when_not_logged_user_then_welcome_screen_is_shown() async throws {
 
         await viewModel.getUserStatus()
@@ -54,6 +55,7 @@ final class SplashViewTests: XCTestCase {
     }
 
     //MOB-TC-119
+    @MainActor
     func test_given_splash_view_when_logged_user_then_event_list_screen_is_shown() async throws {
 
         mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()

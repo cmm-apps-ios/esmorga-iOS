@@ -67,6 +67,8 @@
 		EF4213D42C413F9100686033 /* View+Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D32C413F9100686033 /* View+Snackbar.swift */; };
 		EF4213D62C413FC800686033 /* SnackbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D52C413FC800686033 /* SnackbarView.swift */; };
 		EF4213D82C41412300686033 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D72C41412300686033 /* AppManager.swift */; };
+		EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */; };
+		EF7DF9562C9C0E94005908B7 /* View+FirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */; };
 		EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* NavigationManager.swift */; };
 		EF9CDB862C89C0BB0044FB29 /* NavigationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */; };
 		EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBBE6F02C7489BC0085632A /* WelcomeScreenViewModelTests.swift */; };
@@ -203,6 +205,8 @@
 		EF4213D32C413F9100686033 /* View+Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Snackbar.swift"; sourceTree = "<group>"; };
 		EF4213D52C413FC800686033 /* SnackbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarView.swift; sourceTree = "<group>"; };
 		EF4213D72C41412300686033 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAppearModifier.swift; sourceTree = "<group>"; };
+		EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+FirstAppear.swift"; sourceTree = "<group>"; };
 		EF9CDB832C89C0920044FB29 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModels.swift; sourceTree = "<group>"; };
 		EFBBE6F02C7489BC0085632A /* WelcomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewModelTests.swift; sourceTree = "<group>"; };
@@ -512,6 +516,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		EF7DF9522C9C0D98005908B7 /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */,
+			);
+			path = ViewModifier;
+			sourceTree = "<group>";
+		};
 		EF9CDB822C89C0800044FB29 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,6 +701,7 @@
 		EFE0A97B2C3D92A400E28953 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EF7DF9522C9C0D98005908B7 /* ViewModifier */,
 				EF9CDB822C89C0800044FB29 /* Navigation */,
 				EFE0A97C2C3D92AC00E28953 /* Extensions */,
 				EF4213D12C4134B500686033 /* NetworkMonitor.swift */,
@@ -700,6 +713,7 @@
 		EFE0A97C2C3D92AC00E28953 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */,
 				EF3158682C5A373A00DE157A /* String+Date.swift */,
 				EFE34DCB2C7CC88600724DDC /* String+RegexValidation.swift */,
 				EF2128452C86106400D00887 /* Binding+Bool.swift */,
@@ -1170,6 +1184,7 @@
 				EFE34DD92C7DE6F300724DDC /* RegistrationViewModel.swift in Sources */,
 				EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */,
 				EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */,
+				EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */,
 				EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */,
 				EF31589C2C63755E00DE157A /* WelcomeScreenView.swift in Sources */,
 				EFE34DA42C74AF2E00724DDC /* LoginBuilder.swift in Sources */,
@@ -1205,6 +1220,7 @@
 				EFD7EF172C3D75CB00C8CE70 /* NetworkRequest.swift in Sources */,
 				EF2983E32C6A210400C2393E /* Routable.swift in Sources */,
 				EF2128462C86106400D00887 /* Binding+Bool.swift in Sources */,
+				EF7DF9562C9C0E94005908B7 /* View+FirstAppear.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

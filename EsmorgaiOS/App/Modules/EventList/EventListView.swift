@@ -64,7 +64,7 @@ struct EventListView: View {
                         }
                     }.frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .onAppear {
+                .onFirstAppear {
                     viewModel.getEventList(forceRefresh: false)
                 }
             }

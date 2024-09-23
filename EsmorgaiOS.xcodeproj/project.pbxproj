@@ -98,6 +98,11 @@
 		EFA646472C8B0C8400D528F9 /* SplashViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA646462C8B0C8400D528F9 /* SplashViewModelTests.swift */; };
 		EFA6464B2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6464A2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift */; };
 		EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBBE6F02C7489BC0085632A /* WelcomeScreenViewModelTests.swift */; };
+		EFD3770B2CA1AB070090B90A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD3770A2CA1AAF70090B90A /* LottieView.swift */; };
+		EFD3770E2CA1B0BB0090B90A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EFD3770D2CA1B0BB0090B90A /* Lottie */; };
+		EFD377112CA1B3720090B90A /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD377102CA1B3700090B90A /* Animation.swift */; };
+		EFD377142CA1B3AF0090B90A /* dancingPepe.json in Resources */ = {isa = PBXBuildFile; fileRef = EFD377132CA1B3AF0090B90A /* dancingPepe.json */; };
+		EFD377162CA1B61E0090B90A /* suspiciousMonkey.json in Resources */ = {isa = PBXBuildFile; fileRef = EFD377152CA1B61E0090B90A /* suspiciousMonkey.json */; };
 		EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7EEF32C3C419100C8CE70 /* EventListView.swift */; };
 		EFD7EEF62C3C41A500C8CE70 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7EEF52C3C41A500C8CE70 /* EventListViewModel.swift */; };
 		EFD7EEFE2C3D387800C8CE70 /* LocaliationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7EEFD2C3D387800C8CE70 /* LocaliationKeys.swift */; };
@@ -277,6 +282,10 @@
 		EFA646462C8B0C8400D528F9 /* SplashViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModelTests.swift; sourceTree = "<group>"; };
 		EFA6464A2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetLocalUserUseCase.swift; sourceTree = "<group>"; };
 		EFBBE6F02C7489BC0085632A /* WelcomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewModelTests.swift; sourceTree = "<group>"; };
+		EFD3770A2CA1AAF70090B90A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		EFD377102CA1B3700090B90A /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		EFD377132CA1B3AF0090B90A /* dancingPepe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dancingPepe.json; sourceTree = "<group>"; };
+		EFD377152CA1B61E0090B90A /* suspiciousMonkey.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = suspiciousMonkey.json; sourceTree = "<group>"; };
 		EFD7EEF32C3C419100C8CE70 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		EFD7EEF52C3C41A500C8CE70 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
 		EFD7EEFD2C3D387800C8CE70 /* LocaliationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaliationKeys.swift; sourceTree = "<group>"; };
@@ -363,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFD7EF0D2C3D4AE500C8CE70 /* Alamofire in Frameworks */,
+				EFD3770E2CA1B0BB0090B90A /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,8 +731,8 @@
 				EFF9C8732C9991FD00DE50BC /* Refresher */,
 			);
 			path = Handlers;
-   			sourceTree = "<group>";
-		};         
+			sourceTree = "<group>";
+		};
 		EF7DF9522C9C0D98005908B7 /* ViewModifier */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,6 +794,31 @@
 				EFBBE6F02C7489BC0085632A /* WelcomeScreenViewModelTests.swift */,
 			);
 			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		EFD3770C2CA1B0BB0090B90A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFD3770F2CA1B3640090B90A /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				EFD377122CA1B38C0090B90A /* files */,
+				EFD377102CA1B3700090B90A /* Animation.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		EFD377122CA1B38C0090B90A /* files */ = {
+			isa = PBXGroup;
+			children = (
+				EFD377152CA1B61E0090B90A /* suspiciousMonkey.json */,
+				EFD377132CA1B3AF0090B90A /* dancingPepe.json */,
+			);
+			path = files;
 			sourceTree = "<group>";
 		};
 		EFD7EEF02C3C415500C8CE70 /* App */ = {
@@ -947,7 +982,6 @@
 		EFE0A97B2C3D92A400E28953 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-                EFA6463B2C8B029E00D528F9 /* Errors */,
 				EFA6463B2C8B029E00D528F9 /* Errors */,
 				EF7DF9522C9C0D98005908B7 /* ViewModifier */,
 				EF9CDB822C89C0800044FB29 /* Navigation */,
@@ -1163,6 +1197,7 @@
 				EFF7A1BE2C354BD00024704A /* EsmorgaiOSTests */,
 				EFF7A1C82C354BD00024704A /* EsmorgaiOSUITests */,
 				EF0811B12C9093C500DE4887 /* EsmorgaiOSSnapshotTests */,
+				EFD3770C2CA1B0BB0090B90A /* Frameworks */,
 				EFF7A1AC2C354BCD0024704A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1210,6 +1245,7 @@
 		EFF7A1DA2C354D440024704A /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				EFD3770F2CA1B3640090B90A /* Animations */,
 				EFE34DE02C81CD9000724DDC /* ViewModifiers */,
 				EFE0A97D2C3D92D800E28953 /* Extensions */,
 				EFE0A97A2C3D926000E28953 /* Styles */,
@@ -1231,6 +1267,7 @@
 		EFF7A1EC2C3802410024704A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EFD3770A2CA1AAF70090B90A /* LottieView.swift */,
 				EFF7A1DD2C3587810024704A /* CustomButton.swift */,
 				EFF7A1E72C36DECC0024704A /* LoadingBar.swift */,
 				EF4213CA2C3ED66200686033 /* CardView.swift */,
@@ -1349,6 +1386,7 @@
 			name = EsmorgaiOS;
 			packageProductDependencies = (
 				EFD7EF0C2C3D4AE500C8CE70 /* Alamofire */,
+				EFD3770D2CA1B0BB0090B90A /* Lottie */,
 			);
 			productName = EsmorgaiOS;
 			productReference = EFF7A1AB2C354BCD0024704A /* EsmorgaiOS.app */;
@@ -1439,6 +1477,7 @@
 				EF3158712C5A608F00DE157A /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
 				EFDDF9092C8B1A5B0087AD97 /* XCRemoteSwiftPackageReference "ViewInspector" */,
 				EF0811BB2C9093F900DE4887 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				EFD377092CA1AAC90090B90A /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = EFF7A1AC2C354BCD0024704A /* Products */;
 			projectDirPath = "";
@@ -1468,9 +1507,11 @@
 				EF3158842C5B872100DE157A /* Config-QA.xcconfig in Resources */,
 				EFF7A1E32C36D9400024704A /* epilogue_flex.ttf in Resources */,
 				EF2F9CC72C875D330064D2D1 /* BaseConfig.xcconfig in Resources */,
+				EFD377142CA1B3AF0090B90A /* dancingPepe.json in Resources */,
 				EF3158992C62811500DE157A /* Colors.xcassets in Resources */,
 				EFF7A1E22C36D9400024704A /* plus_jakarta_flex.ttf in Resources */,
 				EF3158972C627EEF00DE157A /* Assets.xcassets in Resources */,
+				EFD377162CA1B61E0090B90A /* suspiciousMonkey.json in Resources */,
 				EF21285A2C87099A00D00887 /* Config-PROD.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1522,6 +1563,7 @@
 				EFD7EF022C3D3BB100C8CE70 /* RemoteEventsDataSource.swift in Sources */,
 				EF0811DA2C9328CE00DE4887 /* MainCoordinator.swift in Sources */,
 				EFE34DE22C81CDA500724DDC /* NavigationBar.swift in Sources */,
+				EFD377112CA1B3720090B90A /* Animation.swift in Sources */,
 				EF2983CD2C6A162A00C2393E /* SplashViewModel.swift in Sources */,
 				EF0811D52C93260800DE4887 /* DashboardModels.swift in Sources */,
 				EFE34DD12C7DE0D300724DDC /* RegisterUserDataSource.swift in Sources */,
@@ -1589,6 +1631,7 @@
 				EFE34DD32C7DE28D00724DDC /* RegisterUserUseCase.swift in Sources */,
 				EF4213C72C3ECBC400686033 /* NSManagedObject+Helpers.swift in Sources */,
 				EFA6463A2C8B00BE00D528F9 /* GetLocalUserUseCase.swift in Sources */,
+				EFD3770B2CA1AB070090B90A /* LottieView.swift in Sources */,
 				EFE34DCC2C7CC88600724DDC /* String+RegexValidation.swift in Sources */,
 				EFF7A1DE2C3587810024704A /* CustomButton.swift in Sources */,
 				EF503C082C9874C000EE9128 /* AccountAuthenticator.swift in Sources */,
@@ -2632,6 +2675,14 @@
 				version = 9.1.0;
 			};
 		};
+		EFD377092CA1AAC90090B90A /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm";
+			requirement = {
+				kind = exactVersion;
+				version = 4.5.0;
+			};
+		};
 		EFD7EF0B2C3D4AE500C8CE70 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -2675,6 +2726,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EF3158712C5A608F00DE157A /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
 			productName = OHHTTPStubsSwift;
+		};
+		EFD3770D2CA1B0BB0090B90A /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFD377092CA1AAC90090B90A /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 		EFD7EF0C2C3D4AE500C8CE70 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

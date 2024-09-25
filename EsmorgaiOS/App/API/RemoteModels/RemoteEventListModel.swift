@@ -38,7 +38,8 @@ class RemoteEventListModel {
                                      latitude: location.lat,
                                      longitude: location.long,
                                      location: location.name,
-                                     creationDate: creationDate)
+                                     creationDate: creationDate,
+                                     isUserJoined: false)
         }
     }
 }

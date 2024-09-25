@@ -1,17 +1,15 @@
 //
-//  RemoteEventsDataSource.swift
+//  RemoteMyEventsDataSource.swift
 //  EsmorgaiOS
 //
-//  Created by Vidal Pérez, Omar on 9/7/24.
+//  Created by Vidal Pérez, Omar on 23/9/24.
 //
 
-import Foundation
-
-protocol RemoteEventsDataSourceProtocol {
+protocol RemoteMyEventsDataSourceProtocol {
     func fetchEvents() async throws -> [RemoteEventListModel.Event]
 }
 
-class RemoteEventsDataSource: RemoteEventsDataSourceProtocol {
+class RemoteMyEventsDataSource: RemoteMyEventsDataSourceProtocol {
 
     private let networkRequest: NetworkRequestProtocol
 
@@ -21,7 +19,7 @@ class RemoteEventsDataSource: RemoteEventsDataSourceProtocol {
 
     func fetchEvents() async throws -> [RemoteEventListModel.Event] {
         do {
-            let eventList: RemoteEventListModel.EventList = try await networkRequest.request(networkService: EventsNetworkService.eventsList)
+            let eventList: RemoteEventListModel.EventList = try await networkRequest.request(networkService: AccountNetworkService.myEvents)
             return eventList.events
         } catch let error {
             throw error

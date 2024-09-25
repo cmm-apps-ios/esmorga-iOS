@@ -9,7 +9,6 @@ import SwiftUI
 
 struct EventListView: View {
 
-    @Environment(\.dismiss) private var dismiss
     @StateObject var viewModel: EventListViewModel
 
     init(viewModel: EventListViewModel) {

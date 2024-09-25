@@ -29,7 +29,7 @@ struct  DashboardView: View {
                     EventListBuilder().build(coordinator: viewModel.coordinator)
                         .accessibilityIdentifier(AccessibilityIds.eventList)
                         .tag(0)
-                    Text("Mis Eventos Content")
+                    MyEventsBuilder().build(coordinator: viewModel.coordinator)
                         .accessibilityIdentifier(AccessibilityIds.myEvents)
                         .tag(1)
                     Text("Perfil Content")

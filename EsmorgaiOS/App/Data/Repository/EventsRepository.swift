@@ -30,16 +30,12 @@ class EventsRepository: EventsRepositoryProtocol {
         guard !(!refresh && !storedEvents.isEmpty && shouldShowCache) else {
             return (storedEvents, false)
         }
-
+        
         do {
-            if let events = try await remoteDataSource.fetchEvents() {
-                let mappedEvents = events.compactMap { $0.toDomain() }
-                try await saveEvents(mappedEvents)
-                return (mappedEvents, false)
-            } else {
-                return (storedEvents, false)
-            }
-
+            let events = try await remoteDataSource.fetchEvents()
+            let mappedEvents = events.compactMap { $0.toDomain() }
+            try await saveEvents(mappedEvents)
+            return (mappedEvents, false)
         } catch NetworkError.noInternetConnection {
             return (storedEvents, true)
         } catch {

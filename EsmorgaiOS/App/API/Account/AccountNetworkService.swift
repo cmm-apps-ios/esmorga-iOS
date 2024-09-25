@@ -27,7 +27,10 @@ enum AccountNetworkService: NetworkService {
     }
 
     var method: HTTPMethod {
-        return .post
+        switch self {
+        case .myEvents: return .get
+        default: return .post
+        }
     }
 
     var parameters: [String : Any]? { nil }

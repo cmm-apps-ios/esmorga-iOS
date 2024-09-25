@@ -13,6 +13,7 @@
   },
   "testTargets" : [
     {
+      "parallelizable" : false,
       "target" : {
         "containerPath" : "container:EsmorgaiOS.xcodeproj",
         "identifier" : "EFF7A1BA2C354BD00024704A",

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RemoteEventsDataSourceProtocol {
-    func fetchEvents() async throws -> [RemoteEventListModel.Event]?
+    func fetchEvents() async throws -> [RemoteEventListModel.Event]
 }
 
 class RemoteEventsDataSource: RemoteEventsDataSourceProtocol {
@@ -19,7 +19,7 @@ class RemoteEventsDataSource: RemoteEventsDataSourceProtocol {
         self.networkRequest = networkRequest
     }
 
-    func fetchEvents() async throws -> [RemoteEventListModel.Event]? {
+    func fetchEvents() async throws -> [RemoteEventListModel.Event] {
         do {
             let eventList: RemoteEventListModel.EventList = try await networkRequest.request(networkService: EventsNetworkService.eventsList)
             return eventList.events

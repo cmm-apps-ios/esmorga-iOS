@@ -34,4 +34,7 @@ open class CodableKeychain<T: Codable> {
     }
 }
 
+extension CodableKeychain where T == AccountSession {
+    var isLogged: Bool { (try? fetch()) != nil }
+}
 

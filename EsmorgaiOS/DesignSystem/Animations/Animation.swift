@@ -6,22 +6,25 @@
 //
 
 import Lottie
+import SwiftUI
 
 enum Animation {
     case suspiciousMonkey
     case dancingPepe
 
-    var fileName: String {
+    var lottieAnimation: LottieAnimation? {
         switch self {
-        case .suspiciousMonkey: return "suspiciousMonkey.json"
-        case .dancingPepe: return "dancingPepe.json"
+        case .suspiciousMonkey:
+            return LottieAnimation.named("suspiciousMonkey")
+        case .dancingPepe:
+            return LottieAnimation.named("dancingPepe")
         }
     }
+}
 
-    var loopMode: Lottie.LottieLoopMode {
-        switch self {
-        case .suspiciousMonkey: return .loop
-        case .dancingPepe: return .loop
-        }
+extension LottieView {
+
+    init(animation: Animation) where Placeholder == EmptyView {
+        self.init(animation: animation.lottieAnimation)
     }
 }

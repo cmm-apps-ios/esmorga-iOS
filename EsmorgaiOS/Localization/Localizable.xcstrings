@@ -293,9 +293,6 @@
         }
       }
     },
-    "Mis Eventos Content" : {
-
-    },
     "Perfil Content" : {
 
     },
@@ -431,6 +428,28 @@
         }
       }
     },
+    "screen_my_events_empty_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todavía no estás apuntado a ningún evento. Anímate para el siguiente."
+          }
+        }
+      }
+    },
+    "screen_my_events_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus eventos"
+          }
+        }
+      }
+    },
     "screen_registration_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -452,6 +471,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hay conexión a internet."
+          }
+        }
+      }
+    },
+    "unauthenticated_error_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oh no! No estás logueado"
           }
         }
       }

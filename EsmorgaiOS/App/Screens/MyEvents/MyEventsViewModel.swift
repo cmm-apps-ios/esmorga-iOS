@@ -18,13 +18,70 @@ enum MyEventsViewStates: ViewStateProtocol {
 
 class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
 
+    private let getEventListUseCase: GetEventListUseCaseAlias
+    private let getLocalUserUseCase: GetLocalUserUseCaseAlias
     var events: [EventModels.Event] = []
+
+    init(coordinator: (any CoordinatorProtocol)?,
+         networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,
+         getEventListUseCase: GetEventListUseCaseAlias = GetEventListUseCase(),
+         getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase()) {
+        self.getEventListUseCase = getEventListUseCase
+        self.getLocalUserUseCase = getLocalUserUseCase
+        super.init(coordinator: coordinator,
+                   networkMonitor: networkMonitor)
+    }
 
     func eventTapped(_ event: EventModels.Event) {
         coordinator?.push(destination: .eventDetails(event))
     }
 
-    func getEventList(forceRefresh: Bool) {
+    @MainActor
+    func getEventList(forceRefresh: Bool) async {
         changeState(.loading)
+
+        let isUserLogged = await getLocalUserUseCase.execute()
+
+        guard case .success = isUserLogged else {
+            self.changeState(.loggedOut)
+            return
+        }
+
+        let result = await getEventListUseCase.execute(input: forceRefresh)
+        switch result {
+        case .success(let events):
+            self.events = events.data.filter { $0.isUserJoined }
+            if self.events.isEmpty {
+                self.changeState(.empty)
+            } else {
+                self.changeState(.loaded)
+            }
+
+            if events.error {
+                self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(),
+                                      isShown: true)
+            }
+        case .failure:
+            self.changeState(.error)
+        }
+    }
+
+    func loginButtonTapped() {
+        coordinator?.push(destination: .login)
+    }
+
+    @MainActor
+    func retryButtonTapped() async {
+        guard networkMonitor.isConnected else {
+            //TODO: US MOB-133
+            let dialogModel = ErrorDialog.Model(image: "error_icon",
+                                                message: "TODO",
+                                                buttonText: "TODO",
+                                                handler: nil)
+
+            coordinator?.push(destination: .dialog(dialogModel))
+            return
+        }
+        await getEventList(forceRefresh: true)
     }
 }

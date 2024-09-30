@@ -15,9 +15,19 @@ class LocalizationKeys {
         static let empty: String = "screen_event_list_empty_text"
     }
 
+    enum MyEventList {
+        static let title: String = "screen_my_events_title"
+        static let empty: String = "screen_my_events_empty_text"
+        static let loading: String = "screen_event_list_loading"
+    }
+
     enum EventDetails {
         static let description: String = "screen_event_details_description"
         static let location: String = "screen_event_details_location"
+    }
+
+    enum Common {
+        static let unauthenticatedTitle: String = "unauthenticated_error_title"
     }
 
     enum Buttons {

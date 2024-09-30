@@ -49,11 +49,11 @@ struct BottomBar: View {
                     .renderingMode(.template)
                     .resizable()
                     .frame(width: 24, height: 24, alignment: .center)
-                    .foregroundColor(selectedTab == item.tag ? .onSurfaceVariant : .onSurface)
+                    .foregroundColor(selectedTab == item.tag ? .onSurface : .onSurfaceVariant)
                     .padding(.vertical, 4)
                     .font(.system(size: 14, weight: .regular, design: .default))
                 Text(item.text)
-                    .style(.caption, textColor: selectedTab == item.tag ? .onSurfaceVariant : .onSurface)
+                    .style(.caption, textColor: selectedTab == item.tag ? .onSurface : .onSurfaceVariant)
                     .padding(.top, 4)
             }
         }.frame(maxWidth: .infinity, alignment: .center)

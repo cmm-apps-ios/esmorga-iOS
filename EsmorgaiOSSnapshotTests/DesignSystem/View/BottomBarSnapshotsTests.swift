@@ -40,7 +40,7 @@ final class BottomBarSnapshotsTests: XCTestCase {
 
     func test_given_bottom_bar_item_with_tab_2_selected() {
         @State var selectedTab = 2
-
+        
         let hostView = HostView {
             VStack {
                 Spacer()

@@ -8,16 +8,36 @@
 import Network
 import Foundation
 
-//class NetworkMonitor: ObservableObject {
-//    private let networkMonitor = NWPathMonitor()
-//    private let workerQueue = DispatchQueue(label: "Monitor")
-//    var isConnected = true
-//
-//    init() {
-//        self.isConnected = networkMonitor.currentPath.status == .satisfied
-//        networkMonitor.pathUpdateHandler = { path in
-//            self.isConnected = path.status == .satisfied
-//        }
-//        networkMonitor.start(queue: workerQueue)
-//    }
-//}
+protocol NetworkMonitorProtocol {
+    func startMonitoring()
+    func stopMonitoring()
+    var isConnected: Bool { get }
+}
+
+class NetworkMonitor: NetworkMonitorProtocol {
+
+    static let shared = NetworkMonitor()
+
+    private let monitor = NWPathMonitor()
+    private let queue = DispatchQueue.global(qos: .background)
+    var isConnected = true
+
+    private init() {
+        startMonitoring()
+    }
+
+    deinit {
+        stopMonitoring()
+    }
+
+    func startMonitoring() {
+        monitor.pathUpdateHandler = { path in
+            self.isConnected = path.status == .satisfied
+        }
+        monitor.start(queue: queue)
+    }
+
+    func stopMonitoring() {
+        monitor.cancel()
+    }
+}

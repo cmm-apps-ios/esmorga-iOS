@@ -12,9 +12,12 @@ class BaseViewModel<E: ViewStateProtocol>: ObservableObject {
     @Published var snackBar: SnackbarView.Model = .init()
 
     weak var coordinator: (any CoordinatorProtocol)?
+    var networkMonitor: NetworkMonitorProtocol!
 
-    init(coordinator: (any CoordinatorProtocol)?) {
+    init(coordinator: (any CoordinatorProtocol)?,
+         networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared) {
         self.coordinator = coordinator
+        self.networkMonitor = networkMonitor
     }
 
     func changeState(_ state: E) {

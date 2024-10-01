@@ -55,6 +55,7 @@ final class SplashViewTests: XCTestCase {
     }
 
     //MOB-TC-119
+    //MOB-TC-137
     @MainActor
     func test_given_splash_view_when_logged_user_then_event_list_screen_is_shown() async throws {
 

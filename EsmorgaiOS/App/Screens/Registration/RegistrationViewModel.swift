@@ -156,13 +156,9 @@ class RegistrationViewModel: BaseViewModel<RegistrationViewStates> {
     }
 
     private func showErrorDialog() {
-        let dialogModel = ErrorDialog.Model(image: "error_icon",
-                                            message: LocalizationKeys.DefaultError.titleExpanded.localize(),
-                                            buttonText: LocalizationKeys.Buttons.retry.localize(),
-                                            handler: {
-
+        let dialogModel = ErrorDialogModelBuilder.build(type: .commonError) {
             self.textFields.resetAllTextFields()
-        })
+        }
         coordinator?.push(destination: .dialog(dialogModel))
     }
 }

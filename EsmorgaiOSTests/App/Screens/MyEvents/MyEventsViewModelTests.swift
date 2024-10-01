@@ -133,9 +133,6 @@ final class MyEventsViewModelTests {
         await sut.retryButtonTapped()
 
         #expect(self.spyCoordinator.pushCalled == true)
-        #expect(self.spyCoordinator.destination == .dialog(ErrorDialog.Model(image: "error_icon",
-                                                                             message: "TODO",
-                                                                             buttonText: "TODO",
-                                                                             handler: nil)))
+        #expect(self.spyCoordinator.destination == .dialog(ErrorDialogModelBuilder.build(type: .noInternet)))
     }
 }

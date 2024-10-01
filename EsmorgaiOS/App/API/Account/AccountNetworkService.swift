@@ -20,7 +20,7 @@ enum AccountNetworkService: NetworkService {
     var path: String {
         switch self {
         case .login: return "account/login"
-        case.register: return "account/register"
+        case .register: return "account/register"
         case .refresh: return "account/refresh"
         case .myEvents: return "account/events"
         }

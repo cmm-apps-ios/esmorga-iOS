@@ -76,6 +76,12 @@ class LocalizationKeys {
         static let body: String = "default_error_body"
     }
 
+    enum NoConnectionError {
+        static let primaryText: String = "no_connection_primary"
+        static let seconadryText: String = "no_connection_secondary"
+        static let buttonText: String = "no_connection_button"
+    }
+
     enum Login {
         static let title: String = "screen_login_title"
     }

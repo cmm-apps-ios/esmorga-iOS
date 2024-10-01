@@ -73,12 +73,7 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
     @MainActor
     func retryButtonTapped() async {
         guard networkMonitor.isConnected else {
-            //TODO: US MOB-133
-            let dialogModel = ErrorDialog.Model(image: "error_icon",
-                                                message: "TODO",
-                                                buttonText: "TODO",
-                                                handler: nil)
-
+            let dialogModel = ErrorDialogModelBuilder.build(type: .noInternet)
             coordinator?.push(destination: .dialog(dialogModel))
             return
         }

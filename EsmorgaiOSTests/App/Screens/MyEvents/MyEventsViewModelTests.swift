@@ -141,7 +141,7 @@ final class MyEventsViewModelTests {
 
         await sut.getEventList(forceRefresh: false)
 
-        #expect(self.sut.events.isEmpty)
+        #expect(self.sut.events == events)
         #expect(self.sut.state == .loaded)
         #expect(self.sut.snackBar.isShown == true)
     }

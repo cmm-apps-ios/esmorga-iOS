@@ -51,6 +51,7 @@
 		EF2A6DC62CAA8DE900164FD5 /* MockNetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DC52CAA8DE700164FD5 /* MockNetworkMonitor.swift */; };
 		EF2A6DC82CAAE2CC00164FD5 /* ErrorDialogModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DC72CAAE2CA00164FD5 /* ErrorDialogModelBuilder.swift */; };
 		EF2A6DCC2CABF82200164FD5 /* noConnection.json in Resources */ = {isa = PBXBuildFile; fileRef = EF2A6DCB2CABF82200164FD5 /* noConnection.json */; };
+		EF2A6DCE2CAD9BA800164FD5 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DCD2CAD9BA400164FD5 /* TestHelper.swift */; };
 		EF2F9CC72C875D330064D2D1 /* BaseConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EF2F9CC62C875D330064D2D1 /* BaseConfig.xcconfig */; };
 		EF3158532C53D9EE00DE157A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158522C53D9EE00DE157A /* NetworkError.swift */; };
 		EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158552C53DC8200DE157A /* EventDetailsView.swift */; };
@@ -249,6 +250,7 @@
 		EF2A6DC52CAA8DE700164FD5 /* MockNetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkMonitor.swift; sourceTree = "<group>"; };
 		EF2A6DC72CAAE2CA00164FD5 /* ErrorDialogModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogModelBuilder.swift; sourceTree = "<group>"; };
 		EF2A6DCB2CABF82200164FD5 /* noConnection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = noConnection.json; sourceTree = "<group>"; };
+		EF2A6DCD2CAD9BA400164FD5 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		EF2F9CC62C875D330064D2D1 /* BaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BaseConfig.xcconfig; sourceTree = "<group>"; };
 		EF3158522C53D9EE00DE157A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		EF3158552C53DC8200DE157A /* EventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsView.swift; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 		EF2A6DC42CAA8DDC00164FD5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EF2A6DCD2CAD9BA400164FD5 /* TestHelper.swift */,
 				EF2A6DC52CAA8DE700164FD5 /* MockNetworkMonitor.swift */,
 			);
 			path = Common;
@@ -1759,6 +1762,7 @@
 				EFDDF90D2C8B1AD00087AD97 /* SplashViewTests.swift in Sources */,
 				EF3158702C5A5DED00DE157A /* LocalEventsDataSourceTests.swift in Sources */,
 				EFE34DC12C7CBB9300724DDC /* AccountLoginModel.swift in Sources */,
+				EF2A6DCE2CAD9BA800164FD5 /* TestHelper.swift in Sources */,
 				EFF9C8842C99997F00DE50BC /* AccountAuthenticatorTests.swift in Sources */,
 				EF2A6DC62CAA8DE900164FD5 /* MockNetworkMonitor.swift in Sources */,
 				EFF9C88A2C99C7D300DE50BC /* AccountTokensRefresherTests.swift in Sources */,

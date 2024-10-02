@@ -44,7 +44,9 @@ struct MyEventsView: View {
                 }
             }.frame(maxWidth: .infinity, alignment: .leading)
                 .onFirstAppear {
-                    await viewModel.getEventList(forceRefresh: false)
+                    Task {
+                        await viewModel.getEventList(forceRefresh: false)
+                    }
                 }
         }.navigationBarBackButtonHidden(true)
     }

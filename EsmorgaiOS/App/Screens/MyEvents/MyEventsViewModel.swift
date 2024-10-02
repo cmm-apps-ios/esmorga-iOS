@@ -70,7 +70,6 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
         coordinator?.push(destination: .login)
     }
 
-    @MainActor
     func retryButtonTapped() async {
         guard networkMonitor.isConnected else {
             let dialogModel = ErrorDialogModelBuilder.build(type: .noInternet)

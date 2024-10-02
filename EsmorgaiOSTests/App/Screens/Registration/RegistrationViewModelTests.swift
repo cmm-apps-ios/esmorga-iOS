@@ -51,10 +51,7 @@ final class RegistrationViewModelTests: XCTestCase {
         sut.performRegistration()
 
         await expect(self.spyCoordinator.pushCalled).toEventually(beTrue())
-        await expect(self.spyCoordinator.destination).toEventually(equal(.dialog(.init(image: "error_icon",
-                                                                                       message: LocalizationKeys.DefaultError.titleExpanded.localize(),
-                                                                                       buttonText: LocalizationKeys.Buttons.retry.localize(),
-                                                                                       handler: nil))))
+        await expect(self.spyCoordinator.destination).toEventually(equal(.dialog(ErrorDialogModelBuilder.build(type: .commonError))))
     }
 
     //MOB-TC-132

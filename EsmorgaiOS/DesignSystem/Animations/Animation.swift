@@ -11,6 +11,7 @@ import SwiftUI
 enum Animation {
     case suspiciousMonkey
     case dancingPepe
+    case noConnection
 
     var lottieAnimation: LottieAnimation? {
         switch self {
@@ -18,6 +19,8 @@ enum Animation {
             return LottieAnimation.named("suspiciousMonkey")
         case .dancingPepe:
             return LottieAnimation.named("dancingPepe")
+        case .noConnection:
+            return LottieAnimation.named("noConnection")
         }
     }
 }

@@ -123,13 +123,10 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
     }
 
     private func showErrorDialog() {
-        let dialogModel = ErrorDialog.Model(image: "error_icon",
-                                            message: LocalizationKeys.DefaultError.titleExpanded.localize(),
-                                            buttonText: LocalizationKeys.Buttons.retry.localize(),
-                                            handler: {
+        let dialogModel = ErrorDialogModelBuilder.build(type: .commonError) {
             self.passTextField.text = ""
             self.emailTextField.text = ""
-        })
+        }
         coordinator?.push(destination: .dialog(dialogModel))
     }
 }

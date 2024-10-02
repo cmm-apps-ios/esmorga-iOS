@@ -49,6 +49,8 @@
 		EF2983FA2C6B987A00C2393E /* EventDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983F92C6B987A00C2393E /* EventDetailsViewModelTests.swift */; };
 		EF2A6DC32CA6BBC000164FD5 /* MyEventsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DC22CA6BBBC00164FD5 /* MyEventsViewModelTests.swift */; };
 		EF2A6DC62CAA8DE900164FD5 /* MockNetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DC52CAA8DE700164FD5 /* MockNetworkMonitor.swift */; };
+		EF2A6DC82CAAE2CC00164FD5 /* ErrorDialogModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DC72CAAE2CA00164FD5 /* ErrorDialogModelBuilder.swift */; };
+		EF2A6DCC2CABF82200164FD5 /* noConnection.json in Resources */ = {isa = PBXBuildFile; fileRef = EF2A6DCB2CABF82200164FD5 /* noConnection.json */; };
 		EF2F9CC72C875D330064D2D1 /* BaseConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EF2F9CC62C875D330064D2D1 /* BaseConfig.xcconfig */; };
 		EF3158532C53D9EE00DE157A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158522C53D9EE00DE157A /* NetworkError.swift */; };
 		EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158552C53DC8200DE157A /* EventDetailsView.swift */; };
@@ -245,6 +247,8 @@
 		EF2983F92C6B987A00C2393E /* EventDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		EF2A6DC22CA6BBBC00164FD5 /* MyEventsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsViewModelTests.swift; sourceTree = "<group>"; };
 		EF2A6DC52CAA8DE700164FD5 /* MockNetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkMonitor.swift; sourceTree = "<group>"; };
+		EF2A6DC72CAAE2CA00164FD5 /* ErrorDialogModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogModelBuilder.swift; sourceTree = "<group>"; };
+		EF2A6DCB2CABF82200164FD5 /* noConnection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = noConnection.json; sourceTree = "<group>"; };
 		EF2F9CC62C875D330064D2D1 /* BaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BaseConfig.xcconfig; sourceTree = "<group>"; };
 		EF3158522C53D9EE00DE157A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		EF3158552C53DC8200DE157A /* EventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsView.swift; sourceTree = "<group>"; };
@@ -860,6 +864,7 @@
 			isa = PBXGroup;
 			children = (
 				EFD377152CA1B61E0090B90A /* suspiciousMonkey.json */,
+				EF2A6DCB2CABF82200164FD5 /* noConnection.json */,
 				EFD377132CA1B3AF0090B90A /* dancingPepe.json */,
 			);
 			path = files;
@@ -1101,6 +1106,7 @@
 		EFE34DA72C77858100724DDC /* Dialogs */ = {
 			isa = PBXGroup;
 			children = (
+				EF2A6DC72CAAE2CA00164FD5 /* ErrorDialogModelBuilder.swift */,
 				EFE34DA82C77859D00724DDC /* ErrorDialog.swift */,
 			);
 			path = Dialogs;
@@ -1569,6 +1575,7 @@
 				EF3158972C627EEF00DE157A /* Assets.xcassets in Resources */,
 				EFD377162CA1B61E0090B90A /* suspiciousMonkey.json in Resources */,
 				EF21285A2C87099A00D00887 /* Config-PROD.xcconfig in Resources */,
+				EF2A6DCC2CABF82200164FD5 /* noConnection.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1619,6 +1626,7 @@
 				EFD7EF022C3D3BB100C8CE70 /* RemoteEventsDataSource.swift in Sources */,
 				EF0811DA2C9328CE00DE4887 /* MainCoordinator.swift in Sources */,
 				EFE34DE22C81CDA500724DDC /* NavigationBar.swift in Sources */,
+				EF2A6DC82CAAE2CC00164FD5 /* ErrorDialogModelBuilder.swift in Sources */,
 				EFD377112CA1B3720090B90A /* Animation.swift in Sources */,
 				EF2983CD2C6A162A00C2393E /* SplashViewModel.swift in Sources */,
 				EF0811D52C93260800DE4887 /* DashboardModels.swift in Sources */,

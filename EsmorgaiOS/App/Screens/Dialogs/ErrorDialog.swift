@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct ErrorDialog: View {
 
@@ -13,15 +14,24 @@ struct ErrorDialog: View {
     struct Model: Equatable {
 
         static func ==(lhs: Model, rhs: Model) -> Bool {
-            return lhs.image == rhs.image &&
-            lhs.message == rhs.message &&
+            return lhs.animation == rhs.animation &&
+            lhs.image == rhs.image &&
+            lhs.primaryText == rhs.primaryText &&
+            lhs.secondaryText == rhs.secondaryText &&
             lhs.buttonText == rhs.buttonText
         }
 
-        let image: String
-        let message: String
+        let animation: Animation?
+        let image: String?
+        let primaryText: String
+        let secondaryText: String?
         let buttonText: String
         let handler: (() -> Void)?
+    }
+
+    enum DialogType {
+        case commonError
+        case noInternet
     }
 
     let model: Model
@@ -30,15 +40,36 @@ struct ErrorDialog: View {
         ZStack {
             Color.surface.edgesIgnoringSafeArea(.all)
             VStack(alignment: .center) {
-                Spacer()
-                Image(model.image)
-                    .resizable()
-                    .frame(width: 80, height: 80)
-
-                Text(model.message)
-                    .style(.heading1)
-                    .multilineTextAlignment(.center)
-                Spacer()
+                GeometryReader { geometry in
+                    VStack(alignment: .center) {
+                        Spacer()
+                        if let animation = model.animation {
+                            VStack(alignment: .center, spacing: 16) {
+                                LottieView(animation: animation)
+                                    .looping()
+                                    .resizable()
+                                    .aspectRatio(1/1, contentMode: .fit)
+                                    .frame(width: geometry.size.width * 0.5)
+                            }.frame(maxWidth: .infinity, alignment: .center)
+                        }
+                        if let image = model.image {
+                            Image(image)
+                                .resizable()
+                                .frame(width: 80, height: 80)
+                        }
+                        VStack(alignment: .center, spacing: 10) {
+                            Text(model.primaryText)
+                                .style(.heading1)
+                                .multilineTextAlignment(.center)
+                            if let secondaryText = model.secondaryText {
+                                Text(secondaryText)
+                                    .style(.body1)
+                                    .multilineTextAlignment(.center)
+                            }
+                        }
+                        Spacer()
+                    }
+                }
                 CustomButton(title: model.buttonText, buttonStyle: .primary) {
                     model.handler?()
                     dismiss()

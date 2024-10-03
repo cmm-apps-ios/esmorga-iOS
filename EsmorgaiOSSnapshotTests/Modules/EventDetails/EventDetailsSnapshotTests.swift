@@ -17,9 +17,11 @@ final class EventDetailsSnapshotTests: XCTestCase {
 
     override func setUpWithError() throws {
         try super.setUpWithError()
+        NSTimeZone.default = TimeZone(identifier: "Europe/Madrid")!
     }
 
     override func tearDownWithError() throws {
+        NSTimeZone.resetSystemTimeZone()
         sut = nil
         viewModel = nil
         mockGetLocalUserUseCase = nil

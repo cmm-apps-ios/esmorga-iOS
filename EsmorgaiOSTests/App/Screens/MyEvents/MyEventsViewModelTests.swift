@@ -47,11 +47,9 @@ final class MyEventsViewModelTests {
         mockGetEventListUseCase.mockResponse = (events, false)
         mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
 
-        let task = Task {
-            await sut.getEventList(forceRefresh: false)
+        await TestHelper.fullfillTask {
+            await self.sut.getEventList(forceRefresh: false)
         }
-
-        await task.value
 
         #expect(self.sut.events == events)
         #expect(self.sut.state == .loaded)
@@ -76,11 +74,9 @@ final class MyEventsViewModelTests {
 
         mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
 
-        let task = Task {
-            await sut.getEventList(forceRefresh: false)
+        await TestHelper.fullfillTask {
+            await self.sut.getEventList(forceRefresh: false)
         }
-
-        await task.value
 
         #expect(self.sut.events.isEmpty)
         #expect(self.sut.state == .error)
@@ -91,11 +87,9 @@ final class MyEventsViewModelTests {
     @Test
     func test_given_get_event_list_when_not_logged_then_state_logged_out_is_set() async {
 
-        let task = Task {
-            await sut.getEventList(forceRefresh: false)
+        await TestHelper.fullfillTask {
+            await self.sut.getEventList(forceRefresh: false)
         }
-
-        await task.value
 
         #expect(self.sut.events.isEmpty)
         #expect(self.sut.state == .loggedOut)
@@ -122,11 +116,9 @@ final class MyEventsViewModelTests {
         mockGetEventListUseCase.mockResponse = (events, false)
         mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
 
-        let task = Task {
-            await sut.retryButtonTapped()
+        await TestHelper.fullfillTask {
+            await self.sut.retryButtonTapped()
         }
-
-        await task.value
 
         #expect(self.sut.events == events)
         #expect(self.sut.state == .loaded)
@@ -144,11 +136,9 @@ final class MyEventsViewModelTests {
         mockGetEventListUseCase.mockResponse = (events, false)
         mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
 
-        let task = Task {
-            await sut.retryButtonTapped()
+        await TestHelper.fullfillTask {
+            await self.sut.retryButtonTapped()
         }
-
-        await task.value
 
         #expect(self.sut.events.isEmpty)
         #expect(self.sut.state == .empty)
@@ -165,11 +155,9 @@ final class MyEventsViewModelTests {
         mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
         mockGetEventListUseCase.mockResponse = (events, true)
 
-        let task = Task {
-            await sut.getEventList(forceRefresh: false)
+        await TestHelper.fullfillTask {
+            await self.sut.getEventList(forceRefresh: false)
         }
-
-        await task.value
 
         #expect(self.sut.events == events)
         #expect(self.sut.state == .loaded)

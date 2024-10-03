@@ -5,53 +5,121 @@
 //  Created by Vidal Pérez, Omar on 13/8/24.
 //
 
-import Nimble
-import XCTest
+import Foundation
+import Testing
 @testable import EsmorgaiOS
 
-final class EventDetailsViewModelTests: XCTestCase {
+@Suite(.serialized)
+final class EventDetailsViewModelTests {
 
     private var sut: EventDetailsViewModel!
     private var spyCoordinator: SpyCoordinator!
     private var mockNavigationManager: MockNavigationManager!
+    private var mockGetLocalUserUseCase: MockGetLocalUserUseCase!
 
-    override func setUpWithError() throws {
-        try super.setUpWithError()
+    init() {
         spyCoordinator = SpyCoordinator()
         mockNavigationManager = MockNavigationManager()
-        sut = EventDetailsViewModel(coordinator: spyCoordinator, navigationManager: mockNavigationManager)
+        mockGetLocalUserUseCase = MockGetLocalUserUseCase()
     }
 
-    override func tearDownWithError() throws {
+    deinit {
         spyCoordinator = nil
         mockNavigationManager = nil
+        mockGetLocalUserUseCase = nil
         sut = nil
-        try super.tearDownWithError()
     }
 
+    @Test
     func test_given_open_maps_button_tapped_when_only_one_method_then_open_navigation_is_called() {
 
-        sut.openLocation(latitude: 40.4165, longitude: -3.70256)
+        giveSut(event: EventBuilder().with(latitude: 40.4165).with(longitude: -3.70256).build())
 
-        expect(self.spyCoordinator.openNavigationAppCalled).toEventually(beTrue())
+        sut.openLocation()
+
+        #expect(self.spyCoordinator.openNavigationAppCalled == true)
     }
 
+    @Test
     func test_given_open_maps_button_tapped_when_more_than_one_method_then_alert_is_shon() {
 
         mockNavigationManager.methods = [NavigationModels.Method(title: "Apple Maps", url: URL(string: "http://maps.apple.com/?saddr=&daddr=\(0.0),\(0.0)")!),
                                          NavigationModels.Method(title: "Google Maps", url: URL(string: "http://maps.apple.com/?saddr=&daddr=\(0.0),\(0.0)")!)]
 
-        sut.openLocation(latitude: 40.4165, longitude: -3.70256)
+        giveSut(event: EventBuilder().with(latitude: 40.4165).with(longitude: -3.70256).build())
 
-        expect(self.sut.showMethodsAlert).toEventually(beTrue())
+        sut.openLocation()
+
+        #expect(self.sut.showMethodsAlert == true)
     }
-}
 
-final class MockNavigationManager: NavigationManagerProtocol {
+    @Test
+    func test_given_primary_button_tapped_when_user_not_logged_then_login_destination_is_push() {
 
-    var methods: [NavigationModels.Method] = [NavigationModels.Method(title: "Apple Maps", url: URL(string: "http://maps.apple.com/?saddr=&daddr=\(0.0),\(0.0)")!)]
+        giveSut(event: EventBuilder().build())
 
-    func getMethods(latitude: Double, longitude: Double) -> [NavigationModels.Method] {
-        return methods
+        sut.state = .loaded(isLogged: false)
+
+        sut.primaryButtonTapped()
+
+        #expect(self.spyCoordinator.pushCalled == true)
+        #expect(self.spyCoordinator.destination == .login)
+    }
+
+    @MainActor
+    @Test
+    func test_given_view_load_when_user_loggin_and_event_not_joined_then_display_join_event_button() async {
+
+        mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
+        let event = EventBuilder().build()
+        giveSut(event: event)
+
+        await TestHelper.fullfillTask {
+            await self.sut.viewLoad()
+        }
+
+        #expect(self.sut.state == .loaded(isLogged: true))
+        #expect(self.sut.model.title == event.name)
+        #expect(self.sut.model.primaryButtonText == LocalizationKeys.Buttons.joinEvent.localize())
+    }
+
+    @MainActor
+    @Test
+    func test_given_view_load_when_user_loggin_and_event_joined_then_display_leave_event_button() async {
+
+        mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
+        let event = EventBuilder().with(isUserJoined: true).build()
+        giveSut(event: event)
+
+        await TestHelper.fullfillTask {
+            await self.sut.viewLoad()
+        }
+
+        #expect(self.sut.state == .loaded(isLogged: true))
+        #expect(self.sut.model.title == event.name)
+        #expect(self.sut.model.primaryButtonText == LocalizationKeys.Buttons.leaveEvent.localize())
+    }
+
+    @MainActor
+    @Test
+    func test_given_view_load_when_user_not_loggin_then_display_login_button() async {
+
+        let event = EventBuilder().with(isUserJoined: true).build()
+        giveSut(event: event)
+
+        await TestHelper.fullfillTask {
+            await self.sut.viewLoad()
+        }
+
+        #expect(self.sut.state == .loaded(isLogged: false))
+        #expect(self.sut.model.title == event.name)
+        #expect(self.sut.model.primaryButtonText == LocalizationKeys.Buttons.loginToJoin.localize())
+    }
+
+    private func giveSut(event: EventModels.Event) {
+        sut = EventDetailsViewModel(coordinator: spyCoordinator,
+                                    event: event,
+                                    navigationManager: mockNavigationManager,
+                                    getLocalUserUseCase: mockGetLocalUserUseCase)
     }
 }

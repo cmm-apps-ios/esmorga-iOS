@@ -38,6 +38,9 @@ class LocalizationKeys {
         static let navigate: String = "button_navigate"
         static let register: String = "button_register"
         static let retry: String = "button_retry"
+        static let joinEvent: String = "button_join_event"
+        static let leaveEvent: String = "button_leave_event"
+        static let loginToJoin: String = "button_login_to_join"
     }
 
     enum TextField {

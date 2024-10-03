@@ -59,6 +59,28 @@
         }
       }
     },
+    "button_join_event" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apuntarse"
+          }
+        }
+      }
+    },
+    "button_leave_event" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rajarse"
+          }
+        }
+      }
+    },
     "button_login" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -77,6 +99,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Login / Registro"
+          }
+        }
+      }
+    },
+    "button_login_to_join" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identifícate para apuntarte"
           }
         }
       }

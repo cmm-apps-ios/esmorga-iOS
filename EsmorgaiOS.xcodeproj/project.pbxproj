@@ -37,7 +37,6 @@
 		EF21284B2C86153B00D00887 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21284A2C86153B00D00887 /* Keychain.swift */; };
 		EF21284D2C8615F000D00887 /* KeychainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21284C2C8615F000D00887 /* KeychainBuilder.swift */; };
 		EF21284F2C86161400D00887 /* KeychainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21284E2C86161400D00887 /* KeychainProtocols.swift */; };
-		EF21285A2C87099A00D00887 /* Config-PROD.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EF2128592C87099A00D00887 /* Config-PROD.xcconfig */; };
 		EF21285E2C8711D300D00887 /* Bundle+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21285D2C8711D300D00887 /* Bundle+Configuration.swift */; };
 		EF2983CB2C6A15D800C2393E /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983CA2C6A15D800C2393E /* SplashView.swift */; };
 		EF2983CD2C6A162A00C2393E /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983CC2C6A162A00C2393E /* SplashViewModel.swift */; };
@@ -52,7 +51,7 @@
 		EF2A6DC82CAAE2CC00164FD5 /* ErrorDialogModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DC72CAAE2CA00164FD5 /* ErrorDialogModelBuilder.swift */; };
 		EF2A6DCC2CABF82200164FD5 /* noConnection.json in Resources */ = {isa = PBXBuildFile; fileRef = EF2A6DCB2CABF82200164FD5 /* noConnection.json */; };
 		EF2A6DCE2CAD9BA800164FD5 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DCD2CAD9BA400164FD5 /* TestHelper.swift */; };
-		EF2F9CC72C875D330064D2D1 /* BaseConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EF2F9CC62C875D330064D2D1 /* BaseConfig.xcconfig */; };
+		EF2A6DD12CAE940200164FD5 /* ErrorDialogSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD02CAE93F900164FD5 /* ErrorDialogSnapshotTests.swift */; };
 		EF3158532C53D9EE00DE157A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158522C53D9EE00DE157A /* NetworkError.swift */; };
 		EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158552C53DC8200DE157A /* EventDetailsView.swift */; };
 		EF3158592C5937E800DE157A /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = EF3158582C5937E800DE157A /* Nimble */; };
@@ -71,7 +70,6 @@
 		EF31587C2C5A7DA800DE157A /* mock_dummy_file.json in Resources */ = {isa = PBXBuildFile; fileRef = EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */; };
 		EF3158802C5A7E7100DE157A /* EventListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31587F2C5A7E7100DE157A /* EventListViewModelTests.swift */; };
 		EF3158822C5A80AC00DE157A /* MockGetEventListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */; };
-		EF3158842C5B872100DE157A /* Config-QA.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EF3158832C5B872100DE157A /* Config-QA.xcconfig */; };
 		EF3158872C5BD63400DE157A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158862C5BD63400DE157A /* BaseView.swift */; };
 		EF3158892C5CF0A700DE157A /* EventDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158882C5CF0A700DE157A /* EventDetailsViewModel.swift */; };
 		EF31588C2C62346B00DE157A /* BaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31588B2C62346B00DE157A /* BaseUseCase.swift */; };
@@ -251,6 +249,7 @@
 		EF2A6DC72CAAE2CA00164FD5 /* ErrorDialogModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogModelBuilder.swift; sourceTree = "<group>"; };
 		EF2A6DCB2CABF82200164FD5 /* noConnection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = noConnection.json; sourceTree = "<group>"; };
 		EF2A6DCD2CAD9BA400164FD5 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
+		EF2A6DD02CAE93F900164FD5 /* ErrorDialogSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogSnapshotTests.swift; sourceTree = "<group>"; };
 		EF2F9CC62C875D330064D2D1 /* BaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BaseConfig.xcconfig; sourceTree = "<group>"; };
 		EF3158522C53D9EE00DE157A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		EF3158552C53DC8200DE157A /* EventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsView.swift; sourceTree = "<group>"; };
@@ -432,6 +431,7 @@
 		EF0811C02C90940D00DE4887 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EF2A6DCF2CAE93E200164FD5 /* Dialogs */,
 				EF0811CA2C919B5700DE4887 /* Registration */,
 				EF0811C52C90944400DE4887 /* Login */,
 			);
@@ -586,6 +586,14 @@
 				EF2A6DC52CAA8DE700164FD5 /* MockNetworkMonitor.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		EF2A6DCF2CAE93E200164FD5 /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				EF2A6DD02CAE93F900164FD5 /* ErrorDialogSnapshotTests.swift */,
+			);
+			path = Dialogs;
 			sourceTree = "<group>";
 		};
 		EF3158542C53DC6800DE157A /* EventDetails */ = {
@@ -1507,7 +1515,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					EF0811AF2C9093C400DE4887 = {
 						CreatedOnToolsVersion = 15.4;
@@ -1569,15 +1577,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFD7EF1C2C3D871100C8CE70 /* Localizable.xcstrings in Resources */,
-				EF3158842C5B872100DE157A /* Config-QA.xcconfig in Resources */,
 				EFF7A1E32C36D9400024704A /* epilogue_flex.ttf in Resources */,
-				EF2F9CC72C875D330064D2D1 /* BaseConfig.xcconfig in Resources */,
 				EFD377142CA1B3AF0090B90A /* dancingPepe.json in Resources */,
 				EF3158992C62811500DE157A /* Colors.xcassets in Resources */,
 				EFF7A1E22C36D9400024704A /* plus_jakarta_flex.ttf in Resources */,
 				EF3158972C627EEF00DE157A /* Assets.xcassets in Resources */,
 				EFD377162CA1B61E0090B90A /* suspiciousMonkey.json in Resources */,
-				EF21285A2C87099A00D00887 /* Config-PROD.xcconfig in Resources */,
 				EF2A6DCC2CABF82200164FD5 /* noConnection.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1609,6 +1614,7 @@
 			files = (
 				EF0811C92C919B4F00DE4887 /* RegistrationSpanshotTests.swift in Sources */,
 				EF0811ED2C94424B00DE4887 /* BottomBarSnapshotsTests.swift in Sources */,
+				EF2A6DD12CAE940200164FD5 /* ErrorDialogSnapshotTests.swift in Sources */,
 				EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */,
 				EF0811C32C90943300DE4887 /* View+UIViewController.swift in Sources */,
 				EF0811E62C933BEB00DE4887 /* SpyCoordinator.swift in Sources */,
@@ -2109,6 +2115,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -2208,7 +2215,6 @@
 		EF2128522C8705E700D00887 /* Debug-PROD */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2232,7 +2238,6 @@
 		EF2128532C8705E700D00887 /* Debug-PROD */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CF2534U498;
@@ -2253,6 +2258,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -2345,7 +2351,6 @@
 		EF2128562C87060700D00887 /* Release-PROD */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2369,7 +2374,6 @@
 		EF2128572C87060700D00887 /* Release-PROD */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CF2534U498;
@@ -2390,6 +2394,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -2453,6 +2458,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -2583,7 +2589,6 @@
 		EFF7A1D32C354BD00024704A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2607,7 +2612,6 @@
 		EFF7A1D42C354BD00024704A /* Release-QA */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2631,7 +2635,6 @@
 		EFF7A1D62C354BD00024704A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CF2534U498;
@@ -2650,7 +2653,6 @@
 		EFF7A1D72C354BD00024704A /* Release-QA */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CF2534U498;

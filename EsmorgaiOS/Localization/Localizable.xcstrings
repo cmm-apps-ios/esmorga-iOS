@@ -59,6 +59,28 @@
         }
       }
     },
+    "button_join_event" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apuntarse"
+          }
+        }
+      }
+    },
+    "button_leave_event" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rajarse"
+          }
+        }
+      }
+    },
     "button_login" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -81,6 +103,17 @@
         }
       }
     },
+    "button_login_to_join" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identifícate para apuntarte"
+          }
+        }
+      }
+    },
     "button_navigate" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -88,6 +121,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Navegar"
+          }
+        }
+      }
+    },
+    "button_ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         }
       }
@@ -293,39 +337,6 @@
         }
       }
     },
-    "no_connection_button" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OK"
-          }
-        }
-      }
-    },
-    "no_connection_primary" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No hay conexión"
-          }
-        }
-      }
-    },
-    "no_connection_secondary" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Por favor, revisa tu conexión e inténtelo de nuevo"
-          }
-        }
-      }
-    },
     "Perfil Content" : {
 
     },
@@ -479,6 +490,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tus eventos"
+          }
+        }
+      }
+    },
+    "screen_no_connection_body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, revisa tu conexión e inténtelo de nuevo"
+          }
+        }
+      }
+    },
+    "screen_no_connection_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay conexión"
           }
         }
       }

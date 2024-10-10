@@ -52,6 +52,15 @@
 		EF2A6DCC2CABF82200164FD5 /* noConnection.json in Resources */ = {isa = PBXBuildFile; fileRef = EF2A6DCB2CABF82200164FD5 /* noConnection.json */; };
 		EF2A6DCE2CAD9BA800164FD5 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DCD2CAD9BA400164FD5 /* TestHelper.swift */; };
 		EF2A6DD12CAE940200164FD5 /* ErrorDialogSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD02CAE93F900164FD5 /* ErrorDialogSnapshotTests.swift */; };
+		EF2A6DD32CAEA75A00164FD5 /* EventDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD22CAEA75300164FD5 /* EventDetailsModels.swift */; };
+		EF2A6DD62CAEA7B600164FD5 /* EventDetailsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD52CAEA7AE00164FD5 /* EventDetailsMapper.swift */; };
+		EF2A6DD82CAEA89100164FD5 /* Result+IsSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD72CAEA88300164FD5 /* Result+IsSuccess.swift */; };
+		EF2A6DDA2CAED73100164FD5 /* MockNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD92CAED72F00164FD5 /* MockNavigationManager.swift */; };
+		EF2A6DDD2CAED77400164FD5 /* EventDetailsSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DDC2CAED76B00164FD5 /* EventDetailsSnapshotTests.swift */; };
+		EF2A6DDE2CAED84400164FD5 /* MockGetLocalUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6464A2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift */; };
+		EF2A6DDF2CAED8B800164FD5 /* EventBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD6100B2CA2C40400E3DB1E /* EventBuilder.swift */; };
+		EF2A6DE02CAEDA8500164FD5 /* UserModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA646412C8B09E700D528F9 /* UserModelBuilder.swift */; };
+		EF2A6DE12CAEE33E00164FD5 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DCD2CAD9BA400164FD5 /* TestHelper.swift */; };
 		EF3158532C53D9EE00DE157A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158522C53D9EE00DE157A /* NetworkError.swift */; };
 		EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158552C53DC8200DE157A /* EventDetailsView.swift */; };
 		EF3158592C5937E800DE157A /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = EF3158582C5937E800DE157A /* Nimble */; };
@@ -88,6 +97,7 @@
 		EF4213D82C41412300686033 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D72C41412300686033 /* AppManager.swift */; };
 		EF503C082C9874C000EE9128 /* AccountAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF503C072C9874C000EE9128 /* AccountAuthenticator.swift */; };
 		EF503C0A2C98753F00EE9128 /* AccountSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF503C092C98753F00EE9128 /* AccountSession.swift */; };
+		EF65D1692CB7C8CC005078D9 /* ErrorDialogModelBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65D1682CB7C8C7005078D9 /* ErrorDialogModelBuilderTests.swift */; };
 		EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */; };
 		EF7DF9562C9C0E94005908B7 /* View+FirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */; };
 		EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* NavigationManager.swift */; };
@@ -250,6 +260,11 @@
 		EF2A6DCB2CABF82200164FD5 /* noConnection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = noConnection.json; sourceTree = "<group>"; };
 		EF2A6DCD2CAD9BA400164FD5 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		EF2A6DD02CAE93F900164FD5 /* ErrorDialogSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogSnapshotTests.swift; sourceTree = "<group>"; };
+		EF2A6DD22CAEA75300164FD5 /* EventDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsModels.swift; sourceTree = "<group>"; };
+		EF2A6DD52CAEA7AE00164FD5 /* EventDetailsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsMapper.swift; sourceTree = "<group>"; };
+		EF2A6DD72CAEA88300164FD5 /* Result+IsSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+IsSuccess.swift"; sourceTree = "<group>"; };
+		EF2A6DD92CAED72F00164FD5 /* MockNavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationManager.swift; sourceTree = "<group>"; };
+		EF2A6DDC2CAED76B00164FD5 /* EventDetailsSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsSnapshotTests.swift; sourceTree = "<group>"; };
 		EF2F9CC62C875D330064D2D1 /* BaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BaseConfig.xcconfig; sourceTree = "<group>"; };
 		EF3158522C53D9EE00DE157A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		EF3158552C53DC8200DE157A /* EventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsView.swift; sourceTree = "<group>"; };
@@ -284,6 +299,7 @@
 		EF4213D72C41412300686033 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		EF503C072C9874C000EE9128 /* AccountAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAuthenticator.swift; sourceTree = "<group>"; };
 		EF503C092C98753F00EE9128 /* AccountSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSession.swift; sourceTree = "<group>"; };
+		EF65D1682CB7C8C7005078D9 /* ErrorDialogModelBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogModelBuilderTests.swift; sourceTree = "<group>"; };
 		EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAppearModifier.swift; sourceTree = "<group>"; };
 		EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+FirstAppear.swift"; sourceTree = "<group>"; };
 		EF9CDB832C89C0920044FB29 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
@@ -432,6 +448,7 @@
 			isa = PBXGroup;
 			children = (
 				EF2A6DCF2CAE93E200164FD5 /* Dialogs */,
+				EF2A6DDB2CAED76100164FD5 /* EventDetails */,
 				EF0811CA2C919B5700DE4887 /* Registration */,
 				EF0811C52C90944400DE4887 /* Login */,
 			);
@@ -583,6 +600,7 @@
 			isa = PBXGroup;
 			children = (
 				EF2A6DCD2CAD9BA400164FD5 /* TestHelper.swift */,
+				EF2A6DD92CAED72F00164FD5 /* MockNavigationManager.swift */,
 				EF2A6DC52CAA8DE700164FD5 /* MockNetworkMonitor.swift */,
 			);
 			path = Common;
@@ -596,9 +614,19 @@
 			path = Dialogs;
 			sourceTree = "<group>";
 		};
+		EF2A6DDB2CAED76100164FD5 /* EventDetails */ = {
+			isa = PBXGroup;
+			children = (
+				EF2A6DDC2CAED76B00164FD5 /* EventDetailsSnapshotTests.swift */,
+			);
+			path = EventDetails;
+			sourceTree = "<group>";
+		};
 		EF3158542C53DC6800DE157A /* EventDetails */ = {
 			isa = PBXGroup;
 			children = (
+				EF2A6DD52CAEA7AE00164FD5 /* EventDetailsMapper.swift */,
+				EF2A6DD22CAEA75300164FD5 /* EventDetailsModels.swift */,
 				EF3158552C53DC8200DE157A /* EventDetailsView.swift */,
 				EF3158882C5CF0A700DE157A /* EventDetailsViewModel.swift */,
 				EF2983EE2C6B762600C2393E /* EventDetailsBuilder.swift */,
@@ -679,6 +707,7 @@
 		EF31587D2C5A7E5000DE157A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				EF65D1672CB7C8BB005078D9 /* Dialogs */,
 				EF2A6DC12CA6BBAE00164FD5 /* MyEvents */,
 				EF0811E72C94324B00DE4887 /* Dashboard */,
 				EF0811E32C93345500DE4887 /* Coordinator */,
@@ -780,6 +809,14 @@
 				EFF9C8732C9991FD00DE50BC /* Refresher */,
 			);
 			path = Handlers;
+			sourceTree = "<group>";
+		};
+		EF65D1672CB7C8BB005078D9 /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				EF65D1682CB7C8C7005078D9 /* ErrorDialogModelBuilderTests.swift */,
+			);
+			path = Dialogs;
 			sourceTree = "<group>";
 		};
 		EF7DF9522C9C0D98005908B7 /* ViewModifier */ = {
@@ -1066,6 +1103,7 @@
 		EFE0A97C2C3D92AC00E28953 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EF2A6DD72CAEA88300164FD5 /* Result+IsSuccess.swift */,
 				EFF9C8792C99930F00DE50BC /* NSNotification+Name.swift */,
 				EFF9C8772C9992E600DE50BC /* URLRequest+BearerToken.swift */,
 				EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */,
@@ -1612,11 +1650,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF2A6DDE2CAED84400164FD5 /* MockGetLocalUserUseCase.swift in Sources */,
 				EF0811C92C919B4F00DE4887 /* RegistrationSpanshotTests.swift in Sources */,
+				EF2A6DDD2CAED77400164FD5 /* EventDetailsSnapshotTests.swift in Sources */,
 				EF0811ED2C94424B00DE4887 /* BottomBarSnapshotsTests.swift in Sources */,
+				EF2A6DE12CAEE33E00164FD5 /* TestHelper.swift in Sources */,
 				EF2A6DD12CAE940200164FD5 /* ErrorDialogSnapshotTests.swift in Sources */,
 				EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */,
+				EF2A6DE02CAEDA8500164FD5 /* UserModelBuilder.swift in Sources */,
 				EF0811C32C90943300DE4887 /* View+UIViewController.swift in Sources */,
+				EF2A6DDF2CAED8B800164FD5 /* EventBuilder.swift in Sources */,
 				EF0811E62C933BEB00DE4887 /* SpyCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1656,6 +1699,7 @@
 				EFE0A97F2C3D92F200E28953 /* Text+TextStyle.swift in Sources */,
 				EFE0A9822C3E8AE000E28953 /* Esmorga.xcdatamodeld in Sources */,
 				EFE34DA22C74ABC200724DDC /* LoginViewModel.swift in Sources */,
+				EF2A6DD32CAEA75A00164FD5 /* EventDetailsModels.swift in Sources */,
 				EFE34D9B2C74A7DC00724DDC /* UserModels.swift in Sources */,
 				EF3158892C5CF0A700DE157A /* EventDetailsViewModel.swift in Sources */,
 				EF31588C2C62346B00DE157A /* BaseUseCase.swift in Sources */,
@@ -1666,6 +1710,7 @@
 				EFD7EF152C3D740700C8CE70 /* EventsNetworkService.swift in Sources */,
 				EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */,
 				EFA6463D2C8B02B200D528F9 /* DomainError.swift in Sources */,
+				EF2A6DD62CAEA7B600164FD5 /* EventDetailsMapper.swift in Sources */,
 				EF4213D02C3FF9E500686033 /* CacheRule.swift in Sources */,
 				EFD7EEFE2C3D387800C8CE70 /* LocalizationKeys.swift in Sources */,
 				EF2983CB2C6A15D800C2393E /* SplashView.swift in Sources */,
@@ -1706,6 +1751,7 @@
 				EFE34DD32C7DE28D00724DDC /* RegisterUserUseCase.swift in Sources */,
 				EF4213C72C3ECBC400686033 /* NSManagedObject+Helpers.swift in Sources */,
 				EFA6463A2C8B00BE00D528F9 /* GetLocalUserUseCase.swift in Sources */,
+				EF2A6DD82CAEA89100164FD5 /* Result+IsSuccess.swift in Sources */,
 				EFE34DCC2C7CC88600724DDC /* String+RegexValidation.swift in Sources */,
 				EFF7A1DE2C3587810024704A /* CustomButton.swift in Sources */,
 				EF503C082C9874C000EE9128 /* AccountAuthenticator.swift in Sources */,
@@ -1740,6 +1786,7 @@
 				EF21283B2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift in Sources */,
 				EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */,
 				EFF9C8872C999C8600DE50BC /* AccountCredentialTests.swift in Sources */,
+				EF65D1692CB7C8CC005078D9 /* ErrorDialogModelBuilderTests.swift in Sources */,
 				EF3158772C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift in Sources */,
 				EF2128372C85D42800D00887 /* RegisterUserDataSourceTests.swift in Sources */,
 				EFD6100A2CA2B1C000E3DB1E /* RemoteMyEventsDataSourceTests.swift in Sources */,
@@ -1753,6 +1800,7 @@
 				EFA646422C8B09E700D528F9 /* UserModelBuilder.swift in Sources */,
 				EF2983FA2C6B987A00C2393E /* EventDetailsViewModelTests.swift in Sources */,
 				EF21283D2C85D98800D00887 /* MockRegisterUserUseCase.swift in Sources */,
+				EF2A6DDA2CAED73100164FD5 /* MockNavigationManager.swift in Sources */,
 				EFD6100E2CA2C44A00E3DB1E /* MockRemoteMyEventsDataSource.swift in Sources */,
 				EF31586E2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift in Sources */,
 				EFE34DC52C7CBC6300724DDC /* LoginUseCaseTests.swift in Sources */,

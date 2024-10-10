@@ -10,7 +10,7 @@ import Foundation
 class EventDetailsBuilder {
 
     func build(coordinator: any CoordinatorProtocol, event: EventModels.Event) -> EventDetailsView {
-        let viewModel = EventDetailsViewModel(coordinator: coordinator)
-        return EventDetailsView(viewModel: viewModel, event: event)
+        let viewModel = EventDetailsViewModel(coordinator: coordinator, event: event)
+        return EventDetailsView(viewModel: viewModel)
     }
 }

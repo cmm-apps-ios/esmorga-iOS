@@ -7,29 +7,44 @@
 
 import Foundation
 
-enum EventDetailsViewStates: ViewStateProtocol {
+enum EventDetailsViewState: ViewStateProtocol {
     case ready
+    case loaded(isLogged: Bool)
 }
 
-class EventDetailsViewModel: BaseViewModel<EventDetailsViewStates> {
+class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
 
     private let navigationManager: NavigationManagerProtocol
+    private let getLocalUserUseCase: GetLocalUserUseCaseAlias
+    private let event: EventModels.Event
 
     @Published var showMethodsAlert: Bool = false
+    @Published var model: EventDetails.Model = .empty
     var navigationMethods = [NavigationModels.Method]()
 
-    init(coordinator: any CoordinatorProtocol,
-         navigationManager: NavigationManagerProtocol = NavigationManager()) {
+    init(coordinator: (any CoordinatorProtocol)?,
+         event: EventModels.Event,
+         navigationManager: NavigationManagerProtocol = NavigationManager(),
+         getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase()) {
         self.navigationManager = navigationManager
+        self.event = event
+        self.getLocalUserUseCase = getLocalUserUseCase
         super.init(coordinator: coordinator)
     }
 
-    func openLocation(latitude: Double?, longitude: Double?) {
+    @MainActor
+    func viewLoad() async {
+        let isUserLogged = await getLocalUserUseCase.execute().isSuccess
+        model = EventDetailsMapper.mapEventDetails(event, isUserLogged: isUserLogged)
+        changeState(.loaded(isLogged: isUserLogged))
+    }
 
-        guard let latitude, let longitude else { return }
+    func openLocation() {
+
+        guard let latitude = event.latitude, let longitude = event.longitude else { return }
         navigationMethods = navigationManager.getMethods(latitude: latitude, longitude: longitude)
         if navigationMethods.count == 1, let method = navigationMethods.first {
-            coordinator?.openNavigationApp(method)
+            openNavigationMethod(method)
         } else {
             showMethodsAlert = true
         }
@@ -37,5 +52,29 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewStates> {
 
     func openNavigationMethod(_ method: NavigationModels.Method) {
         coordinator?.openNavigationApp(method)
+    }
+
+    func primaryButtonTapped() {
+        switch state {
+        case .loaded(let isLogged):
+            guard isLogged else {
+                coordinator?.push(destination: .login)
+                return
+            }
+            event.isUserJoined ? leaveEvent() : joinEvent()
+        case .ready: break
+        }
+    }
+
+    private func leaveEvent() {
+        //TODO: future US
+        self.snackBar = .init(message: "Leave Event Tapped",
+                              isShown: true)
+    }
+
+    private func joinEvent() {
+        //TODO: future US
+        self.snackBar = .init(message: "Join Event Tapped",
+                              isShown: true)
     }
 }

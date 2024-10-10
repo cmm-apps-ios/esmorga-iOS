@@ -98,6 +98,7 @@
 		EF503C082C9874C000EE9128 /* AccountAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF503C072C9874C000EE9128 /* AccountAuthenticator.swift */; };
 		EF503C0A2C98753F00EE9128 /* AccountSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF503C092C98753F00EE9128 /* AccountSession.swift */; };
 		EF65D1692CB7C8CC005078D9 /* ErrorDialogModelBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65D1682CB7C8C7005078D9 /* ErrorDialogModelBuilderTests.swift */; };
+		EF65D16B2CB82F13005078D9 /* mock_empty_file.json in Resources */ = {isa = PBXBuildFile; fileRef = EF65D16A2CB82F02005078D9 /* mock_empty_file.json */; };
 		EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */; };
 		EF7DF9562C9C0E94005908B7 /* View+FirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */; };
 		EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* NavigationManager.swift */; };
@@ -300,6 +301,7 @@
 		EF503C072C9874C000EE9128 /* AccountAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAuthenticator.swift; sourceTree = "<group>"; };
 		EF503C092C98753F00EE9128 /* AccountSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSession.swift; sourceTree = "<group>"; };
 		EF65D1682CB7C8C7005078D9 /* ErrorDialogModelBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogModelBuilderTests.swift; sourceTree = "<group>"; };
+		EF65D16A2CB82F02005078D9 /* mock_empty_file.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_empty_file.json; sourceTree = "<group>"; };
 		EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAppearModifier.swift; sourceTree = "<group>"; };
 		EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+FirstAppear.swift"; sourceTree = "<group>"; };
 		EF9CDB832C89C0920044FB29 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
@@ -696,6 +698,7 @@
 		EF3158782C5A788E00DE157A /* MockFiles */ = {
 			isa = PBXGroup;
 			children = (
+				EF65D16A2CB82F02005078D9 /* mock_empty_file.json */,
 				EFF9C88B2C99C88000DE50BC /* mock_refresh_token.json */,
 				EF3158792C5A78B900DE157A /* mock_event_list.json */,
 				EFE34DB22C7C95B600724DDC /* mock_account_login.json */,
@@ -1632,6 +1635,7 @@
 				EF31587C2C5A7DA800DE157A /* mock_dummy_file.json in Resources */,
 				EFE34DB32C7C95B600724DDC /* mock_account_login.json in Resources */,
 				EF31587A2C5A78B900DE157A /* mock_event_list.json in Resources */,
+				EF65D16B2CB82F13005078D9 /* mock_empty_file.json in Resources */,
 				EFF9C88C2C99C88C00DE50BC /* mock_refresh_token.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

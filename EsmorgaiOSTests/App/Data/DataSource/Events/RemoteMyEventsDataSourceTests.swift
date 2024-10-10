@@ -68,6 +68,32 @@ final class RemoteMyEventsDataSourceTests {
         }
     }
 
+    @Test
+    func test_given_() async {
+
+        createSessionKeychain()
+        stubJoinEventRequest(file: "mock_empty_file.json")
+        do {
+            _ = try await sut.joinEvent(id: "123")
+        } catch {
+            Issue.record("Expected error not be thrown")
+        }
+    }
+
+    @Test
+    func test_given_2() async {
+
+        createSessionKeychain()
+        stubJoinEventErrorRequest(code: 500)
+        do {
+            _ = try await sut.joinEvent(id: "123")
+            Issue.record("Expected error to be thrown")
+        } catch {
+            let expectedError = error as? NetworkError
+            #expect(expectedError == NetworkError.generalError(code: 500))
+        }
+    }
+
     private func createSessionKeychain() {
         try? sessionKeychain.store(codable: AccountSession(accessToken: "fakeToken", refreshToken: "fakeRefresh", ttl: 1000))
     }
@@ -81,8 +107,24 @@ final class RemoteMyEventsDataSourceTests {
         }
     }
 
+    private func stubJoinEventRequest(file: String) {
+
+        stub(condition: isHost("qa.esmorga.canarte.org") && isPath("/v1/account/events") && isMethodPOST()) { _ in
+            return HTTPStubsResponse(fileAtPath: OHPathForFile(file, type(of: self))!,
+                                     statusCode: Int32(200),
+                                     headers: ["Content-Type": "application/json"])
+        }
+    }
+
     private func stubErrorRequest(code: Int) {
         stub(condition: isHost("qa.esmorga.canarte.org") && isPath("/v1/account/events") && isMethodGET()) { _ in
+            let error = NSError(domain: NSURLErrorDomain, code: code, userInfo: nil)
+            return HTTPStubsResponse(error: error)
+        }
+    }
+
+    private func stubJoinEventErrorRequest(code: Int) {
+        stub(condition: isHost("qa.esmorga.canarte.org") && isPath("/v1/account/events") && isMethodPOST()) { _ in
             let error = NSError(domain: NSURLErrorDomain, code: code, userInfo: nil)
             return HTTPStubsResponse(error: error)
         }

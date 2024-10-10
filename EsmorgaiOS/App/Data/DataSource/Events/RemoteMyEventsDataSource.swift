@@ -7,6 +7,7 @@
 
 protocol RemoteMyEventsDataSourceProtocol {
     func fetchEvents() async throws -> [RemoteEventListModel.Event]
+    func joinEvent(id: String) async throws
 }
 
 class RemoteMyEventsDataSource: RemoteMyEventsDataSourceProtocol {
@@ -21,6 +22,14 @@ class RemoteMyEventsDataSource: RemoteMyEventsDataSourceProtocol {
         do {
             let eventList: RemoteEventListModel.EventList = try await networkRequest.request(networkService: AccountNetworkService.myEvents)
             return eventList.events
+        } catch let error {
+            throw error
+        }
+    }
+
+    func joinEvent(id: String) async throws {
+        do {
+            _  = try await networkRequest.request(networkService: AccountNetworkService.join(eventId: id)) as NetworkRequest.EmptyBodyObject
         } catch let error {
             throw error
         }

@@ -41,6 +41,7 @@ class LocalizationKeys {
         static let joinEvent: String = "button_join_event"
         static let leaveEvent: String = "button_leave_event"
         static let loginToJoin: String = "button_login_to_join"
+        static let ok: String = "button_ok"
     }
 
     enum TextField {
@@ -79,10 +80,9 @@ class LocalizationKeys {
         static let body: String = "default_error_body"
     }
 
-    enum NoConnectionError {
-        static let primaryText: String = "no_connection_primary"
-        static let seconadryText: String = "no_connection_secondary"
-        static let buttonText: String = "no_connection_button"
+    enum NoConnection {
+        static let title: String = "screen_no_connection_title"
+        static let body: String = "screen_no_connection_body"
     }
 
     enum Login {

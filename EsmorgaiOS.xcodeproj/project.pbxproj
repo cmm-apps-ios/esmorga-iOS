@@ -97,6 +97,7 @@
 		EF4213D82C41412300686033 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4213D72C41412300686033 /* AppManager.swift */; };
 		EF503C082C9874C000EE9128 /* AccountAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF503C072C9874C000EE9128 /* AccountAuthenticator.swift */; };
 		EF503C0A2C98753F00EE9128 /* AccountSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF503C092C98753F00EE9128 /* AccountSession.swift */; };
+		EF65D1692CB7C8CC005078D9 /* ErrorDialogModelBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65D1682CB7C8C7005078D9 /* ErrorDialogModelBuilderTests.swift */; };
 		EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */; };
 		EF7DF9562C9C0E94005908B7 /* View+FirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */; };
 		EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* NavigationManager.swift */; };
@@ -298,6 +299,7 @@
 		EF4213D72C41412300686033 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		EF503C072C9874C000EE9128 /* AccountAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAuthenticator.swift; sourceTree = "<group>"; };
 		EF503C092C98753F00EE9128 /* AccountSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSession.swift; sourceTree = "<group>"; };
+		EF65D1682CB7C8C7005078D9 /* ErrorDialogModelBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogModelBuilderTests.swift; sourceTree = "<group>"; };
 		EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAppearModifier.swift; sourceTree = "<group>"; };
 		EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+FirstAppear.swift"; sourceTree = "<group>"; };
 		EF9CDB832C89C0920044FB29 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
@@ -705,6 +707,7 @@
 		EF31587D2C5A7E5000DE157A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				EF65D1672CB7C8BB005078D9 /* Dialogs */,
 				EF2A6DC12CA6BBAE00164FD5 /* MyEvents */,
 				EF0811E72C94324B00DE4887 /* Dashboard */,
 				EF0811E32C93345500DE4887 /* Coordinator */,
@@ -806,6 +809,14 @@
 				EFF9C8732C9991FD00DE50BC /* Refresher */,
 			);
 			path = Handlers;
+			sourceTree = "<group>";
+		};
+		EF65D1672CB7C8BB005078D9 /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				EF65D1682CB7C8C7005078D9 /* ErrorDialogModelBuilderTests.swift */,
+			);
+			path = Dialogs;
 			sourceTree = "<group>";
 		};
 		EF7DF9522C9C0D98005908B7 /* ViewModifier */ = {
@@ -1775,6 +1786,7 @@
 				EF21283B2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift in Sources */,
 				EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */,
 				EFF9C8872C999C8600DE50BC /* AccountCredentialTests.swift in Sources */,
+				EF65D1692CB7C8CC005078D9 /* ErrorDialogModelBuilderTests.swift in Sources */,
 				EF3158772C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift in Sources */,
 				EF2128372C85D42800D00887 /* RegisterUserDataSourceTests.swift in Sources */,
 				EFD6100A2CA2B1C000E3DB1E /* RemoteMyEventsDataSourceTests.swift in Sources */,

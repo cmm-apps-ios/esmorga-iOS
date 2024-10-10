@@ -28,21 +28,21 @@ class ErrorDialogModelBuilder {
         var primaryText: String {
             switch type {
             case .commonError: return LocalizationKeys.DefaultError.titleExpanded.localize()
-            case .noInternet: return LocalizationKeys.NoConnectionError.primaryText.localize()
+            case .noInternet: return LocalizationKeys.NoConnection.title.localize()
             }
         }
 
         var secondaryText: String? {
             switch type {
             case .commonError: return nil
-            case .noInternet: return LocalizationKeys.NoConnectionError.seconadryText.localize()
+            case .noInternet: return LocalizationKeys.NoConnection.body.localize()
             }
         }
 
         var buttonText: String {
             switch type {
             case .commonError: return LocalizationKeys.Buttons.retry.localize()
-            case .noInternet: return LocalizationKeys.NoConnectionError.buttonText.localize()
+            case .noInternet: return LocalizationKeys.Buttons.ok.localize()
             }
         }
 

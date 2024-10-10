@@ -125,6 +125,17 @@
         }
       }
     },
+    "button_ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
     "button_register" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -326,39 +337,6 @@
         }
       }
     },
-    "no_connection_button" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OK"
-          }
-        }
-      }
-    },
-    "no_connection_primary" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No hay conexión"
-          }
-        }
-      }
-    },
-    "no_connection_secondary" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Por favor, revisa tu conexión e inténtelo de nuevo"
-          }
-        }
-      }
-    },
     "Perfil Content" : {
 
     },
@@ -512,6 +490,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tus eventos"
+          }
+        }
+      }
+    },
+    "screen_no_connection_body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, revisa tu conexión e inténtelo de nuevo"
+          }
+        }
+      }
+    },
+    "screen_no_connection_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay conexión"
           }
         }
       }

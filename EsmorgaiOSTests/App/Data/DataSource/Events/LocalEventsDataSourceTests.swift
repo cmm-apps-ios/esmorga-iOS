@@ -41,7 +41,7 @@ final class LocalEventsDataSourceTests {
     func test_test() async {
         let event = EventBuilder().build()
         try? await sut.saveEvents([event])
-        try? await sut.updateEvent(id: event.eventId, isUserJoined: true)
+        try? await sut.updateIsUserJoinedEvent(id: event.eventId, isUserJoined: true)
         let storeEvent = await sut.getEvents().first
         #expect(storeEvent?.isUserJoined == true)
     }

@@ -26,7 +26,7 @@ final class MockLocalEventsDataSource: LocalEventsDataSourceProtocol {
         return
     }
 
-    func updateEvent(id: String, isUserJoined: Bool) async throws {
+    func updateIsUserJoinedEvent(id: String, isUserJoined: Bool) async throws {
         updateEventIdCalled = id
 
         guard updateEventResult else {

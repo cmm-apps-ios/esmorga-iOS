@@ -69,7 +69,7 @@ final class RemoteMyEventsDataSourceTests {
     }
 
     @Test
-    func test_given_() async {
+    func test_given_join_event_when_success_response_then_error_is_not_throw() async {
 
         createSessionKeychain()
         stubJoinEventRequest(file: "mock_empty_file.json")
@@ -81,7 +81,7 @@ final class RemoteMyEventsDataSourceTests {
     }
 
     @Test
-    func test_given_2() async {
+    func test_given_join_event_when_failure_response_then_error_is_throw_with_correct_type() async {
 
         createSessionKeychain()
         stubJoinEventErrorRequest(code: 500)

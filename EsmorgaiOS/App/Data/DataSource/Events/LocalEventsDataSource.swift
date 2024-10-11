@@ -11,7 +11,7 @@ import CoreData
 protocol LocalEventsDataSourceProtocol {
     func getEvents() async -> [EventModels.Event]
     func saveEvents(_ events: [EventModels.Event]) async throws -> ()
-    func updateEvent(id: String, isUserJoined: Bool) async throws
+    func updateIsUserJoinedEvent(id: String, isUserJoined: Bool) async throws
 }
 
 class LocalEventsDataSource: LocalEventsDataSourceProtocol {
@@ -45,7 +45,7 @@ class LocalEventsDataSource: LocalEventsDataSourceProtocol {
         return ()
     }
 
-    func updateEvent(id: String, isUserJoined: Bool) async throws {
+    func updateIsUserJoinedEvent(id: String, isUserJoined: Bool) async throws {
         let request = NSFetchRequest<MOEvent>(entityName: "MOEvent")
         request.predicate = NSPredicate(format: "eventId == %@", id)
 

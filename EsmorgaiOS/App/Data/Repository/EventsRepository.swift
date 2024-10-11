@@ -113,7 +113,7 @@ class EventsRepository: EventsRepositoryProtocol {
 
         do {
             try await remoteMyEventsDataSource.joinEvent(id: id)
-            try await localEventsDataSource.updateEvent(id: id, isUserJoined: true)
+            try await localEventsDataSource.updateIsUserJoinedEvent(id: id, isUserJoined: true)
         } catch {
             throw error
         }

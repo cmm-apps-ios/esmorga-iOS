@@ -71,11 +71,6 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
     }
 
     func retryButtonTapped() async {
-        guard networkMonitor.isConnected else {
-            let dialogModel = ErrorDialogModelBuilder.build(type: .noInternet)
-            coordinator?.push(destination: .dialog(dialogModel))
-            return
-        }
         await getEventList(forceRefresh: true)
     }
 }

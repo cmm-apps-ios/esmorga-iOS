@@ -20,6 +20,7 @@ class AccountAuthenticatorTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         sessionKeychain = AccountSession.buildCodableKeychain()
+        try sessionKeychain.delete()
         credential = AccountCredential(accountSessionKeychain: sessionKeychain)
         refresher = MockAccountTokensRefresher()
         sut = AccountAuthenticator(refresher: refresher)

@@ -168,11 +168,18 @@ final class MyEventsViewModelTests {
     @Test
     func test_given_retry_button_tapped_when_no_connection_then_show_error_screen() async {
 
-        mockNetworkMonitor.mockIsConnected = false
+        let events = [EventBuilder().with(eventId: "1").with(isUserJoined: true).build(),
+                      EventBuilder().with(eventId: "2").with(isUserJoined: true).build()]
 
-        await sut.retryButtonTapped()
+        mockGetEventListUseCase.mockResponse = (events, false)
+        mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
 
-        #expect(self.spyCoordinator.pushCalled == true)
-        #expect(self.spyCoordinator.destination == .dialog(ErrorDialogModelBuilder.build(type: .noInternet)))
+        await TestHelper.fullfillTask {
+            await self.sut.retryButtonTapped()
+        }
+
+        #expect(self.sut.events == events)
+        #expect(self.sut.state == .loaded)
+        #expect(self.sut.snackBar.isShown == false)
     }
 }

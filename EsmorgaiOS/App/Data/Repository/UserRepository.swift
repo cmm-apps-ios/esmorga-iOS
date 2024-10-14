@@ -18,13 +18,16 @@ class UserRepository: UserRepositoryProtocol {
     private var localUserDataSource: LocalUserDataSourceProtocol
     private var loginUserDataSource: LoginUserDataSourceProtocol
     private var registerUserDataSource: RegisterUserDataSourceProtocol
+    private var sessionKeychain: CodableKeychain<AccountSession>
 
     init(localUserDataSource: LocalUserDataSourceProtocol = LocalUserDataSource(),
          loginUserDataSource: LoginUserDataSourceProtocol = LoginUserDataSource(),
-         registerUserDataSource: RegisterUserDataSourceProtocol = RegisterUserDataSource()) {
+         registerUserDataSource: RegisterUserDataSourceProtocol = RegisterUserDataSource(),
+         sessionKeychain: CodableKeychain<AccountSession> = AccountSession.buildCodableKeychain()) {
         self.localUserDataSource = localUserDataSource
         self.loginUserDataSource = loginUserDataSource
         self.registerUserDataSource = registerUserDataSource
+        self.sessionKeychain = sessionKeychain
     }
 
     func login(email: String, password: String) async throws -> UserModels.User {
@@ -55,6 +58,10 @@ class UserRepository: UserRepositoryProtocol {
     private func processLogiResponse(_ login: AccountLoginModel.Login) async -> UserModels.User {
         let user = login.profile.toDomain()
         try? await storeUser(user)
+        let session = AccountSession(accessToken: login.accessToken,
+                                     refreshToken: login.refreshToken,
+                                     ttl: Double(login.ttl))
+        try? storeSession(session)
         return user
     }
 
@@ -65,5 +72,9 @@ class UserRepository: UserRepositoryProtocol {
 
     private func storeUser(_ user: UserModels.User) async throws {
         try await localUserDataSource.saveUser(user)
+    }
+
+    private func storeSession(_ session: AccountSession) throws {
+        try sessionKeychain.store(codable: session)
     }
 }

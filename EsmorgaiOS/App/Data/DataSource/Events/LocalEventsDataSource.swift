@@ -11,6 +11,7 @@ import CoreData
 protocol LocalEventsDataSourceProtocol {
     func getEvents() async -> [EventModels.Event]
     func saveEvents(_ events: [EventModels.Event]) async throws -> ()
+    func clearAll()
 }
 
 class LocalEventsDataSource: LocalEventsDataSourceProtocol {

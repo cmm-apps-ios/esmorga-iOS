@@ -32,7 +32,9 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
 
     func getEventList(forceRefresh: Bool) {
 
-        changeState(.loading)
+        if self.state == .ready || forceRefresh {
+            changeState(.loading)
+        }
 
         Task { [weak self] in
             guard let self else { return }

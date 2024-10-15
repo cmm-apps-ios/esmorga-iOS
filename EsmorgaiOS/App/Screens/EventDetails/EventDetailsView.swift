@@ -53,11 +53,11 @@ struct EventDetailsView: View {
                             .style(.body1)
                             .padding(.bottom, 12)
                         VStack(spacing: 32) {
-                            CustomButton(title: viewModel.model.secondaryButtonText,
+                            CustomButton(title: $viewModel.model.secondaryButtonText,
                                          buttonStyle: .secondary) {
                                 viewModel.openLocation()
                             }
-                            CustomButton(title: viewModel.model.primaryButtonText,
+                            CustomButton(title: $viewModel.model.primaryButtonText,
                                          buttonStyle: .primary) {
                                 viewModel.primaryButtonTapped()
                             }

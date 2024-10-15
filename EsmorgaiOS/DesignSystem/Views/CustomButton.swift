@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct CustomButton: View {
-    @State var title = ""
+    @Binding var title: String
     @State var buttonStyle = CustomButtonStyle.primary
     @Binding var isLoading: Bool
     @Binding var isDisabled: Bool
     var action: (() -> Void)? = nil
 
-    init(title: String,
+    init(title: Binding<String>,
          buttonStyle: CustomButtonStyle = .primary,
          isLoading: Binding<Bool>? = nil,
          isDisabled: Binding<Bool>? = nil,
          action: (() -> Void)? = nil) {
-        self.title = title
+        self._title = title
         self.buttonStyle = buttonStyle
         self._isLoading = isLoading ?? .constant(false)
         self._isDisabled = isDisabled ?? .constant(false)

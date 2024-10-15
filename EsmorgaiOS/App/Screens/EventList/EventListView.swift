@@ -37,10 +37,10 @@ struct EventListView: View {
                             .padding(.top, 20)
                         case .error:
                             VStack(alignment: .leading, spacing: 32) {
-                                CardView(imageName: "AlertEsmorga",
-                                         title: LocalizationKeys.DefaultError.title.localize(),
-                                         subtitle: LocalizationKeys.DefaultError.body.localize())
-                                CustomButton(title: LocalizationKeys.Buttons.retry.localize(),
+                                CardView(imageName: viewModel.errorModel.imageName,
+                                         title: viewModel.errorModel.title,
+                                         subtitle: viewModel.errorModel.subtitle)
+                                CustomButton(title: $viewModel.errorModel.buttonText,
                                              buttonStyle: .primary) {
                                     Task {
                                         await viewModel.getEventList(forceRefresh: true)

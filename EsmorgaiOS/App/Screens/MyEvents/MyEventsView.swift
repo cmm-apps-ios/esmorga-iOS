@@ -34,12 +34,14 @@ struct MyEventsView: View {
                 case .empty:
                     createEmptyView()
                 case .error:
-                    createErrorView(title: LocalizationKeys.DefaultError.title.localize(),
-                                    buttonText: LocalizationKeys.Buttons.retry.localize(),
+                    createErrorView(animation: viewModel.errorModel.animation,
+                                    title: viewModel.errorModel.title,
+                                    buttonText: $viewModel.errorModel.buttonText,
                                     action: { Task { await viewModel.retryButtonTapped() } })
                 case .loggedOut:
-                    createErrorView(title: LocalizationKeys.Common.unauthenticatedTitle.localize(),
-                                    buttonText: LocalizationKeys.Buttons.login.localize(),
+                    createErrorView(animation: viewModel.loggedOutModel.animation,
+                                    title: viewModel.loggedOutModel.title,
+                                    buttonText: $viewModel.loggedOutModel.buttonText,
                                     action: { viewModel.loginButtonTapped() })
                 }
             }
@@ -52,7 +54,7 @@ struct MyEventsView: View {
         }.navigationBarBackButtonHidden(true)
     }
 
-    private func createErrorView(title: String, buttonText: String, action: @escaping (() -> Void)) -> some View {
+    private func createErrorView(animation: Animation, title: String, buttonText: Binding<String>, action: @escaping (() -> Void)) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             createTitleView()
                 .padding(.bottom, 12)
@@ -60,7 +62,7 @@ struct MyEventsView: View {
                 GeometryReader { geometry in
                     VStack(alignment: .center) {
                         Spacer()
-                        LottieView(animation: .suspiciousMonkey)
+                        LottieView(animation: animation)
                             .looping()
                             .resizable()
                             .aspectRatio(1/1, contentMode: .fit)

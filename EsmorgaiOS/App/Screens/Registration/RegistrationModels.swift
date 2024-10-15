@@ -30,6 +30,11 @@ enum RegisterModels {
         let isProtected: Bool
         var errorMessage: String?
     }
+
+    struct Button {
+        var title: String
+        var isLoading: Bool
+    }
 }
 
 extension Array where Element == RegisterModels.TextFieldModels {

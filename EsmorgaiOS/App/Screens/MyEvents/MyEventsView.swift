@@ -42,12 +42,13 @@ struct MyEventsView: View {
                                     buttonText: LocalizationKeys.Buttons.login.localize(),
                                     action: { viewModel.loginButtonTapped() })
                 }
-            }.frame(maxWidth: .infinity, alignment: .leading)
-                .onFirstAppear {
-                    Task {
-                        await viewModel.getEventList(forceRefresh: false)
-                    }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .onAppear {
+                Task {
+                    await viewModel.getEventList(forceRefresh: false)
                 }
+            }
         }.navigationBarBackButtonHidden(true)
     }
 

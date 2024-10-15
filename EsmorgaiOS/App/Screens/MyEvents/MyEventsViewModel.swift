@@ -38,7 +38,11 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
 
     @MainActor
     func getEventList(forceRefresh: Bool) async {
-        changeState(.loading)
+
+        if self.state == .ready || forceRefresh {
+            changeState(.loading)
+
+        }
 
         let isUserLogged = await getLocalUserUseCase.execute()
 

@@ -42,7 +42,9 @@ struct EventListView: View {
                                          subtitle: LocalizationKeys.DefaultError.body.localize())
                                 CustomButton(title: LocalizationKeys.Buttons.retry.localize(),
                                              buttonStyle: .primary) {
-                                    viewModel.getEventList(forceRefresh: true)
+                                    Task {
+                                        await viewModel.getEventList(forceRefresh: true)
+                                    }
                                 }
                                              .frame(maxWidth: .infinity, alignment: .center)
                             }.padding(16)
@@ -67,8 +69,10 @@ struct EventListView: View {
                         }
                     }.frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .onFirstAppear {
-                    viewModel.getEventList(forceRefresh: false)
+                .onAppear {
+                    Task {
+                        await viewModel.getEventList(forceRefresh: false)
+                    }
                 }
             }
             .navigationBarBackButtonHidden(true)

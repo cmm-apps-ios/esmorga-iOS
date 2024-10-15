@@ -30,34 +30,30 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
         coordinator?.push(destination: .eventDetails(event))
     }
 
-    func getEventList(forceRefresh: Bool) {
+    @MainActor
+    func getEventList(forceRefresh: Bool) async {
 
-        changeState(.loading)
+        if self.state == .ready || forceRefresh {
+            changeState(.loading)
+        }
 
-        Task { [weak self] in
-            guard let self else { return }
+        let result = await getEventListUseCase.execute(input: forceRefresh)
 
-            let result = await getEventListUseCase.execute(input: forceRefresh)
-
-            await MainActor.run {
-
-                switch result {
-                case .success(let events):
-                    self.events = events.data
-                    if events.data.isEmpty {
-                        self.changeState(.empty)
-                    } else {
-                        self.changeState(.loaded)
-                    }
-
-                    if events.error {
-                        self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(),
-                                              isShown: true)
-                    }
-                case .failure:
-                    self.changeState(.error)
-                }
+        switch result {
+        case .success(let events):
+            self.events = events.data
+            if events.data.isEmpty {
+                self.changeState(.empty)
+            } else {
+                self.changeState(.loaded)
             }
+
+            if events.error {
+                self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(),
+                                      isShown: true)
+            }
+        case .failure:
+            self.changeState(.error)
         }
     }
 }

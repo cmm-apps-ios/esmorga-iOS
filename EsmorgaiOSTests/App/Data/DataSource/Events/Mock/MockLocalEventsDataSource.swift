@@ -13,9 +13,9 @@ final class MockLocalEventsDataSource: LocalEventsDataSourceProtocol {
     var mockEvents: [EventModels.Event] = []
     var savedEvents: [EventModels.Event]?
     var mockError: NSError = NSError(domain: "LocalEventsDataSource", code: 500, userInfo: [NSLocalizedDescriptionKey: "Failed to update event"])
-
     var updateEventIdCalled: String?
     var updateEventResult: Bool = false
+    var clearAllCalled: Bool = false
 
     func getEvents() async -> [EventModels.Event] {
         return mockEvents
@@ -32,5 +32,10 @@ final class MockLocalEventsDataSource: LocalEventsDataSourceProtocol {
         guard updateEventResult else {
             throw mockError
         }
+    }
+
+    func clearAll() {
+        savedEvents = nil
+        clearAllCalled = true
     }
 }

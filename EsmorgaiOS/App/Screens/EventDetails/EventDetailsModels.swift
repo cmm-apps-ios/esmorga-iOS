@@ -17,8 +17,8 @@ enum EventDetails {
         let descriptionBody: String
         let locationTitle: String
         let locationBody: String
-        let secondaryButtonText: String
-        let primaryButtonText: String
+        var secondaryButtonText: String
+        var primaryButtonText: String
 
         static var empty: Model {
             return Model(imageUrl: nil,

@@ -19,18 +19,18 @@ struct WelcomeScreenView: View {
         BaseView(viewModel: viewModel) {
             VStack {
                 Spacer()
-                Image("esmorga")
+                Image(viewModel.model.imageName)
                     .resizable()
                     .aspectRatio(1/1, contentMode: .fill)
                     .cornerRadius(16)
                     .frame(width: 120, height: 120, alignment: .center)
                     .padding(.bottom, 72)
                 VStack(spacing: 48) {
-                    CustomButton(title: LocalizationKeys.Buttons.loginRegister.localize(),
+                    CustomButton(title: $viewModel.model.primaryButtonText,
                                  buttonStyle: .primary) {
                         viewModel.loginButtonTapped()
                     }
-                    CustomButton(title: LocalizationKeys.Buttons.guest.localize(),
+                    CustomButton(title: $viewModel.model.secondaryButtonText,
                                  buttonStyle: .secondary) {
                         viewModel.enterAsGuestTapped()
                     }

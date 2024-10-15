@@ -47,9 +47,9 @@ struct RegistrationView: View {
                             .accessibilityIdentifier(AccessibilityIds.textField + "\(index)")
                         }
                     }
-                    CustomButton(title: LocalizationKeys.Buttons.createAccount.localize(),
+                    CustomButton(title: $viewModel.button.title,
                                  buttonStyle: .primary,
-                                 isLoading: $viewModel.isLoading) {
+                                 isLoading: $viewModel.button.isLoading) {
                         viewModel.performRegistration()
                     }
                                  .padding(.top, 37)

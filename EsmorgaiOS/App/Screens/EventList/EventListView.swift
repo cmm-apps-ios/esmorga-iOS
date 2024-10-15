@@ -37,12 +37,14 @@ struct EventListView: View {
                             .padding(.top, 20)
                         case .error:
                             VStack(alignment: .leading, spacing: 32) {
-                                CardView(imageName: "AlertEsmorga",
-                                         title: LocalizationKeys.DefaultError.title.localize(),
-                                         subtitle: LocalizationKeys.DefaultError.body.localize())
-                                CustomButton(title: LocalizationKeys.Buttons.retry.localize(),
+                                CardView(imageName: viewModel.errorModel.imageName,
+                                         title: viewModel.errorModel.title,
+                                         subtitle: viewModel.errorModel.subtitle)
+                                CustomButton(title: $viewModel.errorModel.buttonText,
                                              buttonStyle: .primary) {
-                                    viewModel.getEventList(forceRefresh: true)
+                                    Task {
+                                        await viewModel.getEventList(forceRefresh: true)
+                                    }
                                 }
                                              .frame(maxWidth: .infinity, alignment: .center)
                             }.padding(16)
@@ -67,8 +69,10 @@ struct EventListView: View {
                         }
                     }.frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .onFirstAppear {
-                    viewModel.getEventList(forceRefresh: false)
+                .onAppear {
+                    Task {
+                        await viewModel.getEventList(forceRefresh: false)
+                    }
                 }
             }
             .navigationBarBackButtonHidden(true)

@@ -18,15 +18,18 @@ class UserRepository: UserRepositoryProtocol {
     private var localUserDataSource: LocalUserDataSourceProtocol
     private var loginUserDataSource: LoginUserDataSourceProtocol
     private var registerUserDataSource: RegisterUserDataSourceProtocol
+    private var localEventsDataSource: LocalEventsDataSourceProtocol
     private var sessionKeychain: CodableKeychain<AccountSession>
 
     init(localUserDataSource: LocalUserDataSourceProtocol = LocalUserDataSource(),
          loginUserDataSource: LoginUserDataSourceProtocol = LoginUserDataSource(),
          registerUserDataSource: RegisterUserDataSourceProtocol = RegisterUserDataSource(),
+         localEventsDataSource: LocalEventsDataSourceProtocol = LocalEventsDataSource(),
          sessionKeychain: CodableKeychain<AccountSession> = AccountSession.buildCodableKeychain()) {
         self.localUserDataSource = localUserDataSource
         self.loginUserDataSource = loginUserDataSource
         self.registerUserDataSource = registerUserDataSource
+        self.localEventsDataSource = localEventsDataSource
         self.sessionKeychain = sessionKeychain
     }
 
@@ -34,7 +37,7 @@ class UserRepository: UserRepositoryProtocol {
 
         do {
             let loginResponse = try await loginUserDataSource.login(email: email, password: password)
-            let user = await processLogiResponse(loginResponse)
+            let user = await processLoginResponse(loginResponse)
             return user
         } catch let error {
             throw error
@@ -48,20 +51,21 @@ class UserRepository: UserRepositoryProtocol {
                                                                           lastName: lastName,
                                                                           pass: pass,
                                                                           email: email)
-            let user = await processLogiResponse(loginResponse)
+            let user = await processLoginResponse(loginResponse)
             return user
         } catch let error {
             throw error
         }
     }
 
-    private func processLogiResponse(_ login: AccountLoginModel.Login) async -> UserModels.User {
+    private func processLoginResponse(_ login: AccountLoginModel.Login) async -> UserModels.User {
         let user = login.profile.toDomain()
         try? await storeUser(user)
         let session = AccountSession(accessToken: login.accessToken,
                                      refreshToken: login.refreshToken,
                                      ttl: Double(login.ttl))
         try? storeSession(session)
+        deleteEventsData()
         return user
     }
 
@@ -76,5 +80,9 @@ class UserRepository: UserRepositoryProtocol {
 
     private func storeSession(_ session: AccountSession) throws {
         try sessionKeychain.store(codable: session)
+    }
+
+    private func deleteEventsData() {
+        localEventsDataSource.clearAll()
     }
 }

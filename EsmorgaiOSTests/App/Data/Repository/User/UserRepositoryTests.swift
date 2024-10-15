@@ -16,17 +16,20 @@ final class UserRepositoryTests {
     private var mockLoginUserDataSource: MockLoginUserDataSource!
     private var mockRegisterUserDataSource: MockRegisterUserDataSource!
     private var mockLocalUserDataSource: MockLocalUserDataSource!
+    private var mockLocalEventsDataSource: MockLocalEventsDataSource!
     private var sessionKeychain: CodableKeychain<AccountSession>!
 
     init() {
         mockLoginUserDataSource = MockLoginUserDataSource()
         mockRegisterUserDataSource = MockRegisterUserDataSource()
         mockLocalUserDataSource = MockLocalUserDataSource()
+        mockLocalEventsDataSource = MockLocalEventsDataSource()
         sessionKeychain = AccountSession.buildCodableKeychain()
         try? sessionKeychain.delete()
         sut = UserRepository(localUserDataSource: mockLocalUserDataSource,
                              loginUserDataSource: mockLoginUserDataSource,
                              registerUserDataSource: mockRegisterUserDataSource,
+                             localEventsDataSource: mockLocalEventsDataSource,
                              sessionKeychain: sessionKeychain)
     }
 
@@ -36,6 +39,7 @@ final class UserRepositoryTests {
         mockLoginUserDataSource = nil
         mockRegisterUserDataSource = nil
         mockLocalUserDataSource = nil
+        mockLocalEventsDataSource = nil
         sut = nil
     }
 
@@ -52,6 +56,7 @@ final class UserRepositoryTests {
         #expect(result?.lastName == remoteUser.profile.lastName)
         #expect(self.mockLocalUserDataSource.savedUser == result)
         #expect(self.sessionKeychain.isLogged)
+        #expect(self.mockLocalEventsDataSource.clearAllCalled)
     }
 
     @Test
@@ -79,6 +84,7 @@ final class UserRepositoryTests {
         #expect(result?.lastName == remoteUser.profile.lastName)
         #expect(self.mockLocalUserDataSource.savedUser == result)
         #expect(self.sessionKeychain.isLogged)
+        #expect(self.mockLocalEventsDataSource.clearAllCalled)
     }
 
     @Test

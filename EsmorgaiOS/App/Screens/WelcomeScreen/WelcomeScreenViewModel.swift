@@ -14,6 +14,10 @@ enum WelcomeScreenViewStates: ViewStateProtocol {
 
 class WelcomeScreenViewModel: BaseViewModel<WelcomeScreenViewStates> {
 
+    @Published var model = WelcomeScreenModels.Model(imageName: "esmorga",
+                                                     primaryButtonText: LocalizationKeys.Buttons.loginRegister.localize(),
+                                                     secondaryButtonText: LocalizationKeys.Buttons.guest.localize())
+
     func loginButtonTapped() {
         coordinator?.push(destination: .login)
     }

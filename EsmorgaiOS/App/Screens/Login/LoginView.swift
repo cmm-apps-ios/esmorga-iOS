@@ -56,14 +56,14 @@ struct LoginView: View {
                     .padding(.horizontal, 16)
                     .padding(.bottom, 20)
                     LazyVStack(spacing: 16) {
-                        CustomButton(title: LocalizationKeys.Buttons.login.localize(),
+                        CustomButton(title: $viewModel.primaryButton.title,
                                      buttonStyle: .primary,
-                                     isLoading: $viewModel.isLoading) {
+                                     isLoading: $viewModel.primaryButton.isLoading) {
                                 viewModel.performLogin()
                         }
-                        CustomButton(title: LocalizationKeys.Buttons.createAccount.localize(),
+                        CustomButton(title: $viewModel.secondaryButton.title,
                                      buttonStyle: .secondary,
-                                     isDisabled: $viewModel.isLoading) {
+                                     isDisabled: $viewModel.primaryButton.isLoading) {
                             viewModel.navigateToRegister()
                         }
                     }

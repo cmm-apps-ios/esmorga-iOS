@@ -12,6 +12,7 @@ protocol LocalEventsDataSourceProtocol {
     func getEvents() async -> [EventModels.Event]
     func saveEvents(_ events: [EventModels.Event]) async throws -> ()
     func updateIsUserJoinedEvent(id: String, isUserJoined: Bool) async throws
+    func clearAll()
 }
 
 class LocalEventsDataSource: LocalEventsDataSourceProtocol {

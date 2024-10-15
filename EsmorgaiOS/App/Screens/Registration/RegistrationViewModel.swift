@@ -17,7 +17,8 @@ class RegistrationViewModel: BaseViewModel<RegistrationViewStates> {
     //    weak var coordinator: Coordinator?
 
     @Published var textFields = [RegisterModels.TextFieldModels]()
-    @Published var isLoading: Bool = false
+    @Published var button = RegisterModels.Button(title: LocalizationKeys.Buttons.createAccount.localize(),
+                                                  isLoading: false)
 
     init(coordinator: (any CoordinatorProtocol)?,
          registerUserUseCase: RegisterUserUseCaseAlias = RegisterUserUseCase()) {
@@ -115,7 +116,7 @@ class RegistrationViewModel: BaseViewModel<RegistrationViewStates> {
     func performRegistration() {
 
         guard validateAllFields() else { return }
-        self.isLoading = true
+        button.isLoading = true
 
         Task { [weak self] in
             guard let self else { return }
@@ -132,10 +133,10 @@ class RegistrationViewModel: BaseViewModel<RegistrationViewStates> {
             await MainActor.run {
                 switch result {
                 case .success:
-                    self.isLoading = false
+                    self.button.isLoading = false
                     self.coordinator?.push(destination: .dashboard)
                 case .failure(let error):
-                    self.isLoading = false
+                    self.button.isLoading = false
                     switch error {
                     case .noInternetConnection:
                         self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(),

@@ -18,6 +18,14 @@ enum MyEventsViewStates: ViewStateProtocol {
 
 class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
 
+
+    @Published var errorModel = MyEventsModels.ErrorModel(animation: .suspiciousMonkey,
+                                                          title: LocalizationKeys.DefaultError.title.localize(),
+                                                          buttonText: LocalizationKeys.Buttons.retry.localize())
+    @Published var loggedOutModel = MyEventsModels.ErrorModel(animation: .suspiciousMonkey,
+                                                          title: LocalizationKeys.Common.unauthenticatedTitle.localize(),
+                                                          buttonText: LocalizationKeys.Buttons.login.localize())
+
     private let getEventListUseCase: GetEventListUseCaseAlias
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
     var events: [EventModels.Event] = []
@@ -38,7 +46,11 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
 
     @MainActor
     func getEventList(forceRefresh: Bool) async {
-        changeState(.loading)
+
+        if self.state == .ready || forceRefresh {
+            changeState(.loading)
+
+        }
 
         let isUserLogged = await getLocalUserUseCase.execute()
 

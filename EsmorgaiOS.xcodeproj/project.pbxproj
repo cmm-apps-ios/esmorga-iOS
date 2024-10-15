@@ -172,6 +172,7 @@
 		EFE34DDF2C81CD5C00724DDC /* View+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DDE2C81CD5C00724DDC /* View+NavigationBar.swift */; };
 		EFE34DE22C81CDA500724DDC /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DE12C81CDA500724DDC /* NavigationBar.swift */; };
 		EFE34DE42C81CEA000724DDC /* Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DE32C81CEA000724DDC /* Snackbar.swift */; };
+		EFE3E9762CBE7F2300C975D0 /* WelcomeScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E9752CBE7F2100C975D0 /* WelcomeScreenModels.swift */; };
 		EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */; };
 		EFF7A1CA2C354BD00024704A /* EsmorgaiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1C92C354BD00024704A /* EsmorgaiOSUITests.swift */; };
 		EFF7A1CC2C354BD00024704A /* EsmorgaiOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1CB2C354BD00024704A /* EsmorgaiOSUITestsLaunchTests.swift */; };
@@ -179,6 +180,7 @@
 		EFF7A1E22C36D9400024704A /* plus_jakarta_flex.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFF7A1E02C36D9400024704A /* plus_jakarta_flex.ttf */; };
 		EFF7A1E32C36D9400024704A /* epilogue_flex.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFF7A1E12C36D9400024704A /* epilogue_flex.ttf */; };
 		EFF7A1E82C36DECC0024704A /* LoadingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1E72C36DECC0024704A /* LoadingBar.swift */; };
+		EFF8B81D2CBEAB1C007470A9 /* MyEventsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8B81C2CBEAB19007470A9 /* MyEventsModels.swift */; };
 		EFF9C8722C9991DA00DE50BC /* AccountTokensRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8712C9991D200DE50BC /* AccountTokensRefresher.swift */; };
 		EFF9C8752C99921100DE50BC /* TokensRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8742C99920F00DE50BC /* TokensRefresher.swift */; };
 		EFF9C8782C9992EF00DE50BC /* URLRequest+BearerToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8772C9992E600DE50BC /* URLRequest+BearerToken.swift */; };
@@ -372,6 +374,7 @@
 		EFE34DDE2C81CD5C00724DDC /* View+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+NavigationBar.swift"; sourceTree = "<group>"; };
 		EFE34DE12C81CDA500724DDC /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		EFE34DE32C81CEA000724DDC /* Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snackbar.swift; sourceTree = "<group>"; };
+		EFE3E9752CBE7F2100C975D0 /* WelcomeScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenModels.swift; sourceTree = "<group>"; };
 		EFF7A1AB2C354BCD0024704A /* EsmorgaiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EsmorgaiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsmorgaiOSApp.swift; sourceTree = "<group>"; };
 		EFF7A1B22C354BD00024704A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -384,6 +387,7 @@
 		EFF7A1E12C36D9400024704A /* epilogue_flex.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = epilogue_flex.ttf; sourceTree = "<group>"; };
 		EFF7A1E62C36DB1F0024704A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFF7A1E72C36DECC0024704A /* LoadingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingBar.swift; sourceTree = "<group>"; };
+		EFF8B81C2CBEAB19007470A9 /* MyEventsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsModels.swift; sourceTree = "<group>"; };
 		EFF9C8712C9991D200DE50BC /* AccountTokensRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTokensRefresher.swift; sourceTree = "<group>"; };
 		EFF9C8742C99920F00DE50BC /* TokensRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensRefresher.swift; sourceTree = "<group>"; };
 		EFF9C8772C9992E600DE50BC /* URLRequest+BearerToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+BearerToken.swift"; sourceTree = "<group>"; };
@@ -753,6 +757,7 @@
 		EF31589A2C63751600DE157A /* WelcomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				EFE3E9752CBE7F2100C975D0 /* WelcomeScreenModels.swift */,
 				EF31589B2C63755E00DE157A /* WelcomeScreenView.swift */,
 				EF2983E62C6B729A00C2393E /* WelcomeScreenBuilder.swift */,
 				EF31589D2C63757600DE157A /* WelcomeScreenViewModel.swift */,
@@ -888,6 +893,7 @@
 		EFD377042CA1A2DF0090B90A /* MyEvents */ = {
 			isa = PBXGroup;
 			children = (
+				EFF8B81C2CBEAB19007470A9 /* MyEventsModels.swift */,
 				EFD610062CA2AF9B00E3DB1E /* MyEventsBuilder.swift */,
 				EFD377072CA1A3460090B90A /* MyEventsViewModel.swift */,
 				EFD377052CA1A2FB0090B90A /* MyEventsView.swift */,
@@ -1740,6 +1746,7 @@
 				EFF9C87A2C99931500DE50BC /* NSNotification+Name.swift in Sources */,
 				EFE34DA92C77859D00724DDC /* ErrorDialog.swift in Sources */,
 				EFF9C8752C99921100DE50BC /* TokensRefresher.swift in Sources */,
+				EFE3E9762CBE7F2300C975D0 /* WelcomeScreenModels.swift in Sources */,
 				EF3158872C5BD63400DE157A /* BaseView.swift in Sources */,
 				EFE34D942C74A34A00724DDC /* AccountLoginModel.swift in Sources */,
 				EF21284B2C86153B00D00887 /* Keychain.swift in Sources */,
@@ -1772,6 +1779,7 @@
 				EFD377032CA17C610090B90A /* RemoteMyEventsDataSource.swift in Sources */,
 				EF9CDB862C89C0BB0044FB29 /* NavigationModels.swift in Sources */,
 				EFD7EF172C3D75CB00C8CE70 /* NetworkRequest.swift in Sources */,
+				EFF8B81D2CBEAB1C007470A9 /* MyEventsModels.swift in Sources */,
 				EF2128462C86106400D00887 /* Binding+Bool.swift in Sources */,
 				EFD610072CA2AFA600E3DB1E /* MyEventsBuilder.swift in Sources */,
 				EF7DF9562C9C0E94005908B7 /* View+FirstAppear.swift in Sources */,

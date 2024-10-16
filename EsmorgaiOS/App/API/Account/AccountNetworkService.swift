@@ -14,6 +14,7 @@ enum AccountNetworkService: NetworkService {
     case login(pass: String, email: String)
     case register(name: String, lastName: String, pass: String, email: String)
     case refresh(token: String)
+    case join(eventId: String)
 
     var url: URL { URL(string: "\(Bundle.baseURL)/v1")! }
 
@@ -22,7 +23,7 @@ enum AccountNetworkService: NetworkService {
         case .login: return "account/login"
         case .register: return "account/register"
         case .refresh: return "account/refresh"
-        case .myEvents: return "account/events"
+        case .myEvents, .join: return "account/events"
         }
     }
 
@@ -52,12 +53,17 @@ enum AccountNetworkService: NetworkService {
             let json = ["refreshToken": token]
             return try? JSONSerialization.data(withJSONObject: json, options: [])
         case .myEvents: return nil
+        case .join(let eventId):
+            let json = ["eventId": eventId]
+            return try? JSONSerialization.data(withJSONObject: json, options: [])
         }
     }
 
     var requestInterceptor: RequestInterceptor? {
         switch self {
-        case .myEvents: return AuthenticationInterceptor(authenticator: AccountAuthenticator(), credential: AccountCredential())
+        case .myEvents, .join:
+            return AuthenticationInterceptor(authenticator: AccountAuthenticator(),
+                                             credential: AccountCredential())
         default: return nil
         }
     }

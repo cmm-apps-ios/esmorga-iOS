@@ -9,6 +9,7 @@ import Foundation
 
 protocol EventsRepositoryProtocol {
     func getEventList(refresh: Bool) async throws -> ([EventModels.Event], Bool)
+    func joinEvent(id: String) async throws
 }
 
 class EventsRepository: EventsRepositoryProtocol {
@@ -106,5 +107,15 @@ class EventsRepository: EventsRepositoryProtocol {
 
     private func saveEvents(_ events: [EventModels.Event]) async throws {
         try await localEventsDataSource.saveEvents(events)
+    }
+
+    func joinEvent(id: String) async throws {
+
+        do {
+            try await remoteMyEventsDataSource.joinEvent(id: id)
+            try await localEventsDataSource.updateIsUserJoinedEvent(id: id, isUserJoined: true)
+        } catch {
+            throw error
+        }
     }
 }

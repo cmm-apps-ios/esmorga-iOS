@@ -14,6 +14,8 @@ protocol NetworkRequestProtocol {
 
 struct NetworkRequest: NetworkRequestProtocol {
 
+    final class EmptyBodyObject: Codable { }
+
     static let requestTimeout: Double = 30 // Seconds
 
     func request<T: Codable>(networkService: NetworkService) async throws -> T {
@@ -36,6 +38,12 @@ struct NetworkRequest: NetworkRequestProtocol {
                     switch response.result {
                     case .success(let data):
                         print(String(data: data, encoding: .utf8) ?? "")
+
+                        if T.self == NetworkRequest.EmptyBodyObject.self,
+                           let obj = NetworkRequest.EmptyBodyObject() as? T {
+                            continuation.resume(returning: obj)
+                            return
+                        }
                         guard let decodeData = try? JSONDecoder().decode(T.self, from: data) else {
                             continuation.resume(throwing: NetworkError.mappingError)
                             return

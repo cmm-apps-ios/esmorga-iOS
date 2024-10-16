@@ -18,16 +18,19 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
                                                                isProtected: false)
 
     @Published var passTextField = LoginModels.TextFieldModel(text: "",
-                                                               title: LocalizationKeys.TextField.Title.password.localize(),
-                                                               placeholder: LocalizationKeys.TextField.Placeholders.password.localize(),
-                                                               isProtected: true)
+                                                              title: LocalizationKeys.TextField.Title.password.localize(),
+                                                              placeholder: LocalizationKeys.TextField.Placeholders.password.localize(),
+                                                              isProtected: true)
 
-    @Published var isLoading: Bool = false
+    @Published var primaryButton = LoginModels.Button(title: LocalizationKeys.Buttons.login.localize(),
+                                                      isLoading: false)
+    @Published var secondaryButton = LoginModels.Button(title: LocalizationKeys.Buttons.createAccount.localize(),
+                                                        isLoading: false)
 
     private let loginUseCase: LoginUseCaseAlias
 
     init(coordinator: (any CoordinatorProtocol)?,
-        loginUseCase: LoginUseCaseAlias = LoginUseCase()) {
+         loginUseCase: LoginUseCaseAlias = LoginUseCase()) {
         self.loginUseCase = loginUseCase
         super.init(coordinator: coordinator)
     }
@@ -62,7 +65,7 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
     func validateEmailField(checkIsEmpty: Bool) -> Bool {
 
         emailTextField.text = emailTextField.text.trimmingCharacters(in: .whitespacesAndNewlines)
-        if emailTextField.text.isValid(regexPattern: .userEmail) { 
+        if emailTextField.text.isValid(regexPattern: .userEmail) {
             emailTextField.errorMessage = nil
             return true
         } else if emailTextField.text.isEmpty {
@@ -97,19 +100,19 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
     func performLogin() {
 
         guard checkFieldsValidation()  else { return }
-        self.isLoading = true
+        primaryButton.isLoading = true
 
         Task { [weak self] in
             guard let self else { return }
-            let result = await loginUseCase.execute(input: LoginUseCaseInput(email: emailTextField.text, 
+            let result = await loginUseCase.execute(input: LoginUseCaseInput(email: emailTextField.text,
                                                                              password: passTextField.text))
             await MainActor.run {
                 switch result {
                 case .success:
-                    self.isLoading = false
+                    self.primaryButton.isLoading = false
                     self.coordinator?.push(destination: .dashboard)
                 case .failure(let error):
-                    self.isLoading = false
+                    self.primaryButton.isLoading = false
                     switch error {
                     case NetworkError.noInternetConnection:
                         self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(),

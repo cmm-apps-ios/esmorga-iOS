@@ -11,6 +11,7 @@ import CoreData
 protocol LocalEventsDataSourceProtocol {
     func getEvents() async -> [EventModels.Event]
     func saveEvents(_ events: [EventModels.Event]) async throws -> ()
+    func updateIsUserJoinedEvent(id: String, isUserJoined: Bool) async throws
     func clearAll()
 }
 
@@ -43,6 +44,22 @@ class LocalEventsDataSource: LocalEventsDataSourceProtocol {
         events.forEach { _ = $0.convert(in: container.viewContext) }
         try? container.viewContext.save()
         return ()
+    }
+
+    func updateIsUserJoinedEvent(id: String, isUserJoined: Bool) async throws {
+        let request = NSFetchRequest<MOEvent>(entityName: "MOEvent")
+        request.predicate = NSPredicate(format: "eventId == %@", id)
+
+        do {
+            if let moEvent = try container.viewContext.fetch(request).first {
+                moEvent.isUserJoined = isUserJoined
+                try container.viewContext.save()
+            } else {
+                throw NSError(domain: "LocalEventsDataSource", code: 404, userInfo: [NSLocalizedDescriptionKey: "Event not found"])
+            }
+        } catch {
+            throw NSError(domain: "LocalEventsDataSource", code: 500, userInfo: [NSLocalizedDescriptionKey: "Failed to update event"])
+        }
     }
 
     func clearAll() {

@@ -21,4 +21,9 @@ enum LoginModels {
         let isProtected: Bool
         var errorMessage: String?
     }
+
+    struct Button {
+        var title: String
+        var isLoading: Bool
+    }
 }

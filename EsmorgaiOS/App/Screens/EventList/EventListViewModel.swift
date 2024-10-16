@@ -17,6 +17,11 @@ enum EventListViewStates: ViewStateProtocol {
 
 class EventListViewModel: BaseViewModel<EventListViewStates> {
 
+    @Published var errorModel = EventListModels.ErrorModel(imageName: "AlertEsmorga",
+                                                           title: LocalizationKeys.DefaultError.title.localize(),
+                                                           subtitle: LocalizationKeys.DefaultError.body.localize(),
+                                                           buttonText: LocalizationKeys.Buttons.retry.localize())
+
     private let getEventListUseCase: GetEventListUseCaseAlias
     var events: [EventModels.Event] = []
 
@@ -55,5 +60,15 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
         case .failure:
             self.changeState(.error)
         }
+    }
+}
+
+enum EventListModels {
+
+    struct ErrorModel {
+        let imageName: String
+        var title: String
+        var subtitle: String
+        var buttonText: String
     }
 }

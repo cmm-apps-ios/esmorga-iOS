@@ -25,7 +25,7 @@ struct ErrorDialog: View {
         let image: String?
         let primaryText: String
         let secondaryText: String?
-        let buttonText: String
+        var buttonText: String
         let handler: (() -> Void)?
     }
 
@@ -34,7 +34,7 @@ struct ErrorDialog: View {
         case noInternet
     }
 
-    let model: Model
+    @State var model: Model
 
     var body: some View {
         ZStack {
@@ -70,7 +70,7 @@ struct ErrorDialog: View {
                         Spacer()
                     }
                 }
-                CustomButton(title: model.buttonText, buttonStyle: .primary) {
+                CustomButton(title: $model.buttonText, buttonStyle: .primary) {
                     model.handler?()
                     dismiss()
                 }

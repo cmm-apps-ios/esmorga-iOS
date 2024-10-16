@@ -16,17 +16,23 @@ final class EventDetailsViewModelTests {
     private var spyCoordinator: SpyCoordinator!
     private var mockNavigationManager: MockNavigationManager!
     private var mockGetLocalUserUseCase: MockGetLocalUserUseCase!
+    private var mockJoinEventUseCase: MockJoinEventUseCase!
+    private var mockNetworkMonitor: MockNetworkMonitor!
 
     init() {
         spyCoordinator = SpyCoordinator()
         mockNavigationManager = MockNavigationManager()
         mockGetLocalUserUseCase = MockGetLocalUserUseCase()
+        mockJoinEventUseCase = MockJoinEventUseCase()
+        mockNetworkMonitor = MockNetworkMonitor()
     }
 
     deinit {
         spyCoordinator = nil
         mockNavigationManager = nil
         mockGetLocalUserUseCase = nil
+        mockJoinEventUseCase = nil
+        mockNetworkMonitor = nil
         sut = nil
     }
 
@@ -54,13 +60,13 @@ final class EventDetailsViewModelTests {
     }
 
     @Test
-    func test_given_primary_button_tapped_when_user_not_logged_then_login_destination_is_push() {
+    func test_given_primary_button_tapped_when_user_not_logged_then_login_destination_is_push() async {
 
         giveSut(event: EventBuilder().build())
 
         sut.state = .loaded(isLogged: false)
 
-        sut.primaryButtonTapped()
+        await sut.primaryButtonTapped()
 
         #expect(self.spyCoordinator.pushCalled == true)
         #expect(self.spyCoordinator.destination == .login)
@@ -80,7 +86,7 @@ final class EventDetailsViewModelTests {
 
         #expect(self.sut.state == .loaded(isLogged: true))
         #expect(self.sut.model.title == event.name)
-        #expect(self.sut.model.primaryButtonText == LocalizationKeys.Buttons.joinEvent.localize())
+        #expect(self.sut.model.primaryButton.title == LocalizationKeys.Buttons.joinEvent.localize())
     }
 
     @MainActor
@@ -97,7 +103,7 @@ final class EventDetailsViewModelTests {
 
         #expect(self.sut.state == .loaded(isLogged: true))
         #expect(self.sut.model.title == event.name)
-        #expect(self.sut.model.primaryButtonText == LocalizationKeys.Buttons.leaveEvent.localize())
+        #expect(self.sut.model.primaryButton.title == LocalizationKeys.Buttons.leaveEvent.localize())
     }
 
     @MainActor
@@ -113,13 +119,95 @@ final class EventDetailsViewModelTests {
 
         #expect(self.sut.state == .loaded(isLogged: false))
         #expect(self.sut.model.title == event.name)
-        #expect(self.sut.model.primaryButtonText == LocalizationKeys.Buttons.loginToJoin.localize())
+        #expect(self.sut.model.primaryButton.title == LocalizationKeys.Buttons.loginToJoin.localize())
+    }
+
+    @MainActor
+    @Test
+    func test_given_not_joined_event_when_tap_primary_button_and_success_is_get_then_button_text_is_updated_and_snackbar_is_shown() async {
+        mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
+        let event = EventBuilder().build()
+        giveSut(event: event)
+
+        await TestHelper.fullfillTask {
+            await self.sut.viewLoad()
+        }
+
+        #expect(self.sut.state == .loaded(isLogged: true))
+        #expect(self.sut.model.primaryButton.title == LocalizationKeys.Buttons.joinEvent.localize())
+
+        mockJoinEventUseCase.mockResult = true
+
+        await TestHelper.fullfillTask {
+            await self.sut.primaryButtonTapped()
+        }
+
+        #expect(self.sut.model.primaryButton.title == LocalizationKeys.Buttons.leaveEvent.localize())
+        #expect(self.sut.snackBar.isShown == true)
+        #expect(self.sut.snackBar.message == LocalizationKeys.Snackbar.eventJoined.localize())
+
+    }
+
+    @MainActor
+    @Test
+    func test_given_not_joined_event_when_tap_primary_button_and_error_is_throw_then_common_error_dialog_is_shown() async {
+        mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
+        let event = EventBuilder().build()
+        giveSut(event: event)
+
+        await TestHelper.fullfillTask {
+            await self.sut.viewLoad()
+        }
+
+        #expect(self.sut.state == .loaded(isLogged: true))
+        #expect(self.sut.model.primaryButton.title == LocalizationKeys.Buttons.joinEvent.localize())
+
+        mockJoinEventUseCase.mockResult = false
+
+        await TestHelper.fullfillTask {
+            await self.sut.primaryButtonTapped()
+        }
+
+        #expect(self.sut.model.primaryButton.title == LocalizationKeys.Buttons.joinEvent.localize())
+        #expect(self.sut.snackBar.isShown == false)
+        #expect(self.spyCoordinator.pushCalled == true)
+        #expect(self.spyCoordinator.destination == .dialog(ErrorDialogModelBuilder.build(type: .commonError)))
+
+    }
+
+    @MainActor
+    @Test
+    func test_given_not_joined_event_when_tap_primary_button_and_not_internet_then_no_connection_dialog_is_shown() async {
+        mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
+        let event = EventBuilder().build()
+        giveSut(event: event)
+
+        await TestHelper.fullfillTask {
+            await self.sut.viewLoad()
+        }
+
+        #expect(self.sut.state == .loaded(isLogged: true))
+        #expect(self.sut.model.primaryButton.title == LocalizationKeys.Buttons.joinEvent.localize())
+
+        mockNetworkMonitor.mockIsConnected = false
+
+        await TestHelper.fullfillTask {
+            await self.sut.primaryButtonTapped()
+        }
+
+        #expect(self.sut.model.primaryButton.title == LocalizationKeys.Buttons.joinEvent.localize())
+        #expect(self.sut.snackBar.isShown == false)
+        #expect(self.spyCoordinator.pushCalled == true)
+        #expect(self.spyCoordinator.destination == .dialog(ErrorDialogModelBuilder.build(type: .noInternet)))
+
     }
 
     private func giveSut(event: EventModels.Event) {
         sut = EventDetailsViewModel(coordinator: spyCoordinator,
+                                    networkMonitor: mockNetworkMonitor,
                                     event: event,
                                     navigationManager: mockNavigationManager,
-                                    getLocalUserUseCase: mockGetLocalUserUseCase)
+                                    getLocalUserUseCase: mockGetLocalUserUseCase,
+                                    joinEventUseCase: mockJoinEventUseCase)
     }
 }

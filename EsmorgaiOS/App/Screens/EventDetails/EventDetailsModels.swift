@@ -17,8 +17,8 @@ enum EventDetails {
         let descriptionBody: String
         let locationTitle: String
         let locationBody: String
-        var secondaryButtonText: String
-        var primaryButtonText: String
+        var primaryButton: Button
+        var secondaryButton: Button
 
         static var empty: Model {
             return Model(imageUrl: nil,
@@ -28,8 +28,13 @@ enum EventDetails {
                          descriptionBody: "",
                          locationTitle: "",
                          locationBody: "",
-                         secondaryButtonText: "",
-                         primaryButtonText: "")
+                         primaryButton: .init(title: "", isLoading: false),
+                         secondaryButton: .init(title: "", isLoading: false))
         }
+    }
+
+    struct Button {
+        var title: String
+        var isLoading: Bool
     }
 }

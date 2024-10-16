@@ -53,13 +53,17 @@ struct EventDetailsView: View {
                             .style(.body1)
                             .padding(.bottom, 12)
                         VStack(spacing: 32) {
-                            CustomButton(title: $viewModel.model.secondaryButtonText,
-                                         buttonStyle: .secondary) {
+                            CustomButton(title: $viewModel.model.secondaryButton.title,
+                                         buttonStyle: .secondary,
+                                         isDisabled: $viewModel.model.primaryButton.isLoading) {
                                 viewModel.openLocation()
                             }
-                            CustomButton(title: $viewModel.model.primaryButtonText,
-                                         buttonStyle: .primary) {
-                                viewModel.primaryButtonTapped()
+                            CustomButton(title: $viewModel.model.primaryButton.title,
+                                         buttonStyle: .primary,
+                                         isLoading: $viewModel.model.primaryButton.isLoading) {
+                                Task {
+                                    await viewModel.primaryButtonTapped()
+                                }
                             }
                         }.padding(.top, 32)
 

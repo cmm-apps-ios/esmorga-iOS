@@ -15,6 +15,7 @@ final class MockLocalEventsDataSource: LocalEventsDataSourceProtocol {
     var mockError: NSError = NSError(domain: "LocalEventsDataSource", code: 500, userInfo: [NSLocalizedDescriptionKey: "Failed to update event"])
     var updateEventIdCalled: String?
     var updateEventResult: Bool = false
+    var eventIsUserJoined: Bool?
     var clearAllCalled: Bool = false
 
     func getEvents() async -> [EventModels.Event] {
@@ -28,6 +29,7 @@ final class MockLocalEventsDataSource: LocalEventsDataSourceProtocol {
 
     func updateIsUserJoinedEvent(id: String, isUserJoined: Bool) async throws {
         updateEventIdCalled = id
+        eventIsUserJoined = isUserJoined
 
         guard updateEventResult else {
             throw mockError

@@ -14,6 +14,7 @@ final class MockEventsRepository: EventsRepositoryProtocol {
     var refreshValue: Bool?
 
     var joinEventResult: Bool = false
+    var leaveEventResult: Bool = false
     var eventIdToJoin: String?
 
     func getEventList(refresh: Bool) async throws -> ([EventModels.Event], Bool) {
@@ -27,6 +28,13 @@ final class MockEventsRepository: EventsRepositoryProtocol {
     func joinEvent(id: String) async throws {
         eventIdToJoin = id
         guard joinEventResult else {
+            throw NetworkError.generalError(code: 500)
+        }
+    }
+
+    func leaveEvent(id: String) async throws {
+        eventIdToJoin = id
+        guard leaveEventResult else {
             throw NetworkError.generalError(code: 500)
         }
     }

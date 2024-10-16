@@ -21,9 +21,8 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
                                                            title: LocalizationKeys.DefaultError.title.localize(),
                                                            subtitle: LocalizationKeys.DefaultError.body.localize(),
                                                            buttonText: LocalizationKeys.Buttons.retry.localize())
-
+    @Published var events: [EventModels.Event] = []
     private let getEventListUseCase: GetEventListUseCaseAlias
-    var events: [EventModels.Event] = []
 
     init(coordinator: (any CoordinatorProtocol)?,
          getEventListUseCase: GetEventListUseCaseAlias = GetEventListUseCase()) {

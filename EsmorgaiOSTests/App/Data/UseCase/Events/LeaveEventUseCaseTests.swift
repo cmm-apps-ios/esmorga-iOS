@@ -1,8 +1,8 @@
 //
-//  JoinEventUseCaseTests.swift
+//  LeaveEventUseCaseTests.swift
 //  EsmorgaiOS
 //
-//  Created by Vidal Pérez, Omar on 15/10/24.
+//  Created by Vidal Pérez, Omar on 16/10/24.
 //
 
 import Foundation
@@ -10,14 +10,14 @@ import Testing
 @testable import EsmorgaiOS
 
 @Suite(.serialized)
-final class JoinEventUseCaseTests {
+final class LeaveEventUseCaseTests {
 
-    private var sut: JoinEventUseCase!
+    private var sut: LeaveEventUseCase!
     private var mockEventsRepository: MockEventsRepository!
 
     init() {
         mockEventsRepository = MockEventsRepository()
-        sut = JoinEventUseCase(eventsRepsitory: mockEventsRepository)
+        sut = LeaveEventUseCase(eventsRepsitory: mockEventsRepository)
     }
 
     deinit {
@@ -26,8 +26,8 @@ final class JoinEventUseCaseTests {
     }
 
     @Test
-    func test_given_join_event_when_success_result_then_return_correct_events() async {
-        mockEventsRepository.joinEventResult = true
+    func test_given_leave_event_when_success_result_then_return_correct_events() async {
+        mockEventsRepository.leaveEventResult = true
 
         let result = await self.sut.execute(input: "123")
         var successCalled: Bool?
@@ -42,7 +42,7 @@ final class JoinEventUseCaseTests {
     }
 
     @Test
-    func test_given_join_event_when_failure_result_then_return_correct_error() async {
+    func test_given_leave_event_when_failure_result_then_return_correct_error() async {
 
         let result = await self.sut.execute(input: "1234")
         switch result {

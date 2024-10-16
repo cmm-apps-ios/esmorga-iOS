@@ -224,4 +224,48 @@ final class EventsRepositoryTests {
         #expect(self.mockRemoteMyEventsDataSource.eventIdJoined == id)
         #expect(self.mockLocalEventsDataSource.updateEventIdCalled == id)
     }
+
+    @Test
+    func test_given_leave_event_when_succes_then_store_the_event() async {
+        let id = "1234"
+        mockLocalEventsDataSource.updateEventResult = true
+        mockRemoteMyEventsDataSource.mockLeaveEvent = true
+
+        try? await sut.leaveEvent(id: id)
+
+        #expect(self.mockLocalEventsDataSource.updateEventIdCalled == id)
+        #expect(self.mockLocalEventsDataSource.eventIsUserJoined == false)
+        #expect(self.mockRemoteMyEventsDataSource.eventIdJoined == id)
+    }
+
+    @Test
+    func test_given_leave_event_when_join_event_fail_then_match_error() async {
+        let id = "1234"
+
+        do {
+            _ = try await sut.leaveEvent(id: id)
+            Issue.record("Expected error to be thrown")
+        } catch {
+            let expectedError = error as? NetworkError
+            #expect(expectedError == NetworkError.generalError(code: 500))
+        }
+
+        #expect(self.mockRemoteMyEventsDataSource.eventIdJoined == id)
+    }
+
+    @Test
+    func test_given_leave_event_when_store_event_fail_then_match_error() async {
+        let id = "1234"
+        mockRemoteMyEventsDataSource.mockLeaveEvent = true
+
+        do {
+            _ = try await sut.leaveEvent(id: id)
+            Issue.record("Expected error to be thrown")
+        } catch {
+            #expect((error as NSError) == mockLocalEventsDataSource.mockError)
+        }
+
+        #expect(self.mockRemoteMyEventsDataSource.eventIdJoined == id)
+        #expect(self.mockLocalEventsDataSource.updateEventIdCalled == id)
+    }
 }

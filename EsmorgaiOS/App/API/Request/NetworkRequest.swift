@@ -24,7 +24,7 @@ struct NetworkRequest: NetworkRequestProtocol {
         return try await withUnsafeThrowingContinuation { continuation in
 
             var urlRequest = URLRequest(url: url,
-                                        cachePolicy: .useProtocolCachePolicy,
+                                        cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                         timeoutInterval: NetworkRequest.requestTimeout)
             urlRequest.headers = networkService.headers
             urlRequest.method = networkService.method

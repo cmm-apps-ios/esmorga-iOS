@@ -12,15 +12,15 @@ typealias LeaveEventUseCaseAlias = BaseUseCase<String, JoinEventUseCaseResult>
 
 class LeaveEventUseCase: LeaveEventUseCaseAlias {
 
-    private var eventsRepsitory: EventsRepositoryProtocol
+    private var eventsRepository: EventsRepositoryProtocol
 
-    init(eventsRepsitory: EventsRepositoryProtocol = EventsRepository()) {
-        self.eventsRepsitory = eventsRepsitory
+    init(eventsRepository: EventsRepositoryProtocol = EventsRepository()) {
+        self.eventsRepository = eventsRepository
     }
 
     override func job(input: String) async -> LeaveEventUseCaseResult {
         do {
-            try await eventsRepsitory.leaveEvent(id: input)
+            try await eventsRepository.leaveEvent(id: input)
             return .success(())
         } catch {
             return .failure(error)

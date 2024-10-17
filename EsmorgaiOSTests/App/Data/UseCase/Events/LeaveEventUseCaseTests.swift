@@ -17,7 +17,7 @@ final class LeaveEventUseCaseTests {
 
     init() {
         mockEventsRepository = MockEventsRepository()
-        sut = LeaveEventUseCase(eventsRepsitory: mockEventsRepository)
+        sut = LeaveEventUseCase(eventsRepository: mockEventsRepository)
     }
 
     deinit {

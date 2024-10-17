@@ -186,6 +186,9 @@
 		EFF8B8212CBEB97B007470A9 /* JoinEventUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8B8202CBEB977007470A9 /* JoinEventUseCaseTests.swift */; };
 		EFF8B8242CBEC2B7007470A9 /* MockJoinEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8B8232CBEC2AD007470A9 /* MockJoinEventUseCase.swift */; };
 		EFF8B8262CBFC01B007470A9 /* URLRequest+curl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8B8252CBFC017007470A9 /* URLRequest+curl.swift */; };
+		EFF8B8282CBFC982007470A9 /* LeaveEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8B8272CBFC97B007470A9 /* LeaveEventUseCase.swift */; };
+		EFF8B82A2CBFDCF4007470A9 /* MockLeaveEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8B8292CBFDCED007470A9 /* MockLeaveEventUseCase.swift */; };
+		EFF8B82C2CBFDD1C007470A9 /* LeaveEventUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8B82B2CBFDD18007470A9 /* LeaveEventUseCaseTests.swift */; };
 		EFF9C8722C9991DA00DE50BC /* AccountTokensRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8712C9991D200DE50BC /* AccountTokensRefresher.swift */; };
 		EFF9C8752C99921100DE50BC /* TokensRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8742C99920F00DE50BC /* TokensRefresher.swift */; };
 		EFF9C8782C9992EF00DE50BC /* URLRequest+BearerToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8772C9992E600DE50BC /* URLRequest+BearerToken.swift */; };
@@ -398,6 +401,9 @@
 		EFF8B8202CBEB977007470A9 /* JoinEventUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinEventUseCaseTests.swift; sourceTree = "<group>"; };
 		EFF8B8232CBEC2AD007470A9 /* MockJoinEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJoinEventUseCase.swift; sourceTree = "<group>"; };
 		EFF8B8252CBFC017007470A9 /* URLRequest+curl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+curl.swift"; sourceTree = "<group>"; };
+		EFF8B8272CBFC97B007470A9 /* LeaveEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveEventUseCase.swift; sourceTree = "<group>"; };
+		EFF8B8292CBFDCED007470A9 /* MockLeaveEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLeaveEventUseCase.swift; sourceTree = "<group>"; };
+		EFF8B82B2CBFDD18007470A9 /* LeaveEventUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveEventUseCaseTests.swift; sourceTree = "<group>"; };
 		EFF9C8712C9991D200DE50BC /* AccountTokensRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTokensRefresher.swift; sourceTree = "<group>"; };
 		EFF9C8742C99920F00DE50BC /* TokensRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensRefresher.swift; sourceTree = "<group>"; };
 		EFF9C8772C9992E600DE50BC /* URLRequest+BearerToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+BearerToken.swift"; sourceTree = "<group>"; };
@@ -840,6 +846,7 @@
 		EF65D16E2CB91F62005078D9 /* Event */ = {
 			isa = PBXGroup;
 			children = (
+				EFF8B8272CBFC97B007470A9 /* LeaveEventUseCase.swift */,
 				EFD7EF092C3D44A300C8CE70 /* GetEventListUseCase.swift */,
 				EF65D16C2CB91F56005078D9 /* JoinEventUseCase.swift */,
 			);
@@ -1299,6 +1306,7 @@
 				EFF8B8222CBEC2A5007470A9 /* Mocks */,
 				EFF8B8202CBEB977007470A9 /* JoinEventUseCaseTests.swift */,
 				EF31585A2C59384800DE157A /* GetEventListUseCaseTests.swift */,
+				EFF8B82B2CBFDD18007470A9 /* LeaveEventUseCaseTests.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -1431,6 +1439,7 @@
 		EFF8B8222CBEC2A5007470A9 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				EFF8B8292CBFDCED007470A9 /* MockLeaveEventUseCase.swift */,
 				EFF8B8232CBEC2AD007470A9 /* MockJoinEventUseCase.swift */,
 				EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */,
 			);
@@ -1741,6 +1750,7 @@
 				EF0811D32C9325EF00DE4887 /* DashboardBuilder.swift in Sources */,
 				EFE34D962C74A59800724DDC /* LoginUserDataSource.swift in Sources */,
 				EF503C0A2C98753F00EE9128 /* AccountSession.swift in Sources */,
+				EFF8B8282CBFC982007470A9 /* LeaveEventUseCase.swift in Sources */,
 				EF4213D62C413FC800686033 /* SnackbarView.swift in Sources */,
 				EF2983E72C6B729A00C2393E /* WelcomeScreenBuilder.swift in Sources */,
 				EFE0A9792C3D925600E28953 /* TextStyles.swift in Sources */,
@@ -1833,6 +1843,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE34DCA2C7CC07700724DDC /* LoginViewModelTests.swift in Sources */,
+				EFF8B82C2CBFDD1C007470A9 /* LeaveEventUseCaseTests.swift in Sources */,
 				EF3158672C5A281D00DE157A /* MockEventsRepository.swift in Sources */,
 				EFD6100C2CA2C40800E3DB1E /* EventBuilder.swift in Sources */,
 				EF2128392C85D5C200D00887 /* MockRegisterUserDataSource.swift in Sources */,
@@ -1856,6 +1867,7 @@
 				EFF8B8242CBEC2B7007470A9 /* MockJoinEventUseCase.swift in Sources */,
 				EF2983FA2C6B987A00C2393E /* EventDetailsViewModelTests.swift in Sources */,
 				EF21283D2C85D98800D00887 /* MockRegisterUserUseCase.swift in Sources */,
+				EFF8B82A2CBFDCF4007470A9 /* MockLeaveEventUseCase.swift in Sources */,
 				EF2A6DDA2CAED73100164FD5 /* MockNavigationManager.swift in Sources */,
 				EFD6100E2CA2C44A00E3DB1E /* MockRemoteMyEventsDataSource.swift in Sources */,
 				EF31586E2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift in Sources */,

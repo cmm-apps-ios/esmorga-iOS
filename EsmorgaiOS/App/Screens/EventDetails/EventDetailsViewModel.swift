@@ -17,6 +17,7 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
     private let navigationManager: NavigationManagerProtocol
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
     private let joinEventUseCase: JoinEventUseCaseAlias
+    private let leaveEventUseCase: LeaveEventUseCaseAlias
     private var event: EventModels.Event
     private var isUserLogged: Bool = false
 
@@ -29,11 +30,13 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
          event: EventModels.Event,
          navigationManager: NavigationManagerProtocol = NavigationManager(),
          getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
-         joinEventUseCase: JoinEventUseCaseAlias = JoinEventUseCase()) {
+         joinEventUseCase: JoinEventUseCaseAlias = JoinEventUseCase(),
+         leaveEventUseCase: LeaveEventUseCaseAlias = LeaveEventUseCase()) {
         self.navigationManager = navigationManager
         self.event = event
         self.getLocalUserUseCase = getLocalUserUseCase
         self.joinEventUseCase = joinEventUseCase
+        self.leaveEventUseCase = leaveEventUseCase
         super.init(coordinator: coordinator,
                    networkMonitor: networkMonitor)
     }
@@ -84,10 +87,21 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
     }
 
     private func leaveEvent() async{
-        //TODO: future US
+
+        await MainActor.run { model.primaryButton.isLoading = true }
+
+        let result = await leaveEventUseCase.execute(input: event.eventId)
         await MainActor.run {
-            self.snackBar = .init(message: LocalizationKeys.Snackbar.eventLeft.localize(),
-                                  isShown: true)
+            switch result {
+            case .success:
+                self.event.isUserJoined = false
+                self.showEventModel()
+                self.snackBar = .init(message: LocalizationKeys.Snackbar.eventLeft.localize(),
+                                      isShown: true)
+            case .failure:
+                self.showErrorDialog(type: .commonError)
+            }
+            self.model.primaryButton.isLoading = false
         }
     }
 

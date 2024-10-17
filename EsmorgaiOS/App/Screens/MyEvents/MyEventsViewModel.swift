@@ -28,7 +28,7 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
 
     private let getEventListUseCase: GetEventListUseCaseAlias
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
-    var events: [EventModels.Event] = []
+    @Published var events: [EventModels.Event] = []
 
     init(coordinator: (any CoordinatorProtocol)?,
          networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,

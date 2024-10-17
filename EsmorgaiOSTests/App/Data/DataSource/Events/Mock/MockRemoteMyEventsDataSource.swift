@@ -13,6 +13,7 @@ final class MockRemoteMyEventsDataSource: RemoteMyEventsDataSourceProtocol {
     var mockEvents: [RemoteEventListModel.Event]?
     var mockError: NetworkError = NetworkError.generalError(code: 500)
     var mockJoinedEvent: Bool = false
+    var mockLeaveEvent: Bool = false
     var eventIdJoined: String?
 
     func fetchEvents() async throws -> [RemoteEventListModel.Event] {
@@ -25,6 +26,13 @@ final class MockRemoteMyEventsDataSource: RemoteMyEventsDataSourceProtocol {
     func joinEvent(id: String) async throws {
         eventIdJoined = id
         guard mockJoinedEvent else {
+            throw mockError
+        }
+    }
+
+    func leaveEvent(id: String) async throws {
+        eventIdJoined = id
+        guard mockLeaveEvent else {
             throw mockError
         }
     }

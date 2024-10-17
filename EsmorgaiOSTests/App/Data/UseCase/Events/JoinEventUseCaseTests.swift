@@ -17,7 +17,7 @@ final class JoinEventUseCaseTests {
 
     init() {
         mockEventsRepository = MockEventsRepository()
-        sut = JoinEventUseCase(eventsRepsitory: mockEventsRepository)
+        sut = JoinEventUseCase(eventsRepository: mockEventsRepository)
     }
 
     deinit {

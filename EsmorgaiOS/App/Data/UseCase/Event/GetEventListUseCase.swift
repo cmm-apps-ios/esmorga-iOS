@@ -12,15 +12,15 @@ typealias GetEventListUseCaseAlias = BaseUseCase<Bool, GetEventListResult>
 
 class GetEventListUseCase: GetEventListUseCaseAlias {
 
-    private var eventsRepsitory: EventsRepositoryProtocol
+    private var eventsRepository: EventsRepositoryProtocol
 
-    init(eventsRepsitory: EventsRepositoryProtocol = EventsRepository()) {
-        self.eventsRepsitory = eventsRepsitory
+    init(eventsRepository: EventsRepositoryProtocol = EventsRepository()) {
+        self.eventsRepository = eventsRepository
     }
 
     override func job(input: Bool) async -> GetEventListResult {
         do {
-            let events = try await eventsRepsitory.getEventList(refresh: input)
+            let events = try await eventsRepository.getEventList(refresh: input)
             return .success(events)
         } catch let error {
             return .failure(error)

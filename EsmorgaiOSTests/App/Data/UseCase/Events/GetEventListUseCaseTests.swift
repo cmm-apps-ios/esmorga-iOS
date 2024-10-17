@@ -17,7 +17,7 @@ final class GetEventListUseCaseTests {
 
     init() {
         mockEventsRepository = MockEventsRepository()
-        sut = GetEventListUseCase(eventsRepsitory: mockEventsRepository)
+        sut = GetEventListUseCase(eventsRepository: mockEventsRepository)
     }
 
     deinit {

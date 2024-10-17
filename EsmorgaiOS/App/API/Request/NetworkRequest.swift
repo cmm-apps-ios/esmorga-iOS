@@ -33,18 +33,12 @@ struct NetworkRequest: NetworkRequestProtocol {
             AF.request(urlRequest, interceptor: networkService.requestInterceptor)
                 .validate()
                 .responseData(emptyResponseCodes: Set([204, 200, 201])) { response in
-                    print(response.request ?? "")
-                    print("Request Response: \(response.result)")
+                    print("➡️ \(response.request?.cURL ?? "")")
                     switch response.result {
                     case .success(let data):
-                        print(String(data: data, encoding: .utf8) ?? "")
+                        print("✅ \(response.response?.statusCode ?? 0) \n")
 
-                        if T.self == NetworkRequest.EmptyBodyObject.self,
-                           let obj = NetworkRequest.EmptyBodyObject() as? T {
-                            continuation.resume(returning: obj)
-                            return
-                        }
-                        guard let decodeData = try? JSONDecoder().decode(T.self, from: data) else {
+                        guard let decodeData = try? CustomJSONDecoder().decode(T.self, from: data) else {
                             continuation.resume(throwing: NetworkError.mappingError)
                             return
                         }
@@ -52,6 +46,13 @@ struct NetworkRequest: NetworkRequestProtocol {
 
                     case .failure(let error):
                         let errorCode = response.response?.statusCode ?? error.underlyingError?.code ?? error.code
+                        print("🛑 \(errorCode)")
+                        if let data = response.data {
+                            print("⚠️ Error Body: \(String(data: data, encoding: .utf8) ?? "")\n")
+                        } else {
+                            print("⚠️ Error Body: No data response.\n")
+                        }
+
                         guard errorCode != NSURLErrorCancelled else { return }
                         var networkError: NetworkError {
                             if errorCode == NSURLErrorNotConnectedToInternet {

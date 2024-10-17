@@ -530,6 +530,28 @@
     "Selecciona tu app de navigacion" : {
 
     },
+    "snackbar_event_joined" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bravo! Te has unido al evento!"
+          }
+        }
+      }
+    },
+    "snackbar_event_left" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buuuuu! Rajao!"
+          }
+        }
+      }
+    },
     "snackbar_no_internet" : {
       "extractionState" : "manual",
       "localizations" : {

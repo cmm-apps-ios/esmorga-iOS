@@ -95,6 +95,8 @@ class LocalizationKeys {
 
     enum Snackbar {
         static let noInternet: String = "snackbar_no_internet"
+        static let eventJoined: String = "snackbar_event_joined"
+        static let eventLeft: String = "snackbar_event_left"
     }
 
     enum Dashboard {

@@ -28,8 +28,8 @@ final class EventDetailsMapper {
                                   descriptionBody: event.details,
                                   locationTitle: LocalizationKeys.EventDetails.location.localize(),
                                   locationBody: event.location,
-                                  secondaryButtonText: LocalizationKeys.Buttons.navigate.localize(),
-                                  primaryButtonText: primaryButtonText)
+                                  primaryButton: EventDetails.Button(title: primaryButtonText, isLoading: false),
+                                  secondaryButton: EventDetails.Button(title: LocalizationKeys.Buttons.navigate.localize(), isLoading: false))
 
     }
 }

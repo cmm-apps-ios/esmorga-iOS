@@ -16,27 +16,37 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
 
     private let navigationManager: NavigationManagerProtocol
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
-    private let event: EventModels.Event
+    private let joinEventUseCase: JoinEventUseCaseAlias
+    private var event: EventModels.Event
+    private var isUserLogged: Bool = false
 
     @Published var showMethodsAlert: Bool = false
     @Published var model: EventDetails.Model = .empty
     var navigationMethods = [NavigationModels.Method]()
 
     init(coordinator: (any CoordinatorProtocol)?,
+         networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,
          event: EventModels.Event,
          navigationManager: NavigationManagerProtocol = NavigationManager(),
-         getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase()) {
+         getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
+         joinEventUseCase: JoinEventUseCaseAlias = JoinEventUseCase()) {
         self.navigationManager = navigationManager
         self.event = event
         self.getLocalUserUseCase = getLocalUserUseCase
-        super.init(coordinator: coordinator)
+        self.joinEventUseCase = joinEventUseCase
+        super.init(coordinator: coordinator,
+                   networkMonitor: networkMonitor)
     }
 
     @MainActor
     func viewLoad() async {
-        let isUserLogged = await getLocalUserUseCase.execute().isSuccess
-        model = EventDetailsMapper.mapEventDetails(event, isUserLogged: isUserLogged)
+        isUserLogged = await getLocalUserUseCase.execute().isSuccess
+        showEventModel()
         changeState(.loaded(isLogged: isUserLogged))
+    }
+
+    private func showEventModel() {
+        model = EventDetailsMapper.mapEventDetails(event, isUserLogged: isUserLogged)
     }
 
     func openLocation() {
@@ -54,27 +64,55 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
         coordinator?.openNavigationApp(method)
     }
 
-    func primaryButtonTapped() {
+    @MainActor
+    func primaryButtonTapped() async {
         switch state {
         case .loaded(let isLogged):
             guard isLogged else {
                 coordinator?.push(destination: .login)
                 return
             }
-            event.isUserJoined ? leaveEvent() : joinEvent()
+
+            guard networkMonitor.isConnected else {
+                self.showErrorDialog(type: .noInternet)
+                return
+            }
+
+            event.isUserJoined ? await leaveEvent() : await joinEvent()
         case .ready: break
         }
     }
 
-    private func leaveEvent() {
+    private func leaveEvent() async{
         //TODO: future US
-        self.snackBar = .init(message: "Leave Event Tapped",
-                              isShown: true)
+        await MainActor.run {
+            self.snackBar = .init(message: LocalizationKeys.Snackbar.eventLeft.localize(),
+                                  isShown: true)
+        }
     }
 
-    private func joinEvent() {
-        //TODO: future US
-        self.snackBar = .init(message: "Join Event Tapped",
-                              isShown: true)
+    private func joinEvent() async {
+
+        await MainActor.run { model.primaryButton.isLoading = true }
+
+        let result = await joinEventUseCase.execute(input: event.eventId)
+
+        await MainActor.run {
+            switch result {
+            case .success:
+                self.event.isUserJoined = true
+                self.showEventModel()
+                self.snackBar = .init(message: LocalizationKeys.Snackbar.eventJoined.localize(),
+                                      isShown: true)
+            case .failure:
+                self.showErrorDialog(type: .commonError)
+            }
+            self.model.primaryButton.isLoading = false
+        }
+    }
+
+    private func showErrorDialog(type: ErrorDialog.DialogType) {
+        let dialogModel = ErrorDialogModelBuilder.build(type: type)
+        coordinator?.push(destination: .dialog(dialogModel))
     }
 }

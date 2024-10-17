@@ -99,6 +99,7 @@
 		EF503C0A2C98753F00EE9128 /* AccountSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF503C092C98753F00EE9128 /* AccountSession.swift */; };
 		EF65D1692CB7C8CC005078D9 /* ErrorDialogModelBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65D1682CB7C8C7005078D9 /* ErrorDialogModelBuilderTests.swift */; };
 		EF65D16B2CB82F13005078D9 /* mock_empty_file.json in Resources */ = {isa = PBXBuildFile; fileRef = EF65D16A2CB82F02005078D9 /* mock_empty_file.json */; };
+		EF65D16D2CB91F5D005078D9 /* JoinEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65D16C2CB91F56005078D9 /* JoinEventUseCase.swift */; };
 		EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */; };
 		EF7DF9562C9C0E94005908B7 /* View+FirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */; };
 		EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* NavigationManager.swift */; };
@@ -181,6 +182,10 @@
 		EFF7A1E32C36D9400024704A /* epilogue_flex.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFF7A1E12C36D9400024704A /* epilogue_flex.ttf */; };
 		EFF7A1E82C36DECC0024704A /* LoadingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1E72C36DECC0024704A /* LoadingBar.swift */; };
 		EFF8B81D2CBEAB1C007470A9 /* MyEventsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8B81C2CBEAB19007470A9 /* MyEventsModels.swift */; };
+		EFF8B81F2CBEB889007470A9 /* CustomJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8B81E2CBEB887007470A9 /* CustomJSONDecoder.swift */; };
+		EFF8B8212CBEB97B007470A9 /* JoinEventUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8B8202CBEB977007470A9 /* JoinEventUseCaseTests.swift */; };
+		EFF8B8242CBEC2B7007470A9 /* MockJoinEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8B8232CBEC2AD007470A9 /* MockJoinEventUseCase.swift */; };
+		EFF8B8262CBFC01B007470A9 /* URLRequest+curl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8B8252CBFC017007470A9 /* URLRequest+curl.swift */; };
 		EFF9C8722C9991DA00DE50BC /* AccountTokensRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8712C9991D200DE50BC /* AccountTokensRefresher.swift */; };
 		EFF9C8752C99921100DE50BC /* TokensRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8742C99920F00DE50BC /* TokensRefresher.swift */; };
 		EFF9C8782C9992EF00DE50BC /* URLRequest+BearerToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8772C9992E600DE50BC /* URLRequest+BearerToken.swift */; };
@@ -304,6 +309,7 @@
 		EF503C092C98753F00EE9128 /* AccountSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSession.swift; sourceTree = "<group>"; };
 		EF65D1682CB7C8C7005078D9 /* ErrorDialogModelBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogModelBuilderTests.swift; sourceTree = "<group>"; };
 		EF65D16A2CB82F02005078D9 /* mock_empty_file.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_empty_file.json; sourceTree = "<group>"; };
+		EF65D16C2CB91F56005078D9 /* JoinEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinEventUseCase.swift; sourceTree = "<group>"; };
 		EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAppearModifier.swift; sourceTree = "<group>"; };
 		EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+FirstAppear.swift"; sourceTree = "<group>"; };
 		EF9CDB832C89C0920044FB29 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
@@ -388,6 +394,10 @@
 		EFF7A1E62C36DB1F0024704A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFF7A1E72C36DECC0024704A /* LoadingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingBar.swift; sourceTree = "<group>"; };
 		EFF8B81C2CBEAB19007470A9 /* MyEventsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsModels.swift; sourceTree = "<group>"; };
+		EFF8B81E2CBEB887007470A9 /* CustomJSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomJSONDecoder.swift; sourceTree = "<group>"; };
+		EFF8B8202CBEB977007470A9 /* JoinEventUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinEventUseCaseTests.swift; sourceTree = "<group>"; };
+		EFF8B8232CBEC2AD007470A9 /* MockJoinEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJoinEventUseCase.swift; sourceTree = "<group>"; };
+		EFF8B8252CBFC017007470A9 /* URLRequest+curl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+curl.swift"; sourceTree = "<group>"; };
 		EFF9C8712C9991D200DE50BC /* AccountTokensRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTokensRefresher.swift; sourceTree = "<group>"; };
 		EFF9C8742C99920F00DE50BC /* TokensRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensRefresher.swift; sourceTree = "<group>"; };
 		EFF9C8772C9992E600DE50BC /* URLRequest+BearerToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+BearerToken.swift"; sourceTree = "<group>"; };
@@ -827,6 +837,25 @@
 			path = Dialogs;
 			sourceTree = "<group>";
 		};
+		EF65D16E2CB91F62005078D9 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				EFD7EF092C3D44A300C8CE70 /* GetEventListUseCase.swift */,
+				EF65D16C2CB91F56005078D9 /* JoinEventUseCase.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		EF65D16F2CB91F70005078D9 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				EFE34D9C2C74A92800724DDC /* LoginUseCase.swift */,
+				EFE34DD22C7DE28D00724DDC /* RegisterUserUseCase.swift */,
+				EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		EF7DF9522C9C0D98005908B7 /* ViewModifier */ = {
 			isa = PBXGroup;
 			children = (
@@ -1021,10 +1050,8 @@
 		EFD7EF082C3D447300C8CE70 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				EFD7EF092C3D44A300C8CE70 /* GetEventListUseCase.swift */,
-				EFE34D9C2C74A92800724DDC /* LoginUseCase.swift */,
-				EFE34DD22C7DE28D00724DDC /* RegisterUserUseCase.swift */,
-				EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */,
+				EF65D16F2CB91F70005078D9 /* User */,
+				EF65D16E2CB91F62005078D9 /* Event */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1099,6 +1126,7 @@
 		EFE0A97B2C3D92A400E28953 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EFF8B81E2CBEB887007470A9 /* CustomJSONDecoder.swift */,
 				EFA6463B2C8B029E00D528F9 /* Errors */,
 				EF7DF9522C9C0D98005908B7 /* ViewModifier */,
 				EF9CDB822C89C0800044FB29 /* Navigation */,
@@ -1112,6 +1140,7 @@
 		EFE0A97C2C3D92AC00E28953 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EFF8B8252CBFC017007470A9 /* URLRequest+curl.swift */,
 				EF2A6DD72CAEA88300164FD5 /* Result+IsSuccess.swift */,
 				EFF9C8792C99930F00DE50BC /* NSNotification+Name.swift */,
 				EFF9C8772C9992E600DE50BC /* URLRequest+BearerToken.swift */,
@@ -1267,8 +1296,9 @@
 		EFE34DC22C7CBC3E00724DDC /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				EFF8B8222CBEC2A5007470A9 /* Mocks */,
+				EFF8B8202CBEB977007470A9 /* JoinEventUseCaseTests.swift */,
 				EF31585A2C59384800DE157A /* GetEventListUseCaseTests.swift */,
-				EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -1396,6 +1426,15 @@
 				EF0811D62C93262900DE4887 /* BottomBar.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EFF8B8222CBEC2A5007470A9 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				EFF8B8232CBEC2AD007470A9 /* MockJoinEventUseCase.swift */,
+				EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		EFF9C8732C9991FD00DE50BC /* Refresher */ = {
@@ -1685,6 +1724,7 @@
 				EF21284D2C8615F000D00887 /* KeychainBuilder.swift in Sources */,
 				EFE34D982C74A6FB00724DDC /* UserRepository.swift in Sources */,
 				EFE34DDF2C81CD5C00724DDC /* View+NavigationBar.swift in Sources */,
+				EFF8B81F2CBEB889007470A9 /* CustomJSONDecoder.swift in Sources */,
 				EFD7EF022C3D3BB100C8CE70 /* RemoteEventsDataSource.swift in Sources */,
 				EF0811DA2C9328CE00DE4887 /* MainCoordinator.swift in Sources */,
 				EFE34DE22C81CDA500724DDC /* NavigationBar.swift in Sources */,
@@ -1707,6 +1747,7 @@
 				EF4213D82C41412300686033 /* AppManager.swift in Sources */,
 				EFE34D9D2C74A92800724DDC /* LoginUseCase.swift in Sources */,
 				EFE0A97F2C3D92F200E28953 /* Text+TextStyle.swift in Sources */,
+				EFF8B8262CBFC01B007470A9 /* URLRequest+curl.swift in Sources */,
 				EFE0A9822C3E8AE000E28953 /* Esmorga.xcdatamodeld in Sources */,
 				EFE34DA22C74ABC200724DDC /* LoginViewModel.swift in Sources */,
 				EF2A6DD32CAEA75A00164FD5 /* EventDetailsModels.swift in Sources */,
@@ -1780,6 +1821,7 @@
 				EF9CDB862C89C0BB0044FB29 /* NavigationModels.swift in Sources */,
 				EFD7EF172C3D75CB00C8CE70 /* NetworkRequest.swift in Sources */,
 				EFF8B81D2CBEAB1C007470A9 /* MyEventsModels.swift in Sources */,
+				EF65D16D2CB91F5D005078D9 /* JoinEventUseCase.swift in Sources */,
 				EF2128462C86106400D00887 /* Binding+Bool.swift in Sources */,
 				EFD610072CA2AFA600E3DB1E /* MyEventsBuilder.swift in Sources */,
 				EF7DF9562C9C0E94005908B7 /* View+FirstAppear.swift in Sources */,
@@ -1796,6 +1838,7 @@
 				EF2128392C85D5C200D00887 /* MockRegisterUserDataSource.swift in Sources */,
 				EFE34DB92C7C99B500724DDC /* UserRepositoryTests.swift in Sources */,
 				EF21283B2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift in Sources */,
+				EFF8B8212CBEB97B007470A9 /* JoinEventUseCaseTests.swift in Sources */,
 				EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */,
 				EFF9C8872C999C8600DE50BC /* AccountCredentialTests.swift in Sources */,
 				EF65D1692CB7C8CC005078D9 /* ErrorDialogModelBuilderTests.swift in Sources */,
@@ -1810,6 +1853,7 @@
 				EF3158652C5A27DF00DE157A /* EventsRepositoryTests.swift in Sources */,
 				EFE34DC72C7CBFC500724DDC /* MockLoginUseCase.swift in Sources */,
 				EFA646422C8B09E700D528F9 /* UserModelBuilder.swift in Sources */,
+				EFF8B8242CBEC2B7007470A9 /* MockJoinEventUseCase.swift in Sources */,
 				EF2983FA2C6B987A00C2393E /* EventDetailsViewModelTests.swift in Sources */,
 				EF21283D2C85D98800D00887 /* MockRegisterUserUseCase.swift in Sources */,
 				EF2A6DDA2CAED73100164FD5 /* MockNavigationManager.swift in Sources */,

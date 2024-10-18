@@ -143,6 +143,7 @@
 		EFE0A97F2C3D92F200E28953 /* Text+TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE0A97E2C3D92F100E28953 /* Text+TextStyle.swift */; };
 		EFE0A9822C3E8AE000E28953 /* Esmorga.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFE0A9802C3E8AE000E28953 /* Esmorga.xcdatamodeld */; };
 		EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE0A9832C3E8CCA00E28953 /* LocalEventsDataSource.swift */; };
+		EFE0F5F12CC277390046959A /* WelcomeScreenSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE0F5F02CC277330046959A /* WelcomeScreenSnapshotTests.swift */; };
 		EFE34D922C74957A00724DDC /* AccountNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D912C74957A00724DDC /* AccountNetworkService.swift */; };
 		EFE34D942C74A34A00724DDC /* AccountLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D932C74A34A00724DDC /* AccountLoginModel.swift */; };
 		EFE34D962C74A59800724DDC /* LoginUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34D952C74A59800724DDC /* LoginUserDataSource.swift */; };
@@ -353,6 +354,7 @@
 		EFE0A97E2C3D92F100E28953 /* Text+TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+TextStyle.swift"; sourceTree = "<group>"; };
 		EFE0A9812C3E8AE000E28953 /* Esmorga.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Esmorga.xcdatamodel; sourceTree = "<group>"; };
 		EFE0A9832C3E8CCA00E28953 /* LocalEventsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEventsDataSource.swift; sourceTree = "<group>"; };
+		EFE0F5F02CC277330046959A /* WelcomeScreenSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenSnapshotTests.swift; sourceTree = "<group>"; };
 		EFE34D912C74957A00724DDC /* AccountNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNetworkService.swift; sourceTree = "<group>"; };
 		EFE34D932C74A34A00724DDC /* AccountLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginModel.swift; sourceTree = "<group>"; };
 		EFE34D952C74A59800724DDC /* LoginUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserDataSource.swift; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 		EF0811C02C90940D00DE4887 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EFE0F5EF2CC2772D0046959A /* WelcomeScreen */,
 				EF2A6DCF2CAE93E200164FD5 /* Dialogs */,
 				EF2A6DDB2CAED76100164FD5 /* EventDetails */,
 				EF0811CA2C919B5700DE4887 /* Registration */,
@@ -1170,6 +1173,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		EFE0F5EF2CC2772D0046959A /* WelcomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				EFE0F5F02CC277330046959A /* WelcomeScreenSnapshotTests.swift */,
+			);
+			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
 		EFE34D902C74956300724DDC /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -1708,6 +1719,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE0F5F12CC277390046959A /* WelcomeScreenSnapshotTests.swift in Sources */,
 				EF2A6DDE2CAED84400164FD5 /* MockGetLocalUserUseCase.swift in Sources */,
 				EF0811C92C919B4F00DE4887 /* RegistrationSpanshotTests.swift in Sources */,
 				EF2A6DDD2CAED77400164FD5 /* EventDetailsSnapshotTests.swift in Sources */,

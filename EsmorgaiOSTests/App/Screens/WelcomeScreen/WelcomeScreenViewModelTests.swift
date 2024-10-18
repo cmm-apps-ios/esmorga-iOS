@@ -26,6 +26,7 @@ final class WelcomeScreenViewModelTests: XCTestCase {
         try super.tearDownWithError()
     }
 
+    //MOB-TC-117
     func test_given_loggin_button_tapped_then_navigate_to_login_is_called() {
 
         sut.loginButtonTapped()

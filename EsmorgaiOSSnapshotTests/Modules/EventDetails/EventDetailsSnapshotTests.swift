@@ -28,6 +28,7 @@ final class EventDetailsSnapshotTests: XCTestCase {
         try super.tearDownWithError()
     }
 
+    //MOB-TC-7
     @MainActor
     func test_given_event_details_view_when_user_is_not_logged_then_content_view_is_correct() async throws {
         giveSut(event: EventBuilder().build())
@@ -37,6 +38,7 @@ final class EventDetailsSnapshotTests: XCTestCase {
         assertSnapshot(of: sut.toVC(), as: .image)
     }
 
+    //MOB-TC-184
     @MainActor
     func test_given_event_details_view_when_user_is_logged_and_not_joined_to_the_event_then_content_view_is_correct() async throws {
         giveSut(event: EventBuilder().build())
@@ -47,6 +49,7 @@ final class EventDetailsSnapshotTests: XCTestCase {
         assertSnapshot(of: sut.toVC(), as: .image)
     }
 
+    //MOB-TC-202
     @MainActor
     func test_given_event_details_view_when_user_is_logged_and_joined_to_the_event_then_content_view_is_correct() async throws {
         giveSut(event: EventBuilder().with(isUserJoined: true).build())

@@ -62,7 +62,7 @@ final class EventDetailsViewModelTests {
         #expect(self.sut.showMethodsAlert == true)
     }
 
-    @Test
+    @Test("MOB-TC-186")
     func test_given_primary_button_tapped_when_user_not_logged_then_login_destination_is_push() async {
 
         giveSut(event: EventBuilder().build())
@@ -126,7 +126,7 @@ final class EventDetailsViewModelTests {
     }
 
     @MainActor
-    @Test
+    @Test("MOB-TC-194 && MOB-TC-196 && MOB-TC-199")
     func test_given_not_joined_event_when_tap_primary_button_and_success_is_get_then_button_text_is_updated_and_snackbar_is_shown() async {
         mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
         let event = EventBuilder().build()
@@ -151,7 +151,7 @@ final class EventDetailsViewModelTests {
     }
 
     @MainActor
-    @Test
+    @Test("MOB-TC-195 && MOB-TC-200")
     func test_given_not_joined_event_when_tap_primary_button_and_error_is_throw_then_common_error_dialog_is_shown() async {
         mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
         let event = EventBuilder().build()
@@ -203,7 +203,7 @@ final class EventDetailsViewModelTests {
     }
     
     @MainActor
-    @Test
+    @Test("MOB-TC-188 && MOB-TC-191 && MOB-TC-201")
     func test_given_joined_event_when_tap_primary_button_and_success_is_get_then_button_text_is_updated_and_snackbar_is_shown() async {
         mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
         let event = EventBuilder().with(isUserJoined: true).build()
@@ -228,7 +228,7 @@ final class EventDetailsViewModelTests {
     }
 
     @MainActor
-    @Test
+    @Test("MOB-TC-187 && MOB-TC-192")
     func test_given_joined_event_when_tap_primary_button_and_error_is_throw_then_common_error_dialog_is_shown() async {
         mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
         let event = EventBuilder().with(isUserJoined: true).build()

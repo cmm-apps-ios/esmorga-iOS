@@ -115,14 +115,14 @@ jobs:
           env:
             OUTPUT_PATH: ./build-sim
           run: |                
-                xcodebuild build -scheme EsmorgaiOS \
+                xcodebuild -scheme EsmorgaiOS \
                 -sdk iphonesimulator \
-                ONLY_ACTIVE_ARCH=YES
-                find ./ -name EsmorgaiOS.app 
-                mkdir $OUTPUT_PATH
+                -configuration Release-QA \
+                -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
+                clean archive
                 cd $OUTPUT_PATH
                 mkdir Payload
-                cp -R ../build/Release-iphonesimulator/EsmorgaiOS.app Payload/
+                cp -R ./EsmorgaiOS.xcarchive/Products/Applications/EsmorgaiOS.app Payload/
                 zip -r EsmorgaiOS.zip Payload
                 mv EsmorgaiOS.zip EsmorgaiOS.ipa
                 cd ..

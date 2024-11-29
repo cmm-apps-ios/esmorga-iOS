@@ -138,7 +138,7 @@ jobs:
                 name=iOS_Esmorga_QA
                 versionName=$(grep "VERSION" $CONFIG_FILE | awk '{print $3}')
                 versionCode=$(grep "PROJECT_BUILD" $QA_CONFIG_FILE | awk '{print $3}')
-                buildHash=$(md5sum $fileQA | awk '{print $4}')
+                buildHash=$(md5sum $IPAfile | awk '{print $4}')
 
                 project_id=2793
                 api_key=inml59pangaa
@@ -169,7 +169,7 @@ jobs:
                 name=iOS_Esmorga_PROD
                 versionName=$(grep "VERSION" $CONFIG_FILE | awk '{print $3}')
                 versionCode=$(grep "PROJECT_BUILD" $PROD_CONFIG_FILE | awk '{print $3}')
-                buildHash=$(md5sum $fileQA | awk '{print $4}')
+                buildHash=$(md5sum $IPAfile | awk '{print $4}')
 
                 project_id=2793
                 api_key=inml59pangaa
@@ -200,7 +200,7 @@ jobs:
                 name=iOS_Esmorga_SIM
                 versionName=$(grep "VERSION" $CONFIG_FILE | awk '{print $3}')
                 versionCode=$(grep "PROJECT_BUILD" $QA_CONFIG_FILE | awk '{print $3}')
-                buildHash=$(md5sum $fileQA | awk '{print $4}')
+                buildHash=$(md5sum $IPAfile | awk '{print $4}')
 
                 project_id=2793
                 api_key=inml59pangaa

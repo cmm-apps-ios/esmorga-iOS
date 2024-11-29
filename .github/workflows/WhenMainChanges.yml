@@ -118,6 +118,7 @@ jobs:
                 xcodebuild build -scheme EsmorgaiOS \
                 -sdk iphonesimulator \
                 ONLY_ACTIVE_ARCH=YES
+                find ./ -name EsmorgaiOS.app 
                 mkdir $OUTPUT_PATH
                 cd $OUTPUT_PATH
                 mkdir Payload

@@ -208,6 +208,18 @@ jobs:
                 visibleClient=true
                 buildType="SIM"
                 name="Esmorga [SIM]"
+                curl -vvv -F "buiFile=@${IPAfile}" \
+                -F "buiName=${name}" \
+                -F "buiVersion=${versionName}" \
+                -F "buiBuildNum=${versionCode}" \
+                -F "buiBuildType=${buildType}" \
+                -F "buiTemplate=0" \
+                -F "buiHash=${buildHash}" \
+                -F "buiVisibleClient=${visibleClient}" \
+                -F "buiChangeLog=none" \
+                -F "buiUser=${{ secrets.BUIUSER }}" -F "buiPassword=${{ secrets.BUIPASSWORD }}" \
+                "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
+
 
         - name: Clean up keychain and provisioning profile
           if: ${{ always() }}

@@ -119,12 +119,13 @@ jobs:
                 -sdk iphonesimulator \
                 -configuration Release-QA \
                 -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
+                -arch 'x86_64' -arch 'arm64' \
                 clean archive
-                cd $OUTPUT_PATH
-                mkdir Payload
-                cp -R ./EsmorgaiOS.xcarchive/Products/Applications/EsmorgaiOS.app Payload/
-                zip -r EsmorgaiOS.zip Payload
-                mv EsmorgaiOS.zip EsmorgaiOS.ipa
+#                cd $OUTPUT_PATH
+#                mkdir Payload
+#                cp -R ./EsmorgaiOS.xcarchive/Products/Applications/EsmorgaiOS.app Payload/
+#                zip -r EsmorgaiOS.zip Payload
+#                mv EsmorgaiOS.zip EsmorgaiOS.ipa
                 
                 
               
@@ -134,7 +135,7 @@ jobs:
                 rootDir="./"
                 CONFIG_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/BaseConfig.xcconfig"
                 QA_CONFIG_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/Config-QA.xcconfig"
-                IPAfile=$rootDir"build-qa/EsmorgaiOS.ipa"
+                IPAfile=$rootDir"build-qa/EsmorgaiOS.xcarchive/Products/Applications/EsmorgaiOS.app"
                 name=iOS_Esmorga_QA
                 versionName=$(grep "VERSION" $CONFIG_FILE | awk '{print $3}')
                 versionCode=$(grep "PROJECT_BUILD" $QA_CONFIG_FILE | awk '{print $3}')

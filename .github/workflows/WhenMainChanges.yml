@@ -85,6 +85,7 @@ jobs:
                            -sdk iphoneos \
                            -configuration Release-QA \
                            -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
+                           -arch 'x86_64' -arch 'arm64' \
                            clean archive
         
                 xcodebuild -exportArchive \
@@ -111,21 +112,6 @@ jobs:
                 ls $OUTPUT_PATH/*.ipa
 
 
-        - name: Build SIM .ipa file
-          env:
-            OUTPUT_PATH: ./build-sim
-          run: |                
-                xcodebuild -scheme EsmorgaiOS \
-                -sdk iphonesimulator \
-                -configuration Release-QA \
-                -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
-                -arch 'x86_64' -arch 'arm64' \
-                clean archive
-#                cd $OUTPUT_PATH
-#                mkdir Payload
-#                cp -R ./EsmorgaiOS.xcarchive/Products/Applications/EsmorgaiOS.app Payload/
-#                zip -r EsmorgaiOS.zip Payload
-#                mv EsmorgaiOS.zip EsmorgaiOS.ipa
                 
                 
               
@@ -191,36 +177,7 @@ jobs:
                     -F "buiUser=${{ secrets.BUIUSER }}" -F "buiPassword=${{ secrets.BUIPASSWORD }}" \
                     "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
 
-        - name: Upload Release-SIM build to OTA
-          run: |
-
-                rootDir="./"
-                CONFIG_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/BaseConfig.xcconfig"
-                QA_CONFIG_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/Config-QA.xcconfig"
-                IPAfile=$rootDir"build-sim/EsmorgaiOS.ipa"
-                name=iOS_Esmorga_SIM
-                versionName=$(grep "VERSION" $CONFIG_FILE | awk '{print $3}')
-                versionCode=$(grep "PROJECT_BUILD" $QA_CONFIG_FILE | awk '{print $3}')
-                buildHash=$(md5sum $IPAfile | awk '{print $4}')
-
-                project_id=2793
-                api_key=inml59pangaa
-                api_key_build=rqFyHkwuA12sUrq9mvxa2be84t2fyu
-                visibleClient=true
-                buildType="SIM"
-                name="Esmorga [SIM]"
-                curl -vvv -F "buiFile=@${IPAfile}" \
-                -F "buiName=${name}" \
-                -F "buiVersion=${versionName}" \
-                -F "buiBuildNum=${versionCode}" \
-                -F "buiBuildType=${buildType}" \
-                -F "buiTemplate=0" \
-                -F "buiHash=${buildHash}" \
-                -F "buiVisibleClient=${visibleClient}" \
-                -F "buiChangeLog=none" \
-                -F "buiUser=${{ secrets.BUIUSER }}" -F "buiPassword=${{ secrets.BUIPASSWORD }}" \
-                "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
-
+       
 
         - name: Clean up keychain and provisioning profile
           if: ${{ always() }}

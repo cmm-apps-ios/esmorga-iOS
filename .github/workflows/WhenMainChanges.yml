@@ -2,12 +2,12 @@ name: Build APP
 run-name: ${{ github.actor }} is Building the APP 🚀
 on:
 #Delete this , just for test
-#  pull_request:
-#    types: [opened,reopened,edited,synchronize]
-#    branches:
-#      - main
-#    paths:
-#      - '**'
+  pull_request:
+    types: [opened,reopened,edited,synchronize]
+    branches:
+      - main
+    paths:
+      - '**'
 
 
   push:
@@ -110,6 +110,23 @@ jobs:
                            -exportOptionsPlist github.plist
                 ls $OUTPUT_PATH/*.ipa
 
+
+        - name: Build SIM .ipa file
+          env:
+            OUTPUT_PATH: ./build-sim
+          run: |
+                xcodebuild build \                                  
+                            -scheme EsmorgaiOS \
+                            -sdk iphonesimulator \
+                            -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.2' \
+                            ONLY_ACTIVE_ARCH=YES
+                cd $OUTPUT_PATH
+                mkdir Payload
+                cp -R PathToYourApp.app Payload/
+                zip -r EsmorgaiOS.zip Payload
+                mv EsmorgaiOS.zip EsmorgaiOS.ipa
+                
+              
         - name: Upload Release-QA build to OTA
           run: |
 
@@ -171,6 +188,25 @@ jobs:
                     -F "buiChangeLog=none" \
                     -F "buiUser=${{ secrets.BUIUSER }}" -F "buiPassword=${{ secrets.BUIPASSWORD }}" \
                     "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
+
+                    - name: Upload Release-QA build to OTA
+                    run: |
+          
+                          rootDir="./"
+                          CONFIG_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/BaseConfig.xcconfig"
+                          QA_CONFIG_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/Config-QA.xcconfig"
+                          IPAfile=$rootDir"build-sim/EsmorgaiOS.ipa"
+                          name=iOS_Esmorga_SIM
+                          versionName=$(grep "VERSION" $CONFIG_FILE | awk '{print $3}')
+                          versionCode=$(grep "PROJECT_BUILD" $QA_CONFIG_FILE | awk '{print $3}')
+                          buildHash=$(md5sum $fileQA | awk '{print $4}')
+          
+                          project_id=2793
+                          api_key=inml59pangaa
+                          api_key_build=rqFyHkwuA12sUrq9mvxa2be84t2fyu
+                          visibleClient=true
+                          buildType="SIM"
+                          name="Esmorga [SIM]"
 
         - name: Clean up keychain and provisioning profile
           if: ${{ always() }}

@@ -125,7 +125,7 @@ jobs:
                 cp -R ./EsmorgaiOS.xcarchive/Products/Applications/EsmorgaiOS.app Payload/
                 zip -r EsmorgaiOS.zip Payload
                 mv EsmorgaiOS.zip EsmorgaiOS.ipa
-                cd ..
+                
                 
               
         - name: Upload Release-QA build to OTA

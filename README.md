@@ -33,3 +33,7 @@ TO DO
 
 # Testing strategic
 TO DO
+
+
+
+This project is tested with BrowserStack

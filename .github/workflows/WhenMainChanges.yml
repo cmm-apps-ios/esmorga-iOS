@@ -131,7 +131,7 @@ jobs:
                 name="Esmorga [QA]"
                 function main
                 {
-                  curl -vvv -F "buiFile=@${IPAfile}" \
+                  curl  -vs -F "buiFile=@${IPAfile}" \
                       -F "buiName=${name}" \
                       -F "buiVersion=${versionName}" \
                       -F "buiBuildNum=${versionCode}" \

@@ -178,9 +178,6 @@ jobs:
                     "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
 
         - name: Trigger E2E Workflow just in QA 
-          env:
-            github-token: ${{ inputs.E2E-Github-Token }}
-          if: "${{ inputs.Build-ENVL == 'qa' }}"
           shell: bash
           run: |
             curl -L \

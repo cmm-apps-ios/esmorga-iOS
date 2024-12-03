@@ -2,12 +2,12 @@ name: Build APP
 run-name: ${{ github.actor }} is Building the APP 🚀
 on:
 #Delete this , just for test
-  pull_request:
-    types: [opened,reopened,edited,synchronize]
-    branches:
-      - main
-    paths:
-      - '**'
+#  pull_request:
+#    types: [opened,reopened,edited,synchronize]
+#    branches:
+#      - main
+#    paths:
+#      - '**'
 
 
   push:

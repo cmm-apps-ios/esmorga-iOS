@@ -25,7 +25,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
-
+      
+      - name: OAS
+        uses: ./.github/actions/OAS
+        with:
+          PAT: ${{ secrets.PAT_TOKEN }}
+          
       - name: Set Xcode version
         run: sudo xcode-select -s /Applications/Xcode_16.app
 

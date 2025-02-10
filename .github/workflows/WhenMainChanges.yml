@@ -186,7 +186,7 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.E2E_Github_Token }}" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             https://api.github.com/repos/Esmorga-E2E/E2E-APP-Tests/actions/workflows/RunTest.yml/dispatches \
-            -d '{"ref":"main","inputs":{"build_url":${{steps.otashare_file_url.outputs.url}},"OS":"ios"}}'
+            -d '{"ref":"main","inputs":{"build_url":${{steps.otashare_file_url.outputs.url}},"OS":"ios","Branch":"$(cat .github/tmp/branch.txt)"}}'
           
 
 

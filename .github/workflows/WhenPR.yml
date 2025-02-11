@@ -29,7 +29,7 @@ jobs:
       - name: OAS
         uses: ./.github/actions/OAS
         with:
-          PAT: ${{ secrets.PAT_TOKEN }}
+          PAT: ${{ secrets.E2E_GITHUB_TOKEN }}
           
       - name: Set Xcode version
         run: |

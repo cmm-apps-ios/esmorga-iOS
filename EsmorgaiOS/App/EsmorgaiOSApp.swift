@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct EsmorgaiOSApp: App {
-
+    
     init() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithTransparentBackground()
@@ -19,12 +19,18 @@ struct EsmorgaiOSApp: App {
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().compactAppearance = navBarAppearance
     }
-
+    
     var body: some Scene {
         WindowGroup {
             if NSClassFromString("XCTest") == nil {
                 MainCoordinatorView()
+                    .onOpenURL { url in
+                        handleDeepLink(url)
+                    }
             }
         }
+    }
+    private func handleDeepLink(_ url: URL) {
+        print("Link oppened: \(url)")
     }
 }

@@ -76,7 +76,7 @@ jobs:
         - name: Test 
           run: 
             |
-              xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' ONLY_ACTIVE_ARCH=YES
+              xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.1' ONLY_ACTIVE_ARCH=YES
     
         - name: Build QA .ipa file
           env:

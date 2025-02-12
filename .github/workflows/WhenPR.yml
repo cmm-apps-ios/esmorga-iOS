@@ -1,4 +1,4 @@
-name: Run Unit & Component Tests on iOS
+name: Run iOS Tests on PR
 
 run-name: ${{ github.actor }} is testing PR ${{ github.ref }} new code 🚀
 
@@ -15,7 +15,7 @@ on:
 jobs:
   Run-tests-on:
     name: Run npm test
-    runs-on: macos-latest
+    runs-on: macos-15
     permissions:
       contents: write
       pull-requests: write
@@ -31,11 +31,7 @@ jobs:
         with:
           PAT: ${{ secrets.E2E_GITHUB_TOKEN }}
           
-      - name: Set Xcode version
-        run: |
-            sudo xcode-select -s /Applications/Xcode_16.2.app
-            xcrun simctl list runtimes
-            xcrun simctl list
+
 
 
       - name: Install the Apple certificate and provisioning profile
@@ -74,7 +70,7 @@ jobs:
           xcodebuild test \
             -scheme EsmorgaiOS \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.1' \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
             ONLY_ACTIVE_ARCH=YES \
             -resultBundlePath TestResults.xcresult
 

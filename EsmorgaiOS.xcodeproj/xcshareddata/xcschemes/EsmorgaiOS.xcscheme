@@ -78,11 +78,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-         <Destination
-            type="iOS Simulator"
-            platform="iOS"
-            name="iPhone 16"
-            OS="18.1"/>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"

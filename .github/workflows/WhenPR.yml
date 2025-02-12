@@ -15,7 +15,7 @@ on:
 jobs:
   Run-tests-on:
     name: Run npm test
-    runs-on: macos-latest
+    runs-on: macos-15
     permissions:
       contents: write
       pull-requests: write
@@ -74,7 +74,7 @@ jobs:
           xcodebuild test \
             -scheme EsmorgaiOS \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.1' \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=lastest' \
             ONLY_ACTIVE_ARCH=YES \
             -resultBundlePath TestResults.xcresult
 

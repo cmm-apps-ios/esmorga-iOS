@@ -19,7 +19,7 @@ on:
 jobs:
     Run-tests-and-build:
       name: Run npm test & build
-      runs-on: macos-latest
+      runs-on: macos-15
       permissions:
         contents: write
         pull-requests: write
@@ -76,7 +76,7 @@ jobs:
         - name: Test 
           run: 
             |
-              xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.1' ONLY_ACTIVE_ARCH=YES
+              xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=lastest' ONLY_ACTIVE_ARCH=YES
     
         - name: Build QA .ipa file
           env:

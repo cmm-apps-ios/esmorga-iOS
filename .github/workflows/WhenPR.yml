@@ -1,4 +1,4 @@
-name: Run Unit & Component Tests on iOS
+name: Run iOS Tests on PR
 
 run-name: ${{ github.actor }} is testing PR ${{ github.ref }} new code 🚀
 

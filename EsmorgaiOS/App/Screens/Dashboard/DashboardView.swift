@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct  DashboardView: View {
-
+    
     enum AccessibilityIds {
         static let bottomBar: String = "DashboardView.bottomBar"
         static let eventList: String = "DashboardView.eventList"
         static let myEvents: String = "DashboardView.myEvents"
         static let profile: String = "DashboardView.profile"
     }
-
+    
     @StateObject var viewModel: DashboardViewModel
-
+    
     init(viewModel: DashboardViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
-
+    
     var body: some View {
         BaseView(viewModel: viewModel) {
             VStack(spacing: 0) {
@@ -32,7 +32,8 @@ struct  DashboardView: View {
                     MyEventsBuilder().build(coordinator: viewModel.coordinator)
                         .accessibilityIdentifier(AccessibilityIds.myEvents)
                         .tag(1)
-                    Text("Perfil Content")
+                    //  Text("Perfil Content")
+                    ProfileBuilder().build(coordinator: viewModel.coordinator)
                         .accessibilityIdentifier(AccessibilityIds.profile)
                         .tag(2)
                 }

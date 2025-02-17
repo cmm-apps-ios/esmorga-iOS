@@ -337,9 +337,6 @@
         }
       }
     },
-    "Mi perfil content..." : {
-
-    },
     "my_profile_change_password" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -661,6 +658,9 @@
           }
         }
       }
+    },
+    "Test" : {
+
     },
     "unauthenticated_error_title" : {
       "extractionState" : "manual",

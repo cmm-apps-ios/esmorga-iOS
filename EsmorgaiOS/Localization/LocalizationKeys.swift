@@ -27,6 +27,7 @@ class LocalizationKeys {
     }
     
     enum Profile {
+        //Not all needed, modify later
         static let title: String = "my_profile_title"
         static let name: String = "my_profile_name"
         static let email: String = "my_profile_email"

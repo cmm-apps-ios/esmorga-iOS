@@ -25,6 +25,18 @@ class LocalizationKeys {
         static let description: String = "screen_event_details_description"
         static let location: String = "screen_event_details_location"
     }
+    
+    enum Profile {
+        static let title: String = "my_profile_title"
+        static let name: String = "my_profile_name"
+        static let email: String = "my_profile_email"
+        static let options: String = "my_profile_options"
+        static let changePassword: String = "my_profile_change_password"
+        static let logout: String = "my_profile_logout"
+        static let logoutPopupDescription: String = "my_profile_logout_pop_up_title"
+        static let logoutPopupConfirm: String = "my_profile_logout_pop_up_confirm"
+        static let logoutPopupCancel: String = "my_profile_logout_pop_up_cancel"
+    }
 
     enum Common {
         static let unauthenticatedTitle: String = "unauthenticated_error_title"

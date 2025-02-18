@@ -17,6 +17,8 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     
     //Model LocalUser
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
+    //Model userData
+    @Published var user: UserModels.User?
     //Model loggedOut
     @Published var loggedOutModel = MyEventsModels.ErrorModel(animation: .suspiciousMonkey,
                                                               title: LocalizationKeys.Common.unauthenticatedTitle.localize(),
@@ -32,7 +34,8 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     func checkLoginStatus() async {
         let isUserLogged = await getLocalUserUseCase.execute()
         switch isUserLogged {
-        case .success:
+        case .success(let user): //Change state + obtain user data
+            self.user = user
             changeState(.ready)
         case .failure:
             changeState(.loggedOut)

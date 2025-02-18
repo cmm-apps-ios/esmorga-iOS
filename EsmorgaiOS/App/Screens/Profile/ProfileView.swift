@@ -82,8 +82,26 @@ struct ProfileView: View {
     private func createProfileView() -> some View {
         VStack(alignment: .leading, spacing: 12) {
             createTitleView()
-            Text("Profile View")
                 .padding(.horizontal, 16)
+            VStack(alignment: .leading, spacing: 8) {
+                if let user = viewModel.user {
+                    Text("Nombre")
+                        .font(.headline)
+                        .bold()
+                        .foregroundColor(.black)
+                    Text(user.name)
+                        .font(.body)
+                        .foregroundColor(.gray)
+                    Text("Email")
+                        .font(.headline)
+                        .bold()
+                        .foregroundColor(.black)
+                    Text(user.email)
+                        .font(.body)
+                        .foregroundColor(.gray)
+                }
+            }
+            .padding(.horizontal, 16)
         }
     }
     

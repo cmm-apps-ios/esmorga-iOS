@@ -194,6 +194,9 @@
         }
       }
     },
+    "Email" : {
+
+    },
     "field_title_email" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -436,6 +439,9 @@
         }
       }
     },
+    "Nombre" : {
+
+    },
     "placeholder_confirm_password" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -490,9 +496,6 @@
           }
         }
       }
-    },
-    "Profile View" : {
-
     },
     "screen_event_details_description" : {
       "extractionState" : "manual",

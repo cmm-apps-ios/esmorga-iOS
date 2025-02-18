@@ -32,21 +32,25 @@ struct ProfileView: View {
     //Main view profile
     var body: some View {
         BaseView(viewModel: viewModel) {
-                Group {
-                    switch viewModel.state {
-                    case .ready:
-                        createProfileView()
-                    case .loggedOut:
-                        createErrorView(animation: viewModel.loggedOutModel.animation,
-                                        title: viewModel.loggedOutModel.title,
-                                        buttonText: $viewModel.loggedOutModel.buttonText,
-                                        action: { viewModel.loginButtonTapped() })
-                    }
+            Group {
+                switch viewModel.state {
+                case .ready:
+                    createProfileView()
+                case .loggedOut:
+                    createErrorView(animation: viewModel.loggedOutModel.animation,
+                                    title: viewModel.loggedOutModel.title,
+                                    buttonText: $viewModel.loggedOutModel.buttonText,
+                                    action: { viewModel.loginButtonTapped() })
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }.navigationBarBackButtonHidden(true)
+            .onAppear {
+                Task {
+                    await viewModel.checkLoginStatus(forceRefresh: false)
+                }
+            }
     }
-    
     //LogOut view
     private func createErrorView(animation: Animation, title: String, buttonText: Binding<String>, action: @escaping (() -> Void)) -> some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -78,7 +82,7 @@ struct ProfileView: View {
     private func createProfileView() -> some View {
         VStack(alignment: .leading, spacing: 12) {
             createTitleView()
-            Text("Test")
+            Text("Profile View")
                 .padding(.horizontal, 16)
         }
     }

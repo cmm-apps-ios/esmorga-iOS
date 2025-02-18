@@ -15,21 +15,30 @@ enum ProfileViewStates: ViewStateProtocol {
 
 class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     
+    //Model LocalUser
+    private let getLocalUserUseCase: GetLocalUserUseCaseAlias
     //Model loggedOut
     @Published var loggedOutModel = MyEventsModels.ErrorModel(animation: .suspiciousMonkey,
                                                               title: LocalizationKeys.Common.unauthenticatedTitle.localize(),
                                                               buttonText: LocalizationKeys.Buttons.login.localize())
-    init(coordinator: (any CoordinatorProtocol)? = nil) {
+    
+    init(coordinator: (any CoordinatorProtocol)? = nil, getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase()) {
+        self.getLocalUserUseCase = getLocalUserUseCase
         super.init(coordinator: coordinator)
-        checkLoginStatus()
+        Task {
+            await self.checkLoginStatus(forceRefresh: false)
+        }
     }
     
     //Verify is user is loggedIn
-    private func checkLoginStatus() {
-        let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
-        if isLoggedIn {
+    @MainActor
+    func checkLoginStatus(forceRefresh: Bool) async {
+        let isUserLogged = await getLocalUserUseCase.execute()
+        switch isUserLogged {
+       // case .success(let user):
+        case .success:
             changeState(.ready)
-        } else {
+        case .failure:
             changeState(.loggedOut)
         }
     }

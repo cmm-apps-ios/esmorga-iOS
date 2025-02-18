@@ -491,6 +491,9 @@
         }
       }
     },
+    "Profile View" : {
+
+    },
     "screen_event_details_description" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -658,9 +661,6 @@
           }
         }
       }
-    },
-    "Test" : {
-
     },
     "unauthenticated_error_title" : {
       "extractionState" : "manual",

@@ -47,7 +47,7 @@ struct ProfileView: View {
         }.navigationBarBackButtonHidden(true)
             .onAppear {
                 Task {
-                    await viewModel.checkLoginStatus(forceRefresh: false)
+                    await viewModel.checkLoginStatus()
                 }
             }
     }

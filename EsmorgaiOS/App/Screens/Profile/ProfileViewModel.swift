@@ -25,17 +25,13 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     init(coordinator: (any CoordinatorProtocol)? = nil, getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase()) {
         self.getLocalUserUseCase = getLocalUserUseCase
         super.init(coordinator: coordinator)
-        Task {
-            await self.checkLoginStatus(forceRefresh: false)
-        }
     }
     
     //Verify is user is loggedIn
     @MainActor
-    func checkLoginStatus(forceRefresh: Bool) async {
+    func checkLoginStatus() async {
         let isUserLogged = await getLocalUserUseCase.execute()
         switch isUserLogged {
-       // case .success(let user):
         case .success:
             changeState(.ready)
         case .failure:

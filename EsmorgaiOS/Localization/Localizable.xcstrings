@@ -158,7 +158,13 @@
         }
       }
     },
+    "Cambiar constraseña" : {
+
+    },
     "Cancelar" : {
+
+    },
+    "Cerrar sesión" : {
 
     },
     "default_error_body" : {
@@ -440,6 +446,9 @@
       }
     },
     "Nombre" : {
+
+    },
+    "Opciones" : {
 
     },
     "placeholder_confirm_password" : {

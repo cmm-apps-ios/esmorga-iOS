@@ -82,27 +82,41 @@ struct ProfileView: View {
     private func createProfileView() -> some View {
         VStack(alignment: .leading, spacing: 12) {
             createTitleView()
-                .padding(.horizontal, 16)
+                .padding(.bottom , 35)
             VStack(alignment: .leading, spacing: 8) {
                 if let user = viewModel.user {
                     Text("Nombre")
-                        .font(.headline)
-                        .bold()
-                        .foregroundColor(.black)
+                        .style(.heading1)
                     Text(user.name)
-                        .font(.body)
-                        .foregroundColor(.gray)
+                        .style(.body1)
+                        .padding(.bottom, 35)
                     Text("Email")
-                        .font(.headline)
-                        .bold()
-                        .foregroundColor(.black)
+                        .style(.heading1)
                     Text(user.email)
-                        .font(.body)
-                        .foregroundColor(.gray)
+                        .style(.body1)
+                        .padding(.bottom, 35)
+                }
+                Text("Opciones")
+                    .style(.heading1)
+                    .padding(.bottom, 35)
+                HStack {
+                    Text("Cambiar constraseña")
+                    .style(.heading2)
+                    Image(systemName: "arrow.right")
+                    .font(.system(size: 18, weight: .bold))
+                }
+                .padding(.bottom, 30)
+                
+                HStack {
+                    Text("Cerrar sesión")
+                    .style(.heading2)
+                    Image(systemName: "arrow.right")
+                    .font(.system(size: 18, weight: .bold))
                 }
             }
-            .padding(.horizontal, 16)
+            Spacer()
         }
+        .padding(.init(top: 20, leading: 16, bottom: 16, trailing: 16))
     }
     
     //Title func

@@ -101,17 +101,23 @@ struct ProfileView: View {
                     .padding(.bottom, 35)
                 HStack {
                     Text("Cambiar constraseña")
-                    .style(.heading2)
+                        .style(.heading2)
+                    Spacer()
                     Image(systemName: "arrow.right")
-                    .font(.system(size: 18, weight: .bold))
+                        .font(.system(size: 25, weight: .bold))
                 }
                 .padding(.bottom, 30)
                 
                 HStack {
-                    Text("Cerrar sesión")
-                    .style(.heading2)
-                    Image(systemName: "arrow.right")
-                    .font(.system(size: 18, weight: .bold))
+                    Button {
+                        print("Test")
+                    } label: {
+                        Text("Cerrar sesión")
+                        .style(.heading2)
+                        Spacer()
+                        Image(systemName: "arrow.right")
+                        .font(.system(size: 25, weight: .bold))
+                    }
                 }
             }
             Spacer()

@@ -158,13 +158,7 @@
         }
       }
     },
-    "Cambiar constraseña" : {
-
-    },
     "Cancelar" : {
-
-    },
-    "Cerrar sesión" : {
 
     },
     "default_error_body" : {
@@ -199,9 +193,6 @@
           }
         }
       }
-    },
-    "Email" : {
-
     },
     "field_title_email" : {
       "extractionState" : "manual",
@@ -444,12 +435,6 @@
           }
         }
       }
-    },
-    "Nombre" : {
-
-    },
-    "Opciones" : {
-
     },
     "placeholder_confirm_password" : {
       "extractionState" : "manual",

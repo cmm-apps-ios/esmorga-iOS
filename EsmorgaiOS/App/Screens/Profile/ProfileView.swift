@@ -84,39 +84,30 @@ struct ProfileView: View {
             createTitleView()
                 .padding(.bottom , 35)
             VStack(alignment: .leading, spacing: 8) {
-                if let user = viewModel.user {
-                    Text("Nombre")
+                if let model = viewModel.loggedModel {
+                    ForEach(model.userSection.items) { item in
+                        Text(item.title)
+                            .style(.heading1)
+                        Text(item.value)
+                            .style(.body1)
+                            .padding(.bottom, 35)
+                    }
+                    Text(model.optionsSection.title)
                         .style(.heading1)
-                    Text(user.name)
-                        .style(.body1)
                         .padding(.bottom, 35)
-                    Text("Email")
-                        .style(.heading1)
-                    Text(user.email)
-                        .style(.body1)
-                        .padding(.bottom, 35)
-                }
-                Text("Opciones")
-                    .style(.heading1)
-                    .padding(.bottom, 35)
-                HStack {
-                    Text("Cambiar constraseña")
-                        .style(.heading2)
-                    Spacer()
-                    Image(systemName: "arrow.right")
-                        .font(.system(size: 25, weight: .bold))
-                }
-                .padding(.bottom, 30)
-                
-                HStack {
-                    Button {
-                        print("Test")
-                    } label: {
-                        Text("Cerrar sesión")
-                        .style(.heading2)
-                        Spacer()
-                        Image(systemName: "arrow.right")
-                        .font(.system(size: 25, weight: .bold))
+                    ForEach(model.optionsSection.items) { item in
+                        Button {
+                            viewModel.optionTapped(type: item.type)
+                        } label: {
+                            HStack {
+                                Text(item.title)
+                                    .style(.heading2)
+                                Spacer()
+                                Image(systemName: item.image)
+                                    .font(.system(size: 25, weight: .bold))
+                            }
+                        }
+                        .padding(.bottom, 30)
                     }
                 }
             }

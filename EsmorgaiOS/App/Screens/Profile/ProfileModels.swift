@@ -43,7 +43,7 @@ enum ProfileModels {
         var items: [OptionItem]
     }
     
-    struct OptionItem:Identifiable {
+    struct OptionItem: Identifiable {
         var id: String {title} //ID personalizado en UserDataItem y OptionItem para el ProfileView.
         var title: String
         var image: String

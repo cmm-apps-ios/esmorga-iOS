@@ -17,9 +17,10 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     
     //Model LocalUser
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
+    //Mapper
     private let mapper: ProfileViewModelMapper
-    //Model userData
-    @Published var user: UserModels.User?
+    //Model LoggedModel
+    @Published var loggedModel: ProfileModels.LoggedModel?
     //Model loggedOut
     @Published var loggedOutModel = MyEventsModels.ErrorModel(animation: .suspiciousMonkey,
                                                               title: LocalizationKeys.Common.unauthenticatedTitle.localize(),
@@ -40,7 +41,8 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         let isUserLogged = await getLocalUserUseCase.execute()
         switch isUserLogged {
         case .success(let user): //Change state + obtain user data
-            self.user = user
+           // self.user = user
+            self.loggedModel = mapper.map(user: user)
             changeState(.ready)
         case .failure:
             changeState(.loggedOut)
@@ -55,8 +57,10 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         switch type {
         case .changePassword:
             //To add ->   coordinator?.push(destination: .changePassword)
+            print("Change Password")
         case .closeSession:
             //logoutUserUseCase.execute (to define)
+            print("Close Sesion")
         }
     }
     //Profile Mapper

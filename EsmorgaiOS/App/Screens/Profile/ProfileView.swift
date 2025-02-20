@@ -13,14 +13,6 @@ struct ProfileView: View {
         //Most of them i dont need it?
         static let errorView: String = "MyEventsView.errorView" //To change
         static let title: String = "my_profile_title"
-        static let name: String = "my_profile_name"
-        static let email: String = "my_profile_email"
-        static let options: String = "my_profile_options"
-        static let changePassword: String = "my_profile_change_password"
-        static let logout: String = "my_profile_logout"
-        static let logoutPopupDescription: String = "my_profile_logout_pop_up_title"
-        static let logoutPopupConfirm: String = "my_profile_logout_pop_up_confirm"
-        static let logoutPopupCancel: String = "my_profile_logout_pop_up_cancel"
     }
     
     @StateObject var viewModel: ProfileViewModel
@@ -114,6 +106,16 @@ struct ProfileView: View {
             Spacer()
         }
         .padding(.init(top: 20, leading: 16, bottom: 16, trailing: 16))
+        //Queda feo
+        .confirmationDialog(LocalizationKeys.Profile.logoutPopupDescription.localize(),
+                             isPresented: $viewModel.showLogoutConfirmation,
+                            titleVisibility: .visible) {
+            Button(LocalizationKeys.Profile.logoutPopupConfirm.localize(), role: .destructive) {
+                viewModel.confirmLogout()
+            }
+            Button(LocalizationKeys.Profile.logoutPopupCancel.localize(), role: .cancel) { }
+
+        }
     }
     
     //Title func

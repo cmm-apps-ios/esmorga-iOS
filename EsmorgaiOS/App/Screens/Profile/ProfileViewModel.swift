@@ -20,6 +20,11 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     //Mapper
     private let mapper: ProfileViewModelMapper
     //Model LoggedModel
+    var user: UserModels.User?
+    //Dialog -> Le gustará a Omar? Lo dudo
+    @Published var showLogoutConfirmation: Bool = false
+    var logoutAction: (() -> Void)?
+    //Logged model
     @Published var loggedModel: ProfileModels.LoggedModel?
     //Model loggedOut
     @Published var loggedOutModel = MyEventsModels.ErrorModel(animation: .suspiciousMonkey,
@@ -41,7 +46,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         let isUserLogged = await getLocalUserUseCase.execute()
         switch isUserLogged {
         case .success(let user): //Change state + obtain user data
-           // self.user = user
+            self.user = user
             self.loggedModel = mapper.map(user: user)
             changeState(.ready)
         case .failure:
@@ -53,34 +58,49 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         coordinator?.push(destination: .login)
     }
     
-    func optionTapped(type: ProfileModels.OptionsItemType){
+    func optionTapped(type: ProfileModels.OptionsItemType) {
         switch type {
         case .changePassword:
-            //To add ->   coordinator?.push(destination: .changePassword)
-            print("Change Password")
+            //coordignar?.push(destination: .changePassword)
+            print("Change password")
         case .closeSession:
-            //logoutUserUseCase.execute (to define)
-            print("Close Sesion")
-        }
-    }
-    //Profile Mapper
-    class ProfileViewModelMapper {
-        func map(user: UserModels.User) -> ProfileModels.LoggedModel {
-            
-            let userItems = [ProfileModels.UserDataItem(title: "Nombre", value: user.name + user.lastName, type: .name),
-                             ProfileModels.UserDataItem(title: "Email", value: user.email, type: .email)]
-            
-            
-            let optionsItems = [ProfileModels.OptionItem(title: "Cambiar Contraseña",
-                                                         image: "arrow.right",
-                                                         type: .changePassword),
-                                ProfileModels.OptionItem(title: "Cerrar sesión",
-                                                         image: "arrow.right",
-                                                         type: .closeSession)]
-
-            return ProfileModels.LoggedModel(userSection: ProfileModels.UserData(items: userItems), optionsSection: ProfileModels.Options(title: "Opciones", items: optionsItems))
-                
+            showLogoutConfirmation = true //Le gustará esta porquería?
+            logoutAction = { [weak self] in
+                self?.closeSession()
+            }
         }
     }
     
+    func confirmLogout() {
+        showLogoutConfirmation = false
+        logoutAction?()
+    }
+    
+    func closeSession() {
+        print("Closed session")
+        //logoutUserUseCase.execute
+    }
+    
 }
+//Profile Mapper
+class ProfileViewModelMapper {
+    func map(user: UserModels.User) -> ProfileModels.LoggedModel {
+        
+        let userItems = [ProfileModels.UserDataItem(title:LocalizationKeys.Profile.name.localize(), value: user.name + user.lastName, type: .name),
+                         ProfileModels.UserDataItem(title:LocalizationKeys.Profile.email.localize(), value: user.email, type: .email)]
+        
+        
+        
+        let optionsItems = [ProfileModels.OptionItem(title: LocalizationKeys.Profile.changePassword.localize(),
+                                                     image: "arrow.right",
+                                                     type: .changePassword),
+                            ProfileModels.OptionItem(title: LocalizationKeys.Profile.logout.localize(),
+                                                     image: "arrow.right",
+                                                     type: .closeSession)]
+        
+        return ProfileModels.LoggedModel(userSection: ProfileModels.UserData(items: userItems), optionsSection: ProfileModels.Options(title: LocalizationKeys.Profile.options.localize(), items: optionsItems))
+        
+    }
+}
+
+

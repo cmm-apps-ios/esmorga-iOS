@@ -11,7 +11,7 @@ protocol UserRepositoryProtocol {
     func login(email: String, password: String) async throws -> UserModels.User
     func register(name: String, lastName: String, pass: String, email: String) async throws -> UserModels.User
     func getLocalUser() async -> UserModels.User?
-    func logoutUser() -> Bool //Función añadida, funcionar funciona... que guste es otra cosa
+    func logoutUser() async -> Bool //Función añadida, funcionar funciona... que guste es otra cosa
 }
 
 class UserRepository: UserRepositoryProtocol {
@@ -80,7 +80,7 @@ class UserRepository: UserRepositoryProtocol {
     }
     
     //Added
-    func logoutUser() -> Bool {
+    func logoutUser() async -> Bool {
         do {
             try sessionKeychain.delete()
             localUserDataSource.clearAll()

@@ -70,7 +70,9 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         case .closeSession:
             showLogoutConfirmation = true //Le gustará esta porquería?
             logoutAction = { [weak self] in
-                self?.closeSession()
+                Task {
+                    await self?.closeSession()
+                }
             }
         }
     }
@@ -80,18 +82,14 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         logoutAction?()
     }
     
-    func closeSession() {
-        Task {
-            let result = await logoutUserUseCase.execute()
-            DispatchQueue.main.async {
-                switch result {
-                case .success:
-                  //  print("Session closed")
-                    self.changeState(.loggedOut)
-                case .failure:
-                    print("Error")
-                }
-            }
+    @MainActor
+    func closeSession() async {
+        let result = await logoutUserUseCase.execute()
+        switch result {
+        case .success:
+            self.changeState(.loggedOut)
+        case .failure:
+            print("Error")
         }
     }
 }

@@ -7,7 +7,11 @@
 
 import Foundation
 
-typealias LogoutUserResult = Result<Void, DomainError>
+enum LogOutUserError: Error {
+   case logOutFailed
+}
+
+typealias LogoutUserResult = Result<Void, LogOutUserError>
 typealias LogoutUserUseCaseAlias = BaseUseCase<Void, LogoutUserResult>
 
 class LogoutUserUseCase: LogoutUserUseCaseAlias {
@@ -19,7 +23,7 @@ class LogoutUserUseCase: LogoutUserUseCaseAlias {
     }
 
     override func job() async -> LogoutUserResult {
-        let result = userRepository.logoutUser()
-        return result ? .success(()) : .failure(.noCacheContent) //Que tipo de error puedo generar aquí?
+        let result = await userRepository.logoutUser()
+        return result ? .success(()) : .failure(.logOutFailed) //Que tipo de error puedo generar aquí?
     }
 }

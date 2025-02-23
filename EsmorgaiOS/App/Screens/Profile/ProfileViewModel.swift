@@ -17,6 +17,8 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     
     //Model LocalUser
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
+    //Model Logout
+    private let logoutUserUseCase: LogoutUserUseCaseAlias
     //Mapper
     private let mapper: ProfileViewModelMapper
     //Model LoggedModel
@@ -34,8 +36,10 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     //Init
     init(coordinator: (any CoordinatorProtocol)? = nil,
          getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
+         logoutUserUseCase: LogoutUserUseCaseAlias = LogoutUserUseCase(),
          mapper: ProfileViewModelMapper = ProfileViewModelMapper()) {
         self.getLocalUserUseCase = getLocalUserUseCase
+        self.logoutUserUseCase = logoutUserUseCase
         self.mapper = mapper
         super.init(coordinator: coordinator)
     }
@@ -61,7 +65,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     func optionTapped(type: ProfileModels.OptionsItemType) {
         switch type {
         case .changePassword:
-            //coordignar?.push(destination: .changePassword)
+            //coordinator?.push(destination: .changePassword)
             print("Change password")
         case .closeSession:
             showLogoutConfirmation = true //Le gustará esta porquería?
@@ -77,11 +81,22 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     }
     
     func closeSession() {
-        print("Closed session")
-        //logoutUserUseCase.execute
+        Task {
+            let result = await logoutUserUseCase.execute()
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                  //  print("Session closed")
+                    self.changeState(.loggedOut)
+                case .failure:
+                    print("Error")
+                }
+            }
+        }
     }
-    
 }
+
+
 //Profile Mapper
 class ProfileViewModelMapper {
     func map(user: UserModels.User) -> ProfileModels.LoggedModel {

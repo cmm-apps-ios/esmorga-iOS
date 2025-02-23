@@ -97,6 +97,8 @@ struct ProfileView: View {
                                 Spacer()
                                 Image(systemName: item.image)
                                     .font(.system(size: 25, weight: .bold))
+                                    .foregroundColor(.claret)
+                                    
                             }
                         }
                         .padding(.bottom, 30)
@@ -106,7 +108,7 @@ struct ProfileView: View {
             Spacer()
         }
         .padding(.init(top: 20, leading: 16, bottom: 16, trailing: 16))
-        //Queda feo
+        //Queda feo? Se podrá hacer un customDialog?
         .confirmationDialog(LocalizationKeys.Profile.logoutPopupDescription.localize(),
                              isPresented: $viewModel.showLogoutConfirmation,
                             titleVisibility: .visible) {
@@ -126,8 +128,3 @@ struct ProfileView: View {
     }
 }
 
-/*
- #Preview {
- ProfileView()
- }
- */

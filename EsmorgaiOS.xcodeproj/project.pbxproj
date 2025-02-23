@@ -11,6 +11,7 @@
 		313D57452D61272C001F4E95 /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57442D61272C001F4E95 /* ProfileBuilder.swift */; };
 		313D57472D612755001F4E95 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57462D612755001F4E95 /* ProfileView.swift */; };
 		313D57492D612792001F4E95 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57482D612792001F4E95 /* ProfileViewModel.swift */; };
+		31518AC92D6BC54D00363A3C /* LogOutUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AC82D6BC54D00363A3C /* LogOutUserUseCase.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -235,6 +236,7 @@
 		313D57442D61272C001F4E95 /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
 		313D57462D612755001F4E95 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		313D57482D612792001F4E95 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		31518AC82D6BC54D00363A3C /* LogOutUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutUserUseCase.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -881,6 +883,7 @@
 				EFE34D9C2C74A92800724DDC /* LoginUseCase.swift */,
 				EFE34DD22C7DE28D00724DDC /* RegisterUserUseCase.swift */,
 				EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */,
+				31518AC82D6BC54D00363A3C /* LogOutUserUseCase.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1794,6 +1797,7 @@
 				313D57492D612792001F4E95 /* ProfileViewModel.swift in Sources */,
 				EFF8B8262CBFC01B007470A9 /* URLRequest+curl.swift in Sources */,
 				EFE0A9822C3E8AE000E28953 /* Esmorga.xcdatamodeld in Sources */,
+				31518AC92D6BC54D00363A3C /* LogOutUserUseCase.swift in Sources */,
 				EFE34DA22C74ABC200724DDC /* LoginViewModel.swift in Sources */,
 				EF2A6DD32CAEA75A00164FD5 /* EventDetailsModels.swift in Sources */,
 				EFE34D9B2C74A7DC00724DDC /* UserModels.swift in Sources */,

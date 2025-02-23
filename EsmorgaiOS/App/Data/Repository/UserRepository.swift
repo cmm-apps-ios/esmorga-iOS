@@ -11,16 +11,17 @@ protocol UserRepositoryProtocol {
     func login(email: String, password: String) async throws -> UserModels.User
     func register(name: String, lastName: String, pass: String, email: String) async throws -> UserModels.User
     func getLocalUser() async -> UserModels.User?
+    func logoutUser() -> Bool //Función añadida, funcionar funciona... que guste es otra cosa
 }
 
 class UserRepository: UserRepositoryProtocol {
-
+    
     private var localUserDataSource: LocalUserDataSourceProtocol
     private var loginUserDataSource: LoginUserDataSourceProtocol
     private var registerUserDataSource: RegisterUserDataSourceProtocol
     private var localEventsDataSource: LocalEventsDataSourceProtocol
     private var sessionKeychain: CodableKeychain<AccountSession>
-
+    
     init(localUserDataSource: LocalUserDataSourceProtocol = LocalUserDataSource(),
          loginUserDataSource: LoginUserDataSourceProtocol = LoginUserDataSource(),
          registerUserDataSource: RegisterUserDataSourceProtocol = RegisterUserDataSource(),
@@ -32,9 +33,9 @@ class UserRepository: UserRepositoryProtocol {
         self.localEventsDataSource = localEventsDataSource
         self.sessionKeychain = sessionKeychain
     }
-
+    
     func login(email: String, password: String) async throws -> UserModels.User {
-
+        
         do {
             let loginResponse = try await loginUserDataSource.login(email: email, password: password)
             let user = await processLoginResponse(loginResponse)
@@ -43,9 +44,9 @@ class UserRepository: UserRepositoryProtocol {
             throw error
         }
     }
-
+    
     func register(name: String, lastName: String, pass: String, email: String) async throws -> UserModels.User {
-
+        
         do {
             let loginResponse = try await registerUserDataSource.register(name: name,
                                                                           lastName: lastName,
@@ -57,7 +58,7 @@ class UserRepository: UserRepositoryProtocol {
             throw error
         }
     }
-
+    
     private func processLoginResponse(_ login: AccountLoginModel.Login) async -> UserModels.User {
         let user = login.profile.toDomain()
         try? await storeUser(user)
@@ -68,20 +69,32 @@ class UserRepository: UserRepositoryProtocol {
         deleteEventsData()
         return user
     }
-
+    
     func getLocalUser() async -> UserModels.User? {
         let localUser = await localUserDataSource.getUser()
         return localUser
     }
-
+    
     private func storeUser(_ user: UserModels.User) async throws {
         try await localUserDataSource.saveUser(user)
     }
-
+    
+    //Added
+    func logoutUser() -> Bool {
+        do {
+            try sessionKeychain.delete()
+            localUserDataSource.clearAll()
+            deleteEventsData()
+            return true
+        } catch {
+            return false
+        }
+    }
+    
     private func storeSession(_ session: AccountSession) throws {
         try sessionKeychain.store(codable: session)
     }
-
+    
     private func deleteEventsData() {
         localEventsDataSource.clearAll()
     }

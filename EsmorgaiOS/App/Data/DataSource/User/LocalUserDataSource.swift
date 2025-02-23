@@ -11,6 +11,7 @@ import CoreData
 protocol LocalUserDataSourceProtocol {
     func saveUser(_ user: UserModels.User) async throws -> ()
     func getUser() async -> UserModels.User?
+    func clearAll()
 }
 
 class LocalUserDataSource: LocalUserDataSourceProtocol {

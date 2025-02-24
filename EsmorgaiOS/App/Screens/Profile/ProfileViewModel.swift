@@ -33,6 +33,9 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
                                                               title: LocalizationKeys.Common.unauthenticatedTitle.localize(),
                                                               buttonText: LocalizationKeys.Buttons.login.localize())
     
+    @Published var confirmationDialog = ConfirmationDialogModel(title: "", isShown: false,  primaryButtonTitle: "", secondaryButtonTitle: "")
+    
+    
     //Init
     init(coordinator: (any CoordinatorProtocol)? = nil,
          getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),

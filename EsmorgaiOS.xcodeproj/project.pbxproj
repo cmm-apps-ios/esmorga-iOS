@@ -14,7 +14,6 @@
 		31518AC92D6BC54D00363A3C /* LogOutUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AC82D6BC54D00363A3C /* LogOutUserUseCase.swift */; };
 		31518ACD2D6C7F6C00363A3C /* ProfileViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518ACC2D6C7F6C00363A3C /* ProfileViewModelMapper.swift */; };
 		31518AD12D6C8C3400363A3C /* ConfirmationDialogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD02D6C8C3400363A3C /* ConfirmationDialogModel.swift */; };
-		31518AD32D6C905E00363A3C /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD22D6C905E00363A3C /* CustomDialog.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -242,7 +241,6 @@
 		31518AC82D6BC54D00363A3C /* LogOutUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutUserUseCase.swift; sourceTree = "<group>"; };
 		31518ACC2D6C7F6C00363A3C /* ProfileViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMapper.swift; sourceTree = "<group>"; };
 		31518AD02D6C8C3400363A3C /* ConfirmationDialogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialogModel.swift; sourceTree = "<group>"; };
-		31518AD22D6C905E00363A3C /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -1474,7 +1472,6 @@
 				EF4213D52C413FC800686033 /* SnackbarView.swift */,
 				EFE34DA52C77790900724DDC /* CustomTextField.swift */,
 				EF0811D62C93262900DE4887 /* BottomBar.swift */,
-				31518AD22D6C905E00363A3C /* CustomDialog.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1797,7 +1794,6 @@
 				EFE34D962C74A59800724DDC /* LoginUserDataSource.swift in Sources */,
 				EF503C0A2C98753F00EE9128 /* AccountSession.swift in Sources */,
 				EFF8B8282CBFC982007470A9 /* LeaveEventUseCase.swift in Sources */,
-				31518AD32D6C905E00363A3C /* CustomDialog.swift in Sources */,
 				EF4213D62C413FC800686033 /* SnackbarView.swift in Sources */,
 				EF2983E72C6B729A00C2393E /* WelcomeScreenBuilder.swift in Sources */,
 				EFE0A9792C3D925600E28953 /* TextStyles.swift in Sources */,

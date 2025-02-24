@@ -98,7 +98,7 @@ struct ProfileView: View {
                                 Image(systemName: item.image)
                                     .font(.system(size: 25, weight: .bold))
                                     .foregroundColor(.claret)
-                                    
+                                
                             }
                         }
                         .padding(.bottom, 30)
@@ -108,15 +108,15 @@ struct ProfileView: View {
             Spacer()
         }
         .padding(.init(top: 20, leading: 16, bottom: 16, trailing: 16))
-        //Queda feo? Se podrá hacer un customDialog?
-        .confirmationDialog(LocalizationKeys.Profile.logoutPopupDescription.localize(),
-                             isPresented: $viewModel.showLogoutConfirmation,
+        .confirmationDialog(viewModel.confirmationDialog.title,
+                            isPresented: $viewModel.confirmationDialog.isShown,
                             titleVisibility: .visible) {
-            Button(LocalizationKeys.Profile.logoutPopupConfirm.localize(), role: .destructive) {
-                viewModel.confirmLogout()
+            Button(viewModel.confirmationDialog.primaryButtonTitle, role: .destructive) {
+                print("Hola")
             }
-            Button(LocalizationKeys.Profile.logoutPopupCancel.localize(), role: .cancel) { }
-
+            Button(viewModel.confirmationDialog.secondaryButtonTitle, role: .cancel) {
+                
+            }
         }
     }
     

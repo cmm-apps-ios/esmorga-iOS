@@ -24,8 +24,10 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     //Model LoggedModel
     var user: UserModels.User?
     //Dialog -> Le gustará a Omar? Lo dudo
-    @Published var showLogoutConfirmation: Bool = false
-    var logoutAction: (() -> Void)?
+    
+    // @Published var showLogoutConfirmation: Bool = false
+    // var logoutAction: (() -> Void)?
+    
     //Logged model
     @Published var loggedModel: ProfileModels.LoggedModel?
     //Model loggedOut
@@ -33,7 +35,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
                                                               title: LocalizationKeys.Common.unauthenticatedTitle.localize(),
                                                               buttonText: LocalizationKeys.Buttons.login.localize())
     
-    @Published var confirmationDialog = ConfirmationDialogModel(title: "", isShown: false,  primaryButtonTitle: "", secondaryButtonTitle: "")
+    @Published var confirmationDialog = ConfirmationDialogModel(title: LocalizationKeys.Profile.logoutPopupDescription.localize(), isShown: false,  primaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(), secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize())
     
     
     //Init
@@ -71,30 +73,14 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
             //coordinator?.push(destination: .changePassword)
             print("Change password")
         case .closeSession:
-            showLogoutConfirmation = true //Le gustará esta porquería?
-            logoutAction = { [weak self] in
-                Task {
-                    await self?.closeSession()
-                }
-            }
+            confirmationDialog.isShown = true //Le gustará esta porquería?
         }
     }
-    
-    func confirmLogout() {
-        showLogoutConfirmation = false
-        logoutAction?()
-    }
-    
-    @MainActor
-    func closeSession() async {
-        let result = await logoutUserUseCase.execute()
-        switch result {
-        case .success:
-            self.changeState(.loggedOut)
-        case .failure:
-            print("Error")
-        }
-    }
+}
+
+
+func closeSession() {
+    print("Cerrar sesión")
 }
 
 

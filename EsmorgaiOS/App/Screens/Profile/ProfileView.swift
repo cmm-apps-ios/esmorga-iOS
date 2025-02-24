@@ -112,7 +112,9 @@ struct ProfileView: View {
                             isPresented: $viewModel.confirmationDialog.isShown,
                             titleVisibility: .visible) {
             Button(viewModel.confirmationDialog.primaryButtonTitle, role: .destructive) {
-                print("Hola")
+                Task {
+                    await viewModel.closeSession()
+                }
             }
             Button(viewModel.confirmationDialog.secondaryButtonTitle, role: .cancel) {
                 

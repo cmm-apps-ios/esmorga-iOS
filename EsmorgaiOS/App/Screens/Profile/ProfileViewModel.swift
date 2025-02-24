@@ -73,15 +73,24 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
             //coordinator?.push(destination: .changePassword)
             print("Change password")
         case .closeSession:
-            confirmationDialog.isShown = true //Le gustará esta porquería?
+            confirmationDialog.isShown = true
+        }
+    }
+    
+    func closeSession() async {
+        let result = await logoutUserUseCase.execute()
+        switch result {
+        case .success:
+            changeState(.loggedOut)
+        case .failure(let error):
+            print("Error clossing session")
         }
     }
 }
 
 
-func closeSession() {
-    print("Cerrar sesión")
-}
+
+
 
 
 

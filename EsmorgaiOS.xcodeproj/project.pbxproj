@@ -13,7 +13,9 @@
 		313D57492D612792001F4E95 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57482D612792001F4E95 /* ProfileViewModel.swift */; };
 		31518AC92D6BC54D00363A3C /* LogOutUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AC82D6BC54D00363A3C /* LogOutUserUseCase.swift */; };
 		31518ACD2D6C7F6C00363A3C /* ProfileViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518ACC2D6C7F6C00363A3C /* ProfileViewModelMapper.swift */; };
-		31518AD12D6C8C3400363A3C /* ConfirmationDialogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD02D6C8C3400363A3C /* ConfirmationDialogModel.swift */; };
+		31518AD12D6C8C3400363A3C /* ConfirmationDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD02D6C8C3400363A3C /* ConfirmationDialogView.swift */; };
+		31518AD52D6CC57300363A3C /* ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD42D6CC57300363A3C /* ConfirmationDialog.swift */; };
+		31518AD72D6CC5B000363A3C /* View+ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD62D6CC5A400363A3C /* View+ConfirmationDialog.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -240,7 +242,9 @@
 		313D57482D612792001F4E95 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		31518AC82D6BC54D00363A3C /* LogOutUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutUserUseCase.swift; sourceTree = "<group>"; };
 		31518ACC2D6C7F6C00363A3C /* ProfileViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMapper.swift; sourceTree = "<group>"; };
-		31518AD02D6C8C3400363A3C /* ConfirmationDialogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialogModel.swift; sourceTree = "<group>"; };
+		31518AD02D6C8C3400363A3C /* ConfirmationDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialogView.swift; sourceTree = "<group>"; };
+		31518AD42D6CC57300363A3C /* ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialog.swift; sourceTree = "<group>"; };
+		31518AD62D6CC5A400363A3C /* View+ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ConfirmationDialog.swift"; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -1194,6 +1198,7 @@
 		EFE0A97D2C3D92D800E28953 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				31518AD62D6CC5A400363A3C /* View+ConfirmationDialog.swift */,
 				EFE0A97E2C3D92F100E28953 /* Text+TextStyle.swift */,
 				EF4213D32C413F9100686033 /* View+Snackbar.swift */,
 				EFE34DDE2C81CD5C00724DDC /* View+NavigationBar.swift */,
@@ -1241,7 +1246,6 @@
 			children = (
 				EF2A6DC72CAAE2CA00164FD5 /* ErrorDialogModelBuilder.swift */,
 				EFE34DA82C77859D00724DDC /* ErrorDialog.swift */,
-				31518AD02D6C8C3400363A3C /* ConfirmationDialogModel.swift */,
 			);
 			path = Dialogs;
 			sourceTree = "<group>";
@@ -1385,6 +1389,7 @@
 			children = (
 				EFE34DE12C81CDA500724DDC /* NavigationBar.swift */,
 				EFE34DE32C81CEA000724DDC /* Snackbar.swift */,
+				31518AD42D6CC57300363A3C /* ConfirmationDialog.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -1466,6 +1471,7 @@
 		EFF7A1EC2C3802410024704A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31518AD02D6C8C3400363A3C /* ConfirmationDialogView.swift */,
 				EFF7A1DD2C3587810024704A /* CustomButton.swift */,
 				EFF7A1E72C36DECC0024704A /* LoadingBar.swift */,
 				EF4213CA2C3ED66200686033 /* CardView.swift */,
@@ -1792,6 +1798,7 @@
 				EF4213C12C3EC9DE00686033 /* EventModels.swift in Sources */,
 				EF0811D32C9325EF00DE4887 /* DashboardBuilder.swift in Sources */,
 				EFE34D962C74A59800724DDC /* LoginUserDataSource.swift in Sources */,
+				31518AD72D6CC5B000363A3C /* View+ConfirmationDialog.swift in Sources */,
 				EF503C0A2C98753F00EE9128 /* AccountSession.swift in Sources */,
 				EFF8B8282CBFC982007470A9 /* LeaveEventUseCase.swift in Sources */,
 				EF4213D62C413FC800686033 /* SnackbarView.swift in Sources */,
@@ -1817,6 +1824,7 @@
 				EFD7EF152C3D740700C8CE70 /* EventsNetworkService.swift in Sources */,
 				EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */,
 				EFA6463D2C8B02B200D528F9 /* DomainError.swift in Sources */,
+				31518AD52D6CC57300363A3C /* ConfirmationDialog.swift in Sources */,
 				EF2A6DD62CAEA7B600164FD5 /* EventDetailsMapper.swift in Sources */,
 				EF4213D02C3FF9E500686033 /* CacheRule.swift in Sources */,
 				EFD7EEFE2C3D387800C8CE70 /* LocalizationKeys.swift in Sources */,
@@ -1853,7 +1861,7 @@
 				EFE34DA62C77790900724DDC /* CustomTextField.swift in Sources */,
 				EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */,
 				EFF7A1E82C36DECC0024704A /* LoadingBar.swift in Sources */,
-				31518AD12D6C8C3400363A3C /* ConfirmationDialogModel.swift in Sources */,
+				31518AD12D6C8C3400363A3C /* ConfirmationDialogView.swift in Sources */,
 				EF4213D42C413F9100686033 /* View+Snackbar.swift in Sources */,
 				EF2983EF2C6B762600C2393E /* EventDetailsBuilder.swift in Sources */,
 				EFE34DE42C81CEA000724DDC /* Snackbar.swift in Sources */,

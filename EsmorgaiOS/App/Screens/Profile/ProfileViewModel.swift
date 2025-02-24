@@ -23,10 +23,6 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     private let mapper: ProfileViewModelMapper
     //Model LoggedModel
     var user: UserModels.User?
-    //Dialog -> Le gustará a Omar? Lo dudo
-    
-    // @Published var showLogoutConfirmation: Bool = false
-    // var logoutAction: (() -> Void)?
     
     //Logged model
     @Published var loggedModel: ProfileModels.LoggedModel?
@@ -35,8 +31,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
                                                               title: LocalizationKeys.Common.unauthenticatedTitle.localize(),
                                                               buttonText: LocalizationKeys.Buttons.login.localize())
     
-    @Published var confirmationDialog = ConfirmationDialogModel(title: LocalizationKeys.Profile.logoutPopupDescription.localize(), isShown: false,  primaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(), secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize())
-    
+    @Published var confirmationDialogModel: ConfirmationDialogView.Model
     
     //Init
     init(coordinator: (any CoordinatorProtocol)? = nil,
@@ -46,7 +41,19 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         self.getLocalUserUseCase = getLocalUserUseCase
         self.logoutUserUseCase = logoutUserUseCase
         self.mapper = mapper
+        self.confirmationDialogModel = ConfirmationDialogView.Model(title: LocalizationKeys.Profile.logoutPopupDescription.localize(),
+                                                                    isShown: false,
+                                                                    primaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(),
+                                                                    secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize(),
+                                                                    primaryAction: nil,
+                                                                    secondaryAction: nil)
         super.init(coordinator: coordinator)
+        
+        self.confirmationDialogModel.primaryAction = {
+            Task {
+                await self.closeSession()
+            }
+        }
     }
     
     //Verify is user is loggedIn
@@ -73,7 +80,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
             //coordinator?.push(destination: .changePassword)
             print("Change password")
         case .closeSession:
-            confirmationDialog.isShown = true
+            confirmationDialogModel.isShown = true
         }
     }
     
@@ -82,7 +89,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         switch result {
         case .success:
             changeState(.loggedOut)
-        case .failure(let error):
+        case .failure:
             print("Error clossing session")
         }
     }

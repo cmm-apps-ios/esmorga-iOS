@@ -10,6 +10,7 @@ import Foundation
 class BaseViewModel<E: ViewStateProtocol>: ObservableObject {
     @Published var state: E = .ready
     @Published var snackBar: SnackbarView.Model = .init()
+    @Published var confirmationDialog: ConfirmationDialogView.Model = .init()
 
     weak var coordinator: (any CoordinatorProtocol)?
     var networkMonitor: NetworkMonitorProtocol!

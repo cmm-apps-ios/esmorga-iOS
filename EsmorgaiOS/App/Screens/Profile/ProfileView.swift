@@ -98,7 +98,6 @@ struct ProfileView: View {
                                 Image(systemName: item.image)
                                     .font(.system(size: 25, weight: .bold))
                                     .foregroundColor(.claret)
-                                
                             }
                         }
                         .padding(.bottom, 30)
@@ -108,18 +107,7 @@ struct ProfileView: View {
             Spacer()
         }
         .padding(.init(top: 20, leading: 16, bottom: 16, trailing: 16))
-        .confirmationDialog(viewModel.confirmationDialog.title,
-                            isPresented: $viewModel.confirmationDialog.isShown,
-                            titleVisibility: .visible) {
-            Button(viewModel.confirmationDialog.primaryButtonTitle, role: .destructive) {
-                Task {
-                    await viewModel.closeSession()
-                }
-            }
-            Button(viewModel.confirmationDialog.secondaryButtonTitle, role: .cancel) {
-                
-            }
-        }
+        .confirmationDialog(model: $viewModel.confirmationDialogModel)
     }
     
     //Title func

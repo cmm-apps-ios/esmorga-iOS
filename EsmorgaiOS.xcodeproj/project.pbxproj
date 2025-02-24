@@ -12,6 +12,7 @@
 		313D57472D612755001F4E95 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57462D612755001F4E95 /* ProfileView.swift */; };
 		313D57492D612792001F4E95 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57482D612792001F4E95 /* ProfileViewModel.swift */; };
 		31518AC92D6BC54D00363A3C /* LogOutUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AC82D6BC54D00363A3C /* LogOutUserUseCase.swift */; };
+		31518ACD2D6C7F6C00363A3C /* ProfileViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518ACC2D6C7F6C00363A3C /* ProfileViewModelMapper.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -237,6 +238,7 @@
 		313D57462D612755001F4E95 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		313D57482D612792001F4E95 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		31518AC82D6BC54D00363A3C /* LogOutUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutUserUseCase.swift; sourceTree = "<group>"; };
+		31518ACC2D6C7F6C00363A3C /* ProfileViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelMapper.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 				313D57442D61272C001F4E95 /* ProfileBuilder.swift */,
 				313D57462D612755001F4E95 /* ProfileView.swift */,
 				313D57482D612792001F4E95 /* ProfileViewModel.swift */,
+				31518ACC2D6C7F6C00363A3C /* ProfileViewModelMapper.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1872,6 +1875,7 @@
 				EFD7EF172C3D75CB00C8CE70 /* NetworkRequest.swift in Sources */,
 				EFF8B81D2CBEAB1C007470A9 /* MyEventsModels.swift in Sources */,
 				EF65D16D2CB91F5D005078D9 /* JoinEventUseCase.swift in Sources */,
+				31518ACD2D6C7F6C00363A3C /* ProfileViewModelMapper.swift in Sources */,
 				EF2128462C86106400D00887 /* Binding+Bool.swift in Sources */,
 				EFD610072CA2AFA600E3DB1E /* MyEventsBuilder.swift in Sources */,
 				EF7DF9562C9C0E94005908B7 /* View+FirstAppear.swift in Sources */,

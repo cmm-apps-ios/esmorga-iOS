@@ -10,7 +10,6 @@ import Lottie
 
 struct ProfileView: View {
     enum AccessibilityIds {
-        //Most of them i dont need it?
         static let errorView: String = "MyEventsView.errorView" //To change
         static let title: String = "my_profile_title"
     }
@@ -21,7 +20,6 @@ struct ProfileView: View {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
     
-    //Main view profile
     var body: some View {
         BaseView(viewModel: viewModel) {
             Group {
@@ -43,7 +41,7 @@ struct ProfileView: View {
                 }
             }
     }
-    //LogOut view
+    
     private func createErrorView(animation: Animation, title: String, buttonText: Binding<String>, action: @escaping (() -> Void)) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             createTitleView()
@@ -70,7 +68,6 @@ struct ProfileView: View {
         .accessibilityIdentifier(AccessibilityIds.errorView)
     }
     
-    //LogIn view
     private func createProfileView() -> some View {
         VStack(alignment: .leading, spacing: 12) {
             createTitleView()
@@ -110,7 +107,6 @@ struct ProfileView: View {
         .confirmationDialog(model: $viewModel.confirmationDialogModel)
     }
     
-    //Title func
     private func createTitleView() -> some View {
         Text(LocalizationKeys.Profile.title.localize())
             .style(.heading1)

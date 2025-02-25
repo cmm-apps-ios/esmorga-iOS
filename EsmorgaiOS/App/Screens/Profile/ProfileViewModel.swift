@@ -8,32 +8,36 @@
 import Foundation
 
 enum ProfileViewStates: ViewStateProtocol {
-    //States
     case ready
     case loggedOut
 }
 
 class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     
-    //Model LocalUser
+
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
-    //Model Logout
+
     private let logoutUserUseCase: LogoutUserUseCaseAlias
-    //Mapper
+
     private let mapper: ProfileViewModelMapper
-    //Model LoggedModel
+   
     var user: UserModels.User?
     
-    //Logged model
+ 
     @Published var loggedModel: ProfileModels.LoggedModel?
-    //Model loggedOut
+   
     @Published var loggedOutModel = MyEventsModels.ErrorModel(animation: .suspiciousMonkey,
                                                               title: LocalizationKeys.Common.unauthenticatedTitle.localize(),
                                                               buttonText: LocalizationKeys.Buttons.login.localize())
     
-    @Published var confirmationDialogModel: ConfirmationDialogView.Model
+    @Published var confirmationDialogModel = ConfirmationDialogView.Model(title: LocalizationKeys.Profile.logoutPopupDescription.localize(),
+                                                                          isShown: false,
+                                                                          primaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(),
+                                                                          secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize(),
+                                                                          primaryAction: nil,
+                                                                          secondaryAction: nil)
     
-    //Init
+  
     init(coordinator: (any CoordinatorProtocol)? = nil,
          getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
          logoutUserUseCase: LogoutUserUseCaseAlias = LogoutUserUseCase(),
@@ -41,27 +45,23 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         self.getLocalUserUseCase = getLocalUserUseCase
         self.logoutUserUseCase = logoutUserUseCase
         self.mapper = mapper
-        self.confirmationDialogModel = ConfirmationDialogView.Model(title: LocalizationKeys.Profile.logoutPopupDescription.localize(),
-                                                                    isShown: false,
-                                                                    primaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(),
-                                                                    secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize(),
-                                                                    primaryAction: nil,
-                                                                    secondaryAction: nil)
         super.init(coordinator: coordinator)
+       
         
         self.confirmationDialogModel.primaryAction = {
             Task {
                 await self.closeSession()
             }
         }
+         
     }
     
-    //Verify is user is loggedIn
+  
     @MainActor
     func checkLoginStatus() async {
         let isUserLogged = await getLocalUserUseCase.execute()
         switch isUserLogged {
-        case .success(let user): //Change state + obtain user data
+        case .success(let user): 
             self.user = user
             self.loggedModel = mapper.map(user: user)
             changeState(.ready)

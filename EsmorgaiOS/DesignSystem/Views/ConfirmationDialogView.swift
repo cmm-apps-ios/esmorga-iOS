@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ConfirmationDialogView: View {
-
+    
     struct Model {
         var title: String?
         var isShown: Bool
@@ -16,7 +16,7 @@ struct ConfirmationDialogView: View {
         var secondaryButtonTitle: String?
         var primaryAction: (() -> Void)?
         var secondaryAction: (() -> Void)?
-
+        
         init(title: String? = nil, isShown: Bool = false, primaryButtonTitle: String? = nil, secondaryButtonTitle: String? = nil, primaryAction: (() -> Void)? = nil, secondaryAction: (() -> Void)? = nil) {
             self.title = title
             self.isShown = isShown
@@ -26,9 +26,9 @@ struct ConfirmationDialogView: View {
             self.secondaryAction = secondaryAction
         }
     }
-
+    
     @Binding var model: Model
-
+    
     var body: some View {
         if model.isShown {
             ZStack {
@@ -37,7 +37,7 @@ struct ConfirmationDialogView: View {
                     .onTapGesture {
                         model.isShown = false
                     }
-
+                
                 VStack {
                     Text(model.title ?? "")
                         .font(.headline)
@@ -48,9 +48,9 @@ struct ConfirmationDialogView: View {
                             model.primaryAction?()
                         }) {
                             Text(model.primaryButtonTitle ?? "")
-                                .foregroundColor(.white)
+                                .foregroundColor(.onPrimary)
                                 .padding()
-                                .background(Color.red)
+                                .background(Color.claret)
                                 .cornerRadius(8)
                         }
                         Button(action: {
@@ -60,13 +60,13 @@ struct ConfirmationDialogView: View {
                             Text(model.secondaryButtonTitle ?? "")
                                 .foregroundColor(.black)
                                 .padding()
-                                .background(Color.gray)
+                                .background(Color.customPink)
                                 .cornerRadius(8)
                         }
                     }
                 }
                 .padding()
-                .background(Color.white)
+                .background(Color.onPrimary)
                 .cornerRadius(8)
                 .shadow(radius: 10)
                 .transition(.opacity)

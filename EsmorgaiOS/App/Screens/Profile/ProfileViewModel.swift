@@ -14,18 +14,18 @@ enum ProfileViewStates: ViewStateProtocol {
 
 class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     
-
+    
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
-
+    
     private let logoutUserUseCase: LogoutUserUseCaseAlias
-
+    
     private let mapper: ProfileViewModelMapper
-   
+    
     var user: UserModels.User?
     
- 
+    
     @Published var loggedModel: ProfileModels.LoggedModel?
-   
+    
     @Published var loggedOutModel = MyEventsModels.ErrorModel(animation: .suspiciousMonkey,
                                                               title: LocalizationKeys.Common.unauthenticatedTitle.localize(),
                                                               buttonText: LocalizationKeys.Buttons.login.localize())
@@ -37,7 +37,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
                                                                           primaryAction: nil,
                                                                           secondaryAction: nil)
     
-  
+    
     init(coordinator: (any CoordinatorProtocol)? = nil,
          getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
          logoutUserUseCase: LogoutUserUseCaseAlias = LogoutUserUseCase(),
@@ -46,22 +46,22 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         self.logoutUserUseCase = logoutUserUseCase
         self.mapper = mapper
         super.init(coordinator: coordinator)
-       
+        
         
         self.confirmationDialogModel.primaryAction = {
             Task {
                 await self.closeSession()
             }
         }
-         
+        
     }
     
-  
+    
     @MainActor
     func checkLoginStatus() async {
         let isUserLogged = await getLocalUserUseCase.execute()
         switch isUserLogged {
-        case .success(let user): 
+        case .success(let user):
             self.user = user
             self.loggedModel = mapper.map(user: user)
             changeState(.ready)

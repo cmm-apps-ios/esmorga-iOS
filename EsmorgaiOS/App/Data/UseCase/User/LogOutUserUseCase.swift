@@ -24,6 +24,6 @@ class LogoutUserUseCase: LogoutUserUseCaseAlias {
     
     override func job() async -> LogoutUserResult {
         let result = await userRepository.logoutUser()
-        return result ? .success(()) : .failure(.logOutFailed) //Que tipo de error puedo generar aquí?
+        return result ? .success(()) : .failure(.logOutFailed) 
     }
 }

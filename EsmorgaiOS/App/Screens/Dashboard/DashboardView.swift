@@ -32,7 +32,6 @@ struct  DashboardView: View {
                     MyEventsBuilder().build(coordinator: viewModel.coordinator)
                         .accessibilityIdentifier(AccessibilityIds.myEvents)
                         .tag(1)
-                    //  Text("Perfil Content")
                     ProfileBuilder().build(coordinator: viewModel.coordinator)
                         .accessibilityIdentifier(AccessibilityIds.profile)
                         .tag(2)

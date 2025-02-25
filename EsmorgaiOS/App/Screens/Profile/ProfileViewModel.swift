@@ -47,13 +47,11 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         self.mapper = mapper
         super.init(coordinator: coordinator)
         
-        
         self.confirmationDialogModel.primaryAction = {
             Task {
                 await self.closeSession()
             }
         }
-        
     }
     
     

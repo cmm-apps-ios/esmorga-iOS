@@ -30,13 +30,13 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
                                                               title: LocalizationKeys.Common.unauthenticatedTitle.localize(),
                                                               buttonText: LocalizationKeys.Buttons.login.localize())
     
+    
     @Published var confirmationDialogModel = ConfirmationDialogView.Model(title: LocalizationKeys.Profile.logoutPopupDescription.localize(),
                                                                           isShown: false,
                                                                           primaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(),
                                                                           secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize(),
                                                                           primaryAction: nil,
                                                                           secondaryAction: nil)
-    
     
     init(coordinator: (any CoordinatorProtocol)? = nil,
          getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
@@ -46,12 +46,6 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         self.logoutUserUseCase = logoutUserUseCase
         self.mapper = mapper
         super.init(coordinator: coordinator)
-        
-        self.confirmationDialogModel.primaryAction = {
-            Task {
-                await self.closeSession()
-            }
-        }
     }
     
     
@@ -78,8 +72,22 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
             //coordinator?.push(destination: .changePassword)
             print("Change password")
         case .closeSession:
-            confirmationDialogModel.isShown = true
+            showConfirmationDialog()
         }
+    }
+    
+    func showConfirmationDialog() {
+        let primaryAction: (() -> Void)? = {
+            Task {
+                await self.closeSession()
+            }
+        }
+        self.confirmationDialogModel = ConfirmationDialogView.Model(title: LocalizationKeys.Profile.logoutPopupDescription.localize(),
+                                                                    isShown: true,
+                                                                    primaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(),
+                                                                    secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize(),
+                                                                    primaryAction: primaryAction,
+                                                                    secondaryAction: nil)
     }
     
     func closeSession() async {
@@ -91,7 +99,11 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
             print("Error clossing session")
         }
     }
+    
 }
+
+
+
 
 
 

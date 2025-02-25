@@ -14,7 +14,29 @@ struct ConfirmationDialog: ViewModifier {
     func body(content: Content) -> some View {
         ZStack {
             content
-            ConfirmationDialogView(model: $model)
+                .fullScreenCover(isPresented: $model.isShown) {
+                    ConfirmationDialogView(model: $model)
+                        .background(ClearBackground())
+                }
+                .transaction { transaction in
+                    transaction.disablesAnimations = true
+                }
+        }
+    }
+}
+
+fileprivate struct ClearBackground: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        return DummyView()
+    }
+
+    func updateUIView(_ uiView: UIView, context: Context) {
+    }
+
+    private class DummyView: UIView {
+        override func didMoveToWindow() {
+            super.didMoveToWindow()
+            superview?.superview?.backgroundColor = .clear
         }
     }
 }

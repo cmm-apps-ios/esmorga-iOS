@@ -11,6 +11,7 @@ import Lottie
 struct ProfileView: View {
     enum AccessibilityIds {
         static let errorView: String = "MyEventsView.errorView" //To change
+        static let profileView: String = "ProfileView.ready" //To change
         static let title: String = "my_profile_title"
     }
     
@@ -104,6 +105,7 @@ struct ProfileView: View {
             Spacer()
         }
         .padding(.init(top: 20, leading: 16, bottom: 16, trailing: 16))
+        .accessibilityIdentifier(AccessibilityIds.profileView)
         .confirmationDialog(model: $viewModel.confirmationDialogModel)
     }
     

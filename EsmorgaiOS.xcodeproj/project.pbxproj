@@ -16,6 +16,8 @@
 		31518AD12D6C8C3400363A3C /* ConfirmationDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD02D6C8C3400363A3C /* ConfirmationDialogView.swift */; };
 		31518AD52D6CC57300363A3C /* ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD42D6CC57300363A3C /* ConfirmationDialog.swift */; };
 		31518AD72D6CC5B000363A3C /* View+ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD62D6CC5A400363A3C /* View+ConfirmationDialog.swift */; };
+		3180253B2D79C20E0061610D /* ProfileViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253A2D79C20E0061610D /* ProfileViewTests.swift */; };
+		3180253D2D79EB450061610D /* ConfirmationDialogModelBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253C2D79EB450061610D /* ConfirmationDialogModelBuilderTests.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -245,6 +247,8 @@
 		31518AD02D6C8C3400363A3C /* ConfirmationDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialogView.swift; sourceTree = "<group>"; };
 		31518AD42D6CC57300363A3C /* ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialog.swift; sourceTree = "<group>"; };
 		31518AD62D6CC5A400363A3C /* View+ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ConfirmationDialog.swift"; sourceTree = "<group>"; };
+		3180253A2D79C20E0061610D /* ProfileViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTests.swift; sourceTree = "<group>"; };
+		3180253C2D79EB450061610D /* ConfirmationDialogModelBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialogModelBuilderTests.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -484,6 +488,14 @@
 				313D57462D612755001F4E95 /* ProfileView.swift */,
 				313D57482D612792001F4E95 /* ProfileViewModel.swift */,
 				31518ACC2D6C7F6C00363A3C /* ProfileViewModelMapper.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		318025392D79C1ED0061610D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3180253A2D79C20E0061610D /* ProfileViewTests.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -763,6 +775,7 @@
 		EF31587D2C5A7E5000DE157A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				318025392D79C1ED0061610D /* Profile */,
 				EF65D1672CB7C8BB005078D9 /* Dialogs */,
 				EF2A6DC12CA6BBAE00164FD5 /* MyEvents */,
 				EF0811E72C94324B00DE4887 /* Dashboard */,
@@ -872,6 +885,7 @@
 			isa = PBXGroup;
 			children = (
 				EF65D1682CB7C8C7005078D9 /* ErrorDialogModelBuilderTests.swift */,
+				3180253C2D79EB450061610D /* ConfirmationDialogModelBuilderTests.swift */,
 			);
 			path = Dialogs;
 			sourceTree = "<group>";
@@ -1918,6 +1932,7 @@
 				EF0811E92C94326000DE4887 /* DashboardViewTests.swift in Sources */,
 				EFE34DB12C7C94B800724DDC /* UserRemoteDataSourceTests.swift in Sources */,
 				EF3158652C5A27DF00DE157A /* EventsRepositoryTests.swift in Sources */,
+				3180253D2D79EB450061610D /* ConfirmationDialogModelBuilderTests.swift in Sources */,
 				EFE34DC72C7CBFC500724DDC /* MockLoginUseCase.swift in Sources */,
 				EFA646422C8B09E700D528F9 /* UserModelBuilder.swift in Sources */,
 				EFF8B8242CBEC2B7007470A9 /* MockJoinEventUseCase.swift in Sources */,
@@ -1938,6 +1953,7 @@
 				EF3158802C5A7E7100DE157A /* EventListViewModelTests.swift in Sources */,
 				EFA646472C8B0C8400D528F9 /* SplashViewModelTests.swift in Sources */,
 				EFDDF90D2C8B1AD00087AD97 /* SplashViewTests.swift in Sources */,
+				3180253B2D79C20E0061610D /* ProfileViewTests.swift in Sources */,
 				EF3158702C5A5DED00DE157A /* LocalEventsDataSourceTests.swift in Sources */,
 				EFE34DC12C7CBB9300724DDC /* AccountLoginModel.swift in Sources */,
 				EF2A6DCE2CAD9BA800164FD5 /* TestHelper.swift in Sources */,

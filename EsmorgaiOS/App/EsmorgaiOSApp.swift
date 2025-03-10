@@ -18,6 +18,7 @@ struct EsmorgaiOSApp: App {
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().compactAppearance = navBarAppearance
+        FirstLaunchManager().setFirstLaunch()
     }
     
     var body: some Scene {

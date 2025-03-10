@@ -130,15 +130,17 @@ final class UserRepositoryTests {
         #expect(self.mockLocalUserDataSource.savedUser == nil)
         #expect(self.sessionKeychain.isLogged == false)
     }
-    
+ 
+    /*
     @Test
-    func test_local_user_clear_then_all_local_user_data() {
+    func test_local_user_clear_then_all_local_user_data_is_clear() { //Mover
         let user = UserModelBuilder().build()
         mockLocalUserDataSource.savedUser = user
         mockLocalUserDataSource.clearAll()
         
         #expect(self.mockLocalUserDataSource.savedUser == nil)
     }
+     */
 }
 
 

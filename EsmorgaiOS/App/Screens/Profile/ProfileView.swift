@@ -13,6 +13,8 @@ struct ProfileView: View {
         static let errorView: String = "MyEventsView.errorView" //To change
         static let profileView: String = "ProfileView.ready" //To change
         static let title: String = "my_profile_title"
+        static let celda: String = "celda.."
+        
     }
     
     @StateObject var viewModel: ProfileViewModel
@@ -78,6 +80,7 @@ struct ProfileView: View {
                     ForEach(model.userSection.items) { item in
                         Text(item.title)
                             .style(.heading1)
+                            .accessibilityIdentifier(AccessibilityIds.celda + "title" + "\(item.id)") //Primer método
                         Text(item.value)
                             .style(.body1)
                             .padding(.bottom, 35)

@@ -10,11 +10,14 @@ import Lottie
 
 struct ProfileView: View {
     enum AccessibilityIds {
-        static let errorView: String = "MyEventsView.errorView" //To change
+        static let errorView: String = "ProfileView.errorView" //To change
         static let profileView: String = "ProfileView.ready" //To change
         static let title: String = "my_profile_title"
-        static let celda: String = "celda.."
-        
+        static let rowDataTitle: String = "celda.."
+        static let rowDataValue: String = "celda.."
+        static let rowOptionTitle: String = "celda.."
+        static let rowOptionTitleSecondary: String = "celda.."
+        static let rowOptionImage: String = "celda.."
     }
     
     @StateObject var viewModel: ProfileViewModel
@@ -80,14 +83,16 @@ struct ProfileView: View {
                     ForEach(model.userSection.items) { item in
                         Text(item.title)
                             .style(.heading1)
-                            .accessibilityIdentifier(AccessibilityIds.celda + "title" + "\(item.id)") //Primer método
+                            .accessibilityIdentifier(AccessibilityIds.rowDataTitle + "Title" + "\(item.id)")
                         Text(item.value)
                             .style(.body1)
                             .padding(.bottom, 35)
+                            .accessibilityIdentifier(AccessibilityIds.rowDataValue + "Value" + "\(item.id)")
                     }
                     Text(model.optionsSection.title)
                         .style(.heading1)
                         .padding(.bottom, 35)
+                        .accessibilityIdentifier(AccessibilityIds.rowOptionTitle)
                     ForEach(model.optionsSection.items) { item in
                         Button {
                             viewModel.optionTapped(type: item.type)
@@ -95,13 +100,16 @@ struct ProfileView: View {
                             HStack {
                                 Text(item.title)
                                     .style(.heading2)
+                                    .accessibilityIdentifier(AccessibilityIds.rowOptionTitleSecondary + "TitleSecondary" + "\(item.id)")
                                 Spacer()
                                 Image(systemName: item.image)
                                     .font(.system(size: 25, weight: .bold))
                                     .foregroundColor(.claret)
+                                    .accessibilityIdentifier(AccessibilityIds.rowOptionImage + "Image" + "\(item.id)")
                             }
                         }
                         .padding(.bottom, 30)
+                      
                     }
                 }
             }

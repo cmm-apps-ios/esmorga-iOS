@@ -21,6 +21,8 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     
     private let mapper: ProfileViewModelMapper
     
+    
+    
     var user: UserModels.User?
     
     
@@ -37,6 +39,8 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
                                                                           secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize(),
                                                                           primaryAction: nil,
                                                                           secondaryAction: nil)
+    
+    @Published var errorDialogModel: ErrorDialog.Model?
     
     init(coordinator: (any CoordinatorProtocol)? = nil,
          getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
@@ -69,11 +73,20 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     func optionTapped(type: ProfileModels.OptionsItemType) {
         switch type {
         case .changePassword:
-            //coordinator?.push(destination: .changePassword)
-            print("Change password")
+            guard networkMonitor.isConnected else {
+                self.showErrorDialog(type: .noInternet)
+                return
+            }
+            
         case .closeSession:
             showConfirmationDialog()
         }
+    }
+    
+    
+    private func showErrorDialog(type: ErrorDialog.DialogType) {
+        let dialogModel = ErrorDialogModelBuilder.build(type: type)
+        coordinator?.push(destination: .dialog(dialogModel))
     }
     
     func showConfirmationDialog() {

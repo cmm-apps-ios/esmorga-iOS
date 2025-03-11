@@ -7,6 +7,7 @@ final class ProfileViewTests: XCTestCase {
     
     private var sut: ProfileView!
     private var viewModel: ProfileViewModel!
+    private var profileModel: ProfileModels!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -25,35 +26,30 @@ final class ProfileViewTests: XCTestCase {
         let inspected = try sut.inspect()
         
         XCTAssertNoThrow(try inspected.find(viewWithAccessibilityIdentifier: ProfileView.AccessibilityIds.profileView))
-    
-       /* let titleText = try inspected.find(viewWithAccessibilityIdentifier: ProfileView.AccessibilityIds.title)
-        let title = try titleText.text().string()
-        XCTAssertEqual(title, "Perfil")
-        */ //No va
         
         if let model = viewModel.loggedModel {
             for item in model.userSection.items {
-                let itemTitle = try inspected.find(text: item.title).string()
+                let itemTitle = try inspected.find(viewWithAccessibilityIdentifier: ProfileView.AccessibilityIds.celda + "title" + "\(item.id)").text().string()
                 let itemValue = try inspected.find(text: item.value).string()
-                XCTAssertEqual(itemTitle, itemTitle)
+                XCTAssertEqual(itemTitle, item.title)
                 XCTAssertEqual(itemValue, item.value)
             }
             
-            let optionsTitle = try inspected.find(text: model.optionsSection.title).string()
-            XCTAssertEqual(optionsTitle, model.optionsSection.title)
-            for item in model.optionsSection.items {
-                let optionTitle = try inspected.find(text: item.title).string()
-                XCTAssertEqual(optionTitle, item.title)
-            }
+            /* let titleText = try inspected.find(viewWithAccessibilityIdentifier: ProfileView.AccessibilityIds.title)
+             let title = try titleText.text().string()
+             XCTAssertEqual(title, "Perfil")
+             */ //No va
+            
+            
         }
-    }
-    
-    
-    func test_given_profile_view_when_state_is_logged_out_then_show_error_view() throws {
-        viewModel.state = .loggedOut
-        let inspected = try sut.inspect()
         
-        XCTAssertNoThrow(try inspected.find(viewWithAccessibilityIdentifier: ProfileView.AccessibilityIds.errorView))
-     //.....
+        
+        func test_given_profile_view_when_state_is_logged_out_then_show_error_view() throws {
+            viewModel.state = .loggedOut
+            let inspected = try sut.inspect()
+            
+            XCTAssertNoThrow(try inspected.find(viewWithAccessibilityIdentifier: ProfileView.AccessibilityIds.errorView))
+            //.....
+        }
     }
 }

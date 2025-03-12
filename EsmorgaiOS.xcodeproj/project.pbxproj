@@ -18,6 +18,7 @@
 		31518AD72D6CC5B000363A3C /* View+ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD62D6CC5A400363A3C /* View+ConfirmationDialog.swift */; };
 		3180253B2D79C20E0061610D /* ProfileViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253A2D79C20E0061610D /* ProfileViewTests.swift */; };
 		3180253F2D809D940061610D /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253E2D809D940061610D /* ProfileViewModelTests.swift */; };
+		318025422D81E4E70061610D /* ProfileScreenSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318025412D81E4E70061610D /* ProfileScreenSnapshotTests.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -249,6 +250,7 @@
 		31518AD62D6CC5A400363A3C /* View+ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ConfirmationDialog.swift"; sourceTree = "<group>"; };
 		3180253A2D79C20E0061610D /* ProfileViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTests.swift; sourceTree = "<group>"; };
 		3180253E2D809D940061610D /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
+		318025412D81E4E70061610D /* ProfileScreenSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -501,6 +503,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		318025402D81E4B60061610D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				318025412D81E4E70061610D /* ProfileScreenSnapshotTests.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		EF0811B12C9093C500DE4887 /* EsmorgaiOSSnapshotTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,6 +524,7 @@
 		EF0811C02C90940D00DE4887 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				318025402D81E4B60061610D /* Profile */,
 				EFE0F5EF2CC2772D0046959A /* WelcomeScreen */,
 				EF2A6DCF2CAE93E200164FD5 /* Dialogs */,
 				EF2A6DDB2CAED76100164FD5 /* EventDetails */,
@@ -1780,6 +1791,7 @@
 				EF0811C32C90943300DE4887 /* View+UIViewController.swift in Sources */,
 				EF2A6DDF2CAED8B800164FD5 /* EventBuilder.swift in Sources */,
 				EF0811E62C933BEB00DE4887 /* SpyCoordinator.swift in Sources */,
+				318025422D81E4E70061610D /* ProfileScreenSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,6 @@ import Testing
 @Suite(.serialized)
 final class ProfileViewModelTests {
     private var sut: ProfileViewModel!
-    private var errorDialog: ErrorDialog! //No se si pinta algo aquí
     private var mockGetLocalUserUseCase: MockGetLocalUserUseCase!
     private var spyCoordinator: SpyCoordinator!
     private var mockNetworkMonitor: MockNetworkMonitor!
@@ -24,7 +23,7 @@ final class ProfileViewModelTests {
         mockGetLocalUserUseCase = MockGetLocalUserUseCase()
         spyCoordinator = SpyCoordinator()
         mockNetworkMonitor = MockNetworkMonitor()
-        sut = ProfileViewModel(coordinator: spyCoordinator, getLocalUserUseCase: mockGetLocalUserUseCase)
+        sut = ProfileViewModel(coordinator: spyCoordinator, networkMonitor: mockNetworkMonitor, getLocalUserUseCase: mockGetLocalUserUseCase)
     }
     
     deinit {
@@ -75,7 +74,7 @@ final class ProfileViewModelTests {
     
     @MainActor
     @Test
-    func test_given_close_session_tapped_close_session_confirmation_dialog_appears() async {
+    func test_given_button_close_session_tapped_confirmation_dialog_appears() async {
         
         let user = UserModelBuilder().build()
         mockGetLocalUserUseCase.mockUser = user
@@ -89,12 +88,12 @@ final class ProfileViewModelTests {
         #expect(self.sut.state == .ready)
         #expect(self.sut.confirmationDialogModel.isShown == true)
         #expect(self.sut.user == user)
-        
+       
     }
     
     @MainActor
     @Test
-    func test_given_confirmation_dialog_when_tapped_close_session_then_log_out_screen_is_shown() async {
+    func test_given_confirmation_dialog_when_tapped_close_session_confirm_then_log_out_screen_is_shown() async {
         
         let user = UserModelBuilder().build()
         mockGetLocalUserUseCase.mockUser = user
@@ -103,7 +102,6 @@ final class ProfileViewModelTests {
             await self.sut.checkLoginStatus()
         }
         
-        //sut.optionTapped(type: .closeSession)
         sut.confirmationDialogModel.primaryAction?()
         
         await TestHelper.fullfillTask {
@@ -112,13 +110,28 @@ final class ProfileViewModelTests {
   
         #expect(self.sut.state == .loggedOut)
         #expect(self.sut.confirmationDialogModel.isShown == false)
-      //  #expect(self.sut.user == nil) -> No cambia el estado, probablemente porque la acción del Ok del dialog no se ejecuta arriba
+        #expect(self.sut.user == nil)
+    }
+    
+    @MainActor
+    @Test
+    func test_given_confirmation_dialog_when_tapped_cancel_then_dialog_dimiss() async {
         
+        let user = UserModelBuilder().build()
+        mockGetLocalUserUseCase.mockUser = user
+        
+        await TestHelper.fullfillTask {
+            await self.sut.checkLoginStatus()
+        }
+        
+        sut.confirmationDialogModel.secondaryAction?()
+        
+        #expect(self.sut.state == .ready)
+        #expect(self.sut.confirmationDialogModel.isShown == false)
+        #expect(self.sut.user == user)
     }
     
     
-    
-    //Aún por ver como hacerlo
     @MainActor
     @Test
     func test_given_change_password_tapped_without_connection_then_no_connection_screean_appears() async {
@@ -127,7 +140,24 @@ final class ProfileViewModelTests {
         mockGetLocalUserUseCase.mockUser = user
         mockNetworkMonitor.mockIsConnected = false
         
+        sut.optionTapped(type: .changePassword)
+      
+        #expect(self.spyCoordinator.pushCalled == true)
+        #expect(self.spyCoordinator.destination == .dialog(ErrorDialogModelBuilder.build(type: .noInternet)))
+    }
+    
+    @MainActor
+    @Test
+    func test_given_change_password_tapped_then_change_password_screen_appears() async { //Screen doesn't exist, placeholder for now.
+        
+        let user = UserModelBuilder().build()
+        mockGetLocalUserUseCase.mockUser = user
+        mockNetworkMonitor.mockIsConnected = false
         
         sut.optionTapped(type: .changePassword)
+      
+        #expect(self.spyCoordinator.pushCalled == true)
+      //...
     }
+
 }

@@ -43,13 +43,14 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     @Published var errorDialogModel: ErrorDialog.Model?
     
     init(coordinator: (any CoordinatorProtocol)? = nil,
+         networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,
          getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
          logoutUserUseCase: LogoutUserUseCaseAlias = LogoutUserUseCase(),
          mapper: ProfileViewModelMapper = ProfileViewModelMapper()) {
         self.getLocalUserUseCase = getLocalUserUseCase
         self.logoutUserUseCase = logoutUserUseCase
         self.mapper = mapper
-        super.init(coordinator: coordinator)
+        super.init(coordinator: coordinator, networkMonitor: networkMonitor)
     }
     
     
@@ -107,6 +108,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         let result = await logoutUserUseCase.execute()
         switch result {
         case .success:
+            self.user = nil
             changeState(.loggedOut)
         case .failure:
             print("Error clossing session")

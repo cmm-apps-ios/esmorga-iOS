@@ -17,7 +17,6 @@
 		31518AD52D6CC57300363A3C /* ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD42D6CC57300363A3C /* ConfirmationDialog.swift */; };
 		31518AD72D6CC5B000363A3C /* View+ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD62D6CC5A400363A3C /* View+ConfirmationDialog.swift */; };
 		3180253B2D79C20E0061610D /* ProfileViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253A2D79C20E0061610D /* ProfileViewTests.swift */; };
-		3180253D2D79EB450061610D /* ConfirmationDialogModelBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253C2D79EB450061610D /* ConfirmationDialogModelBuilderTests.swift */; };
 		3180253F2D809D940061610D /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253E2D809D940061610D /* ProfileViewModelTests.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
@@ -249,7 +248,6 @@
 		31518AD42D6CC57300363A3C /* ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialog.swift; sourceTree = "<group>"; };
 		31518AD62D6CC5A400363A3C /* View+ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ConfirmationDialog.swift"; sourceTree = "<group>"; };
 		3180253A2D79C20E0061610D /* ProfileViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTests.swift; sourceTree = "<group>"; };
-		3180253C2D79EB450061610D /* ConfirmationDialogModelBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialogModelBuilderTests.swift; sourceTree = "<group>"; };
 		3180253E2D809D940061610D /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
@@ -888,7 +886,6 @@
 			isa = PBXGroup;
 			children = (
 				EF65D1682CB7C8C7005078D9 /* ErrorDialogModelBuilderTests.swift */,
-				3180253C2D79EB450061610D /* ConfirmationDialogModelBuilderTests.swift */,
 			);
 			path = Dialogs;
 			sourceTree = "<group>";
@@ -1935,7 +1932,6 @@
 				EF0811E92C94326000DE4887 /* DashboardViewTests.swift in Sources */,
 				EFE34DB12C7C94B800724DDC /* UserRemoteDataSourceTests.swift in Sources */,
 				EF3158652C5A27DF00DE157A /* EventsRepositoryTests.swift in Sources */,
-				3180253D2D79EB450061610D /* ConfirmationDialogModelBuilderTests.swift in Sources */,
 				EFE34DC72C7CBFC500724DDC /* MockLoginUseCase.swift in Sources */,
 				EFA646422C8B09E700D528F9 /* UserModelBuilder.swift in Sources */,
 				EFF8B8242CBEC2B7007470A9 /* MockJoinEventUseCase.swift in Sources */,

@@ -175,6 +175,10 @@
 		EFE34DE22C81CDA500724DDC /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DE12C81CDA500724DDC /* NavigationBar.swift */; };
 		EFE34DE42C81CEA000724DDC /* Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE34DE32C81CEA000724DDC /* Snackbar.swift */; };
 		EFE3E9762CBE7F2300C975D0 /* WelcomeScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E9752CBE7F2100C975D0 /* WelcomeScreenModels.swift */; };
+		EFEECD282D7F4954002BBF66 /* FirstLaunchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEECD272D7F4944002BBF66 /* FirstLaunchManager.swift */; };
+		EFEECD2C2D7F49C6002BBF66 /* PreferencesKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEECD2B2D7F49C4002BBF66 /* PreferencesKeys.swift */; };
+		EFEECD2F2D7F4C79002BBF66 /* FirstLaunchManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEECD2E2D7F4C76002BBF66 /* FirstLaunchManagerTests.swift */; };
+		EFEECD322D7F50BB002BBF66 /* UserDefaults+Clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEECD312D7F50B0002BBF66 /* UserDefaults+Clear.swift */; };
 		EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */; };
 		EFF7A1CA2C354BD00024704A /* EsmorgaiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1C92C354BD00024704A /* EsmorgaiOSUITests.swift */; };
 		EFF7A1CC2C354BD00024704A /* EsmorgaiOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7A1CB2C354BD00024704A /* EsmorgaiOSUITestsLaunchTests.swift */; };
@@ -386,6 +390,10 @@
 		EFE34DE12C81CDA500724DDC /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		EFE34DE32C81CEA000724DDC /* Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snackbar.swift; sourceTree = "<group>"; };
 		EFE3E9752CBE7F2100C975D0 /* WelcomeScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenModels.swift; sourceTree = "<group>"; };
+		EFEECD272D7F4944002BBF66 /* FirstLaunchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchManager.swift; sourceTree = "<group>"; };
+		EFEECD2B2D7F49C4002BBF66 /* PreferencesKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesKeys.swift; sourceTree = "<group>"; };
+		EFEECD2E2D7F4C76002BBF66 /* FirstLaunchManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchManagerTests.swift; sourceTree = "<group>"; };
+		EFEECD312D7F50B0002BBF66 /* UserDefaults+Clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Clear.swift"; sourceTree = "<group>"; };
 		EFF7A1AB2C354BCD0024704A /* EsmorgaiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EsmorgaiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsmorgaiOSApp.swift; sourceTree = "<group>"; };
 		EFF7A1B22C354BD00024704A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -624,8 +632,8 @@
 		EF2A6DC42CAA8DDC00164FD5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EFEECD2D2D7F4C6E002BBF66 /* Managers */,
 				EF2A6DCD2CAD9BA400164FD5 /* TestHelper.swift */,
-				EF2A6DD92CAED72F00164FD5 /* MockNavigationManager.swift */,
 				EF2A6DC52CAA8DE700164FD5 /* MockNetworkMonitor.swift */,
 			);
 			path = Common;
@@ -662,6 +670,7 @@
 		EF31585C2C5A21B700DE157A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				EFEECD302D7F50A4002BBF66 /* TestUtils */,
 				EF2A6DC42CAA8DDC00164FD5 /* Common */,
 				EFE34DBE2C7CBB5700724DDC /* API */,
 				EFE34DBC2C7CBB2D00724DDC /* Core */,
@@ -1136,13 +1145,14 @@
 		EFE0A97B2C3D92A400E28953 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EFEECD2A2D7F49B9002BBF66 /* Preferences */,
+				EFEECD292D7F495A002BBF66 /* Managers */,
 				EFF8B81E2CBEB887007470A9 /* CustomJSONDecoder.swift */,
 				EFA6463B2C8B029E00D528F9 /* Errors */,
 				EF7DF9522C9C0D98005908B7 /* ViewModifier */,
 				EF9CDB822C89C0800044FB29 /* Navigation */,
 				EFE0A97C2C3D92AC00E28953 /* Extensions */,
 				EF4213D12C4134B500686033 /* NetworkMonitor.swift */,
-				EF4213D72C41412300686033 /* AppManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1358,6 +1368,40 @@
 				EFE34DE32C81CEA000724DDC /* Snackbar.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		EFEECD292D7F495A002BBF66 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EF4213D72C41412300686033 /* AppManager.swift */,
+				EFEECD272D7F4944002BBF66 /* FirstLaunchManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		EFEECD2A2D7F49B9002BBF66 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				EFEECD2B2D7F49C4002BBF66 /* PreferencesKeys.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		EFEECD2D2D7F4C6E002BBF66 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EFEECD2E2D7F4C76002BBF66 /* FirstLaunchManagerTests.swift */,
+				EF2A6DD92CAED72F00164FD5 /* MockNavigationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		EFEECD302D7F50A4002BBF66 /* TestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				EFEECD312D7F50B0002BBF66 /* UserDefaults+Clear.swift */,
+			);
+			path = TestUtils;
 			sourceTree = "<group>";
 		};
 		EFF7A1A22C354BCD0024704A = {
@@ -1746,6 +1790,7 @@
 				EFE34D982C74A6FB00724DDC /* UserRepository.swift in Sources */,
 				EFE34DDF2C81CD5C00724DDC /* View+NavigationBar.swift in Sources */,
 				EFF8B81F2CBEB889007470A9 /* CustomJSONDecoder.swift in Sources */,
+				EFEECD2C2D7F49C6002BBF66 /* PreferencesKeys.swift in Sources */,
 				EFD7EF022C3D3BB100C8CE70 /* RemoteEventsDataSource.swift in Sources */,
 				EF0811DA2C9328CE00DE4887 /* MainCoordinator.swift in Sources */,
 				EFE34DE22C81CDA500724DDC /* NavigationBar.swift in Sources */,
@@ -1801,6 +1846,7 @@
 				EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */,
 				EF31589C2C63755E00DE157A /* WelcomeScreenView.swift in Sources */,
 				EF0811E22C932FCF00DE4887 /* SplashBuilder.swift in Sources */,
+				EFEECD282D7F4954002BBF66 /* FirstLaunchManager.swift in Sources */,
 				EFE34DA42C74AF2E00724DDC /* LoginBuilder.swift in Sources */,
 				EFE34D922C74957A00724DDC /* AccountNetworkService.swift in Sources */,
 				EF0811CD2C91D2B400DE4887 /* DashboardView.swift in Sources */,
@@ -1875,6 +1921,7 @@
 				EFE34DB12C7C94B800724DDC /* UserRemoteDataSourceTests.swift in Sources */,
 				EF3158652C5A27DF00DE157A /* EventsRepositoryTests.swift in Sources */,
 				EFE34DC72C7CBFC500724DDC /* MockLoginUseCase.swift in Sources */,
+				EFEECD322D7F50BB002BBF66 /* UserDefaults+Clear.swift in Sources */,
 				EFA646422C8B09E700D528F9 /* UserModelBuilder.swift in Sources */,
 				EFF8B8242CBEC2B7007470A9 /* MockJoinEventUseCase.swift in Sources */,
 				EF2983FA2C6B987A00C2393E /* EventDetailsViewModelTests.swift in Sources */,
@@ -1887,6 +1934,7 @@
 				EFA646442C8B0AC300D528F9 /* MockLocalUserDataSource.swift in Sources */,
 				EFA646402C8B093800D528F9 /* LocalUserDataSourceTests.swift in Sources */,
 				EF0811E52C93346500DE4887 /* SpyCoordinator.swift in Sources */,
+				EFEECD2F2D7F4C79002BBF66 /* FirstLaunchManagerTests.swift in Sources */,
 				EFA6464B2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift in Sources */,
 				EF31586C2C5A5D8B00DE157A /* MockRemoteEventsDataSource.swift in Sources */,
 				EFE34DBB2C7CBA9F00724DDC /* MockUserRepository.swift in Sources */,

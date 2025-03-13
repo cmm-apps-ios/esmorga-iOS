@@ -43,7 +43,7 @@ final class ProfileViewModelTests {
         }
 
         #expect(self.sut.state == .loggedOut)
-        #expect(self.sut.confirmationDialogModel.isShown == false)
+        #expect(self.sut.confirmationDialog.isShown == false)
         #expect(self.sut.user == nil)
 
     }
@@ -69,7 +69,7 @@ final class ProfileViewModelTests {
         }
 
         #expect(self.sut.state == .ready)
-        #expect(self.sut.confirmationDialogModel.isShown == false)
+        #expect(self.sut.confirmationDialog.isShown == false)
         #expect(self.sut.user == user)
     }
 
@@ -87,7 +87,7 @@ final class ProfileViewModelTests {
         sut.optionTapped(type: .closeSession)
 
         #expect(self.sut.state == .ready)
-        #expect(self.sut.confirmationDialogModel.isShown == true)
+        #expect(self.sut.confirmationDialog.isShown == true)
         #expect(self.sut.user == user)
 
     }
@@ -104,14 +104,14 @@ final class ProfileViewModelTests {
             await self.sut.checkLoginStatus()
         }
 
-        sut.confirmationDialogModel.primaryAction?()
+        sut.confirmationDialog.primaryAction?()
 
         await TestHelper.fullfillTask {
             await self.sut.closeSession()
         }
 
         #expect(self.sut.state == .loggedOut)
-        #expect(self.sut.confirmationDialogModel.isShown == false)
+        #expect(self.sut.confirmationDialog.isShown == false)
         #expect(self.sut.user == nil)
     }
 
@@ -126,10 +126,10 @@ final class ProfileViewModelTests {
             await self.sut.checkLoginStatus()
         }
 
-        sut.confirmationDialogModel.secondaryAction?()
+        sut.confirmationDialog.secondaryAction?()
 
         #expect(self.sut.state == .ready)
-        #expect(self.sut.confirmationDialogModel.isShown == false)
+        #expect(self.sut.confirmationDialog.isShown == false)
         #expect(self.sut.user == user)
     }
 

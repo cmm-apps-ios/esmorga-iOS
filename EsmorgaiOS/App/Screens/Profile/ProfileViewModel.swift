@@ -13,35 +13,35 @@ enum ProfileViewStates: ViewStateProtocol {
 }
 
 class ProfileViewModel: BaseViewModel<ProfileViewStates> {
-    
-    
+
+
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
-    
+
     private let logoutUserUseCase: LogoutUserUseCaseAlias
-    
+
     private let mapper: ProfileViewModelMapper
-    
-    
-    
+
+
+
     var user: UserModels.User?
-    
-    
+
+
     @Published var loggedModel: ProfileModels.LoggedModel?
-    
+
     @Published var loggedOutModel = MyEventsModels.ErrorModel(animation: .suspiciousMonkey,
                                                               title: LocalizationKeys.Common.unauthenticatedTitle.localize(),
                                                               buttonText: LocalizationKeys.Buttons.login.localize())
-    
-    
+
+
     @Published var confirmationDialogModel = ConfirmationDialogView.Model(title: LocalizationKeys.Profile.logoutPopupDescription.localize(),
                                                                           isShown: false,
                                                                           primaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(),
                                                                           secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize(),
                                                                           primaryAction: nil,
                                                                           secondaryAction: nil)
-    
+
     @Published var errorDialogModel: ErrorDialog.Model?
-    
+
     init(coordinator: (any CoordinatorProtocol)? = nil,
          networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,
          getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
@@ -52,8 +52,8 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         self.mapper = mapper
         super.init(coordinator: coordinator, networkMonitor: networkMonitor)
     }
-    
-    
+
+
     @MainActor
     func checkLoginStatus() async {
         let isUserLogged = await getLocalUserUseCase.execute()
@@ -66,11 +66,11 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
             changeState(.loggedOut)
         }
     }
-    
+
     func loginButtonTapped() {
         coordinator?.push(destination: .login)
     }
-    
+
     func optionTapped(type: ProfileModels.OptionsItemType) {
         switch type {
         case .changePassword:
@@ -78,22 +78,22 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
                 self.showErrorDialog(type: .noInternet)
                 return
             }
-            
+
         case .closeSession:
             showConfirmationDialog()
         }
     }
-    
-    
+
     private func showErrorDialog(type: ErrorDialog.DialogType) {
         let dialogModel = ErrorDialogModelBuilder.build(type: type)
         coordinator?.push(destination: .dialog(dialogModel))
     }
-    
+
     func showConfirmationDialog() {
         let primaryAction: (() -> Void)? = {
             Task {
                 await self.closeSession()
+
             }
         }
         self.confirmationDialogModel = ConfirmationDialogView.Model(title: LocalizationKeys.Profile.logoutPopupDescription.localize(),
@@ -103,7 +103,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
                                                                     primaryAction: primaryAction,
                                                                     secondaryAction: nil)
     }
-    
+
     func closeSession() async {
         let result = await logoutUserUseCase.execute()
         switch result {
@@ -114,7 +114,6 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
             print("Error clossing session")
         }
     }
-    
 }
 
 

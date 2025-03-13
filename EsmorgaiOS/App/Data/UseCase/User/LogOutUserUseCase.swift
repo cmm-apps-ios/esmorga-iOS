@@ -15,15 +15,15 @@ typealias LogoutUserResult = Result<Void, LogOutUserError>
 typealias LogoutUserUseCaseAlias = BaseUseCase<Void, LogoutUserResult>
 
 class LogoutUserUseCase: LogoutUserUseCaseAlias {
-    
+
     private var userRepository: UserRepositoryProtocol
-    
+
     init(userRepository: UserRepositoryProtocol = UserRepository()) {
         self.userRepository = userRepository
     }
-    
+
     override func job() async -> LogoutUserResult {
         let result = await userRepository.logoutUser()
-        return result ? .success(()) : .failure(.logOutFailed) 
+        return result ? .success(()) : .failure(.logOutFailed)
     }
 }

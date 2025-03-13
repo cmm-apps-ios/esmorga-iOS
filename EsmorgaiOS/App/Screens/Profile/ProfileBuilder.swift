@@ -8,7 +8,7 @@
 import Foundation
 
 class ProfileBuilder {
-    
+
     func build(coordinator:( any CoordinatorProtocol)? = nil) -> ProfileView {
         let viewModel = ProfileViewModel(coordinator: coordinator)
         return ProfileView(viewModel: viewModel)

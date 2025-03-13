@@ -19,13 +19,13 @@ struct ProfileView: View {
         static let rowOptionTitleSecondary: String = "ProfileView.rowOptionTitleSecondary"
         static let rowOptionImage: String = "ProfileView.rowOptionImage"
     }
-    
+
     @StateObject var viewModel: ProfileViewModel
-    
+
     init(viewModel: ProfileViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
-    
+
     var body: some View {
         BaseView(viewModel: viewModel) {
             Group {
@@ -47,7 +47,7 @@ struct ProfileView: View {
                 }
             }
     }
-    
+
     private func createErrorView(animation: Animation, title: String, buttonText: Binding<String>, action: @escaping (() -> Void)) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             createTitleView()
@@ -73,7 +73,7 @@ struct ProfileView: View {
         .padding(.init(top: 20, leading: 16, bottom: 16, trailing: 16))
         .accessibilityIdentifier(AccessibilityIds.errorView)
     }
-    
+
     private func createProfileView() -> some View {
         VStack(alignment: .leading, spacing: 12) {
             createTitleView()
@@ -109,7 +109,6 @@ struct ProfileView: View {
                             }
                         }
                         .padding(.bottom, 30)
-                        
                     }
                 }
             }
@@ -119,7 +118,7 @@ struct ProfileView: View {
         .accessibilityIdentifier(AccessibilityIds.profileView)
         .confirmationDialog(model: $viewModel.confirmationDialogModel)
     }
-    
+
     private func createTitleView() -> some View {
         Text(LocalizationKeys.Profile.title.localize())
             .style(.heading1)

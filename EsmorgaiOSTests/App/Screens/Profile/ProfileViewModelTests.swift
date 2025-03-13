@@ -33,9 +33,10 @@ final class ProfileViewModelTests {
         sut = nil
     }
     
+    //MOB-TC-160
     @MainActor
     @Test
-    func test_given_get_profile_when_no_logged_in_then_log_out_screen_is_shown() async {
+    func test_given_profile_when_no_logged_in_then_log_out_screen_is_shown() async {
         
         await TestHelper.fullfillTask {
             await self.sut.checkLoginStatus()
@@ -58,7 +59,7 @@ final class ProfileViewModelTests {
     
     @MainActor
     @Test
-    func test_given_get_profile_when_success_then_profile_is_correct() async {
+    func test_given_profile_when_success_then_profile_is_correct() async {
         
         let user = UserModelBuilder().build()
         mockGetLocalUserUseCase.mockUser = user
@@ -91,9 +92,10 @@ final class ProfileViewModelTests {
        
     }
     
+    //MOB-TC-159
     @MainActor
     @Test
-    func test_given_confirmation_dialog_when_tapped_close_session_confirm_then_log_out_screen_is_shown() async {
+    func test_given_confirmation_dialog_when_tapped_confirm_then_log_out_screen_is_shown() async {
         
         let user = UserModelBuilder().build()
         mockGetLocalUserUseCase.mockUser = user
@@ -132,6 +134,7 @@ final class ProfileViewModelTests {
     }
     
     
+    //MOB-TC-162
     @MainActor
     @Test
     func test_given_change_password_tapped_without_connection_then_no_connection_screean_appears() async {

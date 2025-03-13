@@ -26,6 +26,7 @@ final class ProfileScreenSnapshotTests: XCTestCase {
         try super.tearDownWithError()
     }
     
+    //MOB-TC-159
     @MainActor
     func test_given_profile_screen_view_when_user_is_not_logged_then_content_view_is_correct() async throws {
         giveSut(user: nil)
@@ -34,7 +35,7 @@ final class ProfileScreenSnapshotTests: XCTestCase {
         }
         assertSnapshot(of: sut.toVC(), as: .image)
     }
-    
+    //MOB-TC-159
     @MainActor
      func test_given_profile_screen_view_when_user_is_logged_then_content_view_is_correct_2() async throws {
          giveSut(user: UserModels.User(name: "Yago", lastName: "Ares", email: "yagoares@example.com"))

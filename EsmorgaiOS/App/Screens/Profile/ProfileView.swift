@@ -10,14 +10,14 @@ import Lottie
 
 struct ProfileView: View {
     enum AccessibilityIds {
-        static let errorView: String = "ProfileView.errorView" //To change
-        static let profileView: String = "ProfileView.ready" //To change
-        static let title: String = "my_profile_title"
-        static let rowDataTitle: String = "celda.."
-        static let rowDataValue: String = "celda.."
-        static let rowOptionTitle: String = "celda.."
-        static let rowOptionTitleSecondary: String = "celda.."
-        static let rowOptionImage: String = "celda.."
+        static let errorView: String = "ProfileView.errorView"
+        static let profileView: String = "ProfileView.ready"
+        static let title: String = "ProfileView.myProfileTitle"
+        static let rowDataTitle: String = "ProfileView.rowDataTitle"
+        static let rowDataValue: String = "ProfileView.rowDataValue"
+        static let rowOptionTitle: String = "ProfileView.rowOptionTitle"
+        static let rowOptionTitleSecondary: String = "ProfileView.rowOptionTitleSecondary"
+        static let rowOptionImage: String = "ProfileView.rowOptionImage"
     }
     
     @StateObject var viewModel: ProfileViewModel
@@ -109,7 +109,7 @@ struct ProfileView: View {
                             }
                         }
                         .padding(.bottom, 30)
-                      
+                        
                     }
                 }
             }

@@ -116,7 +116,7 @@ struct ProfileView: View {
         }
         .padding(.init(top: 20, leading: 16, bottom: 16, trailing: 16))
         .accessibilityIdentifier(AccessibilityIds.profileView)
-        .confirmationDialog(model: $viewModel.confirmationDialogModel)
+        .confirmationDialog(model: $viewModel.confirmationDialog)
     }
 
     private func createTitleView() -> some View {
@@ -125,4 +125,3 @@ struct ProfileView: View {
             .accessibilityIdentifier(AccessibilityIds.title)
     }
 }
-

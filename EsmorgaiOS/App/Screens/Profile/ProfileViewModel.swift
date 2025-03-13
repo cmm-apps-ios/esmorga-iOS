@@ -33,12 +33,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
                                                               buttonText: LocalizationKeys.Buttons.login.localize())
 
 
-    @Published var confirmationDialogModel = ConfirmationDialogView.Model(title: LocalizationKeys.Profile.logoutPopupDescription.localize(),
-                                                                          isShown: false,
-                                                                          primaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(),
-                                                                          secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize(),
-                                                                          primaryAction: nil,
-                                                                          secondaryAction: nil)
+
 
     @Published var errorDialogModel: ErrorDialog.Model?
 
@@ -96,7 +91,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
 
             }
         }
-        self.confirmationDialogModel = ConfirmationDialogView.Model(title: LocalizationKeys.Profile.logoutPopupDescription.localize(),
+        self.confirmationDialog = ConfirmationDialogView.Model(title: LocalizationKeys.Profile.logoutPopupDescription.localize(),
                                                                     isShown: true,
                                                                     primaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(),
                                                                     secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize(),
@@ -115,14 +110,3 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -67,5 +67,4 @@ final class EventDetailsSnapshotTests: XCTestCase {
                                           getLocalUserUseCase: mockGetLocalUserUseCase)
         sut = EventDetailsView(viewModel: viewModel)
     }
-
 }

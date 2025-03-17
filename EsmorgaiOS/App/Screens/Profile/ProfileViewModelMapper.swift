@@ -10,7 +10,7 @@ import Foundation
 class ProfileViewModelMapper {
     func map(user: UserModels.User) -> ProfileModels.LoggedModel {
 
-        let userItems = [ProfileModels.UserDataItem(title:LocalizationKeys.Profile.name.localize(), value: user.name + user.lastName, type: .name),
+        let userItems = [ProfileModels.UserDataItem(title:LocalizationKeys.Profile.name.localize(), value: "\(user.name) \(user.lastName)", type: .name),
                          ProfileModels.UserDataItem(title:LocalizationKeys.Profile.email.localize(), value: user.email, type: .email)]
 
         let optionsItems = [ProfileModels.OptionItem(title: LocalizationKeys.Profile.changePassword.localize(),

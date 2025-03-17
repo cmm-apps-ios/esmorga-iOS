@@ -95,6 +95,7 @@ struct MyEventsView: View {
                 Text(LocalizationKeys.EventList.loading.localize())
                     .style(.heading2)
                 LoadingBar()
+                Spacer()
             }
         }
         .padding(.top, 20)

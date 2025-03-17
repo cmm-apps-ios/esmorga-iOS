@@ -38,7 +38,7 @@ final class ProfileScreenSnapshotTests: XCTestCase {
 
     //MOB-TC-159
     @MainActor
-    func test_given_profile_screen_view_when_user_is_logged_then_content_view_is_correct_2() async throws {
+    func test_given_profile_screen_view_when_user_is_logged_then_content_view_is_correct() async throws {
         giveSut(user: UserModels.User(name: "Yago", lastName: "Ares", email: "yagoares@example.com"))
         await TestHelper.fullfillTask {
             await self.viewModel.checkLoginStatus()

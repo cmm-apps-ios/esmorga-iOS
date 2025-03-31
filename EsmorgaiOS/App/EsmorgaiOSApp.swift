@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct EsmorgaiOSApp: App {
-    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     init() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithTransparentBackground()
@@ -20,7 +22,7 @@ struct EsmorgaiOSApp: App {
         UINavigationBar.appearance().compactAppearance = navBarAppearance
         FirstLaunchManager().setFirstLaunch()
     }
-    
+
     var body: some Scene {
         WindowGroup {
             if NSClassFromString("XCTest") == nil {

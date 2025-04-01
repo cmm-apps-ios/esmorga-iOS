@@ -7,12 +7,18 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAnalytics
+import FirebaseCrashlytics
 
 @main
 struct EsmorgaiOSApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     init() {
+     //   FirebaseApp.configure()
+     //   print("Firebase is working...")
+      //  Crashlytics.crashlytics().log("Crashlytics configurado correctamente 🚀")
+
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithTransparentBackground()
         navBarAppearance.backgroundColor = .surface
@@ -37,3 +43,6 @@ struct EsmorgaiOSApp: App {
         print("Link oppened: \(url)")
     }
 }
+
+
+

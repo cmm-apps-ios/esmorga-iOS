@@ -1,11 +1,15 @@
 import UIKit
 import Firebase
+import FirebaseCrashlytics
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+
         FirebaseApp.configure()
-        print("Checking Firebase is working...")
+        print("Firebase is working...")
+
+        Crashlytics.crashlytics().log("Crashlytics configurado correctamente 🚀")
         return true
     }
 }

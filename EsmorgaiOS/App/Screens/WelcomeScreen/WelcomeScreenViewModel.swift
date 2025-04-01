@@ -23,6 +23,9 @@ class WelcomeScreenViewModel: BaseViewModel<WelcomeScreenViewStates> {
     }
 
     func enterAsGuestTapped() {
-        coordinator?.push(destination: .dashboard)
+        // coordinator?.push(destination: .dashboard)
+        let numbers = [0]
+        let _ = numbers[1]
+
     }
 }

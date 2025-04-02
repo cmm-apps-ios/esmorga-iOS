@@ -9,7 +9,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         FirebaseApp.configure()
         print("Firebase is working...")
 
-        Crashlytics.crashlytics().log("Crashlytics configurado correctamente 🚀")
         return true
     }
 }

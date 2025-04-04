@@ -19,9 +19,7 @@ class WelcomeScreenViewModel: BaseViewModel<WelcomeScreenViewStates> {
                                                      secondaryButtonText: LocalizationKeys.Buttons.guest.localize())
 
     func loginButtonTapped() {
-        //coordinator?.push(destination: .login)
-        let numbers = [0]
-        let _ = numbers[1]
+        coordinator?.push(destination: .login)
     }
 
     func enterAsGuestTapped() {

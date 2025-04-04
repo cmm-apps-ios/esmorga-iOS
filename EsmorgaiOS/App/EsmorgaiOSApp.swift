@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseCrashlytics
 
 @main
 struct EsmorgaiOSApp: App {
-    
+      @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     init() {
+        FirebaseApp.configure()
+
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithTransparentBackground()
         navBarAppearance.backgroundColor = .surface
@@ -20,7 +25,7 @@ struct EsmorgaiOSApp: App {
         UINavigationBar.appearance().compactAppearance = navBarAppearance
         FirstLaunchManager().setFirstLaunch()
     }
-    
+
     var body: some Scene {
         WindowGroup {
             if NSClassFromString("XCTest") == nil {

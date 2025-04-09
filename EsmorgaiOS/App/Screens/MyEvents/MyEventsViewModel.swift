@@ -70,6 +70,7 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
             }
 
             if events.error {
+                CrashlyticsErrorReport.handleNoInternetError()
                 self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(),
                                       isShown: true)
             }

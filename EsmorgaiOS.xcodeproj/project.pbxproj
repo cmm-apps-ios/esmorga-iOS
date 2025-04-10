@@ -26,7 +26,7 @@
 		3180253B2D79C20E0061610D /* ProfileViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253A2D79C20E0061610D /* ProfileViewTests.swift */; };
 		3180253F2D809D940061610D /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253E2D809D940061610D /* ProfileViewModelTests.swift */; };
 		318025422D81E4E70061610D /* ProfileScreenSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318025412D81E4E70061610D /* ProfileScreenSnapshotTests.swift */; };
-		31D232932DA68B230084057E /* CrashlyticsErrorReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D232922DA68B060084057E /* CrashlyticsErrorReport.swift */; };
+		31D232932DA68B230084057E /* CrashEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D232922DA68B060084057E /* CrashEventManager.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -265,7 +265,7 @@
 		3180253A2D79C20E0061610D /* ProfileViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTests.swift; sourceTree = "<group>"; };
 		3180253E2D809D940061610D /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
 		318025412D81E4E70061610D /* ProfileScreenSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenSnapshotTests.swift; sourceTree = "<group>"; };
-		31D232922DA68B060084057E /* CrashlyticsErrorReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsErrorReport.swift; sourceTree = "<group>"; };
+		31D232922DA68B060084057E /* CrashEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashEventManager.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -1060,7 +1060,7 @@
 		EFD7EEF02C3C415500C8CE70 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				31D232922DA68B060084057E /* CrashlyticsErrorReport.swift */,
+				31D232922DA68B060084057E /* CrashEventManager.swift */,
 				EFD7EF0E2C3D72B000C8CE70 /* API */,
 				EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */,
 				314158912D9AE20700F8C47F /* AppDelegate.swift */,
@@ -1988,7 +1988,7 @@
 				EFD377062CA1A2FB0090B90A /* MyEventsView.swift in Sources */,
 				EFE34DA62C77790900724DDC /* CustomTextField.swift in Sources */,
 				EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */,
-				31D232932DA68B230084057E /* CrashlyticsErrorReport.swift in Sources */,
+				31D232932DA68B230084057E /* CrashEventManager.swift in Sources */,
 				EFF7A1E82C36DECC0024704A /* LoadingBar.swift in Sources */,
 				31518AD12D6C8C3400363A3C /* ConfirmationDialogView.swift in Sources */,
 				EF4213D42C413F9100686033 /* View+Snackbar.swift in Sources */,

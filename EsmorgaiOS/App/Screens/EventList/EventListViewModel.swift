@@ -56,9 +56,8 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
             if events.error {
                 self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(),
                                       isShown: true)
-             //   Crashlytics.crashlytics().record(error: NSError(domain: "com.esmorga", code: -1009, userInfo: [NSLocalizedDescriptionKey: "No internet connection"]))
 
-                CrashlyticsErrorReport.handleNoInternetError()
+                CrashEventManager.handleNoInternetError()
             }
         case .failure:
             self.changeState(.error)

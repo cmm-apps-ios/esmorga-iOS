@@ -117,6 +117,7 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
                     case NetworkError.noInternetConnection:
                         self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(),
                                               isShown: true)
+                        self.reportErrorToCrashlytics()
                     default:
                         self.showErrorDialog()
                     }

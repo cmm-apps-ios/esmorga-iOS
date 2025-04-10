@@ -56,8 +56,7 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
             if events.error {
                 self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(),
                                       isShown: true)
-
-                CrashEventManager.handleNoInternetError()
+                self.reportErrorToCrashlytics()
             }
         case .failure:
             self.changeState(.error)

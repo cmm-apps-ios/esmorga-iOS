@@ -14,11 +14,13 @@ class BaseViewModel<E: ViewStateProtocol>: ObservableObject {
 
     weak var coordinator: (any CoordinatorProtocol)?
     var networkMonitor: NetworkMonitorProtocol!
+    let crashEventManager: CrashEventManager
 
     init(coordinator: (any CoordinatorProtocol)?,
-         networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared) {
+         networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared, crashEventManager: CrashEventManager = .shared) {
         self.coordinator = coordinator
         self.networkMonitor = networkMonitor
+        self.crashEventManager = crashEventManager
     }
 
     func changeState(_ state: E) {
@@ -28,5 +30,9 @@ class BaseViewModel<E: ViewStateProtocol>: ObservableObject {
                 debugPrint("State changed to \(state)")
             }
         }
+    }
+
+    func reportErrorToCrashlytics() {
+        CrashEventManager.reportError()
     }
 }

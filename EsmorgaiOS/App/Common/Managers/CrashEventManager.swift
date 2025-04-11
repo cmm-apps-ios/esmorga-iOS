@@ -8,13 +8,13 @@
 import FirebaseCrashlytics
 
 class CrashEventManager {
-
+    /// Method that send a custom crashReport to Firebase Crashlytics
     static let shared = CrashEventManager()
 
     private init() {}
 
     func reportError() {
-        // Keys
+        /// Keys
         Crashlytics.crashlytics().setCustomValue("offline", forKey: "Connection status")
         Crashlytics.crashlytics().setCustomValue("Loss of internet connection.", forKey: "Error Description")
 

@@ -33,6 +33,6 @@ class BaseViewModel<E: ViewStateProtocol>: ObservableObject {
     }
 
     func reportErrorToCrashlytics() {
-        CrashEventManager.reportError()
+        crashEventManager.reportError()
     }
 }

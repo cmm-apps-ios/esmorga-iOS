@@ -78,7 +78,7 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
 
             guard networkMonitor.isConnected else {
                 self.showErrorDialog(type: .noInternet)
-                reportErrorToCrashlytics()
+                self.reportErrorToCrashlytics()
                 return
             }
 

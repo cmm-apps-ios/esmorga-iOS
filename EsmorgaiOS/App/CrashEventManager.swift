@@ -13,7 +13,7 @@ class CrashEventManager {
 
     private init() {}
 
-    static func reportError() {
+    func reportError() {
         // Keys
         Crashlytics.crashlytics().setCustomValue("offline", forKey: "Connection status")
         Crashlytics.crashlytics().setCustomValue("Loss of internet connection.", forKey: "Error Description")
@@ -21,6 +21,6 @@ class CrashEventManager {
         let userInfo: [String: Any] = [
             NSLocalizedDescriptionKey: "No internet connection"
         ]
-        Crashlytics.crashlytics().record(error: NSError(domain: "com.esmorga", code: -1007, userInfo: userInfo))
+        Crashlytics.crashlytics().record(error: NSError(domain: "com.esmorga", code: -1009, userInfo: userInfo))
     }
 }

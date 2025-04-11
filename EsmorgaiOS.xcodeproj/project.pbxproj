@@ -3066,8 +3066,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
 			requirement = {
-				kind = exactVersion;
-				version = 1.17.4;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.18.3;
 			};
 		};
 		EF3158572C5937E800DE157A /* XCRemoteSwiftPackageReference "Nimble" */ = {

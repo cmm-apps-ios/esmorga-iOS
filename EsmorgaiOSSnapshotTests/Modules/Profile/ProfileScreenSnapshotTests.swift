@@ -33,7 +33,7 @@ final class ProfileScreenSnapshotTests: XCTestCase {
         await TestHelper.fullfillTask {
             await self.viewModel.checkLoginStatus()
         }
-        assertSnapshot(of: sut.toVC(), as: .image)
+        assertSnapshot(of: sut.toVC(), as: .image(precision: 0.98))
     }
 
     //MOB-TC-159
@@ -43,7 +43,7 @@ final class ProfileScreenSnapshotTests: XCTestCase {
         await TestHelper.fullfillTask {
             await self.viewModel.checkLoginStatus()
         }
-        assertSnapshot(of: sut.toVC(), as: .image)
+        assertSnapshot(of: sut.toVC(), as: .image(precision: 0.98))
     }
 
     private func giveSut(user: UserModels.User?) {

@@ -71,6 +71,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         case .changePassword:
             guard networkMonitor.isConnected else {
                 self.showErrorDialog(type: .noInternet)
+                self.reportErrorToCrashlytics()
                 return
             }
 

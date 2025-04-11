@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseCrashlytics
 
 enum EventListViewStates: ViewStateProtocol {
     case ready
@@ -55,6 +56,7 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
             if events.error {
                 self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(),
                                       isShown: true)
+                self.reportErrorToCrashlytics()
             }
         case .failure:
             self.changeState(.error)

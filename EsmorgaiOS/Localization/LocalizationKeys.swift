@@ -54,6 +54,8 @@ class LocalizationKeys {
         static let leaveEvent: String = "button_leave_event"
         static let loginToJoin: String = "button_login_to_join"
         static let ok: String = "button_ok"
+        static let confirmEmail: String = "register_confirmation_email_button"
+        static let resendEmail: String = "register_confirmation_email_button_resend"
     }
 
     enum TextField {
@@ -108,8 +110,6 @@ class LocalizationKeys {
     enum RegistrationConfirmation {
          static let title: String = "register_confirmation_email_title"
          static let subtitle: String = "register_confirmation_email_subtitle"
-         static let confirmEmail: String = "register_confirmation_email_button"
-         static let resendEmail: String = "register_confirmation_email_button_resend"
          static let titleResendEmail: String = "register_resend_code_success"
          static let titleResendEmailFailed: String = "register_resend_code_error"
      }

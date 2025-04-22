@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		311FA2092DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2082DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift */; };
+		311FA20B2DB79CD100C4EC99 /* RegistrationConfirmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA20A2DB79CD100C4EC99 /* RegistrationConfirmModels.swift */; };
+		311FA20D2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA20C2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift */; };
+		311FA20F2DB7A18200C4EC99 /* RegistrationConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA20E2DB7A18200C4EC99 /* RegistrationConfirmView.swift */; };
 		313D57432D6126E6001F4E95 /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57422D6126E6001F4E95 /* ProfileModels.swift */; };
 		313D57452D61272C001F4E95 /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57442D61272C001F4E95 /* ProfileBuilder.swift */; };
 		313D57472D612755001F4E95 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57462D612755001F4E95 /* ProfileView.swift */; };
@@ -251,6 +255,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		311FA2082DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmViewModel.swift; sourceTree = "<group>"; };
+		311FA20A2DB79CD100C4EC99 /* RegistrationConfirmModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmModels.swift; sourceTree = "<group>"; };
+		311FA20C2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmBuilder.swift; sourceTree = "<group>"; };
+		311FA20E2DB7A18200C4EC99 /* RegistrationConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmView.swift; sourceTree = "<group>"; };
 		313D57422D6126E6001F4E95 /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
 		313D57442D61272C001F4E95 /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
 		313D57462D612755001F4E95 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -506,6 +514,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		311FA2032DB79B6F00C4EC99 /* RegistrationConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				311FA2082DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift */,
+				311FA20A2DB79CD100C4EC99 /* RegistrationConfirmModels.swift */,
+				311FA20C2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift */,
+				311FA20E2DB7A18200C4EC99 /* RegistrationConfirmView.swift */,
+			);
+			path = RegistrationConfirmation;
+			sourceTree = "<group>";
+		};
 		313D57412D6126C6001F4E95 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1074,6 +1093,7 @@
 		EFD7EEF12C3C415F00C8CE70 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				311FA2032DB79B6F00C4EC99 /* RegistrationConfirmation */,
 				313D57412D6126C6001F4E95 /* Profile */,
 				EFD377042CA1A2DF0090B90A /* MyEvents */,
 				EF0811D82C9328B000DE4887 /* Coordinator */,
@@ -1914,6 +1934,7 @@
 				EF2A6DC82CAAE2CC00164FD5 /* ErrorDialogModelBuilder.swift in Sources */,
 				EFD377112CA1B3720090B90A /* Animation.swift in Sources */,
 				313D57432D6126E6001F4E95 /* ProfileModels.swift in Sources */,
+				311FA20F2DB7A18200C4EC99 /* RegistrationConfirmView.swift in Sources */,
 				EF2983CD2C6A162A00C2393E /* SplashViewModel.swift in Sources */,
 				EF0811D52C93260800DE4887 /* DashboardModels.swift in Sources */,
 				EFE34DD12C7DE0D300724DDC /* RegisterUserDataSource.swift in Sources */,
@@ -1967,6 +1988,7 @@
 				EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */,
 				EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */,
 				EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */,
+				311FA2092DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift in Sources */,
 				EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */,
 				EF31589C2C63755E00DE157A /* WelcomeScreenView.swift in Sources */,
 				EF0811E22C932FCF00DE4887 /* SplashBuilder.swift in Sources */,
@@ -2004,11 +2026,13 @@
 				EFE34DCE2C7CC9F900724DDC /* LoginModels.swift in Sources */,
 				EF4213C52C3ECB4400686033 /* DataConvertible.swift in Sources */,
 				EF0811DC2C9329F200DE4887 /* Destination.swift in Sources */,
+				311FA20B2DB79CD100C4EC99 /* RegistrationConfirmModels.swift in Sources */,
 				EFD7EF202C3D8E9F00C8CE70 /* EventListCell.swift in Sources */,
 				EF2983F72C6B95F500C2393E /* ViewState.swift in Sources */,
 				EF2128442C86103800D00887 /* RegistrationModels.swift in Sources */,
 				EF31589E2C63757600DE157A /* WelcomeScreenViewModel.swift in Sources */,
 				EF4213CB2C3ED66200686033 /* CardView.swift in Sources */,
+				311FA20D2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift in Sources */,
 				EFF9C8722C9991DA00DE50BC /* AccountTokensRefresher.swift in Sources */,
 				EFE34DDD2C7DE70900724DDC /* RegistrationBuilder.swift in Sources */,
 				EFD377032CA17C610090B90A /* RemoteMyEventsDataSource.swift in Sources */,

@@ -27,7 +27,7 @@ struct RegistrationConfirmView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: .infinity)
-                        .frame(height: UIScreen.main.bounds.height * 0.4) // 40% of the screen height
+                        .frame(height: UIScreen.main.bounds.height * 0.35) // 30% of the screen height
                         .clipped()
                     LazyVStack(alignment: .leading, spacing: 10) {
                         Text(LocalizationKeys.RegistrationConfirmation.title.localize())
@@ -35,11 +35,11 @@ struct RegistrationConfirmView: View {
                             .padding(.top, 20)
 
                         Text(LocalizationKeys.RegistrationConfirmation.subtitle.localize())
-                            .style(.heading2)
+                            .style(.body1)
                             .padding(.top, 20)
                     }
                     .padding(.horizontal, 16)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 40)
 
                     LazyVStack(spacing: 16) {
                         CustomButton(title: $viewModel.primaryButton.title,

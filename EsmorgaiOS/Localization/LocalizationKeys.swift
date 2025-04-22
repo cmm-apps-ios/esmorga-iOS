@@ -47,6 +47,8 @@ class LocalizationKeys {
         static let guest: String = "button_guest"
         static let login: String = "button_login"
         static let loginRegister: String = "button_login_register"
+        static let confirmEmail: String = "register_confirmation_email_button_email_app"
+        static let resendEmail: String = "register_confirmation_email_button_resend"
         static let navigate: String = "button_navigate"
         static let register: String = "button_register"
         static let retry: String = "button_retry"
@@ -54,8 +56,6 @@ class LocalizationKeys {
         static let leaveEvent: String = "button_leave_event"
         static let loginToJoin: String = "button_login_to_join"
         static let ok: String = "button_ok"
-        static let confirmEmail: String = "register_confirmation_email_button"
-        static let resendEmail: String = "register_confirmation_email_button_resend"
     }
 
     enum TextField {

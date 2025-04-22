@@ -105,6 +105,15 @@ class LocalizationKeys {
         static let title: String = "screen_registration_title"
     }
 
+    enum RegistrationConfirmation {
+         static let title: String = "register_confirmation_email_title"
+         static let subtitle: String = "register_confirmation_email_subtitle"
+         static let confirmEmail: String = "register_confirmation_email_button"
+         static let resendEmail: String = "register_confirmation_email_button_resend"
+         static let titleResendEmail: String = "register_resend_code_success"
+         static let titleResendEmailFailed: String = "register_resend_code_error"
+     }
+
     enum Snackbar {
         static let noInternet: String = "snackbar_no_internet"
         static let eventJoined: String = "snackbar_event_joined"

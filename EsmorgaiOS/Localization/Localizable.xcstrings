@@ -491,6 +491,72 @@
         }
       }
     },
+    "register_confirmation_email_button_email_app" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir app de correo"
+          }
+        }
+      }
+    },
+    "register_confirmation_email_button_resend" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reenviar correo"
+          }
+        }
+      }
+    },
+    "register_confirmation_email_subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hemos enviado un enlace de confirmación a tu correo electrónico. Por favor, revisa tu bandeja de entrada y sigue el enlace para activar tu cuenta."
+          }
+        }
+      }
+    },
+    "register_confirmation_email_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirma tu cuenta"
+          }
+        }
+      }
+    },
+    "register_resend_code_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se ha podido enviar un nuevo email de confirmación"
+          }
+        }
+      }
+    },
+    "register_resend_code_success" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un nuevo email de confirmación ha sido enviado"
+          }
+        }
+      }
+    },
     "screen_event_details_description" : {
       "extractionState" : "manual",
       "localizations" : {

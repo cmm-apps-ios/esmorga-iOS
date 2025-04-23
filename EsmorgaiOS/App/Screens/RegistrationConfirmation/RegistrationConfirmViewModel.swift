@@ -19,5 +19,13 @@ class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
     @Published var secondaryButton = LoginModels.Button(title: LocalizationKeys.Buttons.resendEmail.localize(),
                                                         isLoading: false)
 
-    
+    func openMail() {
+
+
+    }
+
+    func resendMail() {
+
+
+    }
 }

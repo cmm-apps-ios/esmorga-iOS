@@ -143,7 +143,9 @@ class RegistrationViewModel: BaseViewModel<RegistrationViewStates> {
                                               isShown: true)
                     case .userRegister:
                         self.setEmailUserError()
-                    default: self.showErrorDialog()
+                    default:
+                        //self.showErrorDialog()
+                        self.coordinator?.push(destination: .confirmRegister) //For testing
                     }
                 }
             }

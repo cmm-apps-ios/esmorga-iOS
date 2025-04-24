@@ -32,7 +32,7 @@ struct NetworkRequest: NetworkRequestProtocol {
 
             AF.request(urlRequest, interceptor: networkService.requestInterceptor)
                 .validate()
-                .responseData(emptyResponseCodes: Set([204, 200, 201])) { response in
+                .responseData(emptyResponseCodes: Set([204, 200/*,201*/])) { response in
                     print("➡️ \(response.request?.cURL ?? "")")
                     switch response.result {
                     case .success(let data):
@@ -52,7 +52,7 @@ struct NetworkRequest: NetworkRequestProtocol {
                         } else {
                             print("⚠️ Error Body: No data response.\n")
                         }
-
+                
                         guard errorCode != NSURLErrorCancelled else { return }
                         var networkError: NetworkError {
                             if errorCode == NSURLErrorNotConnectedToInternet {

@@ -10,26 +10,29 @@ import Foundation
 protocol UserRepositoryProtocol {
     func login(email: String, password: String) async throws -> UserModels.User
     func register(name: String, lastName: String, pass: String, email: String) async throws -> UserModels.User
+    func verify(email: String) async throws -> UserModels.User //New
     func getLocalUser() async -> UserModels.User?
     func logoutUser() async -> Bool
 }
 
 class UserRepository: UserRepositoryProtocol {
-
     private var localUserDataSource: LocalUserDataSourceProtocol
     private var loginUserDataSource: LoginUserDataSourceProtocol
     private var registerUserDataSource: RegisterUserDataSourceProtocol
+    private var verifyUserDataSource: VerifyUserDataSourceProtocol
     private var localEventsDataSource: LocalEventsDataSourceProtocol
     private var sessionKeychain: CodableKeychain<AccountSession>
 
     init(localUserDataSource: LocalUserDataSourceProtocol = LocalUserDataSource(),
          loginUserDataSource: LoginUserDataSourceProtocol = LoginUserDataSource(),
          registerUserDataSource: RegisterUserDataSourceProtocol = RegisterUserDataSource(),
+         verifyUserDataSource: VerifyUserDataSourceProtocol = VerifyUserDataSource(),
          localEventsDataSource: LocalEventsDataSourceProtocol = LocalEventsDataSource(),
          sessionKeychain: CodableKeychain<AccountSession> = AccountSession.buildCodableKeychain()) {
         self.localUserDataSource = localUserDataSource
         self.loginUserDataSource = loginUserDataSource
         self.registerUserDataSource = registerUserDataSource
+        self.verifyUserDataSource = verifyUserDataSource
         self.localEventsDataSource = localEventsDataSource
         self.sessionKeychain = sessionKeychain
     }
@@ -57,6 +60,13 @@ class UserRepository: UserRepositoryProtocol {
         } catch let error {
             throw error
         }
+    }
+
+    func verify(email: String) async throws -> UserModels.User {
+        //Editar
+        let loginResponse = try await verifyUserDataSource.verify(email: email)
+        let user = await processLoginResponse(loginResponse)
+        return user
     }
 
     private func processLoginResponse(_ login: AccountLoginModel.Login) async -> UserModels.User {

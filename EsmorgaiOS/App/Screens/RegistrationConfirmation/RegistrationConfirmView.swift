@@ -45,7 +45,7 @@ struct RegistrationConfirmView: View {
                         CustomButton(title: $viewModel.primaryButton.title,
                                      buttonStyle: .primary,
                                      isLoading: $viewModel.primaryButton.isLoading) {
-                            print("Test")
+                            viewModel.openMailApp()
                         }
 
                         CustomButton(title: $viewModel.secondaryButton.title,

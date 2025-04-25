@@ -10,6 +10,7 @@ import UIKit
 
 protocol NavigationManagerProtocol {
     func getMethods(latitude: Double, longitude: Double) -> [NavigationModels.Method]
+    func getMailApps() -> [NavigationModels.Method]
 }
 
 class NavigationManager: NavigationManagerProtocol {
@@ -34,4 +35,23 @@ class NavigationManager: NavigationManagerProtocol {
         }
         return methods
     }
+    func getMailApps() -> [NavigationModels.Method] {
+        var methods = [NavigationModels.Method]()
+
+        if let gmailUrl = URL(string: "googlegmail://co?to=&subject=Subject&body=Body"),
+           UIApplication.shared.canOpenURL(gmailUrl) {
+            let gmail = NavigationModels.Method(title: "Gmail", url: gmailUrl)
+            methods.append(gmail)
+        }
+
+        if let mailUrl = URL(string: "mailto:?subject=Subject&body=Body"),
+           UIApplication.shared.canOpenURL(mailUrl) {
+            let appleMail = NavigationModels.Method(title: "Apple Mail", url: mailUrl)
+            methods.append(appleMail)
+        }
+
+        return methods
+    }
+
 }
+

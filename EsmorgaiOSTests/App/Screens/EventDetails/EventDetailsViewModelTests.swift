@@ -14,7 +14,7 @@ final class EventDetailsViewModelTests {
 
     private var sut: EventDetailsViewModel!
     private var spyCoordinator: SpyCoordinator!
-    private var mockNavigationManager: MockNavigationManager!
+    private var mockNavigationManager: MockExternalAppsManager!
     private var mockGetLocalUserUseCase: MockGetLocalUserUseCase!
     private var mockJoinEventUseCase: MockJoinEventUseCase!
     private var mockLeaveEventUseCase: MockLeaveEventUseCase!
@@ -22,7 +22,7 @@ final class EventDetailsViewModelTests {
 
     init() {
         spyCoordinator = SpyCoordinator()
-        mockNavigationManager = MockNavigationManager()
+        mockNavigationManager = MockExternalAppsManager()
         mockGetLocalUserUseCase = MockGetLocalUserUseCase()
         mockJoinEventUseCase = MockJoinEventUseCase()
         mockLeaveEventUseCase = MockLeaveEventUseCase()

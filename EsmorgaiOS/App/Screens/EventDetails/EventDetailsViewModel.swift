@@ -14,7 +14,7 @@ enum EventDetailsViewState: ViewStateProtocol {
 
 class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
 
-    private let navigationManager: NavigationManagerProtocol
+    private let navigationManager: ExternalAppsManagerProtocol
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
     private let joinEventUseCase: JoinEventUseCaseAlias
     private let leaveEventUseCase: LeaveEventUseCaseAlias
@@ -28,7 +28,7 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
     init(coordinator: (any CoordinatorProtocol)?,
          networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,
          event: EventModels.Event,
-         navigationManager: NavigationManagerProtocol = NavigationManager(),
+         navigationManager: ExternalAppsManagerProtocol = ExternalAppsManager(),
          getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
          joinEventUseCase: JoinEventUseCaseAlias = JoinEventUseCase(),
          leaveEventUseCase: LeaveEventUseCaseAlias = LeaveEventUseCase()) {
@@ -55,7 +55,7 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
     func openLocation() {
 
         guard let latitude = event.latitude, let longitude = event.longitude else { return }
-        navigationMethods = navigationManager.getMethods(latitude: latitude, longitude: longitude)
+        navigationMethods = navigationManager.getMapMethods(latitude: latitude, longitude: longitude)
         if navigationMethods.count == 1, let method = navigationMethods.first {
             openNavigationMethod(method)
         } else {

@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-protocol NavigationManagerProtocol {
-    func getMethods(latitude: Double, longitude: Double) -> [NavigationModels.Method]
-    func getMailApps() -> [NavigationModels.Method]
+protocol ExternalAppsManagerProtocol {
+    func getMapMethods(latitude: Double, longitude: Double) -> [NavigationModels.Method]
+    func getMailMethods() -> [NavigationModels.Method]
 }
 
-class NavigationManager: NavigationManagerProtocol {
+class ExternalAppsManager: ExternalAppsManagerProtocol {
 
-    func getMethods(latitude: Double, longitude: Double) -> [NavigationModels.Method] {
+    func getMapMethods(latitude: Double, longitude: Double) -> [NavigationModels.Method] {
         var methods = [NavigationModels.Method]()
         if let appleUrl = URL(string: "http://maps.apple.com/?saddr=&daddr=\(latitude),\(longitude)"),
            UIApplication.shared.canOpenURL(appleUrl) {
@@ -35,7 +35,7 @@ class NavigationManager: NavigationManagerProtocol {
         }
         return methods
     }
-    func getMailApps() -> [NavigationModels.Method] {
+    func getMailMethods() -> [NavigationModels.Method] {
         var methods = [NavigationModels.Method]()
 
         if let gmailUrl = URL(string: "googlegmail://co?to=&subject=Subject&body=Body"),

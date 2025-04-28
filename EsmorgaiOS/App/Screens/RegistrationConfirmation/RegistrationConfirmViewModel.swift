@@ -15,7 +15,7 @@ enum RegsitrationConfirmViewStates: ViewStateProtocol {
 class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
 
 
-    private let navigationManager: NavigationManagerProtocol
+    private let navigationManager: ExternalAppsManagerProtocol
 
     @Published var primaryButton = LoginModels.Button(title: LocalizationKeys.Buttons.confirmEmail.localize(),
                                                       isLoading: false)
@@ -26,14 +26,14 @@ class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
 
     var navigationMethods = [NavigationModels.Method]()
 
-    init(coordinator: (any CoordinatorProtocol)?, networkMonitor: NetworkMonitorProtocol? = NetworkMonitor.shared, navigationManager: NavigationManagerProtocol = NavigationManager()) {
+    init(coordinator: (any CoordinatorProtocol)?, networkMonitor: NetworkMonitorProtocol? = NetworkMonitor.shared, navigationManager: ExternalAppsManagerProtocol = ExternalAppsManager()) {
         self.navigationManager = navigationManager
 
         super.init(coordinator: coordinator, networkMonitor: networkMonitor!)
     }
 
     func openMailApp() {
-        navigationMethods = navigationManager.getMailApps()
+        navigationMethods = navigationManager.getMailMethods()
 
         if navigationMethods.count == 1, let method = navigationMethods.first {
             openNavigationMethod(method)

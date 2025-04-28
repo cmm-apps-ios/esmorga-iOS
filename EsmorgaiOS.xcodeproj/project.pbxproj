@@ -81,7 +81,7 @@
 		EF2A6DD32CAEA75A00164FD5 /* EventDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD22CAEA75300164FD5 /* EventDetailsModels.swift */; };
 		EF2A6DD62CAEA7B600164FD5 /* EventDetailsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD52CAEA7AE00164FD5 /* EventDetailsMapper.swift */; };
 		EF2A6DD82CAEA89100164FD5 /* Result+IsSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD72CAEA88300164FD5 /* Result+IsSuccess.swift */; };
-		EF2A6DDA2CAED73100164FD5 /* MockNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD92CAED72F00164FD5 /* MockNavigationManager.swift */; };
+		EF2A6DDA2CAED73100164FD5 /* MockExternalAppsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD92CAED72F00164FD5 /* MockExternalAppsManager.swift */; };
 		EF2A6DDD2CAED77400164FD5 /* EventDetailsSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DDC2CAED76B00164FD5 /* EventDetailsSnapshotTests.swift */; };
 		EF2A6DDE2CAED84400164FD5 /* MockGetLocalUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6464A2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift */; };
 		EF2A6DDF2CAED8B800164FD5 /* EventBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD6100B2CA2C40400E3DB1E /* EventBuilder.swift */; };
@@ -128,7 +128,7 @@
 		EF65D16D2CB91F5D005078D9 /* JoinEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65D16C2CB91F56005078D9 /* JoinEventUseCase.swift */; };
 		EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */; };
 		EF7DF9562C9C0E94005908B7 /* View+FirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */; };
-		EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* NavigationManager.swift */; };
+		EF9CDB842C89C0920044FB29 /* ExternalAppsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* ExternalAppsManager.swift */; };
 		EF9CDB862C89C0BB0044FB29 /* NavigationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */; };
 		EFA646382C8AFC9500D528F9 /* LocalUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA646372C8AFC9500D528F9 /* LocalUserDataSource.swift */; };
 		EFA6463A2C8B00BE00D528F9 /* GetLocalUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */; };
@@ -326,7 +326,7 @@
 		EF2A6DD22CAEA75300164FD5 /* EventDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsModels.swift; sourceTree = "<group>"; };
 		EF2A6DD52CAEA7AE00164FD5 /* EventDetailsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsMapper.swift; sourceTree = "<group>"; };
 		EF2A6DD72CAEA88300164FD5 /* Result+IsSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+IsSuccess.swift"; sourceTree = "<group>"; };
-		EF2A6DD92CAED72F00164FD5 /* MockNavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationManager.swift; sourceTree = "<group>"; };
+		EF2A6DD92CAED72F00164FD5 /* MockExternalAppsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExternalAppsManager.swift; sourceTree = "<group>"; };
 		EF2A6DDC2CAED76B00164FD5 /* EventDetailsSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsSnapshotTests.swift; sourceTree = "<group>"; };
 		EF2F9CC62C875D330064D2D1 /* BaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BaseConfig.xcconfig; sourceTree = "<group>"; };
 		EF3158522C53D9EE00DE157A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -367,7 +367,7 @@
 		EF65D16C2CB91F56005078D9 /* JoinEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinEventUseCase.swift; sourceTree = "<group>"; };
 		EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAppearModifier.swift; sourceTree = "<group>"; };
 		EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+FirstAppear.swift"; sourceTree = "<group>"; };
-		EF9CDB832C89C0920044FB29 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		EF9CDB832C89C0920044FB29 /* ExternalAppsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalAppsManager.swift; sourceTree = "<group>"; };
 		EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModels.swift; sourceTree = "<group>"; };
 		EFA646372C8AFC9500D528F9 /* LocalUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserDataSource.swift; sourceTree = "<group>"; };
 		EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocalUserUseCase.swift; sourceTree = "<group>"; };
@@ -982,7 +982,7 @@
 		EF9CDB822C89C0800044FB29 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				EF9CDB832C89C0920044FB29 /* NavigationManager.swift */,
+				EF9CDB832C89C0920044FB29 /* ExternalAppsManager.swift */,
 				EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */,
 			);
 			path = Navigation;
@@ -1495,7 +1495,7 @@
 			isa = PBXGroup;
 			children = (
 				EFEECD2E2D7F4C76002BBF66 /* FirstLaunchManagerTests.swift */,
-				EF2A6DD92CAED72F00164FD5 /* MockNavigationManager.swift */,
+				EF2A6DD92CAED72F00164FD5 /* MockExternalAppsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1977,7 +1977,7 @@
 				EFE34DA02C74AAD500724DDC /* LoginView.swift in Sources */,
 				EF21284F2C86161400D00887 /* KeychainProtocols.swift in Sources */,
 				EFD7EF152C3D740700C8CE70 /* EventsNetworkService.swift in Sources */,
-				EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */,
+				EF9CDB842C89C0920044FB29 /* ExternalAppsManager.swift in Sources */,
 				EFA6463D2C8B02B200D528F9 /* DomainError.swift in Sources */,
 				31518AD52D6CC57300363A3C /* ConfirmationDialog.swift in Sources */,
 				EF2A6DD62CAEA7B600164FD5 /* EventDetailsMapper.swift in Sources */,
@@ -2086,7 +2086,7 @@
 				EF2983FA2C6B987A00C2393E /* EventDetailsViewModelTests.swift in Sources */,
 				EF21283D2C85D98800D00887 /* MockRegisterUserUseCase.swift in Sources */,
 				EFF8B82A2CBFDCF4007470A9 /* MockLeaveEventUseCase.swift in Sources */,
-				EF2A6DDA2CAED73100164FD5 /* MockNavigationManager.swift in Sources */,
+				EF2A6DDA2CAED73100164FD5 /* MockExternalAppsManager.swift in Sources */,
 				EFD6100E2CA2C44A00E3DB1E /* MockRemoteMyEventsDataSource.swift in Sources */,
 				EF31586E2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift in Sources */,
 				EFE34DC52C7CBC6300724DDC /* LoginUseCaseTests.swift in Sources */,

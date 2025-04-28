@@ -8,11 +8,19 @@
 import Foundation
 @testable import EsmorgaiOS
 
-final class MockNavigationManager: NavigationManagerProtocol {
+final class MockExternalAppsManager: ExternalAppsManagerProtocol {
+
+
 
     var methods: [NavigationModels.Method] = [NavigationModels.Method(title: "Apple Maps", url: URL(string: "http://maps.apple.com/?saddr=&daddr=\(0.0),\(0.0)")!)]
 
-    func getMethods(latitude: Double, longitude: Double) -> [NavigationModels.Method] {
+    func getMapMethods(latitude: Double, longitude: Double) -> [NavigationModels.Method] {
         return methods
     }
+
+
+    func getMailMethods() -> [EsmorgaiOS.NavigationModels.Method] {
+        return methods
+    }
+
 }

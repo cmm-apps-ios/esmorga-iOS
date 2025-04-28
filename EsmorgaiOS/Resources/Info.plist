@@ -9,6 +9,7 @@
 	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>googlegmail</string>
 		<string>comgooglemaps</string>
 		<string>waze</string>
 		<string>maps</string>

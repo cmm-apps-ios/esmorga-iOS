@@ -34,15 +34,15 @@ class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
 
     func openMailApp() {
         navigationMethods = navigationManager.getMailMethods()
-
         if navigationMethods.count == 1, let method = navigationMethods.first {
             openNavigationMethod(method)
         } else if navigationMethods.isEmpty {
-            print("asjfdjashfhajsk")
+            print("No hay aplicaciones de correo disponibles.")
         } else {
             showMethodsAlert = true
         }
     }
+
 
     func openNavigationMethod(_ method: NavigationModels.Method) {
         coordinator?.openNavigationApp(method)

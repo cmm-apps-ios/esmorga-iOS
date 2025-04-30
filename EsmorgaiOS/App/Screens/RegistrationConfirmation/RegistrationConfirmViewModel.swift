@@ -24,25 +24,32 @@ class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
 
     @Published var showMethodsAlert: Bool = false
 
-    var navigationMethods = [NavigationModels.Method]()
+    private let verifyUserUseCase: VerifyUserUseCaseAlias
 
-    init(coordinator: (any CoordinatorProtocol)?, networkMonitor: NetworkMonitorProtocol? = NetworkMonitor.shared, navigationManager: ExternalAppsManagerProtocol = ExternalAppsManager()) {
+
+    var navigationMethods = [NavigationModels.Method]()
+   // var userEmail: String
+
+
+    init(coordinator: (any CoordinatorProtocol)?, networkMonitor: NetworkMonitorProtocol? = NetworkMonitor.shared, navigationManager: ExternalAppsManagerProtocol = ExternalAppsManager(), verifyUserUseCase: VerifyUserUseCaseAlias =  VerifyUserUseCase()) {
         self.navigationManager = navigationManager
+        self.verifyUserUseCase = verifyUserUseCase
+       // self.userEmail = userEmail
 
         super.init(coordinator: coordinator, networkMonitor: networkMonitor!)
     }
+
+
+
 
     func openMailApp() {
         navigationMethods = navigationManager.getMailMethods()
         if navigationMethods.count == 1, let method = navigationMethods.first {
             openNavigationMethod(method)
-        } else if navigationMethods.isEmpty {
-            print("No hay aplicaciones de correo disponibles.")
         } else {
             showMethodsAlert = true
         }
     }
-
 
     func openNavigationMethod(_ method: NavigationModels.Method) {
         coordinator?.openNavigationApp(method)
@@ -50,6 +57,35 @@ class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
 
     func resendMail() {
 
+        secondaryButton.isLoading = true
+
+           Task { [weak self] in
+               guard let self else { return }
+
+               let email = "yagoarestest15@yopmail.com" //Por probar, sigo investigando
+
+               let result = await VerifyUserUseCase().execute(input: VerifyUserUseCaseInput(email: email))
+
+
+               await MainActor.run {
+                   // Procesamos el resultado
+                   switch result {
+                   case .success:
+                       self.secondaryButton.isLoading = false
+                     //  self.snackBar = .init(message: LocalizationKeys.Snackbar.emailResent.localize(), isShown: true)
+
+                   case .failure(let error):
+                       self.secondaryButton.isLoading = false
+                       switch error {
+                       case .noInternetConnection:
+                           self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(), isShown: true)
+                       default:
+                          // self.snackBar = .init(message: LocalizationKeys.Snackbar.genericError.localize(), isShown: true)
+                           print("Fail")
+                       }
+                   }
+               }
+           }
 
     }
 }

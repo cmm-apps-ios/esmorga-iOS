@@ -35,33 +35,29 @@ class ExternalAppsManager: ExternalAppsManagerProtocol {
         }
         return methods
     }
+
     func getMailMethods() -> [NavigationModels.Method] {
         var methods = [NavigationModels.Method]()
 
         if let gmailUrl = URL(string: "googlegmail://co?to=&subject=Subject&body=Body"),
-         UIApplication.shared.canOpenURL(gmailUrl) {
-         let gmail = NavigationModels.Method(title: "Gmail", url: gmailUrl)
-         methods.append(gmail)
-         }
+           UIApplication.shared.canOpenURL(gmailUrl) {
+            let gmail = NavigationModels.Method(title: "Gmail", url: gmailUrl)
+            methods.append(gmail)
+        }
 
-
-        ///Comentado por ahora, cuando hay varias
-/*
         if let outlookUrl = URL(string: "ms-outlook://"),
            UIApplication.shared.canOpenURL(outlookUrl) {
             let outLookMail = NavigationModels.Method(title: "OutLookMail", url: outlookUrl)
             methods.append(outLookMail)
         }
- */
-/*
+
         if let mailUrl = URL(string: "mailto:?subject=Subject&body=Body"),
            UIApplication.shared.canOpenURL(mailUrl) {
             let appleMail = NavigationModels.Method(title: "Apple Mail", url: mailUrl)
             methods.append(appleMail)
         }
-*/
+
         return methods
     }
 
 }
-

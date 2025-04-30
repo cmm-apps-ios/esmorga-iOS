@@ -51,7 +51,7 @@ struct RegistrationConfirmView: View {
                         CustomButton(title: $viewModel.secondaryButton.title,
                                      buttonStyle: .secondary,
                                      isLoading: $viewModel.primaryButton.isLoading) {
-                            print("Test")
+                            viewModel.resendMail()
                         }
                     }
                     .padding(.horizontal, 16)

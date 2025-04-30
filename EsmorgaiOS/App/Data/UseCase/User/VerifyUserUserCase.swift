@@ -21,7 +21,7 @@ enum VerifyUserError: Error {
 typealias VerifyUserResult = Result<UserModels.User, VerifyUserError>
 typealias VerifyUserUseCaseAlias = BaseUseCase<VerifyUserUseCaseInput, VerifyUserResult>
 
-class VerifyUserUseCase: RegisterUserUseCaseAlias {
+class VerifyUserUseCase: VerifyUserUseCaseAlias {
 
     private var userRepository: UserRepositoryProtocol
 
@@ -29,7 +29,7 @@ class VerifyUserUseCase: RegisterUserUseCaseAlias {
         self.userRepository = userRepository
     }
 
-    /*
+
     override func job(input: VerifyUserUseCaseInput) async -> VerifyUserResult {
         do {
             let user = try await userRepository.verify(email: input.email)
@@ -38,7 +38,8 @@ class VerifyUserUseCase: RegisterUserUseCaseAlias {
             return .failure(self.mapError(error))
         }
     }
-    private func mapError(_ error: Error) -> RegisterUserError {
+
+    private func mapError(_ error: Error) -> VerifyUserError {
 
         switch error {
         case NetworkError.noInternetConnection: return .noInternetConnection
@@ -46,5 +47,5 @@ class VerifyUserUseCase: RegisterUserUseCaseAlias {
         default: return .generalError
         }
     }
-     */
+
 }

@@ -26,21 +26,17 @@ class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
 
     private let verifyUserUseCase: VerifyUserUseCaseAlias
 
+    private let email: String
 
     var navigationMethods = [NavigationModels.Method]()
-   // var userEmail: String
 
-
-    init(coordinator: (any CoordinatorProtocol)?, networkMonitor: NetworkMonitorProtocol? = NetworkMonitor.shared, navigationManager: ExternalAppsManagerProtocol = ExternalAppsManager(), verifyUserUseCase: VerifyUserUseCaseAlias =  VerifyUserUseCase()) {
+    init(coordinator: (any CoordinatorProtocol)?, networkMonitor: NetworkMonitorProtocol? = NetworkMonitor.shared, navigationManager: ExternalAppsManagerProtocol = ExternalAppsManager(), verifyUserUseCase: VerifyUserUseCaseAlias =  VerifyUserUseCase(), email: String) {
         self.navigationManager = navigationManager
         self.verifyUserUseCase = verifyUserUseCase
-       // self.userEmail = userEmail
+        self.email = email
 
         super.init(coordinator: coordinator, networkMonitor: networkMonitor!)
     }
-
-
-
 
     func openMailApp() {
         navigationMethods = navigationManager.getMailMethods()
@@ -59,33 +55,29 @@ class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
 
         secondaryButton.isLoading = true
 
-           Task { [weak self] in
-               guard let self else { return }
+        Task { [weak self] in
+            guard let self else { return }
 
-               let email = "yagoarestest15@yopmail.com" //Por probar, sigo investigando
+          //  let email = "yagoarestest15@yopmail.com" //Por probar, sigo investigando
 
-               let result = await VerifyUserUseCase().execute(input: VerifyUserUseCaseInput(email: email))
+            let result = await VerifyUserUseCase().execute(input: VerifyUserUseCaseInput(email: self.email))
 
-
-               await MainActor.run {
-                   // Procesamos el resultado
-                   switch result {
-                   case .success:
-                       self.secondaryButton.isLoading = false
-                     //  self.snackBar = .init(message: LocalizationKeys.Snackbar.emailResent.localize(), isShown: true)
-
-                   case .failure(let error):
-                       self.secondaryButton.isLoading = false
-                       switch error {
-                       case .noInternetConnection:
-                           self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(), isShown: true)
-                       default:
-                          // self.snackBar = .init(message: LocalizationKeys.Snackbar.genericError.localize(), isShown: true)
-                           print("Fail")
-                       }
-                   }
-               }
-           }
-
+            await MainActor.run {
+                switch result {
+                case .success:
+                    self.secondaryButton.isLoading = false
+                    //  self.snackBar = .init(message: LocalizationKeys.Snackbar.emailResent.localize(), isShown: true)
+                case .failure(let error):
+                    self.secondaryButton.isLoading = false
+                    switch error {
+                    case .noInternetConnection:
+                        self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(), isShown: true)
+                    default:
+                        // self.snackBar = .init(message: LocalizationKeys.Snackbar.genericError.localize(), isShown: true)
+                        print("Fail")
+                    }
+                }
+            }
+        }
     }
 }

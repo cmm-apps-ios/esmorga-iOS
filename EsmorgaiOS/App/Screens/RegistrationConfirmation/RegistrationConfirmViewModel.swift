@@ -15,7 +15,7 @@ enum RegsitrationConfirmViewStates: ViewStateProtocol {
 class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
 
 
-    private let navigationManager: ExternalAppsManagerProtocol
+    private let deepLinkManager: ExternalAppsManagerProtocol
 
     @Published var primaryButton = LoginModels.Button(title: LocalizationKeys.Buttons.confirmEmail.localize(),
                                                       isLoading: false)
@@ -28,10 +28,10 @@ class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
 
     private let email: String
 
-    var navigationMethods = [NavigationModels.Method]()
+    var navigationMethods = [DeepLinkModels.Method]()
 
     init(coordinator: (any CoordinatorProtocol)?, networkMonitor: NetworkMonitorProtocol? = NetworkMonitor.shared, navigationManager: ExternalAppsManagerProtocol = ExternalAppsManager(), verifyUserUseCase: VerifyUserUseCaseAlias =  VerifyUserUseCase(), email: String) {
-        self.navigationManager = navigationManager
+        self.deepLinkManager = navigationManager
         self.verifyUserUseCase = verifyUserUseCase
         self.email = email
 
@@ -39,7 +39,7 @@ class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
     }
 
     func openMailApp() {
-        navigationMethods = navigationManager.getMailMethods()
+        navigationMethods = deepLinkManager.getMailMethods()
         if navigationMethods.count == 1, let method = navigationMethods.first {
             openNavigationMethod(method)
         } else {
@@ -47,7 +47,7 @@ class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
         }
     }
 
-    func openNavigationMethod(_ method: NavigationModels.Method) {
+    func openNavigationMethod(_ method: DeepLinkModels.Method) {
         coordinator?.openNavigationApp(method)
     }
 
@@ -57,24 +57,20 @@ class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
 
         Task { [weak self] in
             guard let self else { return }
-
-          //  let email = "yagoarestest15@yopmail.com" //Por probar, sigo investigando
-
+            
             let result = await VerifyUserUseCase().execute(input: VerifyUserUseCaseInput(email: self.email))
-
             await MainActor.run {
                 switch result {
                 case .success:
                     self.secondaryButton.isLoading = false
-                    //  self.snackBar = .init(message: LocalizationKeys.Snackbar.emailResent.localize(), isShown: true)
+                    self.snackBar = .init(message: LocalizationKeys.Snackbar.resendEmail.localize(), isShown: true)
                 case .failure(let error):
                     self.secondaryButton.isLoading = false
                     switch error {
                     case .noInternetConnection:
                         self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(), isShown: true)
                     default:
-                        // self.snackBar = .init(message: LocalizationKeys.Snackbar.genericError.localize(), isShown: true)
-                        print("Fail")
+                        self.snackBar = .init(message: LocalizationKeys.Snackbar.resendEmailFailed.localize(), isShown: true)
                     }
                 }
             }

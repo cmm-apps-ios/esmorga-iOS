@@ -10,7 +10,7 @@ import Foundation
 protocol UserRepositoryProtocol {
     func login(email: String, password: String) async throws -> UserModels.User
     func register(name: String, lastName: String, pass: String, email: String) async throws -> UserModels.User
-    func verify(email: String) async throws -> UserModels.User //New
+    func verify(email: String) async throws
     func getLocalUser() async -> UserModels.User?
     func logoutUser() async -> Bool
 }
@@ -62,11 +62,12 @@ class UserRepository: UserRepositoryProtocol {
         }
     }
 
-    func verify(email: String) async throws -> UserModels.User {
-        //Editar
-        let loginResponse = try await verifyUserDataSource.verify(email: email)
-        let user = await processLoginResponse(loginResponse)
-        return user
+    func verify(email: String) async throws {
+        do {
+            try await verifyUserDataSource.verify(email: email)
+        } catch let error {
+            throw error
+        }
     }
 
     private func processLoginResponse(_ login: AccountLoginModel.Login) async -> UserModels.User {

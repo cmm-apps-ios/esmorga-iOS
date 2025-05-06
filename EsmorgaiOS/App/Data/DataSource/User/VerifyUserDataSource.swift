@@ -8,7 +8,7 @@
 import Foundation
 
 protocol VerifyUserDataSourceProtocol {
-    func verify(email: String) async throws -> AccountLoginModel.Login
+    func verify(email: String) async throws
 }
 
 
@@ -20,16 +20,12 @@ class VerifyUserDataSource: VerifyUserDataSourceProtocol {
         self.networkRequest = networkRequest
     }
 
-    func verify(email: String) async throws -> AccountLoginModel.Login {
-
+    func verify(email: String) async throws {
         do {
-            let service = AccountNetworkService.verify(email: email)
-            let login: AccountLoginModel.Login = try await networkRequest.request(networkService: service)
-            return login
+            _  = try await networkRequest.request(networkService: AccountNetworkService.verify(email: email)) as NetworkRequest.EmptyBodyObject
+
         } catch let error {
             throw error
         }
     }
 }
-
-

@@ -129,7 +129,7 @@
 		EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */; };
 		EF7DF9562C9C0E94005908B7 /* View+FirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */; };
 		EF9CDB842C89C0920044FB29 /* ExternalAppsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* ExternalAppsManager.swift */; };
-		EF9CDB862C89C0BB0044FB29 /* NavigationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */; };
+		EF9CDB862C89C0BB0044FB29 /* DeepLinkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB852C89C0BB0044FB29 /* DeepLinkModels.swift */; };
 		EFA646382C8AFC9500D528F9 /* LocalUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA646372C8AFC9500D528F9 /* LocalUserDataSource.swift */; };
 		EFA6463A2C8B00BE00D528F9 /* GetLocalUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */; };
 		EFA6463D2C8B02B200D528F9 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6463C2C8B02B200D528F9 /* DomainError.swift */; };
@@ -368,7 +368,7 @@
 		EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAppearModifier.swift; sourceTree = "<group>"; };
 		EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+FirstAppear.swift"; sourceTree = "<group>"; };
 		EF9CDB832C89C0920044FB29 /* ExternalAppsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalAppsManager.swift; sourceTree = "<group>"; };
-		EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModels.swift; sourceTree = "<group>"; };
+		EF9CDB852C89C0BB0044FB29 /* DeepLinkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkModels.swift; sourceTree = "<group>"; };
 		EFA646372C8AFC9500D528F9 /* LocalUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserDataSource.swift; sourceTree = "<group>"; };
 		EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocalUserUseCase.swift; sourceTree = "<group>"; };
 		EFA6463C2C8B02B200D528F9 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
@@ -983,7 +983,7 @@
 			isa = PBXGroup;
 			children = (
 				EF9CDB832C89C0920044FB29 /* ExternalAppsManager.swift */,
-				EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */,
+				EF9CDB852C89C0BB0044FB29 /* DeepLinkModels.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -2044,7 +2044,7 @@
 				EFF9C8722C9991DA00DE50BC /* AccountTokensRefresher.swift in Sources */,
 				EFE34DDD2C7DE70900724DDC /* RegistrationBuilder.swift in Sources */,
 				EFD377032CA17C610090B90A /* RemoteMyEventsDataSource.swift in Sources */,
-				EF9CDB862C89C0BB0044FB29 /* NavigationModels.swift in Sources */,
+				EF9CDB862C89C0BB0044FB29 /* DeepLinkModels.swift in Sources */,
 				EFD7EF172C3D75CB00C8CE70 /* NetworkRequest.swift in Sources */,
 				EFF8B81D2CBEAB1C007470A9 /* MyEventsModels.swift in Sources */,
 				EF65D16D2CB91F5D005078D9 /* JoinEventUseCase.swift in Sources */,

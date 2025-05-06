@@ -54,7 +54,6 @@ enum AccountNetworkService: NetworkService {
                         "email": email]
             return try? JSONSerialization.data(withJSONObject: json, options: [])
         case .verify(let email):
-            //Implementacion verify
             let json = ["email": email]
             return try? JSONSerialization.data(withJSONObject: json, options: [])
         case .refresh(let token):

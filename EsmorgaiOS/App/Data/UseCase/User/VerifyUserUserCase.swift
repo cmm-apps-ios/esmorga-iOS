@@ -12,13 +12,12 @@ struct VerifyUserUseCaseInput {
 }
 
 enum VerifyUserError: Error {
-    case userVerify
     case noInternetConnection
     case mappingError
     case generalError
 }
 
-typealias VerifyUserResult = Result<UserModels.User, VerifyUserError>
+typealias VerifyUserResult = Result<Void, VerifyUserError>
 typealias VerifyUserUseCaseAlias = BaseUseCase<VerifyUserUseCaseInput, VerifyUserResult>
 
 class VerifyUserUseCase: VerifyUserUseCaseAlias {
@@ -32,8 +31,8 @@ class VerifyUserUseCase: VerifyUserUseCaseAlias {
 
     override func job(input: VerifyUserUseCaseInput) async -> VerifyUserResult {
         do {
-            let user = try await userRepository.verify(email: input.email)
-            return .success(user)
+            try await userRepository.verify(email: input.email)
+            return .success(())
         } catch let error {
             return .failure(self.mapError(error))
         }

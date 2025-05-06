@@ -12,14 +12,14 @@ final class MockExternalAppsManager: ExternalAppsManagerProtocol {
 
 
 
-    var methods: [NavigationModels.Method] = [NavigationModels.Method(title: "Apple Maps", url: URL(string: "http://maps.apple.com/?saddr=&daddr=\(0.0),\(0.0)")!)]
+    var methods: [DeepLinkModels.Method] = [DeepLinkModels.Method(title: "Apple Maps", url: URL(string: "http://maps.apple.com/?saddr=&daddr=\(0.0),\(0.0)")!)]
 
-    func getMapMethods(latitude: Double, longitude: Double) -> [NavigationModels.Method] {
+    func getMapMethods(latitude: Double, longitude: Double) -> [DeepLinkModels.Method] {
         return methods
     }
 
 
-    func getMailMethods() -> [EsmorgaiOS.NavigationModels.Method] {
+    func getMailMethods() -> [EsmorgaiOS.DeepLinkModels.Method] {
         return methods
     }
 

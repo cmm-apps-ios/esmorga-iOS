@@ -110,14 +110,14 @@ class LocalizationKeys {
     enum RegistrationConfirmation {
          static let title: String = "register_confirmation_email_title"
          static let subtitle: String = "register_confirmation_email_subtitle"
-         static let titleResendEmail: String = "register_resend_code_success"
-         static let titleResendEmailFailed: String = "register_resend_code_error"
      }
 
     enum Snackbar {
         static let noInternet: String = "snackbar_no_internet"
         static let eventJoined: String = "snackbar_event_joined"
         static let eventLeft: String = "snackbar_event_left"
+        static let resendEmail: String = "register_resend_code_success"
+        static let resendEmailFailed: String = "register_resend_code_error"
     }
 
     enum Dashboard {

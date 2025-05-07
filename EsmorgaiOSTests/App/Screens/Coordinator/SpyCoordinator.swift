@@ -15,7 +15,7 @@ class SpyCoordinator: CoordinatorProtocol {
     var destination: Destination?
     var popCalled: Bool = false
     var popToRootCalled: Bool = false
-    var openNavigationAppCalled: Bool = false
+    var openAppCalled: Bool = false
 
     func push(destination: Destination) {
         self.destination = destination
@@ -36,6 +36,6 @@ class SpyCoordinator: CoordinatorProtocol {
     }
 
     func openNavigationApp(_ method: DeepLinkModels.Method) {
-        openNavigationAppCalled = true
+        openAppCalled = true
     }
 }

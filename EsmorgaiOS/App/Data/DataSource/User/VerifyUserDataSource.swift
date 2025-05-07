@@ -23,7 +23,6 @@ class VerifyUserDataSource: VerifyUserDataSourceProtocol {
     func verify(email: String) async throws {
         do {
             _  = try await networkRequest.request(networkService: AccountNetworkService.verify(email: email)) as NetworkRequest.EmptyBodyObject
-
         } catch let error {
             throw error
         }

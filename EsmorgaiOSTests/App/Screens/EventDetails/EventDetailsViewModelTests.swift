@@ -46,11 +46,11 @@ final class EventDetailsViewModelTests {
 
         sut.openLocation()
 
-        #expect(self.spyCoordinator.openNavigationAppCalled == true)
+        #expect(self.spyCoordinator.openAppCalled == true)
     }
 
     @Test
-    func test_given_open_maps_button_tapped_when_more_than_one_method_then_alert_is_shon() {
+    func test_given_open_maps_button_tapped_when_more_than_one_method_then_alert_is_shonw() {
 
         mockNavigationManager.methods = [DeepLinkModels.Method(title: "Apple Maps", url: URL(string: "http://maps.apple.com/?saddr=&daddr=\(0.0),\(0.0)")!),
                                          DeepLinkModels.Method(title: "Google Maps", url: URL(string: "http://maps.apple.com/?saddr=&daddr=\(0.0),\(0.0)")!)]

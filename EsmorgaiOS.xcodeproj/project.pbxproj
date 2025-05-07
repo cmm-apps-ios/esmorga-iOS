@@ -13,6 +13,8 @@
 		311FA20F2DB7A18200C4EC99 /* RegistrationConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA20E2DB7A18200C4EC99 /* RegistrationConfirmView.swift */; };
 		311FA2112DBA837A00C4EC99 /* VerifyUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2102DBA837A00C4EC99 /* VerifyUserDataSource.swift */; };
 		311FA2132DBA85B900C4EC99 /* VerifyUserUserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2122DBA85B900C4EC99 /* VerifyUserUserCase.swift */; };
+		311FA2162DCA52CC00C4EC99 /* RegistrationConfirmViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2152DCA52CC00C4EC99 /* RegistrationConfirmViewModelTests.swift */; };
+		311FA21A2DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2192DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift */; };
 		313D57432D6126E6001F4E95 /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57422D6126E6001F4E95 /* ProfileModels.swift */; };
 		313D57452D61272C001F4E95 /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57442D61272C001F4E95 /* ProfileBuilder.swift */; };
 		313D57472D612755001F4E95 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57462D612755001F4E95 /* ProfileView.swift */; };
@@ -263,6 +265,8 @@
 		311FA20E2DB7A18200C4EC99 /* RegistrationConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmView.swift; sourceTree = "<group>"; };
 		311FA2102DBA837A00C4EC99 /* VerifyUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUserDataSource.swift; sourceTree = "<group>"; };
 		311FA2122DBA85B900C4EC99 /* VerifyUserUserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUserUserCase.swift; sourceTree = "<group>"; };
+		311FA2152DCA52CC00C4EC99 /* RegistrationConfirmViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmViewModelTests.swift; sourceTree = "<group>"; };
+		311FA2192DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUserDataSourceTests.swift; sourceTree = "<group>"; };
 		313D57422D6126E6001F4E95 /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
 		313D57442D61272C001F4E95 /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
 		313D57462D612755001F4E95 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -527,6 +531,14 @@
 				311FA20E2DB7A18200C4EC99 /* RegistrationConfirmView.swift */,
 			);
 			path = RegistrationConfirmation;
+			sourceTree = "<group>";
+		};
+		311FA2142DCA253000C4EC99 /* RegistrationConfirm */ = {
+			isa = PBXGroup;
+			children = (
+				311FA2152DCA52CC00C4EC99 /* RegistrationConfirmViewModelTests.swift */,
+			);
+			path = RegistrationConfirm;
 			sourceTree = "<group>";
 		};
 		313D57412D6126C6001F4E95 /* Profile */ = {
@@ -835,6 +847,7 @@
 		EF31587D2C5A7E5000DE157A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				311FA2142DCA253000C4EC99 /* RegistrationConfirm */,
 				318025392D79C1ED0061610D /* Profile */,
 				EF65D1672CB7C8BB005078D9 /* Dialogs */,
 				EF2A6DC12CA6BBAE00164FD5 /* MyEvents */,
@@ -1367,6 +1380,7 @@
 				EFE34DB02C7C94B800724DDC /* UserRemoteDataSourceTests.swift */,
 				EF2128362C85D42800D00887 /* RegisterUserDataSourceTests.swift */,
 				EFA6463F2C8B093800D528F9 /* LocalUserDataSourceTests.swift */,
+				311FA2192DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2067,6 +2081,7 @@
 				EFE34DB92C7C99B500724DDC /* UserRepositoryTests.swift in Sources */,
 				EF21283B2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift in Sources */,
 				EFF8B8212CBEB97B007470A9 /* JoinEventUseCaseTests.swift in Sources */,
+				311FA2162DCA52CC00C4EC99 /* RegistrationConfirmViewModelTests.swift in Sources */,
 				EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */,
 				EFF9C8872C999C8600DE50BC /* AccountCredentialTests.swift in Sources */,
 				EF65D1692CB7C8CC005078D9 /* ErrorDialogModelBuilderTests.swift in Sources */,
@@ -2079,6 +2094,7 @@
 				EF0811E92C94326000DE4887 /* DashboardViewTests.swift in Sources */,
 				EFE34DB12C7C94B800724DDC /* UserRemoteDataSourceTests.swift in Sources */,
 				EF3158652C5A27DF00DE157A /* EventsRepositoryTests.swift in Sources */,
+				311FA21A2DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift in Sources */,
 				EFE34DC72C7CBFC500724DDC /* MockLoginUseCase.swift in Sources */,
 				EFEECD322D7F50BB002BBF66 /* UserDefaults+Clear.swift in Sources */,
 				EFA646422C8B09E700D528F9 /* UserModelBuilder.swift in Sources */,

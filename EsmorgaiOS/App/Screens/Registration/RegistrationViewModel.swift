@@ -144,8 +144,7 @@ class RegistrationViewModel: BaseViewModel<RegistrationViewStates> {
                     case .userRegister:
                         self.setEmailUserError()
                     case .needsConfirmation:
-                       // self.coordinator?.push(destination: .confirmRegister)
-                        self.coordinator?.push(destination: .confirmRegister(email: email)) //Supongo que es una forma no? cogo el mail del textbox y se lo paso
+                        self.coordinator?.push(destination: .confirmRegister(email: email))
                     default:
                         self.showErrorDialog()
                     }

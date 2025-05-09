@@ -21,7 +21,7 @@ final class RegistrationConfirmViewModelTests {
     init() {
         spyCoordinator = SpyCoordinator()
         mockNetworkMonitor = MockNetworkMonitor()
-        sut = RegistrationConfirmViewModel(coordinator: spyCoordinator, networkMonitor: mockNetworkMonitor, email: "mailconfirmtest@yopmail.com")
+        sut = RegistrationConfirmViewModel(coordinator: spyCoordinator, networkMonitor: mockNetworkMonitor, email: "")
     }
 
     deinit {
@@ -44,6 +44,19 @@ final class RegistrationConfirmViewModelTests {
     @Test
     func test_given_resend_email_called_then_email_is_sent() async {
 
+        sut.resendMail()
+
+        #expect(self.sut.snackBar.isShown == true)
+        #expect(self.sut.snackBar.message == LocalizationKeys.Snackbar.resendEmail.localize())
+
+    }
+
+    @MainActor
+    @Test
+    func test_given_resend_email_fails_then_snackbar_is_shown() async {
+
+        giveSut(email: "yagotest@yopmail.com")
+        
         await TestHelper.fullfillTask {
             self.sut.resendMail()
         }
@@ -51,6 +64,10 @@ final class RegistrationConfirmViewModelTests {
         #expect(self.sut.snackBar.isShown == true)
         #expect(self.sut.snackBar.message == LocalizationKeys.Snackbar.resendEmail.localize())
 
+    }
+
+    private func giveSut(email: String) {
+        sut = RegistrationConfirmViewModel(coordinator: spyCoordinator, email: email)
     }
 }
 

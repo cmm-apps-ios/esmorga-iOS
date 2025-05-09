@@ -45,6 +45,7 @@ class ExternalAppsManager: ExternalAppsManagerProtocol {
             methods.append(gmail)
         }
 
+        /*
         if let outlookUrl = URL(string: "ms-outlook://"),
            UIApplication.shared.canOpenURL(outlookUrl) {
             let outLookMail = DeepLinkModels.Method(title: "OutLookMail", url: outlookUrl)
@@ -56,7 +57,7 @@ class ExternalAppsManager: ExternalAppsManagerProtocol {
             let appleMail = DeepLinkModels.Method(title: "Apple Mail", url: mailUrl)
             methods.append(appleMail)
         }
-
+*/
         return methods
     }
 

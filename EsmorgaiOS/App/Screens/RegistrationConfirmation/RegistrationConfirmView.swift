@@ -17,6 +17,12 @@ struct RegistrationConfirmView: View {
     }
 
     enum AccessibilityIds {
+
+        static let rowImage: String = "RegistrationConfirmView.rowOptionImage"
+        static let rowTitle: String = "RegistrationConfirmView.Title"
+        static let rowSubTitle: String = "RegistrationConfirmView.Subtitle"
+        static let rowButton: String = "RegistrationConfirmView.Button"
+        static let rowButton2: String = "RegistrationConfirmView.Button2"
     }
 
     var body: some View {
@@ -27,16 +33,18 @@ struct RegistrationConfirmView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: .infinity)
-                        .frame(height: UIScreen.main.bounds.height * 0.35) // 30% of the screen height
+                        .frame(height: UIScreen.main.bounds.height * 0.35)
                         .clipped()
+                        .accessibilityIdentifier(AccessibilityIds.rowImage)
                     LazyVStack(alignment: .leading, spacing: 10) {
                         Text(LocalizationKeys.RegistrationConfirmation.title.localize())
                             .style(.heading1)
                             .padding(.top, 20)
-
+                            .accessibilityIdentifier(AccessibilityIds.rowTitle)
                         Text(LocalizationKeys.RegistrationConfirmation.subtitle.localize())
                             .style(.body1)
                             .padding(.top, 20)
+                            .accessibilityIdentifier(AccessibilityIds.rowSubTitle)
                     }
                     .padding(.horizontal, 16)
                     .padding(.bottom, 40)
@@ -47,12 +55,14 @@ struct RegistrationConfirmView: View {
                                      isLoading: $viewModel.primaryButton.isLoading) {
                             viewModel.openMailApp()
                         }
+                                     .accessibilityIdentifier(AccessibilityIds.rowButton)
 
                         CustomButton(title: $viewModel.secondaryButton.title,
                                      buttonStyle: .secondary,
                                      isLoading: $viewModel.primaryButton.isLoading) {
                             viewModel.resendMail()
                         }
+                                    .accessibilityIdentifier(AccessibilityIds.rowButton2)
                     }
                     .padding(.horizontal, 16)
                 }
@@ -64,6 +74,3 @@ struct RegistrationConfirmView: View {
         }
     }
 }
-
-
-

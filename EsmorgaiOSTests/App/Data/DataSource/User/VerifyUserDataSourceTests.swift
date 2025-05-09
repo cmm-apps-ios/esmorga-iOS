@@ -11,6 +11,8 @@ import OHHTTPStubs
 import OHHTTPStubsSwift
 @testable import EsmorgaiOS
 
+
+//Los dejo aqui, pero parece que los estoy planteando mal
 final class VerifyUserDataSourceTests: XCTestCase {
 
     private var sut: VerifyUserDataSource!
@@ -28,12 +30,12 @@ final class VerifyUserDataSourceTests: XCTestCase {
     }
 
     func test_given_verify_when_success_response_then_return_correct_mail() async {
-        stubRequest(file: "mock_account_login.json")
-        let results: ()? = try? await sut.verify(email: "testemailconfirm@yopmail.com")
-        expect(results).toNot(beNil())
+        stubRequest(file: "mock_dummy_file.json")//-> para que quiero este file
+        let results: ()? = try? await sut.verify(email: "test@yopmail.com")
+        expect(results).toNot(beNil()) //-> devuelve (), no es nil
     }
 
-    func test_given_verify_when_failure_response_then_return_error() async {
+    func test_given_verify_when_failure_response_then_return_generic_error() async {
 
         stubErrorRequest(code: 500)
 

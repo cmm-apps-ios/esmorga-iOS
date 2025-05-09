@@ -67,6 +67,14 @@ struct RegistrationConfirmView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
+        .alert("Selecciona tu app de navigacion", isPresented: $viewModel.showMethodsAlert) {
+            ForEach(viewModel.mailMethods, id: \.title) { method in
+                Button(method.title) {
+                    viewModel.openMailMethod(method)
+                }
+            }
+            Button("Cancelar", role: .cancel) { }
+        }
         .navigationBar {
             dismiss()
         }

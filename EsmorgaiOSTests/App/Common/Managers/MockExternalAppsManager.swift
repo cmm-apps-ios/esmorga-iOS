@@ -19,7 +19,7 @@ final class MockExternalAppsManager: ExternalAppsManagerProtocol {
     }
 
 
-    func getMailMethods() -> [EsmorgaiOS.DeepLinkModels.Method] {
+    func getMailMethods() -> [DeepLinkModels.Method] {
         return methods
     }
 

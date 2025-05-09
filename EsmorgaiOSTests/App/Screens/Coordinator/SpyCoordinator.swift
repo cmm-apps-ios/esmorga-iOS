@@ -35,7 +35,7 @@ class SpyCoordinator: CoordinatorProtocol {
         AnyView(EmptyView())
     }
 
-    func openNavigationApp(_ method: DeepLinkModels.Method) {
+    func openExtrenalApp(_ method: DeepLinkModels.Method) {
         openAppCalled = true
     }
 }

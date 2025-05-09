@@ -64,7 +64,7 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
     }
 
     func openNavigationMethod(_ method: DeepLinkModels.Method) {
-        coordinator?.openNavigationApp(method)
+        coordinator?.openExtrenalApp(method)
     }
 
     @MainActor

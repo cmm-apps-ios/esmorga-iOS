@@ -6,15 +6,8 @@
 //
 
 import Foundation
-/*
-class RegistrationConfirmBuilder {
 
-    func build(coordinator: any CoordinatorProtocol) -> RegistrationConfirmView {
-        let viewModel = RegistrationConfirmViewModel(coordinator: coordinator)
-        return RegistrationConfirmView(viewModel: viewModel)
-    }
-}
-*/
+
 class RegistrationConfirmBuilder {
 
     func build(coordinator: any CoordinatorProtocol, email: String) -> RegistrationConfirmView {

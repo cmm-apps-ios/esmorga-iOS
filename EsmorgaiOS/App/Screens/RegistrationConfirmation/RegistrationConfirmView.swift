@@ -18,7 +18,6 @@ struct RegistrationConfirmView: View {
 
     enum AccessibilityIds {
 
-        static let rowImage: String = "RegistrationConfirmView.rowOptionImage"
         static let rowTitle: String = "RegistrationConfirmView.Title"
         static let rowSubTitle: String = "RegistrationConfirmView.Subtitle"
         static let rowButton: String = "RegistrationConfirmView.Button"
@@ -35,7 +34,6 @@ struct RegistrationConfirmView: View {
                         .frame(maxWidth: .infinity)
                         .frame(height: UIScreen.main.bounds.height * 0.35)
                         .clipped()
-                        .accessibilityIdentifier(AccessibilityIds.rowImage)
                     LazyVStack(alignment: .leading, spacing: 10) {
                         Text(LocalizationKeys.RegistrationConfirmation.title.localize())
                             .style(.heading1)

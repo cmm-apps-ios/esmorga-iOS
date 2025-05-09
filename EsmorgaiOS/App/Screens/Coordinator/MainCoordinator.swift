@@ -14,7 +14,7 @@ protocol CoordinatorProtocol: AnyObject {
     func pop()
     func popToRoot()
     func build(destination: Destination) -> ViewType
-    func openNavigationApp(_ method: DeepLinkModels.Method)
+    func openExtrenalApp(_ method: DeepLinkModels.Method)
 }
 
 class MainCoordinator: ObservableObject, CoordinatorProtocol {
@@ -56,7 +56,7 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
         }
     }
 
-    func openNavigationApp(_ method: DeepLinkModels.Method) {
+    func openExtrenalApp(_ method: DeepLinkModels.Method) {
         UIApplication.shared.open(method.url, options: [: ], completionHandler: nil)
     }
 }

@@ -28,7 +28,7 @@ class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
 
     private let email: String
 
-    var navigationMethods = [DeepLinkModels.Method]()
+    var mailMethods = [DeepLinkModels.Method]()
 
     init(coordinator: (any CoordinatorProtocol)?, networkMonitor: NetworkMonitorProtocol? = NetworkMonitor.shared, navigationManager: ExternalAppsManagerProtocol = ExternalAppsManager(), verifyUserUseCase: VerifyUserUseCaseAlias =  VerifyUserUseCase(), email: String) {
         self.deepLinkManager = navigationManager
@@ -39,16 +39,16 @@ class RegistrationConfirmViewModel: BaseViewModel<RegistrationViewStates> {
     }
 
     func openMailApp() {
-        navigationMethods = deepLinkManager.getMailMethods()
-        if navigationMethods.count == 1, let method = navigationMethods.first {
-            openNavigationMethod(method)
+        mailMethods = deepLinkManager.getMailMethods()
+        if mailMethods.count == 1, let method = mailMethods.first {
+            openMailMethod(method)
         } else {
             showMethodsAlert = true
         }
     }
 
-    func openNavigationMethod(_ method: DeepLinkModels.Method) {
-        coordinator?.openNavigationApp(method)
+    func openMailMethod(_ method: DeepLinkModels.Method) {
+        coordinator?.openExtrenalApp(method)
     }
 
     func resendMail() {

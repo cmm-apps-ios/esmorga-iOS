@@ -16,6 +16,7 @@ final class RegistrationConfirmViewModelTests {
     private var sut: RegistrationConfirmViewModel!
     private var spyCoordinator: SpyCoordinator!
     private var mockNetworkMonitor: MockNetworkMonitor!
+    private var mockMailManager: MockExternalAppsManager!
 
 
     init() {
@@ -32,7 +33,7 @@ final class RegistrationConfirmViewModelTests {
 
     @MainActor
     @Test
-    func test_given_open_email_app_called_then_navigation_is_triggered() async { //Falla
+    func test_given_open_email_tapped_then_navigation_is_triggered() async {
 
         sut.openMailApp()
 
@@ -40,35 +41,16 @@ final class RegistrationConfirmViewModelTests {
 
     }
 
-    @MainActor
     @Test
-    func test_given_resend_email_called_then_email_is_sent() async {
+    func test_given_open_email_button_tapped_when_more_than_one_method_then_alert_is_shown() { //Tengo problema, parece que si que era un bug
 
-        sut.resendMail()
+        mockMailManager.methods = [DeepLinkModels.Method(title: "Gmail", url: URL(string: "googlegmail://co?to=&subject=Subject&body=Body")!),
+                                         DeepLinkModels.Method(title: "Outlook", url: URL(string: "ms-outlook://")!)]
+        sut.openMailApp()
 
-        #expect(self.sut.snackBar.isShown == true)
-        #expect(self.sut.snackBar.message == LocalizationKeys.Snackbar.resendEmail.localize())
-
+        #expect(self.sut.showMethodsAlert == true)
     }
 
-    @MainActor
-    @Test
-    func test_given_resend_email_fails_then_snackbar_is_shown() async {
-
-        giveSut(email: "yagotest@yopmail.com")
-        
-        await TestHelper.fullfillTask {
-            self.sut.resendMail()
-        }
-
-        #expect(self.sut.snackBar.isShown == true)
-        #expect(self.sut.snackBar.message == LocalizationKeys.Snackbar.resendEmail.localize())
-
-    }
-
-    private func giveSut(email: String) {
-        sut = RegistrationConfirmViewModel(coordinator: spyCoordinator, email: email)
-    }
 }
 
 

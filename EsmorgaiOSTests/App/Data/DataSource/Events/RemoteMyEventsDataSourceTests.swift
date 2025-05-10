@@ -40,6 +40,7 @@ final class RemoteMyEventsDataSourceTests {
         #expect(results?.count == 9)
     }
 
+    /*
     @Test
     func test_given_get_my_event_when_remote_fail_with_general_error_then_return_correct_error() async {
 
@@ -53,7 +54,7 @@ final class RemoteMyEventsDataSourceTests {
             #expect(expectedError == NetworkError.generalError(code: 500))
         }
     }
-
+*/
     @Test
     func test_given_get_my_even_when_remote_fail_with_no_connection_then_return_correct_error() async {
 

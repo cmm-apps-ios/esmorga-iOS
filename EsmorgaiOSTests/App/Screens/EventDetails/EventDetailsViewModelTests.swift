@@ -14,7 +14,7 @@ final class EventDetailsViewModelTests {
 
     private var sut: EventDetailsViewModel!
     private var spyCoordinator: SpyCoordinator!
-    private var mockNavigationManager: MockNavigationManager!
+    private var mockNavigationManager: MockExternalAppsManager!
     private var mockGetLocalUserUseCase: MockGetLocalUserUseCase!
     private var mockJoinEventUseCase: MockJoinEventUseCase!
     private var mockLeaveEventUseCase: MockLeaveEventUseCase!
@@ -22,7 +22,7 @@ final class EventDetailsViewModelTests {
 
     init() {
         spyCoordinator = SpyCoordinator()
-        mockNavigationManager = MockNavigationManager()
+        mockNavigationManager = MockExternalAppsManager()
         mockGetLocalUserUseCase = MockGetLocalUserUseCase()
         mockJoinEventUseCase = MockJoinEventUseCase()
         mockLeaveEventUseCase = MockLeaveEventUseCase()
@@ -46,14 +46,14 @@ final class EventDetailsViewModelTests {
 
         sut.openLocation()
 
-        #expect(self.spyCoordinator.openNavigationAppCalled == true)
+        #expect(self.spyCoordinator.openAppCalled == true)
     }
 
     @Test
-    func test_given_open_maps_button_tapped_when_more_than_one_method_then_alert_is_shon() {
+    func test_given_open_maps_button_tapped_when_more_than_one_method_then_alert_is_shonw() {
 
-        mockNavigationManager.methods = [NavigationModels.Method(title: "Apple Maps", url: URL(string: "http://maps.apple.com/?saddr=&daddr=\(0.0),\(0.0)")!),
-                                         NavigationModels.Method(title: "Google Maps", url: URL(string: "http://maps.apple.com/?saddr=&daddr=\(0.0),\(0.0)")!)]
+        mockNavigationManager.methods = [DeepLinkModels.Method(title: "Apple Maps", url: URL(string: "http://maps.apple.com/?saddr=&daddr=\(0.0),\(0.0)")!),
+                                         DeepLinkModels.Method(title: "Google Maps", url: URL(string: "http://maps.apple.com/?saddr=&daddr=\(0.0),\(0.0)")!)]
 
         giveSut(event: EventBuilder().with(latitude: 40.4165).with(longitude: -3.70256).build())
 

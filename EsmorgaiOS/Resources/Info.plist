@@ -9,6 +9,9 @@
 	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>ms-outlook</string>
+		<string>mailto</string>
+		<string>googlegmail</string>
 		<string>comgooglemaps</string>
 		<string>waze</string>
 		<string>maps</string>

@@ -19,6 +19,7 @@ enum RegisterUserError: Error {
     case noInternetConnection
     case mappingError
     case generalError
+    case needsConfirmation
 }
 
 typealias RegisterUserResult = Result<UserModels.User, RegisterUserError>
@@ -50,6 +51,7 @@ class RegisterUserUseCase: RegisterUserUseCaseAlias {
         case NetworkError.noInternetConnection: return .noInternetConnection
         case NetworkError.mappingError: return .mappingError
         case NetworkError.generalError(let code) where code == 409: return .userRegister
+        case NetworkError.generalError(let code) where code == 201: return .needsConfirmation
         default: return .generalError
         }
     }

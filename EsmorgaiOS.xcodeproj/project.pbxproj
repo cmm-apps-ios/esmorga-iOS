@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		311FA2092DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2082DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift */; };
+		311FA20B2DB79CD100C4EC99 /* RegistrationConfirmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA20A2DB79CD100C4EC99 /* RegistrationConfirmModels.swift */; };
+		311FA20D2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA20C2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift */; };
+		311FA20F2DB7A18200C4EC99 /* RegistrationConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA20E2DB7A18200C4EC99 /* RegistrationConfirmView.swift */; };
+		311FA2112DBA837A00C4EC99 /* VerifyUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2102DBA837A00C4EC99 /* VerifyUserDataSource.swift */; };
+		311FA2132DBA85B900C4EC99 /* VerifyUserUserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2122DBA85B900C4EC99 /* VerifyUserUserCase.swift */; };
+		311FA2162DCA52CC00C4EC99 /* RegistrationConfirmViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2152DCA52CC00C4EC99 /* RegistrationConfirmViewModelTests.swift */; };
+		311FA21A2DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2192DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift */; };
+		311FA21C2DCCBEDB00C4EC99 /* RegistrationConfirmViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA21B2DCCBEDB00C4EC99 /* RegistrationConfirmViewTests.swift */; };
+		311FA21F2DCD545000C4EC99 /* RegistrationConfirmSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA21E2DCD545000C4EC99 /* RegistrationConfirmSnapshotTests.swift */; };
 		313D57432D6126E6001F4E95 /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57422D6126E6001F4E95 /* ProfileModels.swift */; };
 		313D57452D61272C001F4E95 /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57442D61272C001F4E95 /* ProfileBuilder.swift */; };
 		313D57472D612755001F4E95 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57462D612755001F4E95 /* ProfileView.swift */; };
@@ -26,6 +36,7 @@
 		3180253B2D79C20E0061610D /* ProfileViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253A2D79C20E0061610D /* ProfileViewTests.swift */; };
 		3180253F2D809D940061610D /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253E2D809D940061610D /* ProfileViewModelTests.swift */; };
 		318025422D81E4E70061610D /* ProfileScreenSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318025412D81E4E70061610D /* ProfileScreenSnapshotTests.swift */; };
+		3182174B2DCFE45D0031685D /* MockVerifyUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182174A2DCFE45D0031685D /* MockVerifyUserUseCase.swift */; };
 		31D232932DA68B230084057E /* CrashEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D232922DA68B060084057E /* CrashEventManager.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
@@ -75,7 +86,7 @@
 		EF2A6DD32CAEA75A00164FD5 /* EventDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD22CAEA75300164FD5 /* EventDetailsModels.swift */; };
 		EF2A6DD62CAEA7B600164FD5 /* EventDetailsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD52CAEA7AE00164FD5 /* EventDetailsMapper.swift */; };
 		EF2A6DD82CAEA89100164FD5 /* Result+IsSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD72CAEA88300164FD5 /* Result+IsSuccess.swift */; };
-		EF2A6DDA2CAED73100164FD5 /* MockNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD92CAED72F00164FD5 /* MockNavigationManager.swift */; };
+		EF2A6DDA2CAED73100164FD5 /* MockExternalAppsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DD92CAED72F00164FD5 /* MockExternalAppsManager.swift */; };
 		EF2A6DDD2CAED77400164FD5 /* EventDetailsSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A6DDC2CAED76B00164FD5 /* EventDetailsSnapshotTests.swift */; };
 		EF2A6DDE2CAED84400164FD5 /* MockGetLocalUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6464A2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift */; };
 		EF2A6DDF2CAED8B800164FD5 /* EventBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD6100B2CA2C40400E3DB1E /* EventBuilder.swift */; };
@@ -122,8 +133,8 @@
 		EF65D16D2CB91F5D005078D9 /* JoinEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65D16C2CB91F56005078D9 /* JoinEventUseCase.swift */; };
 		EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */; };
 		EF7DF9562C9C0E94005908B7 /* View+FirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */; };
-		EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* NavigationManager.swift */; };
-		EF9CDB862C89C0BB0044FB29 /* NavigationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */; };
+		EF9CDB842C89C0920044FB29 /* ExternalAppsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB832C89C0920044FB29 /* ExternalAppsManager.swift */; };
+		EF9CDB862C89C0BB0044FB29 /* DeepLinkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CDB852C89C0BB0044FB29 /* DeepLinkModels.swift */; };
 		EFA646382C8AFC9500D528F9 /* LocalUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA646372C8AFC9500D528F9 /* LocalUserDataSource.swift */; };
 		EFA6463A2C8B00BE00D528F9 /* GetLocalUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */; };
 		EFA6463D2C8B02B200D528F9 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA6463C2C8B02B200D528F9 /* DomainError.swift */; };
@@ -251,6 +262,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		311FA2082DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmViewModel.swift; sourceTree = "<group>"; };
+		311FA20A2DB79CD100C4EC99 /* RegistrationConfirmModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmModels.swift; sourceTree = "<group>"; };
+		311FA20C2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmBuilder.swift; sourceTree = "<group>"; };
+		311FA20E2DB7A18200C4EC99 /* RegistrationConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmView.swift; sourceTree = "<group>"; };
+		311FA2102DBA837A00C4EC99 /* VerifyUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUserDataSource.swift; sourceTree = "<group>"; };
+		311FA2122DBA85B900C4EC99 /* VerifyUserUserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUserUserCase.swift; sourceTree = "<group>"; };
+		311FA2152DCA52CC00C4EC99 /* RegistrationConfirmViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmViewModelTests.swift; sourceTree = "<group>"; };
+		311FA2192DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUserDataSourceTests.swift; sourceTree = "<group>"; };
+		311FA21B2DCCBEDB00C4EC99 /* RegistrationConfirmViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmViewTests.swift; sourceTree = "<group>"; };
+		311FA21E2DCD545000C4EC99 /* RegistrationConfirmSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmSnapshotTests.swift; sourceTree = "<group>"; };
 		313D57422D6126E6001F4E95 /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
 		313D57442D61272C001F4E95 /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
 		313D57462D612755001F4E95 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -265,6 +286,7 @@
 		3180253A2D79C20E0061610D /* ProfileViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTests.swift; sourceTree = "<group>"; };
 		3180253E2D809D940061610D /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
 		318025412D81E4E70061610D /* ProfileScreenSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenSnapshotTests.swift; sourceTree = "<group>"; };
+		3182174A2DCFE45D0031685D /* MockVerifyUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVerifyUserUseCase.swift; sourceTree = "<group>"; };
 		31D232922DA68B060084057E /* CrashEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashEventManager.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
@@ -314,7 +336,7 @@
 		EF2A6DD22CAEA75300164FD5 /* EventDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsModels.swift; sourceTree = "<group>"; };
 		EF2A6DD52CAEA7AE00164FD5 /* EventDetailsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsMapper.swift; sourceTree = "<group>"; };
 		EF2A6DD72CAEA88300164FD5 /* Result+IsSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+IsSuccess.swift"; sourceTree = "<group>"; };
-		EF2A6DD92CAED72F00164FD5 /* MockNavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationManager.swift; sourceTree = "<group>"; };
+		EF2A6DD92CAED72F00164FD5 /* MockExternalAppsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExternalAppsManager.swift; sourceTree = "<group>"; };
 		EF2A6DDC2CAED76B00164FD5 /* EventDetailsSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsSnapshotTests.swift; sourceTree = "<group>"; };
 		EF2F9CC62C875D330064D2D1 /* BaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BaseConfig.xcconfig; sourceTree = "<group>"; };
 		EF3158522C53D9EE00DE157A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -355,8 +377,8 @@
 		EF65D16C2CB91F56005078D9 /* JoinEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinEventUseCase.swift; sourceTree = "<group>"; };
 		EF7DF9532C9C0DA9005908B7 /* FirstAppearModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAppearModifier.swift; sourceTree = "<group>"; };
 		EF7DF9552C9C0E84005908B7 /* View+FirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+FirstAppear.swift"; sourceTree = "<group>"; };
-		EF9CDB832C89C0920044FB29 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
-		EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModels.swift; sourceTree = "<group>"; };
+		EF9CDB832C89C0920044FB29 /* ExternalAppsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalAppsManager.swift; sourceTree = "<group>"; };
+		EF9CDB852C89C0BB0044FB29 /* DeepLinkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkModels.swift; sourceTree = "<group>"; };
 		EFA646372C8AFC9500D528F9 /* LocalUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserDataSource.swift; sourceTree = "<group>"; };
 		EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocalUserUseCase.swift; sourceTree = "<group>"; };
 		EFA6463C2C8B02B200D528F9 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
@@ -506,6 +528,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		311FA2032DB79B6F00C4EC99 /* RegistrationConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				311FA2082DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift */,
+				311FA20A2DB79CD100C4EC99 /* RegistrationConfirmModels.swift */,
+				311FA20C2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift */,
+				311FA20E2DB7A18200C4EC99 /* RegistrationConfirmView.swift */,
+			);
+			path = RegistrationConfirmation;
+			sourceTree = "<group>";
+		};
+		311FA2142DCA253000C4EC99 /* RegistrationConfirm */ = {
+			isa = PBXGroup;
+			children = (
+				311FA2152DCA52CC00C4EC99 /* RegistrationConfirmViewModelTests.swift */,
+				311FA21B2DCCBEDB00C4EC99 /* RegistrationConfirmViewTests.swift */,
+			);
+			path = RegistrationConfirm;
+			sourceTree = "<group>";
+		};
+		311FA21D2DCD540A00C4EC99 /* RegistrationConfirm */ = {
+			isa = PBXGroup;
+			children = (
+				311FA21E2DCD545000C4EC99 /* RegistrationConfirmSnapshotTests.swift */,
+			);
+			path = RegistrationConfirm;
+			sourceTree = "<group>";
+		};
 		313D57412D6126C6001F4E95 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -548,6 +598,7 @@
 		EF0811C02C90940D00DE4887 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				311FA21D2DCD540A00C4EC99 /* RegistrationConfirm */,
 				318025402D81E4B60061610D /* Profile */,
 				EFE0F5EF2CC2772D0046959A /* WelcomeScreen */,
 				EF2A6DCF2CAE93E200164FD5 /* Dialogs */,
@@ -812,6 +863,7 @@
 		EF31587D2C5A7E5000DE157A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				311FA2142DCA253000C4EC99 /* RegistrationConfirm */,
 				318025392D79C1ED0061610D /* Profile */,
 				EF65D1672CB7C8BB005078D9 /* Dialogs */,
 				EF2A6DC12CA6BBAE00164FD5 /* MyEvents */,
@@ -943,6 +995,7 @@
 				EFE34DD22C7DE28D00724DDC /* RegisterUserUseCase.swift */,
 				EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */,
 				31518AC82D6BC54D00363A3C /* LogOutUserUseCase.swift */,
+				311FA2122DBA85B900C4EC99 /* VerifyUserUserCase.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -958,8 +1011,8 @@
 		EF9CDB822C89C0800044FB29 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				EF9CDB832C89C0920044FB29 /* NavigationManager.swift */,
-				EF9CDB852C89C0BB0044FB29 /* NavigationModels.swift */,
+				EF9CDB832C89C0920044FB29 /* ExternalAppsManager.swift */,
+				EF9CDB852C89C0BB0044FB29 /* DeepLinkModels.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -998,6 +1051,7 @@
 				EFE34DC62C7CBFC500724DDC /* MockLoginUseCase.swift */,
 				EF21283C2C85D98800D00887 /* MockRegisterUserUseCase.swift */,
 				EFA6464A2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift */,
+				3182174A2DCFE45D0031685D /* MockVerifyUserUseCase.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1074,6 +1128,7 @@
 		EFD7EEF12C3C415F00C8CE70 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				311FA2032DB79B6F00C4EC99 /* RegistrationConfirmation */,
 				313D57412D6126C6001F4E95 /* Profile */,
 				EFD377042CA1A2DF0090B90A /* MyEvents */,
 				EF0811D82C9328B000DE4887 /* Coordinator */,
@@ -1319,6 +1374,7 @@
 				EFE34D952C74A59800724DDC /* LoginUserDataSource.swift */,
 				EFE34DD02C7DE0D300724DDC /* RegisterUserDataSource.swift */,
 				EFA646372C8AFC9500D528F9 /* LocalUserDataSource.swift */,
+				311FA2102DBA837A00C4EC99 /* VerifyUserDataSource.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1341,6 +1397,7 @@
 				EFE34DB02C7C94B800724DDC /* UserRemoteDataSourceTests.swift */,
 				EF2128362C85D42800D00887 /* RegisterUserDataSourceTests.swift */,
 				EFA6463F2C8B093800D528F9 /* LocalUserDataSourceTests.swift */,
+				311FA2192DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1469,7 +1526,7 @@
 			isa = PBXGroup;
 			children = (
 				EFEECD2E2D7F4C76002BBF66 /* FirstLaunchManagerTests.swift */,
-				EF2A6DD92CAED72F00164FD5 /* MockNavigationManager.swift */,
+				EF2A6DD92CAED72F00164FD5 /* MockExternalAppsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1891,6 +1948,7 @@
 				EF2A6DDF2CAED8B800164FD5 /* EventBuilder.swift in Sources */,
 				EF0811E62C933BEB00DE4887 /* SpyCoordinator.swift in Sources */,
 				318025422D81E4E70061610D /* ProfileScreenSnapshotTests.swift in Sources */,
+				311FA21F2DCD545000C4EC99 /* RegistrationConfirmSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1914,6 +1972,7 @@
 				EF2A6DC82CAAE2CC00164FD5 /* ErrorDialogModelBuilder.swift in Sources */,
 				EFD377112CA1B3720090B90A /* Animation.swift in Sources */,
 				313D57432D6126E6001F4E95 /* ProfileModels.swift in Sources */,
+				311FA20F2DB7A18200C4EC99 /* RegistrationConfirmView.swift in Sources */,
 				EF2983CD2C6A162A00C2393E /* SplashViewModel.swift in Sources */,
 				EF0811D52C93260800DE4887 /* DashboardModels.swift in Sources */,
 				EFE34DD12C7DE0D300724DDC /* RegisterUserDataSource.swift in Sources */,
@@ -1931,6 +1990,7 @@
 				EF2983E72C6B729A00C2393E /* WelcomeScreenBuilder.swift in Sources */,
 				EFE0A9792C3D925600E28953 /* TextStyles.swift in Sources */,
 				EF4213D82C41412300686033 /* AppManager.swift in Sources */,
+				311FA2132DBA85B900C4EC99 /* VerifyUserUserCase.swift in Sources */,
 				EFE34D9D2C74A92800724DDC /* LoginUseCase.swift in Sources */,
 				EFE0A97F2C3D92F200E28953 /* Text+TextStyle.swift in Sources */,
 				313D57492D612792001F4E95 /* ProfileViewModel.swift in Sources */,
@@ -1949,7 +2009,7 @@
 				EFE34DA02C74AAD500724DDC /* LoginView.swift in Sources */,
 				EF21284F2C86161400D00887 /* KeychainProtocols.swift in Sources */,
 				EFD7EF152C3D740700C8CE70 /* EventsNetworkService.swift in Sources */,
-				EF9CDB842C89C0920044FB29 /* NavigationManager.swift in Sources */,
+				EF9CDB842C89C0920044FB29 /* ExternalAppsManager.swift in Sources */,
 				EFA6463D2C8B02B200D528F9 /* DomainError.swift in Sources */,
 				31518AD52D6CC57300363A3C /* ConfirmationDialog.swift in Sources */,
 				EF2A6DD62CAEA7B600164FD5 /* EventDetailsMapper.swift in Sources */,
@@ -1967,6 +2027,7 @@
 				EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */,
 				EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */,
 				EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */,
+				311FA2092DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift in Sources */,
 				EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */,
 				EF31589C2C63755E00DE157A /* WelcomeScreenView.swift in Sources */,
 				EF0811E22C932FCF00DE4887 /* SplashBuilder.swift in Sources */,
@@ -2004,15 +2065,18 @@
 				EFE34DCE2C7CC9F900724DDC /* LoginModels.swift in Sources */,
 				EF4213C52C3ECB4400686033 /* DataConvertible.swift in Sources */,
 				EF0811DC2C9329F200DE4887 /* Destination.swift in Sources */,
+				311FA20B2DB79CD100C4EC99 /* RegistrationConfirmModels.swift in Sources */,
 				EFD7EF202C3D8E9F00C8CE70 /* EventListCell.swift in Sources */,
 				EF2983F72C6B95F500C2393E /* ViewState.swift in Sources */,
 				EF2128442C86103800D00887 /* RegistrationModels.swift in Sources */,
 				EF31589E2C63757600DE157A /* WelcomeScreenViewModel.swift in Sources */,
 				EF4213CB2C3ED66200686033 /* CardView.swift in Sources */,
+				311FA2112DBA837A00C4EC99 /* VerifyUserDataSource.swift in Sources */,
+				311FA20D2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift in Sources */,
 				EFF9C8722C9991DA00DE50BC /* AccountTokensRefresher.swift in Sources */,
 				EFE34DDD2C7DE70900724DDC /* RegistrationBuilder.swift in Sources */,
 				EFD377032CA17C610090B90A /* RemoteMyEventsDataSource.swift in Sources */,
-				EF9CDB862C89C0BB0044FB29 /* NavigationModels.swift in Sources */,
+				EF9CDB862C89C0BB0044FB29 /* DeepLinkModels.swift in Sources */,
 				EFD7EF172C3D75CB00C8CE70 /* NetworkRequest.swift in Sources */,
 				EFF8B81D2CBEAB1C007470A9 /* MyEventsModels.swift in Sources */,
 				EF65D16D2CB91F5D005078D9 /* JoinEventUseCase.swift in Sources */,
@@ -2035,8 +2099,10 @@
 				EFE34DB92C7C99B500724DDC /* UserRepositoryTests.swift in Sources */,
 				EF21283B2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift in Sources */,
 				EFF8B8212CBEB97B007470A9 /* JoinEventUseCaseTests.swift in Sources */,
+				311FA2162DCA52CC00C4EC99 /* RegistrationConfirmViewModelTests.swift in Sources */,
 				EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */,
 				EFF9C8872C999C8600DE50BC /* AccountCredentialTests.swift in Sources */,
+				3182174B2DCFE45D0031685D /* MockVerifyUserUseCase.swift in Sources */,
 				EF65D1692CB7C8CC005078D9 /* ErrorDialogModelBuilderTests.swift in Sources */,
 				EF3158772C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift in Sources */,
 				EF2128372C85D42800D00887 /* RegisterUserDataSourceTests.swift in Sources */,
@@ -2047,14 +2113,16 @@
 				EF0811E92C94326000DE4887 /* DashboardViewTests.swift in Sources */,
 				EFE34DB12C7C94B800724DDC /* UserRemoteDataSourceTests.swift in Sources */,
 				EF3158652C5A27DF00DE157A /* EventsRepositoryTests.swift in Sources */,
+				311FA21A2DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift in Sources */,
 				EFE34DC72C7CBFC500724DDC /* MockLoginUseCase.swift in Sources */,
 				EFEECD322D7F50BB002BBF66 /* UserDefaults+Clear.swift in Sources */,
 				EFA646422C8B09E700D528F9 /* UserModelBuilder.swift in Sources */,
 				EFF8B8242CBEC2B7007470A9 /* MockJoinEventUseCase.swift in Sources */,
 				EF2983FA2C6B987A00C2393E /* EventDetailsViewModelTests.swift in Sources */,
 				EF21283D2C85D98800D00887 /* MockRegisterUserUseCase.swift in Sources */,
+				311FA21C2DCCBEDB00C4EC99 /* RegistrationConfirmViewTests.swift in Sources */,
 				EFF8B82A2CBFDCF4007470A9 /* MockLeaveEventUseCase.swift in Sources */,
-				EF2A6DDA2CAED73100164FD5 /* MockNavigationManager.swift in Sources */,
+				EF2A6DDA2CAED73100164FD5 /* MockExternalAppsManager.swift in Sources */,
 				EFD6100E2CA2C44A00E3DB1E /* MockRemoteMyEventsDataSource.swift in Sources */,
 				EF31586E2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift in Sources */,
 				EFE34DC52C7CBC6300724DDC /* LoginUseCaseTests.swift in Sources */,
@@ -2498,6 +2566,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EsmorgaiOS/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -2639,6 +2708,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EsmorgaiOS/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -2844,6 +2914,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EsmorgaiOS/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -2885,6 +2956,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EsmorgaiOS/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

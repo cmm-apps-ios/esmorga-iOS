@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NavigationModels {
+enum DeepLinkModels {
     struct Method {
         let title: String
         let url: URL

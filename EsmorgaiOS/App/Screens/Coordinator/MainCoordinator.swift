@@ -14,7 +14,7 @@ protocol CoordinatorProtocol: AnyObject {
     func pop()
     func popToRoot()
     func build(destination: Destination) -> ViewType
-    func openNavigationApp(_ method: NavigationModels.Method)
+    func openExtrenalApp(_ method: DeepLinkModels.Method)
 }
 
 class MainCoordinator: ObservableObject, CoordinatorProtocol {
@@ -43,6 +43,8 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
             LoginBuilder().build(coordinator: self)
         case .register:
             RegistrationBuilder().build(coordinator: self)
+        case .confirmRegister(let email):
+            RegistrationConfirmBuilder().build(coordinator: self, email: email)
         case .dialog(let model):
             ErrorDialog(model: model)
         case .eventList:
@@ -54,7 +56,7 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
         }
     }
 
-    func openNavigationApp(_ method: NavigationModels.Method) {
+    func openExtrenalApp(_ method: DeepLinkModels.Method) {
         UIApplication.shared.open(method.url, options: [: ], completionHandler: nil)
     }
 }

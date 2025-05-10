@@ -14,7 +14,7 @@ enum EventDetailsViewState: ViewStateProtocol {
 
 class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
 
-    private let navigationManager: NavigationManagerProtocol
+    private let deepLinkManager: ExternalAppsManagerProtocol
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
     private let joinEventUseCase: JoinEventUseCaseAlias
     private let leaveEventUseCase: LeaveEventUseCaseAlias
@@ -23,16 +23,16 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
 
     @Published var showMethodsAlert: Bool = false
     @Published var model: EventDetails.Model = .empty
-    var navigationMethods = [NavigationModels.Method]()
+    var navigationMethods = [DeepLinkModels.Method]()
 
     init(coordinator: (any CoordinatorProtocol)?,
          networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,
          event: EventModels.Event,
-         navigationManager: NavigationManagerProtocol = NavigationManager(),
+         navigationManager: ExternalAppsManagerProtocol = ExternalAppsManager(),
          getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
          joinEventUseCase: JoinEventUseCaseAlias = JoinEventUseCase(),
          leaveEventUseCase: LeaveEventUseCaseAlias = LeaveEventUseCase()) {
-        self.navigationManager = navigationManager
+        self.deepLinkManager = navigationManager
         self.event = event
         self.getLocalUserUseCase = getLocalUserUseCase
         self.joinEventUseCase = joinEventUseCase
@@ -55,7 +55,7 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
     func openLocation() {
 
         guard let latitude = event.latitude, let longitude = event.longitude else { return }
-        navigationMethods = navigationManager.getMethods(latitude: latitude, longitude: longitude)
+        navigationMethods = deepLinkManager.getMapMethods(latitude: latitude, longitude: longitude)
         if navigationMethods.count == 1, let method = navigationMethods.first {
             openNavigationMethod(method)
         } else {
@@ -63,8 +63,8 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
         }
     }
 
-    func openNavigationMethod(_ method: NavigationModels.Method) {
-        coordinator?.openNavigationApp(method)
+    func openNavigationMethod(_ method: DeepLinkModels.Method) {
+        coordinator?.openExtrenalApp(method)
     }
 
     @MainActor

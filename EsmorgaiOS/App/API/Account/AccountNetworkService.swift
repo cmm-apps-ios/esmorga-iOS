@@ -13,6 +13,7 @@ enum AccountNetworkService: NetworkService {
     case myEvents
     case login(pass: String, email: String)
     case register(name: String, lastName: String, pass: String, email: String)
+    case verify(email:String)
     case refresh(token: String)
     case join(eventId: String)
     case leave(eventId: String)
@@ -23,6 +24,7 @@ enum AccountNetworkService: NetworkService {
         switch self {
         case .login: return "account/login"
         case .register: return "account/register"
+        case .verify: return "account/email/verification"
         case .refresh: return "account/refresh"
         case .myEvents, .join, .leave: return "account/events"
         }
@@ -38,7 +40,7 @@ enum AccountNetworkService: NetworkService {
 
     var parameters: [String : Any]? { nil }
     var headers: HTTPHeaders { ["Content-Type": "application/json"] }
-    
+
     var body: Data? {
         switch self {
         case .login(let pass, let email):
@@ -50,6 +52,9 @@ enum AccountNetworkService: NetworkService {
                         "lastName": lastName,
                         "password": pass,
                         "email": email]
+            return try? JSONSerialization.data(withJSONObject: json, options: [])
+        case .verify(let email):
+            let json = ["email": email]
             return try? JSONSerialization.data(withJSONObject: json, options: [])
         case .refresh(let token):
             let json = ["refreshToken": token]

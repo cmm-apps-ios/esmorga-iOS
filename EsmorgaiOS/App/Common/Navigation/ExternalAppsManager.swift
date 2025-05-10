@@ -39,6 +39,12 @@ class ExternalAppsManager: ExternalAppsManagerProtocol {
     func getMailMethods() -> [DeepLinkModels.Method] {
         var methods = [DeepLinkModels.Method]()
 
+        if let mailUrl = URL(string: "mailto:?subject=Subject&body=Body"),
+           UIApplication.shared.canOpenURL(mailUrl) {
+            let appleMail = DeepLinkModels.Method(title: "Apple Mail", url: mailUrl)
+            methods.append(appleMail)
+        }
+
         if let gmailUrl = URL(string: "googlegmail://co?to=&subject=Subject&body=Body"),
            UIApplication.shared.canOpenURL(gmailUrl) {
             let gmail = DeepLinkModels.Method(title: "Gmail", url: gmailUrl)
@@ -47,16 +53,10 @@ class ExternalAppsManager: ExternalAppsManagerProtocol {
 
         if let outlookUrl = URL(string: "ms-outlook://"),
            UIApplication.shared.canOpenURL(outlookUrl) {
-            let outLookMail = DeepLinkModels.Method(title: "OutLookMail", url: outlookUrl)
+            let outLookMail = DeepLinkModels.Method(title: "OutLook", url: outlookUrl)
             methods.append(outLookMail)
         }
-
-        if let mailUrl = URL(string: "mailto:?subject=Subject&body=Body"),
-           UIApplication.shared.canOpenURL(mailUrl) {
-            let appleMail = DeepLinkModels.Method(title: "Apple Mail", url: mailUrl)
-            methods.append(appleMail)
-        }
-
+        
         return methods
     }
 

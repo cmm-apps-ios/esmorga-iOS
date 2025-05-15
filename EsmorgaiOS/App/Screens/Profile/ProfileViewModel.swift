@@ -86,7 +86,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
     }
 
     func showConfirmationDialog() {
-        let primaryAction: (() -> Void)? = {
+        let secondaryAction: (() -> Void)? = {
             Task {
                 await self.closeSession()
 
@@ -94,11 +94,12 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
         }
         self.confirmationDialog = ConfirmationDialogView.Model(title: LocalizationKeys.Profile.logoutPopupDescription.localize(),
                                                                     isShown: true,
-                                                                    primaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(),
-                                                                    secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize(),
-                                                                    primaryAction: primaryAction,
-                                                                    secondaryAction: nil)
+                                                                    primaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize(),
+                                                                    secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(),
+                                                                    primaryAction: nil,
+                                                                    secondaryAction: secondaryAction)
     }
+   
 
     func closeSession() async {
         let result = await logoutUserUseCase.execute()

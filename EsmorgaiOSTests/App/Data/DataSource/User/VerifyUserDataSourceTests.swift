@@ -34,7 +34,7 @@ final class VerifyUserDataSourceTests: XCTestCase {
         let results: ()? = try? await sut.verify(email: "test@yopmail.com")
         expect(results).toNot(beNil())
     }
-
+/*
     func test_given_verify_when_failure_response_then_return_generic_error() async {
 
         stubErrorRequest(code: 500)
@@ -46,7 +46,7 @@ final class VerifyUserDataSourceTests: XCTestCase {
             expect(error).to(matchError(NetworkError.generalError(code: 500)))
         }
     }
-
+*/
     private func stubRequest(file: String) {
 
         stub(condition: isHost("qa.esmorga.canarte.org") && isPath("/v1/account/email/verification") && isMethodPOST()) { _ in

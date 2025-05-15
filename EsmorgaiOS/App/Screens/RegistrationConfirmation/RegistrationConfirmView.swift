@@ -56,7 +56,7 @@ struct RegistrationConfirmView: View {
                                      .accessibilityIdentifier(AccessibilityIds.rowButton)
 
                         CustomButton(title: $viewModel.secondaryButton.title,
-                                     buttonStyle: .tertiary,
+                                     buttonStyle: .secondary,
                                      isLoading: $viewModel.primaryButton.isLoading) {
                             viewModel.resendMail()
                         }

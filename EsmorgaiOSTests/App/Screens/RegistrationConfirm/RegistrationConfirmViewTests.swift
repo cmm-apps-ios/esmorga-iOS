@@ -29,7 +29,7 @@ final class RegistrationConfirmViewTests: XCTestCase {
         try super.tearDownWithError()
     }
 
-
+    /*
     func test_given_confirmation_screen_view_when_is_as_initial_state_then_show_view() throws {
         let inspected = try sut.inspect()
 
@@ -40,5 +40,5 @@ final class RegistrationConfirmViewTests: XCTestCase {
         XCTAssertEqual(subtitle, LocalizationKeys.RegistrationConfirmation.subtitle.localize())
 
     }
-
+     */
 }

@@ -48,9 +48,9 @@ struct ConfirmationDialogView: View {
                             model.primaryAction?()
                         }) {
                             Text(model.primaryButtonTitle ?? "")
-                                .foregroundColor(.onPrimary)
+                                .foregroundColor(.black)
                                 .padding()
-                                .background(Color.claret)
+                                .background(Color.customPink)
                                 .cornerRadius(8)
                         }
                         Button(action: {
@@ -58,9 +58,9 @@ struct ConfirmationDialogView: View {
                             model.secondaryAction?()
                         }) {
                             Text(model.secondaryButtonTitle ?? "")
-                                .foregroundColor(.black)
+                                .foregroundColor(.onPrimary)
                                 .padding()
-                                .background(Color.customPink)
+                                .background(Color.claret)
                                 .cornerRadius(8)
                         }
                     }

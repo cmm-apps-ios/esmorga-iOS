@@ -131,7 +131,7 @@ final class UserRepositoryTests {
         #expect(self.sessionKeychain.isLogged == false)
     }
  
-    /*
+
     @Test
     func test_local_user_clear_then_all_local_user_data_is_clear() { //Mover
         let user = UserModelBuilder().build()
@@ -140,7 +140,7 @@ final class UserRepositoryTests {
         
         #expect(self.mockLocalUserDataSource.savedUser == nil)
     }
-     */
+     
 }
 
 

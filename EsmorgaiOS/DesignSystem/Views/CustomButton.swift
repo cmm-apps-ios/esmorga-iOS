@@ -54,11 +54,13 @@ struct CustomButton: View {
 enum CustomButtonStyle {
     case primary
     case secondary
+    case tertiary
 
     var backgroundColor: Color {
         switch self {
         case .primary: return .claret
         case .secondary: return .customPink
+        case .tertiary: return .transparent
         }
     }
 
@@ -66,6 +68,7 @@ enum CustomButtonStyle {
         switch self {
         case .primary: return .white
         case .secondary: return .onSurface
+        case .tertiary: return .onSurfaceVariant
         }
     }
 }

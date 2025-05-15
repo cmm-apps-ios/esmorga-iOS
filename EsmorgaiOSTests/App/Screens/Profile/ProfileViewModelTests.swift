@@ -104,7 +104,7 @@ final class ProfileViewModelTests {
             await self.sut.checkLoginStatus()
         }
 
-        sut.confirmationDialog.primaryAction?()
+        sut.confirmationDialog.secondaryAction?()
 
         await TestHelper.fullfillTask {
             await self.sut.closeSession()
@@ -126,7 +126,7 @@ final class ProfileViewModelTests {
             await self.sut.checkLoginStatus()
         }
 
-        sut.confirmationDialog.secondaryAction?()
+        sut.confirmationDialog.primaryAction?()
 
         #expect(self.sut.state == .ready)
         #expect(self.sut.confirmationDialog.isShown == false)

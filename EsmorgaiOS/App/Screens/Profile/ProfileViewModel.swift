@@ -74,6 +74,8 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
                 self.reportErrorToCrashlytics()
                 return
             }
+            coordinator?.push(destination: .activate)
+
 
         case .closeSession:
             showConfirmationDialog()

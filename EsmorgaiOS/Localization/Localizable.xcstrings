@@ -491,6 +491,28 @@
         }
       }
     },
+    "register_confirmation_button_cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
+        }
+      }
+    },
+    "register_confirmation_button_continue" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        }
+      }
+    },
     "register_confirmation_email_button_email_app" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -531,6 +553,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Confirma tu cuenta"
+          }
+        }
+      }
+    },
+    "register_confirmation_error_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Código expirado o no válido!"
+          }
+        }
+      }
+    },
+    "register_confirmation_subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estamos verificando tu cuenta. Por favor, espera un momento."
+          }
+        }
+      }
+    },
+    "register_confirmation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ya casi estamos…"
           }
         }
       }

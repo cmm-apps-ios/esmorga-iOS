@@ -74,7 +74,7 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
                 self.reportErrorToCrashlytics()
                 return
             }
-            coordinator?.push(destination: .activate)
+         //   coordinator?.push(destination: .activate(code: "1212"))
 
 
         case .closeSession:

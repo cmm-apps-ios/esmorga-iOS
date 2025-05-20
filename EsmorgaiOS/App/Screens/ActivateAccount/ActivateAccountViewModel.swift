@@ -15,4 +15,14 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
 
     @Published var primaryButton = LoginModels.Button(title: "Continuar",
                                                       isLoading: false)
+
+    private let code: String
+
+    init(coordinator: (any CoordinatorProtocol)?, networkMonitor: NetworkMonitorProtocol? = NetworkMonitor.shared, navigationManager: ExternalAppsManagerProtocol = ExternalAppsManager(), code: String) {
+
+        self.code = code
+        print("INIT con code:", code)
+
+        super.init(coordinator: coordinator, networkMonitor: networkMonitor!)
+    }
 }

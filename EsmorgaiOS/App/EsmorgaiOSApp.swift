@@ -12,6 +12,7 @@ import FirebaseCrashlytics
 @main
 struct EsmorgaiOSApp: App {
       @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+      @StateObject var deepLinkManager = DeepLinkManager()
 
     init() {
         FirebaseApp.configure()
@@ -30,13 +31,11 @@ struct EsmorgaiOSApp: App {
         WindowGroup {
             if NSClassFromString("XCTest") == nil {
                 MainCoordinatorView()
+                    .environmentObject(deepLinkManager)
                     .onOpenURL { url in
-                        handleDeepLink(url)
+                        deepLinkManager.handle(url: url)
                     }
             }
         }
-    }
-    private func handleDeepLink(_ url: URL) {
-        print("Link oppened: \(url)")
     }
 }

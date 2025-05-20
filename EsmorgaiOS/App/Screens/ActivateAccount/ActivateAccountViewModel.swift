@@ -13,7 +13,7 @@ enum ActivateAccountViewStates: ViewStateProtocol {
 
 class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
 
-    @Published var primaryButton = LoginModels.Button(title: "Continuar",
+    @Published var primaryButton = LoginModels.Button(title: LocalizationKeys.Buttons.continueVerify.localize(),
                                                       isLoading: false)
 
     private let code: String

@@ -42,6 +42,8 @@
 		31E2B0722DDB32D700DC9A5E /* ActivateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B0712DDB32D700DC9A5E /* ActivateAccountView.swift */; };
 		31E2B0742DDB32E800DC9A5E /* ActivateAccountBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B0732DDB32E800DC9A5E /* ActivateAccountBuilder.swift */; };
 		31E2B0762DDB798500DC9A5E /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B0752DDB798500DC9A5E /* DeepLinkManager.swift */; };
+		31E2B0782DDCC20900DC9A5E /* ActivateUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B0772DDCC20900DC9A5E /* ActivateUserDataSource.swift */; };
+		31E2B07A2DDCC22F00DC9A5E /* ActivateUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B0792DDCC22F00DC9A5E /* ActivateUserUseCase.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -296,6 +298,8 @@
 		31E2B0712DDB32D700DC9A5E /* ActivateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateAccountView.swift; sourceTree = "<group>"; };
 		31E2B0732DDB32E800DC9A5E /* ActivateAccountBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateAccountBuilder.swift; sourceTree = "<group>"; };
 		31E2B0752DDB798500DC9A5E /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
+		31E2B0772DDCC20900DC9A5E /* ActivateUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateUserDataSource.swift; sourceTree = "<group>"; };
+		31E2B0792DDCC22F00DC9A5E /* ActivateUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateUserUseCase.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -1014,6 +1018,7 @@
 				EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */,
 				31518AC82D6BC54D00363A3C /* LogOutUserUseCase.swift */,
 				311FA2122DBA85B900C4EC99 /* VerifyUserUserCase.swift */,
+				31E2B0792DDCC22F00DC9A5E /* ActivateUserUseCase.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1395,6 +1400,7 @@
 				EFE34DD02C7DE0D300724DDC /* RegisterUserDataSource.swift */,
 				EFA646372C8AFC9500D528F9 /* LocalUserDataSource.swift */,
 				311FA2102DBA837A00C4EC99 /* VerifyUserDataSource.swift */,
+				31E2B0772DDCC20900DC9A5E /* ActivateUserDataSource.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1989,6 +1995,7 @@
 				EFD7EF022C3D3BB100C8CE70 /* RemoteEventsDataSource.swift in Sources */,
 				EF0811DA2C9328CE00DE4887 /* MainCoordinator.swift in Sources */,
 				EFE34DE22C81CDA500724DDC /* NavigationBar.swift in Sources */,
+				31E2B0782DDCC20900DC9A5E /* ActivateUserDataSource.swift in Sources */,
 				EF2A6DC82CAAE2CC00164FD5 /* ErrorDialogModelBuilder.swift in Sources */,
 				EFD377112CA1B3720090B90A /* Animation.swift in Sources */,
 				313D57432D6126E6001F4E95 /* ProfileModels.swift in Sources */,
@@ -2074,6 +2081,7 @@
 				31D232932DA68B230084057E /* CrashEventManager.swift in Sources */,
 				EFF7A1E82C36DECC0024704A /* LoadingBar.swift in Sources */,
 				31518AD12D6C8C3400363A3C /* ConfirmationDialogView.swift in Sources */,
+				31E2B07A2DDCC22F00DC9A5E /* ActivateUserUseCase.swift in Sources */,
 				EF4213D42C413F9100686033 /* View+Snackbar.swift in Sources */,
 				EF2983EF2C6B762600C2393E /* EventDetailsBuilder.swift in Sources */,
 				EFE34DE42C81CEA000724DDC /* Snackbar.swift in Sources */,

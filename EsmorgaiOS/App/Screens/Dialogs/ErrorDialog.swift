@@ -31,6 +31,7 @@ struct ErrorDialog: View {
 
     enum DialogType {
         case commonError
+        case expiredCode
         case noInternet
     }
 

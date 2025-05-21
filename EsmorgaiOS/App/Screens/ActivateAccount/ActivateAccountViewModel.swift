@@ -15,15 +15,17 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
 
     @Published var button = LoginModels.Button(title: LocalizationKeys.Buttons.continueVerify.localize(),
                                                isLoading: false)
-    
+
     private let activateUserUseCase: ActivateUserUseCaseAlias
 
     private let code: String
+    private var defaultErrorCount = 0
 
     init(coordinator: (any CoordinatorProtocol)?, networkMonitor: NetworkMonitorProtocol? = NetworkMonitor.shared, activateUserUseCase: ActivateUserUseCaseAlias =  ActivateUserUseCase(), code: String) {
 
         self.activateUserUseCase = activateUserUseCase
         self.code = code
+
 
         print("INIT con code:", code)
 
@@ -46,9 +48,16 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
                 case .failure(let error):
                     self.button.isLoading = false
                     switch error {
-                        //More errors types soon...
+                    case NetworkError.noInternetConnection:
+                        print("SKDJFKJSF") //temporal
                     default:
-                        self.showErrorDialog()
+                        self.defaultErrorCount += 1
+                        if self.defaultErrorCount == 3 {
+                            self.showErrorDialog2()
+                        } else {
+                            self.showErrorDialog()
+                        }
+
                     }
                 }
             }
@@ -56,8 +65,14 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
     }
 
     private func showErrorDialog() {
-        let dialogModel = ErrorDialogModelBuilder.build(type: .commonError) {
+        let dialogModel = ErrorDialogModelBuilder.build(type: .expiredCode) {
         }
         coordinator?.push(destination: .dialog(dialogModel))
+    }
+
+    private func showErrorDialog2() { //Modificar
+       let dialogModel = ErrorDialogModelBuilder.build(type: .commonError) {
+        }
+        coordinator?.push(destination: .welcome)
     }
 }

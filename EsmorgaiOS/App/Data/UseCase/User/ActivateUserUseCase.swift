@@ -39,8 +39,7 @@ class ActivateUserUseCase: ActivateUserUseCaseAlias {
     private func mapError(_ error: Error) -> RegisterUserError {
 
         switch error {
-        case NetworkError.noInternetConnection: return .noInternetConnection
-        case NetworkError.mappingError: return .mappingError
+        case NetworkError.noInternetConnection: return .noInternetConnection //Creo que no lo usaré, no lo pide la US
         default: return .generalError
         }
     }

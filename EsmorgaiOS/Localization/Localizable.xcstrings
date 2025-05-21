@@ -513,6 +513,17 @@
         }
       }
     },
+    "register_confirmation_button_retry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probar otra vez"
+          }
+        }
+      }
+    },
     "register_confirmation_email_button_email_app" : {
       "extractionState" : "manual",
       "localizations" : {

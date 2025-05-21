@@ -50,6 +50,7 @@ class LocalizationKeys {
         static let confirmEmail: String = "register_confirmation_email_button_email_app"
         static let resendEmail: String = "register_confirmation_email_button_resend"
         static let continueVerify: String = "register_confirmation_button_continue"
+        static let retryVerify: String = "register_confirmation_button_retry"
         static let navigate: String = "button_navigate"
         static let register: String = "button_register"
         static let retry: String = "button_retry"

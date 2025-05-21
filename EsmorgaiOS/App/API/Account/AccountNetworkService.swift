@@ -36,6 +36,7 @@ enum AccountNetworkService: NetworkService {
         switch self {
         case .myEvents: return .get
         case .leave: return .delete
+        case .activate: return .put   
         default: return .post
         }
     }

@@ -43,10 +43,10 @@ struct ActivateAccountView: View {
                     .padding(.bottom, 40)
 
                     LazyVStack(spacing: 16) {
-                        CustomButton(title: $viewModel.primaryButton.title,
+                        CustomButton(title: $viewModel.button.title,
                                      buttonStyle: .primary,
-                                     isLoading: $viewModel.primaryButton.isLoading) {
-                            print("Hola")
+                                     isLoading: $viewModel.button.isLoading) {
+                            viewModel.activateUser()
                         }
                     }
                     .padding(.horizontal, 16)

@@ -1140,7 +1140,6 @@
 				EFD7EF0E2C3D72B000C8CE70 /* API */,
 				EFF7A1AE2C354BCD0024704A /* EsmorgaiOSApp.swift */,
 				314158912D9AE20700F8C47F /* AppDelegate.swift */,
-				31E2B0752DDB798500DC9A5E /* DeepLinkManager.swift */,
 				EFE0A97B2C3D92A400E28953 /* Common */,
 				EFD7EF1D2C3D8D7100C8CE70 /* Core */,
 				EFD7EEFF2C3D3B8000C8CE70 /* Data */,
@@ -1535,6 +1534,7 @@
 			children = (
 				EF4213D72C41412300686033 /* AppManager.swift */,
 				EFEECD272D7F4944002BBF66 /* FirstLaunchManager.swift */,
+				31E2B0752DDB798500DC9A5E /* DeepLinkManager.swift */,
 				31D232922DA68B060084057E /* CrashEventManager.swift */,
 			);
 			path = Managers;

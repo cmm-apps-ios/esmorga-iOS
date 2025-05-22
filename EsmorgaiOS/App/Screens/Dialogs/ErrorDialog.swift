@@ -11,6 +11,7 @@ import Lottie
 struct ErrorDialog: View {
 
     @Environment(\.dismiss) private var dismiss
+
     struct Model: Equatable {
 
         static func ==(lhs: Model, rhs: Model) -> Bool {
@@ -27,6 +28,7 @@ struct ErrorDialog: View {
         let secondaryText: String?
         var buttonText: String
         let handler: (() -> Void)?
+        let dialogType: DialogType
     }
 
     enum DialogType {
@@ -71,9 +73,14 @@ struct ErrorDialog: View {
                         Spacer()
                     }
                 }
+
                 CustomButton(title: $model.buttonText, buttonStyle: .primary) {
                     model.handler?()
-                    dismiss()
+                    if model.dialogType == .commonError {
+                        //coordinator.push(destination: .welcome) --> Esto se podría hacer???
+                    } else {
+                        dismiss()
+                    }
                 }
             }
             .padding(16)

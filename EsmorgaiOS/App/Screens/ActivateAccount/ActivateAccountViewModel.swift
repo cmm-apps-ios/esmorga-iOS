@@ -49,10 +49,10 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
                     self.button.isLoading = false
                     switch error {
                     case NetworkError.noInternetConnection:
-                        print("SKDJFKJSF") //temporal
+                        print("SKDJFKJSF") //temporal porque la US no lo pide
                     default:
                         self.defaultErrorCount += 1
-                        if self.defaultErrorCount == 3 {
+                        if self.defaultErrorCount >= 3 {
                             self.showErrorDialog2()
                         } else {
                             self.showErrorDialog()
@@ -71,8 +71,8 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
     }
 
     private func showErrorDialog2() { //Modificar
-       let dialogModel = ErrorDialogModelBuilder.build(type: .commonError) {
+       let dialogModel = ErrorDialogModelBuilder.build(type: .commonError) { //Usando la common error de forma temporal
         }
-        coordinator?.push(destination: .welcome)
+        coordinator?.push(destination: .dialog(dialogModel))
     }
 }

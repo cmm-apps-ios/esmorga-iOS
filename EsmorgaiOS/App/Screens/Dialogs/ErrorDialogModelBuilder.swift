@@ -46,7 +46,7 @@ class ErrorDialogModelBuilder {
         var buttonText: String {
             switch type {
             case .commonError: return LocalizationKeys.Buttons.retry.localize()
-            case .expiredCode: return LocalizationKeys.Buttons.retryVerify.localize() 
+            case .expiredCode: return LocalizationKeys.Buttons.retryVerify.localize()
             case .noInternet: return LocalizationKeys.Buttons.ok.localize()
             }
         }
@@ -56,6 +56,9 @@ class ErrorDialogModelBuilder {
                                  primaryText: primaryText,
                                  secondaryText: secondaryText,
                                  buttonText: buttonText,
-                                 handler: handler)
+                                 handler: handler,
+                                 dialogType: type
+
+        )
     }
 }

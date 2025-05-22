@@ -8,6 +8,7 @@
 import Foundation
 
 class DeepLinkManager: ObservableObject {
+    ///Por ahora solo gestiona el de verificationCode. Lo óptimo sería modificarlo a futuro para manejar otras url
     @Published var verificationCode: String? = nil
 
     func handle(url: URL) {

@@ -48,7 +48,8 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
         case .activate(let code):
             ActivateAccountBuilder().build(coordinator: self, code: code)
         case .dialog(let model):
-            ErrorDialog(model: model)
+            let viewModel = ErrorDialogViewModel(coordinator: self)
+            ErrorDialog(viewModel: viewModel, model: model)
         case .eventList:
             EventListBuilder().build(coordinator: self)
         case .eventDetails(let event):

@@ -44,6 +44,7 @@
 		31E2B0762DDB798500DC9A5E /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B0752DDB798500DC9A5E /* DeepLinkManager.swift */; };
 		31E2B0782DDCC20900DC9A5E /* ActivateUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B0772DDCC20900DC9A5E /* ActivateUserDataSource.swift */; };
 		31E2B07A2DDCC22F00DC9A5E /* ActivateUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B0792DDCC22F00DC9A5E /* ActivateUserUseCase.swift */; };
+		31E2B07C2DDF3CBB00DC9A5E /* ErrorDialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B07B2DDF3CBB00DC9A5E /* ErrorDialogViewModel.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -300,6 +301,7 @@
 		31E2B0752DDB798500DC9A5E /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
 		31E2B0772DDCC20900DC9A5E /* ActivateUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateUserDataSource.swift; sourceTree = "<group>"; };
 		31E2B0792DDCC22F00DC9A5E /* ActivateUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateUserUseCase.swift; sourceTree = "<group>"; };
+		31E2B07B2DDF3CBB00DC9A5E /* ErrorDialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogViewModel.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -1378,6 +1380,7 @@
 			children = (
 				EF2A6DC72CAAE2CA00164FD5 /* ErrorDialogModelBuilder.swift */,
 				EFE34DA82C77859D00724DDC /* ErrorDialog.swift */,
+				31E2B07B2DDF3CBB00DC9A5E /* ErrorDialogViewModel.swift */,
 			);
 			path = Dialogs;
 			sourceTree = "<group>";
@@ -1991,6 +1994,7 @@
 				EFE34D982C74A6FB00724DDC /* UserRepository.swift in Sources */,
 				EFE34DDF2C81CD5C00724DDC /* View+NavigationBar.swift in Sources */,
 				EFF8B81F2CBEB889007470A9 /* CustomJSONDecoder.swift in Sources */,
+				31E2B07C2DDF3CBB00DC9A5E /* ErrorDialogViewModel.swift in Sources */,
 				EFEECD2C2D7F49C6002BBF66 /* PreferencesKeys.swift in Sources */,
 				EFD7EF022C3D3BB100C8CE70 /* RemoteEventsDataSource.swift in Sources */,
 				EF0811DA2C9328CE00DE4887 /* MainCoordinator.swift in Sources */,

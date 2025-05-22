@@ -11,6 +11,7 @@ import Lottie
 struct ErrorDialog: View {
 
     @Environment(\.dismiss) private var dismiss
+    @StateObject var viewModel: ErrorDialogViewModel
 
     struct Model: Equatable {
 
@@ -38,6 +39,7 @@ struct ErrorDialog: View {
     }
 
     @State var model: Model
+
 
     var body: some View {
         ZStack {
@@ -77,7 +79,7 @@ struct ErrorDialog: View {
                 CustomButton(title: $model.buttonText, buttonStyle: .primary) {
                     model.handler?()
                     if model.dialogType == .commonError {
-                        //coordinator.push(destination: .welcome) --> Esto se podría hacer???
+                        viewModel.backToMain()
                     } else {
                         dismiss()
                     }

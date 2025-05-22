@@ -49,7 +49,7 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
                     self.button.isLoading = false
                     switch error {
                     case NetworkError.noInternetConnection:
-                        print("SKDJFKJSF") //temporal porque la US no lo pide
+                        print("No internet, pero quiza no lo contemplo") //temporal porque la US no lo pide
                     default:
                         self.defaultErrorCount += 1
                         if self.defaultErrorCount >= 3 {

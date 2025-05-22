@@ -12,7 +12,6 @@ enum ErrorDialogViewStates: ViewStateProtocol {
     case ready
 }
 
-
 class ErrorDialogViewModel: BaseViewModel<ErrorDialogViewStates> {
 
 
@@ -21,7 +20,7 @@ class ErrorDialogViewModel: BaseViewModel<ErrorDialogViewStates> {
     }
 
     func backToMain() {
+        self.coordinator?.popToRoot()
         self.coordinator?.push(destination: .welcome)
     }
-
 }

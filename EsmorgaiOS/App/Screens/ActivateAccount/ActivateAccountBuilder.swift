@@ -11,7 +11,6 @@ class ActivateAccountBuilder {
 
     func build(coordinator: any CoordinatorProtocol, code: String) -> ActivateAccountView {
         let viewModel = ActivateAccountViewModel(coordinator: coordinator, code: code)
-        print("Construyendo builder...")
         return ActivateAccountView(viewModel: viewModel)
     }
 }

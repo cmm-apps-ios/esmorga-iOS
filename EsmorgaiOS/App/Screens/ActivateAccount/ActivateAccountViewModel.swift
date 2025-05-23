@@ -71,7 +71,7 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
     }
 
     private func showErrorDialog2() {
-       let dialogModel = ErrorDialogModelBuilder.build(type: .commonError) {
+       let dialogModel = ErrorDialogModelBuilder.build(type: .commonError2) {
         }
         coordinator?.push(destination: .dialog(dialogModel))
     }

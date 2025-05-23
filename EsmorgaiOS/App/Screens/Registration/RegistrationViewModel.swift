@@ -150,7 +150,6 @@ class RegistrationViewModel: BaseViewModel<RegistrationViewStates> {
                     }
                 }
             }
-
         }
     }
 

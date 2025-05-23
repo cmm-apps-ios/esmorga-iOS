@@ -11,6 +11,7 @@ protocol UserRepositoryProtocol {
     func login(email: String, password: String) async throws -> UserModels.User
     func register(name: String, lastName: String, pass: String, email: String) async throws -> UserModels.User
     func verify(email: String) async throws
+    func activate (code: String) async throws -> UserModels.User
     func getLocalUser() async -> UserModels.User?
     func logoutUser() async -> Bool
 }
@@ -20,6 +21,7 @@ class UserRepository: UserRepositoryProtocol {
     private var loginUserDataSource: LoginUserDataSourceProtocol
     private var registerUserDataSource: RegisterUserDataSourceProtocol
     private var verifyUserDataSource: VerifyUserDataSourceProtocol
+    private var activateUserDataSource: ActivateUserDataSourceProtocol
     private var localEventsDataSource: LocalEventsDataSourceProtocol
     private var sessionKeychain: CodableKeychain<AccountSession>
 
@@ -27,12 +29,14 @@ class UserRepository: UserRepositoryProtocol {
          loginUserDataSource: LoginUserDataSourceProtocol = LoginUserDataSource(),
          registerUserDataSource: RegisterUserDataSourceProtocol = RegisterUserDataSource(),
          verifyUserDataSource: VerifyUserDataSourceProtocol = VerifyUserDataSource(),
+         activateUserDataSource: ActivateUserDataSourceProtocol = ActivateUserDataSource(),
          localEventsDataSource: LocalEventsDataSourceProtocol = LocalEventsDataSource(),
          sessionKeychain: CodableKeychain<AccountSession> = AccountSession.buildCodableKeychain()) {
         self.localUserDataSource = localUserDataSource
         self.loginUserDataSource = loginUserDataSource
         self.registerUserDataSource = registerUserDataSource
         self.verifyUserDataSource = verifyUserDataSource
+        self.activateUserDataSource = activateUserDataSource
         self.localEventsDataSource = localEventsDataSource
         self.sessionKeychain = sessionKeychain
     }
@@ -65,6 +69,17 @@ class UserRepository: UserRepositoryProtocol {
     func verify(email: String) async throws {
         do {
             try await verifyUserDataSource.verify(email: email)
+        } catch let error {
+            throw error
+        }
+    }
+
+    func activate(code: String) async throws -> UserModels.User {
+        //Editar, copy paste
+        do {
+            let loginResponse = try await activateUserDataSource.activate(code: code)
+            let user = await processLoginResponse(loginResponse)
+            return user
         } catch let error {
             throw error
         }

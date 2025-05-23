@@ -39,5 +39,6 @@ struct WelcomeScreenView: View {
                 Spacer()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }

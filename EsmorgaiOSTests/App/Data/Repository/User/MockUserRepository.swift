@@ -34,8 +34,16 @@ final class MockUserRepository: UserRepositoryProtocol {
     }
 
 
+    func activate(code: String) async throws -> UserModels.User {
+        guard let mockUser else {
+            throw mockError
+        }
+        return mockUser
+    }
+
+
     func verify(email: String) async throws {
-        print("Hola")
+        return
     }
 
     func getLocalUser() async -> UserModels.User? {

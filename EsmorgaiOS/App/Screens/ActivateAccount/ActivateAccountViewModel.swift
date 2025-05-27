@@ -26,7 +26,6 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
         self.activateUserUseCase = activateUserUseCase
         self.code = code
 
-
         print("INIT con code:", code)
 
         super.init(coordinator: coordinator, networkMonitor: networkMonitor!)
@@ -57,13 +56,12 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
                         } else {
                             self.showErrorDialog()
                         }
-
                     }
                 }
             }
         }
     }
-
+    
     private func showErrorDialog() {
         let dialogModel = ErrorDialogModelBuilder.build(type: .expiredCode) {
         }
@@ -71,7 +69,7 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
     }
 
     private func showErrorDialog2() {
-       let dialogModel = ErrorDialogModelBuilder.build(type: .commonError2) {
+        let dialogModel = ErrorDialogModelBuilder.build(type: .commonError2) {
         }
         coordinator?.push(destination: .dialog(dialogModel))
     }

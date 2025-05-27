@@ -17,6 +17,10 @@
 		311FA21A2DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2192DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift */; };
 		311FA21C2DCCBEDB00C4EC99 /* RegistrationConfirmViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA21B2DCCBEDB00C4EC99 /* RegistrationConfirmViewTests.swift */; };
 		311FA21F2DCD545000C4EC99 /* RegistrationConfirmSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA21E2DCD545000C4EC99 /* RegistrationConfirmSnapshotTests.swift */; };
+		312E0BC42DE47620009BD181 /* ActivateAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E0BC32DE47620009BD181 /* ActivateAccountViewModelTests.swift */; };
+		312E0BC62DE5B707009BD181 /* MockActivateUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E0BC52DE5B707009BD181 /* MockActivateUserDataSource.swift */; };
+		312E0BC82DE5B738009BD181 /* ActivateUserDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E0BC72DE5B738009BD181 /* ActivateUserDataSourceTests.swift */; };
+		312E0BCA2DE5C8ED009BD181 /* MockActivateUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E0BC92DE5C8ED009BD181 /* MockActivateUserUseCase.swift */; };
 		313D57432D6126E6001F4E95 /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57422D6126E6001F4E95 /* ProfileModels.swift */; };
 		313D57452D61272C001F4E95 /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57442D61272C001F4E95 /* ProfileBuilder.swift */; };
 		313D57472D612755001F4E95 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D57462D612755001F4E95 /* ProfileView.swift */; };
@@ -279,6 +283,10 @@
 		311FA2192DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUserDataSourceTests.swift; sourceTree = "<group>"; };
 		311FA21B2DCCBEDB00C4EC99 /* RegistrationConfirmViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmViewTests.swift; sourceTree = "<group>"; };
 		311FA21E2DCD545000C4EC99 /* RegistrationConfirmSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmSnapshotTests.swift; sourceTree = "<group>"; };
+		312E0BC32DE47620009BD181 /* ActivateAccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateAccountViewModelTests.swift; sourceTree = "<group>"; };
+		312E0BC52DE5B707009BD181 /* MockActivateUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockActivateUserDataSource.swift; sourceTree = "<group>"; };
+		312E0BC72DE5B738009BD181 /* ActivateUserDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateUserDataSourceTests.swift; sourceTree = "<group>"; };
+		312E0BC92DE5C8ED009BD181 /* MockActivateUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockActivateUserUseCase.swift; sourceTree = "<group>"; };
 		313D57422D6126E6001F4E95 /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
 		313D57442D61272C001F4E95 /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
 		313D57462D612755001F4E95 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -568,6 +576,14 @@
 				311FA21E2DCD545000C4EC99 /* RegistrationConfirmSnapshotTests.swift */,
 			);
 			path = RegistrationConfirm;
+			sourceTree = "<group>";
+		};
+		312E0BC22DE475FF009BD181 /* Activate */ = {
+			isa = PBXGroup;
+			children = (
+				312E0BC32DE47620009BD181 /* ActivateAccountViewModelTests.swift */,
+			);
+			path = Activate;
 			sourceTree = "<group>";
 		};
 		313D57412D6126C6001F4E95 /* Profile */ = {
@@ -887,6 +903,7 @@
 		EF31587D2C5A7E5000DE157A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				312E0BC22DE475FF009BD181 /* Activate */,
 				311FA2142DCA253000C4EC99 /* RegistrationConfirm */,
 				318025392D79C1ED0061610D /* Profile */,
 				EF65D1672CB7C8BB005078D9 /* Dialogs */,
@@ -1057,6 +1074,7 @@
 				EF2128382C85D5C200D00887 /* MockRegisterUserDataSource.swift */,
 				EFE34DB42C7C990400724DDC /* MockUserRemoteDataSource.swift */,
 				EFA646432C8B0AC300D528F9 /* MockLocalUserDataSource.swift */,
+				312E0BC52DE5B707009BD181 /* MockActivateUserDataSource.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1077,6 +1095,7 @@
 				EF21283C2C85D98800D00887 /* MockRegisterUserUseCase.swift */,
 				EFA6464A2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift */,
 				3182174A2DCFE45D0031685D /* MockVerifyUserUseCase.swift */,
+				312E0BC92DE5C8ED009BD181 /* MockActivateUserUseCase.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1426,6 +1445,7 @@
 				EF2128362C85D42800D00887 /* RegisterUserDataSourceTests.swift */,
 				EFA6463F2C8B093800D528F9 /* LocalUserDataSourceTests.swift */,
 				311FA2192DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift */,
+				312E0BC72DE5B738009BD181 /* ActivateUserDataSourceTests.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2141,12 +2161,15 @@
 				3182174B2DCFE45D0031685D /* MockVerifyUserUseCase.swift in Sources */,
 				EF65D1692CB7C8CC005078D9 /* ErrorDialogModelBuilderTests.swift in Sources */,
 				EF3158772C5A75DA00DE157A /* RemoteEventsDataSourceTests.swift in Sources */,
+				312E0BC82DE5B738009BD181 /* ActivateUserDataSourceTests.swift in Sources */,
 				EF2128372C85D42800D00887 /* RegisterUserDataSourceTests.swift in Sources */,
 				EFD6100A2CA2B1C000E3DB1E /* RemoteMyEventsDataSourceTests.swift in Sources */,
 				EFE34DB52C7C990400724DDC /* MockUserRemoteDataSource.swift in Sources */,
 				EF3158622C5A221400DE157A /* CacheRuleTests.swift in Sources */,
 				EF3158822C5A80AC00DE157A /* MockGetEventListUseCase.swift in Sources */,
+				312E0BC42DE47620009BD181 /* ActivateAccountViewModelTests.swift in Sources */,
 				EF0811E92C94326000DE4887 /* DashboardViewTests.swift in Sources */,
+				312E0BCA2DE5C8ED009BD181 /* MockActivateUserUseCase.swift in Sources */,
 				EFE34DB12C7C94B800724DDC /* UserRemoteDataSourceTests.swift in Sources */,
 				EF3158652C5A27DF00DE157A /* EventsRepositoryTests.swift in Sources */,
 				311FA21A2DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift in Sources */,
@@ -2161,6 +2184,7 @@
 				EF2A6DDA2CAED73100164FD5 /* MockExternalAppsManager.swift in Sources */,
 				EFD6100E2CA2C44A00E3DB1E /* MockRemoteMyEventsDataSource.swift in Sources */,
 				EF31586E2C5A5DAF00DE157A /* MockLocalEventsDataSource.swift in Sources */,
+				312E0BC62DE5B707009BD181 /* MockActivateUserDataSource.swift in Sources */,
 				EFE34DC52C7CBC6300724DDC /* LoginUseCaseTests.swift in Sources */,
 				EFA646442C8B0AC300D528F9 /* MockLocalUserDataSource.swift in Sources */,
 				EFA646402C8B093800D528F9 /* LocalUserDataSourceTests.swift in Sources */,

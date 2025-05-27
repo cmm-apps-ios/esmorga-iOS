@@ -83,4 +83,5 @@ struct ErrorDialog: View {
             .padding(16)
         }
         .navigationBarBackButtonHidden(true)
-    }}
+    }
+}

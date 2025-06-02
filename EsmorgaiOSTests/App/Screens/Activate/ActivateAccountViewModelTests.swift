@@ -29,7 +29,6 @@ final class ActivateAccountViewModelTests {
     deinit {
         spyCoordinator = nil
         mockActivateUserUseCase = nil
-        //sut = nil
     }
 
 
@@ -64,7 +63,6 @@ final class ActivateAccountViewModelTests {
         await expect(self.spyCoordinator.pushCalled).toEventually(beTrue())
         await   expect(self.spyCoordinator.destination).toEventually(equal(.dialog(ErrorDialogModelBuilder.build(type: .commonError2))))
     }
-
 }
 
 

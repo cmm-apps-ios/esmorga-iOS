@@ -59,7 +59,13 @@ struct LoginView: View {
                         CustomButton(title: $viewModel.primaryButton.title,
                                      buttonStyle: .primary,
                                      isLoading: $viewModel.primaryButton.isLoading) {
-                                viewModel.performLogin()
+                            viewModel.performLogin()
+                        }
+                        Button(action: {
+                            viewModel.navigateToRecoverPassword()
+                        }) {
+                            Text("Olvidaste tu constraseña?")
+                                .style(.body1Accent)
                         }
                         CustomButton(title: $viewModel.secondaryButton.title,
                                      buttonStyle: .secondary,
@@ -108,7 +114,7 @@ extension LoginView {
             Field(rawValue: $0.rawValue + 1) ?? .email
         }
     }
-
+    
     private func canFocusPreviousField() -> Bool {
         guard let currentFocusedField = focusedField else {
             return false

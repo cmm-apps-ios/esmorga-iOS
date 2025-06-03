@@ -49,6 +49,9 @@
 		31E2B0782DDCC20900DC9A5E /* ActivateUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B0772DDCC20900DC9A5E /* ActivateUserDataSource.swift */; };
 		31E2B07A2DDCC22F00DC9A5E /* ActivateUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B0792DDCC22F00DC9A5E /* ActivateUserUseCase.swift */; };
 		31E2B07C2DDF3CBB00DC9A5E /* ErrorDialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B07B2DDF3CBB00DC9A5E /* ErrorDialogViewModel.swift */; };
+		31EAF7BB2DEEF4DE003A6984 /* RecoverPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7BA2DEEF4DE003A6984 /* RecoverPasswordView.swift */; };
+		31EAF7C42DEEF89B003A6984 /* RecoverPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7C32DEEF89B003A6984 /* RecoverPasswordViewModel.swift */; };
+		31EAF7CA2DEEFDC5003A6984 /* RecoverPasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7C92DEEFDBE003A6984 /* RecoverPasswordBuilder.swift */; };
 		31FC29292DEDDA8F00255606 /* ActivateSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
@@ -311,6 +314,9 @@
 		31E2B0772DDCC20900DC9A5E /* ActivateUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateUserDataSource.swift; sourceTree = "<group>"; };
 		31E2B0792DDCC22F00DC9A5E /* ActivateUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateUserUseCase.swift; sourceTree = "<group>"; };
 		31E2B07B2DDF3CBB00DC9A5E /* ErrorDialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogViewModel.swift; sourceTree = "<group>"; };
+		31EAF7BA2DEEF4DE003A6984 /* RecoverPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordView.swift; sourceTree = "<group>"; };
+		31EAF7C32DEEF89B003A6984 /* RecoverPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewModel.swift; sourceTree = "<group>"; };
+		31EAF7C92DEEFDBE003A6984 /* RecoverPasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordBuilder.swift; sourceTree = "<group>"; };
 		31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivateSnapshotTests.swift; path = /Users/yago.ares.armesto/ActivateSnapshotTests.swift; sourceTree = "<absolute>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
@@ -633,6 +639,16 @@
 				31E2B0732DDB32E800DC9A5E /* ActivateAccountBuilder.swift */,
 			);
 			path = ActivateAccount;
+			sourceTree = "<group>";
+		};
+		31EAF7BC2DEEF4E6003A6984 /* RecoverPassword */ = {
+			isa = PBXGroup;
+			children = (
+				31EAF7C92DEEFDBE003A6984 /* RecoverPasswordBuilder.swift */,
+				31EAF7C32DEEF89B003A6984 /* RecoverPasswordViewModel.swift */,
+				31EAF7BA2DEEF4DE003A6984 /* RecoverPasswordView.swift */,
+			);
+			path = RecoverPassword;
 			sourceTree = "<group>";
 		};
 		EF0811B12C9093C500DE4887 /* EsmorgaiOSSnapshotTests */ = {
@@ -1183,6 +1199,7 @@
 		EFD7EEF12C3C415F00C8CE70 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				31EAF7BC2DEEF4E6003A6984 /* RecoverPassword */,
 				31E2B06C2DDB329500DC9A5E /* ActivateAccount */,
 				311FA2032DB79B6F00C4EC99 /* RegistrationConfirmation */,
 				313D57412D6126C6001F4E95 /* Profile */,
@@ -2033,6 +2050,7 @@
 				EFE34DE22C81CDA500724DDC /* NavigationBar.swift in Sources */,
 				31E2B0782DDCC20900DC9A5E /* ActivateUserDataSource.swift in Sources */,
 				EF2A6DC82CAAE2CC00164FD5 /* ErrorDialogModelBuilder.swift in Sources */,
+				31EAF7BB2DEEF4DE003A6984 /* RecoverPasswordView.swift in Sources */,
 				EFD377112CA1B3720090B90A /* Animation.swift in Sources */,
 				313D57432D6126E6001F4E95 /* ProfileModels.swift in Sources */,
 				311FA20F2DB7A18200C4EC99 /* RegistrationConfirmView.swift in Sources */,
@@ -2148,6 +2166,8 @@
 				EFD7EF172C3D75CB00C8CE70 /* NetworkRequest.swift in Sources */,
 				EFF8B81D2CBEAB1C007470A9 /* MyEventsModels.swift in Sources */,
 				EF65D16D2CB91F5D005078D9 /* JoinEventUseCase.swift in Sources */,
+				31EAF7C42DEEF89B003A6984 /* RecoverPasswordViewModel.swift in Sources */,
+				31EAF7CA2DEEFDC5003A6984 /* RecoverPasswordBuilder.swift in Sources */,
 				31518ACD2D6C7F6C00363A3C /* ProfileViewModelMapper.swift in Sources */,
 				EF2128462C86106400D00887 /* Binding+Bool.swift in Sources */,
 				EFD610072CA2AFA600E3DB1E /* MyEventsBuilder.swift in Sources */,

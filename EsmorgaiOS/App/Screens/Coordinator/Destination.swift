@@ -12,8 +12,9 @@ enum Destination: Hashable, Identifiable {
     case welcome
     case login
     case register
-    case activate(code: String)
     case confirmRegister(email: String)
+    case activate(code: String)
+    case recoverPassword
     case dialog(ErrorDialog.Model)
     case eventList
     case eventDetails(EventModels.Event)

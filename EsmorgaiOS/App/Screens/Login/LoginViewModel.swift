@@ -97,6 +97,10 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
         coordinator?.push(destination: .register)
     }
 
+    func navigateToRecoverPassword() {
+        coordinator?.push(destination: .recoverPassword)
+    }
+
     func performLogin() {
 
         guard checkFieldsValidation()  else { return }

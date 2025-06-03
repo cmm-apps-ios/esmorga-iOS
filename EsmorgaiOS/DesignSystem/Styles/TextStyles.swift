@@ -13,7 +13,7 @@ enum TextStyle {
     case heading1
     case heading2
     case body1
-   case body1Bold
+    case body1Bold
     case body1Accent
     case caption
     case button
@@ -64,7 +64,7 @@ enum TextStyle {
         case .body1Bold: return .primaryBody
         }
     }
-
+    
     var fontName: String {
         switch self {
         case .title, .heading1, .heading2, .body1, .body1Accent: return "Plus Jakarta Sans"

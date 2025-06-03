@@ -52,6 +52,7 @@
 		31EAF7BB2DEEF4DE003A6984 /* RecoverPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7BA2DEEF4DE003A6984 /* RecoverPasswordView.swift */; };
 		31EAF7C42DEEF89B003A6984 /* RecoverPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7C32DEEF89B003A6984 /* RecoverPasswordViewModel.swift */; };
 		31EAF7CA2DEEFDC5003A6984 /* RecoverPasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7C92DEEFDBE003A6984 /* RecoverPasswordBuilder.swift */; };
+		31EAF7CC2DEF3138003A6984 /* RecoverPasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CB2DEF312D003A6984 /* RecoverPasswordModels.swift */; };
 		31FC29292DEDDA8F00255606 /* ActivateSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
@@ -317,6 +318,7 @@
 		31EAF7BA2DEEF4DE003A6984 /* RecoverPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordView.swift; sourceTree = "<group>"; };
 		31EAF7C32DEEF89B003A6984 /* RecoverPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewModel.swift; sourceTree = "<group>"; };
 		31EAF7C92DEEFDBE003A6984 /* RecoverPasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordBuilder.swift; sourceTree = "<group>"; };
+		31EAF7CB2DEF312D003A6984 /* RecoverPasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordModels.swift; sourceTree = "<group>"; };
 		31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivateSnapshotTests.swift; path = /Users/yago.ares.armesto/ActivateSnapshotTests.swift; sourceTree = "<absolute>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
@@ -644,6 +646,7 @@
 		31EAF7BC2DEEF4E6003A6984 /* RecoverPassword */ = {
 			isa = PBXGroup;
 			children = (
+				31EAF7CB2DEF312D003A6984 /* RecoverPasswordModels.swift */,
 				31EAF7C92DEEFDBE003A6984 /* RecoverPasswordBuilder.swift */,
 				31EAF7C32DEEF89B003A6984 /* RecoverPasswordViewModel.swift */,
 				31EAF7BA2DEEF4DE003A6984 /* RecoverPasswordView.swift */,
@@ -2097,6 +2100,7 @@
 				EF2A6DD62CAEA7B600164FD5 /* EventDetailsMapper.swift in Sources */,
 				EF4213D02C3FF9E500686033 /* CacheRule.swift in Sources */,
 				EFD7EEFE2C3D387800C8CE70 /* LocalizationKeys.swift in Sources */,
+				31EAF7CC2DEF3138003A6984 /* RecoverPasswordModels.swift in Sources */,
 				EF2983CB2C6A15D800C2393E /* SplashView.swift in Sources */,
 				EFA646382C8AFC9500D528F9 /* LocalUserDataSource.swift in Sources */,
 				EFD7EF102C3D72CA00C8CE70 /* NetworkService.swift in Sources */,

@@ -12,4 +12,11 @@ enum RecoverPasswordViewStates: ViewStateProtocol {
 }
 
 class RecoverPasswordViewModel: BaseViewModel<RecoverPasswordViewStates> {
+
+    @Published var emailTextField = RecoverPasswordModels.TextFieldModel(text: "",
+                                                                         title: LocalizationKeys.TextField.Title.email.localize(),
+                                                                         placeholder: "Introduce tu email")
+
+    @Published var primaryButton = RecoverPasswordModels.Button(title: "Enviar",
+                                                                isLoading: false)
 }

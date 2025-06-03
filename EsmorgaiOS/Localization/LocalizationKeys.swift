@@ -46,6 +46,7 @@ class LocalizationKeys {
         static let createAccount: String = "button_create_account"
         static let guest: String = "button_guest"
         static let login: String = "button_login"
+        static let forgotPassword: String = "login_forgot_password"
         static let loginRegister: String = "button_login_register"
         static let confirmEmail: String = "register_confirmation_email_button_email_app"
         static let resendEmail: String = "register_confirmation_email_button_resend"

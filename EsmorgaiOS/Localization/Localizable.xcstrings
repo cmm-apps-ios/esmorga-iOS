@@ -337,6 +337,17 @@
         }
       }
     },
+    "login_forgot_password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Olvidaste tu contraseña?"
+          }
+        }
+      }
+    },
     "my_profile_change_password" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -436,9 +447,6 @@
         }
       }
     },
-    "Olvidaste tu constraseña?" : {
-
-    },
     "placeholder_confirm_password" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -493,6 +501,9 @@
           }
         }
       }
+    },
+    "Recupera tu contraseña" : {
+
     },
     "register_confirmation_button_cancel" : {
       "extractionState" : "manual",

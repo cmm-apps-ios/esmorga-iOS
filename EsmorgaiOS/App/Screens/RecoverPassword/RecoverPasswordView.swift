@@ -10,6 +10,7 @@ import SwiftUI
 struct RecoverPasswordView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject var viewModel: RecoverPasswordViewModel
+    @FocusState private var focusedField: Field?
 
     init(viewModel: RecoverPasswordViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -25,6 +26,12 @@ struct RecoverPasswordView: View {
                                     caption: $viewModel.emailTextField.errorMessage,
                                     title: viewModel.emailTextField.title,
                                     hint: viewModel.emailTextField.placeholder)
+                    .onFocusChange { isFocused in
+                        if !isFocused {
+                            viewModel.validateEmailField(checkIsEmpty: false)
+                        }
+                    }
+                    .focused($focusedField, equals: .email)
 
                 }
                 .padding(.bottom, 32)
@@ -32,7 +39,7 @@ struct RecoverPasswordView: View {
                     CustomButton(title: $viewModel.primaryButton.title,
                                  buttonStyle: .primary,
                                  isDisabled: $viewModel.primaryButton.isLoading) {
-                        //viewModel.navigateToRegister()
+                        viewModel.sendMailForgotPass()
                     }
                 }
                 Spacer()
@@ -49,4 +56,30 @@ struct RecoverPasswordView: View {
 private func createTitleView() -> some View {
     Text("Recupera tu contraseña")
         .style(.heading1)
+}
+
+extension RecoverPasswordView {
+    private enum Field: Int, CaseIterable {
+        case email
+    }
+
+    private func focusNextField() {
+        focusedField = focusedField.map {
+            Field(rawValue: $0.rawValue + 1) ?? .email
+        }
+    }
+
+    private func canFocusPreviousField() -> Bool {
+        guard let currentFocusedField = focusedField else {
+            return false
+        }
+        return currentFocusedField.rawValue > 0
+    }
+
+    private func canFocusNextField() -> Bool {
+        guard let currentFocusedField = focusedField else {
+            return false
+        }
+        return currentFocusedField.rawValue < Field.allCases.count - 1
+    }
 }

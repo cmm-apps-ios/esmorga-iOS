@@ -59,8 +59,15 @@ struct LoginView: View {
                         CustomButton(title: $viewModel.primaryButton.title,
                                      buttonStyle: .primary,
                                      isLoading: $viewModel.primaryButton.isLoading) {
-                                viewModel.performLogin()
+                            viewModel.performLogin()
                         }
+                        Button(action: {
+                            viewModel.navigateToRecoverPassword()
+                        }) {
+                            Text(LocalizationKeys.Buttons.forgotPassword.localize())
+                                .style(.body1Accent)
+                        }
+                        .padding(.vertical, 12)
                         CustomButton(title: $viewModel.secondaryButton.title,
                                      buttonStyle: .secondary,
                                      isDisabled: $viewModel.primaryButton.isLoading) {
@@ -123,3 +130,5 @@ extension LoginView {
         return currentFocusedField.rawValue < Field.allCases.count - 1
     }
 }
+
+

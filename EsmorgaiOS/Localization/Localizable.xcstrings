@@ -249,6 +249,39 @@
         }
       }
     },
+    "forgot_password_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar"
+          }
+        }
+      }
+    },
+    "forgot_password_screen_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recupera tu contraseña"
+          }
+        }
+      }
+    },
+    "forgot_password_snackbar_success" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email de recuperación enviado"
+          }
+        }
+      }
+    },
     "inline_error_email" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -333,6 +366,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Las contraseñas no coinciden, inténtalo de nuevo!"
+          }
+        }
+      }
+    },
+    "invalid_credentials_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Datos incorrectos, inténtalo de nuevo!"
+          }
+        }
+      }
+    },
+    "login_forgot_password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Olvidaste tu contraseña?"
           }
         }
       }

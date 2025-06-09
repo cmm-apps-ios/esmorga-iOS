@@ -46,6 +46,7 @@ class LocalizationKeys {
         static let createAccount: String = "button_create_account"
         static let guest: String = "button_guest"
         static let login: String = "button_login"
+        static let forgotPassword: String = "login_forgot_password"
         static let loginRegister: String = "button_login_register"
         static let confirmEmail: String = "register_confirmation_email_button_email_app"
         static let resendEmail: String = "register_confirmation_email_button_resend"
@@ -53,6 +54,7 @@ class LocalizationKeys {
         static let retryVerify: String = "register_confirmation_button_retry"
         static let navigate: String = "button_navigate"
         static let register: String = "button_register"
+        static let forgotPasswordSend: String = "forgot_password_button"
         static let retry: String = "button_retry"
         static let joinEvent: String = "button_join_event"
         static let leaveEvent: String = "button_leave_event"
@@ -81,6 +83,7 @@ class LocalizationKeys {
             static let passwordInvalid: String = "inline_error_password_invalid"
             static let passwordMismatch: String = "inline_error_password_mismatch"
             static let emptyField: String = "inline_error_empty_field"
+            static let invalidCredentials: String = "invalid_credentials_error"
         }
 
         enum Placeholders {
@@ -122,12 +125,17 @@ class LocalizationKeys {
          static let errorTitle: String = "register_confirmation_error_title"
      }
 
+    enum forgotPassword {
+        static let title: String = "forgot_password_screen_title"
+    }
+
     enum Snackbar {
         static let noInternet: String = "snackbar_no_internet"
         static let eventJoined: String = "snackbar_event_joined"
         static let eventLeft: String = "snackbar_event_left"
         static let resendEmail: String = "register_resend_code_success"
         static let resendEmailFailed: String = "register_resend_code_error"
+        static let passwordReset: String = "forgot_password_snackbar_success"
     }
 
     enum Dashboard {

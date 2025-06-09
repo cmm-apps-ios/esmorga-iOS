@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		311FA2092DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2082DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift */; };
-		311FA20B2DB79CD100C4EC99 /* RegistrationConfirmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA20A2DB79CD100C4EC99 /* RegistrationConfirmModels.swift */; };
 		311FA20D2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA20C2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift */; };
 		311FA20F2DB7A18200C4EC99 /* RegistrationConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA20E2DB7A18200C4EC99 /* RegistrationConfirmView.swift */; };
 		311FA2112DBA837A00C4EC99 /* VerifyUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2102DBA837A00C4EC99 /* VerifyUserDataSource.swift */; };
@@ -49,6 +48,12 @@
 		31E2B0782DDCC20900DC9A5E /* ActivateUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B0772DDCC20900DC9A5E /* ActivateUserDataSource.swift */; };
 		31E2B07A2DDCC22F00DC9A5E /* ActivateUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B0792DDCC22F00DC9A5E /* ActivateUserUseCase.swift */; };
 		31E2B07C2DDF3CBB00DC9A5E /* ErrorDialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2B07B2DDF3CBB00DC9A5E /* ErrorDialogViewModel.swift */; };
+		31EAF7BB2DEEF4DE003A6984 /* RecoverPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7BA2DEEF4DE003A6984 /* RecoverPasswordView.swift */; };
+		31EAF7C42DEEF89B003A6984 /* RecoverPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7C32DEEF89B003A6984 /* RecoverPasswordViewModel.swift */; };
+		31EAF7CA2DEEFDC5003A6984 /* RecoverPasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7C92DEEFDBE003A6984 /* RecoverPasswordBuilder.swift */; };
+		31EAF7CC2DEF3138003A6984 /* RecoverPasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CB2DEF312D003A6984 /* RecoverPasswordModels.swift */; };
+		31EAF7CE2DF04D3C003A6984 /* RecoverPasswordUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */; };
+		31EAF7D02DF04D5E003A6984 /* RecoverPasswordUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */; };
 		31FC29292DEDDA8F00255606 /* ActivateSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
@@ -275,7 +280,6 @@
 
 /* Begin PBXFileReference section */
 		311FA2082DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmViewModel.swift; sourceTree = "<group>"; };
-		311FA20A2DB79CD100C4EC99 /* RegistrationConfirmModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmModels.swift; sourceTree = "<group>"; };
 		311FA20C2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmBuilder.swift; sourceTree = "<group>"; };
 		311FA20E2DB7A18200C4EC99 /* RegistrationConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmView.swift; sourceTree = "<group>"; };
 		311FA2102DBA837A00C4EC99 /* VerifyUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUserDataSource.swift; sourceTree = "<group>"; };
@@ -311,6 +315,12 @@
 		31E2B0772DDCC20900DC9A5E /* ActivateUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateUserDataSource.swift; sourceTree = "<group>"; };
 		31E2B0792DDCC22F00DC9A5E /* ActivateUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateUserUseCase.swift; sourceTree = "<group>"; };
 		31E2B07B2DDF3CBB00DC9A5E /* ErrorDialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogViewModel.swift; sourceTree = "<group>"; };
+		31EAF7BA2DEEF4DE003A6984 /* RecoverPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordView.swift; sourceTree = "<group>"; };
+		31EAF7C32DEEF89B003A6984 /* RecoverPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewModel.swift; sourceTree = "<group>"; };
+		31EAF7C92DEEFDBE003A6984 /* RecoverPasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordBuilder.swift; sourceTree = "<group>"; };
+		31EAF7CB2DEF312D003A6984 /* RecoverPasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordModels.swift; sourceTree = "<group>"; };
+		31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUserUseCase.swift; sourceTree = "<group>"; };
+		31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUserDataSource.swift; sourceTree = "<group>"; };
 		31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivateSnapshotTests.swift; path = /Users/yago.ares.armesto/ActivateSnapshotTests.swift; sourceTree = "<absolute>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
@@ -556,7 +566,6 @@
 			isa = PBXGroup;
 			children = (
 				311FA2082DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift */,
-				311FA20A2DB79CD100C4EC99 /* RegistrationConfirmModels.swift */,
 				311FA20C2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift */,
 				311FA20E2DB7A18200C4EC99 /* RegistrationConfirmView.swift */,
 			);
@@ -633,6 +642,17 @@
 				31E2B0732DDB32E800DC9A5E /* ActivateAccountBuilder.swift */,
 			);
 			path = ActivateAccount;
+			sourceTree = "<group>";
+		};
+		31EAF7BC2DEEF4E6003A6984 /* RecoverPassword */ = {
+			isa = PBXGroup;
+			children = (
+				31EAF7CB2DEF312D003A6984 /* RecoverPasswordModels.swift */,
+				31EAF7C92DEEFDBE003A6984 /* RecoverPasswordBuilder.swift */,
+				31EAF7C32DEEF89B003A6984 /* RecoverPasswordViewModel.swift */,
+				31EAF7BA2DEEF4DE003A6984 /* RecoverPasswordView.swift */,
+			);
+			path = RecoverPassword;
 			sourceTree = "<group>";
 		};
 		EF0811B12C9093C500DE4887 /* EsmorgaiOSSnapshotTests */ = {
@@ -1043,6 +1063,7 @@
 		EF65D16F2CB91F70005078D9 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */,
 				EFE34D9C2C74A92800724DDC /* LoginUseCase.swift */,
 				EFE34DD22C7DE28D00724DDC /* RegisterUserUseCase.swift */,
 				EFA646392C8B00BE00D528F9 /* GetLocalUserUseCase.swift */,
@@ -1183,6 +1204,7 @@
 		EFD7EEF12C3C415F00C8CE70 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				31EAF7BC2DEEF4E6003A6984 /* RecoverPassword */,
 				31E2B06C2DDB329500DC9A5E /* ActivateAccount */,
 				311FA2032DB79B6F00C4EC99 /* RegistrationConfirmation */,
 				313D57412D6126C6001F4E95 /* Profile */,
@@ -1428,6 +1450,7 @@
 		EFE34DAD2C7C948F00724DDC /* User */ = {
 			isa = PBXGroup;
 			children = (
+				31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */,
 				EFE34D952C74A59800724DDC /* LoginUserDataSource.swift */,
 				EFE34DD02C7DE0D300724DDC /* RegisterUserDataSource.swift */,
 				EFA646372C8AFC9500D528F9 /* LocalUserDataSource.swift */,
@@ -2033,6 +2056,7 @@
 				EFE34DE22C81CDA500724DDC /* NavigationBar.swift in Sources */,
 				31E2B0782DDCC20900DC9A5E /* ActivateUserDataSource.swift in Sources */,
 				EF2A6DC82CAAE2CC00164FD5 /* ErrorDialogModelBuilder.swift in Sources */,
+				31EAF7BB2DEEF4DE003A6984 /* RecoverPasswordView.swift in Sources */,
 				EFD377112CA1B3720090B90A /* Animation.swift in Sources */,
 				313D57432D6126E6001F4E95 /* ProfileModels.swift in Sources */,
 				311FA20F2DB7A18200C4EC99 /* RegistrationConfirmView.swift in Sources */,
@@ -2079,6 +2103,7 @@
 				EF2A6DD62CAEA7B600164FD5 /* EventDetailsMapper.swift in Sources */,
 				EF4213D02C3FF9E500686033 /* CacheRule.swift in Sources */,
 				EFD7EEFE2C3D387800C8CE70 /* LocalizationKeys.swift in Sources */,
+				31EAF7CC2DEF3138003A6984 /* RecoverPasswordModels.swift in Sources */,
 				EF2983CB2C6A15D800C2393E /* SplashView.swift in Sources */,
 				EFA646382C8AFC9500D528F9 /* LocalUserDataSource.swift in Sources */,
 				EFD7EF102C3D72CA00C8CE70 /* NetworkService.swift in Sources */,
@@ -2114,6 +2139,7 @@
 				EFD377062CA1A2FB0090B90A /* MyEventsView.swift in Sources */,
 				EFE34DA62C77790900724DDC /* CustomTextField.swift in Sources */,
 				EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */,
+				31EAF7CE2DF04D3C003A6984 /* RecoverPasswordUserUseCase.swift in Sources */,
 				31D232932DA68B230084057E /* CrashEventManager.swift in Sources */,
 				EFF7A1E82C36DECC0024704A /* LoadingBar.swift in Sources */,
 				31518AD12D6C8C3400363A3C /* ConfirmationDialogView.swift in Sources */,
@@ -2132,7 +2158,6 @@
 				EFE34DCE2C7CC9F900724DDC /* LoginModels.swift in Sources */,
 				EF4213C52C3ECB4400686033 /* DataConvertible.swift in Sources */,
 				EF0811DC2C9329F200DE4887 /* Destination.swift in Sources */,
-				311FA20B2DB79CD100C4EC99 /* RegistrationConfirmModels.swift in Sources */,
 				EFD7EF202C3D8E9F00C8CE70 /* EventListCell.swift in Sources */,
 				EF2983F72C6B95F500C2393E /* ViewState.swift in Sources */,
 				31E2B0722DDB32D700DC9A5E /* ActivateAccountView.swift in Sources */,
@@ -2140,6 +2165,7 @@
 				EF31589E2C63757600DE157A /* WelcomeScreenViewModel.swift in Sources */,
 				EF4213CB2C3ED66200686033 /* CardView.swift in Sources */,
 				311FA2112DBA837A00C4EC99 /* VerifyUserDataSource.swift in Sources */,
+				31EAF7D02DF04D5E003A6984 /* RecoverPasswordUserDataSource.swift in Sources */,
 				311FA20D2DB7A13800C4EC99 /* RegistrationConfirmBuilder.swift in Sources */,
 				EFF9C8722C9991DA00DE50BC /* AccountTokensRefresher.swift in Sources */,
 				EFE34DDD2C7DE70900724DDC /* RegistrationBuilder.swift in Sources */,
@@ -2148,6 +2174,8 @@
 				EFD7EF172C3D75CB00C8CE70 /* NetworkRequest.swift in Sources */,
 				EFF8B81D2CBEAB1C007470A9 /* MyEventsModels.swift in Sources */,
 				EF65D16D2CB91F5D005078D9 /* JoinEventUseCase.swift in Sources */,
+				31EAF7C42DEEF89B003A6984 /* RecoverPasswordViewModel.swift in Sources */,
+				31EAF7CA2DEEFDC5003A6984 /* RecoverPasswordBuilder.swift in Sources */,
 				31518ACD2D6C7F6C00363A3C /* ProfileViewModelMapper.swift in Sources */,
 				EF2128462C86106400D00887 /* Binding+Bool.swift in Sources */,
 				EFD610072CA2AFA600E3DB1E /* MyEventsBuilder.swift in Sources */,

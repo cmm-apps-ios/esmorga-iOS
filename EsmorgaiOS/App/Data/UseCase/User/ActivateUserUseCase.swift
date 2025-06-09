@@ -43,7 +43,4 @@ class ActivateUserUseCase: ActivateUserUseCaseAlias {
         default: return .generalError
         }
     }
-
-
 }
-

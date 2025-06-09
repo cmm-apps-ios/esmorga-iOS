@@ -47,6 +47,8 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
             RegistrationConfirmBuilder().build(coordinator: self, email: email)
         case .activate(let code):
             ActivateAccountBuilder().build(coordinator: self, code: code)
+        case .recoverPassword:
+            RecoverPasswordBuilder().build(coordinator: self)
         case .dialog(let model):
             let viewModel = ErrorDialogViewModel(coordinator: self)
             ErrorDialog(viewModel: viewModel, model: model)

@@ -13,6 +13,7 @@ enum TextStyle {
     case heading1
     case heading2
     case body1
+    case body1Bold
     case body1Accent
     case caption
     case button
@@ -23,6 +24,7 @@ enum TextStyle {
         case .heading1: return 22
         case .heading2: return 18
         case .body1: return 16
+        case .body1Bold: return 16
         case .body1Accent: return 16
         case .caption: return 14
         case .button: return 14
@@ -34,7 +36,8 @@ enum TextStyle {
         case .title: return -0.8
         case .heading1: return -0.3
         case .heading2: return -0.27
-        case .body1: return 0
+        case .body1: return 01
+        case .body1Bold: return 0
         case .body1Accent: return 0
         case .caption: return 0
         case .button: return 0.2
@@ -47,6 +50,7 @@ enum TextStyle {
         case .heading1: return 5.5
         case .heading2: return 4.5
         case .body1: return 8
+        case .body1Bold: return 8
         case .body1Accent: return 8
         case .caption: return 7
         case .button: return 7
@@ -57,13 +61,14 @@ enum TextStyle {
         switch self {
         case .title, .heading1, .heading2, .body1, .button: return .onSurface
         case .body1Accent, .caption: return .onSurfaceVariant
+        case .body1Bold: return .primaryBody
         }
     }
-
+    
     var fontName: String {
         switch self {
         case .title, .heading1, .heading2, .body1, .body1Accent: return "Plus Jakarta Sans"
-        case .caption, .button: return "Epilogue"
+        case .caption,.body1Bold, .button: return "Epilogue"
         }
     }
 
@@ -73,6 +78,7 @@ enum TextStyle {
         case .heading1: return .bold
         case .heading2: return .bold
         case .body1: return .regular
+        case .body1Bold: return .bold
         case .body1Accent: return .light
         case .caption: return .light
         case .button: return .bold

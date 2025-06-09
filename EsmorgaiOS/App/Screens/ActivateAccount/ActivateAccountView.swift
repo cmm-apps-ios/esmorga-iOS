@@ -5,8 +5,6 @@
 //  Created by Ares Armesto, Yago on 19/5/25.
 //
 
-import Foundation
-
 import SwiftUI
 
 struct ActivateAccountView: View {

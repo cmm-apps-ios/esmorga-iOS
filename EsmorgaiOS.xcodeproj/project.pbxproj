@@ -36,6 +36,10 @@
 		31518AD12D6C8C3400363A3C /* ConfirmationDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD02D6C8C3400363A3C /* ConfirmationDialogView.swift */; };
 		31518AD52D6CC57300363A3C /* ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD42D6CC57300363A3C /* ConfirmationDialog.swift */; };
 		31518AD72D6CC5B000363A3C /* View+ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31518AD62D6CC5A400363A3C /* View+ConfirmationDialog.swift */; };
+		3175042E2DF71BC900CE072F /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175042D2DF71BB900CE072F /* ResetPasswordView.swift */; };
+		317504302DF71BD500CE072F /* ResetPasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175042F2DF71BCC00CE072F /* ResetPasswordBuilder.swift */; };
+		317504322DF71BE400CE072F /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317504312DF71BD800CE072F /* ResetPasswordViewModel.swift */; };
+		317504342DF71BF100CE072F /* ResetPasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317504332DF71BE800CE072F /* ResetPasswordModels.swift */; };
 		3180253B2D79C20E0061610D /* ProfileViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253A2D79C20E0061610D /* ProfileViewTests.swift */; };
 		3180253F2D809D940061610D /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253E2D809D940061610D /* ProfileViewModelTests.swift */; };
 		318025422D81E4E70061610D /* ProfileScreenSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318025412D81E4E70061610D /* ProfileScreenSnapshotTests.swift */; };
@@ -303,6 +307,10 @@
 		31518AD02D6C8C3400363A3C /* ConfirmationDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialogView.swift; sourceTree = "<group>"; };
 		31518AD42D6CC57300363A3C /* ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialog.swift; sourceTree = "<group>"; };
 		31518AD62D6CC5A400363A3C /* View+ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ConfirmationDialog.swift"; sourceTree = "<group>"; };
+		3175042D2DF71BB900CE072F /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		3175042F2DF71BCC00CE072F /* ResetPasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordBuilder.swift; sourceTree = "<group>"; };
+		317504312DF71BD800CE072F /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		317504332DF71BE800CE072F /* ResetPasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordModels.swift; sourceTree = "<group>"; };
 		3180253A2D79C20E0061610D /* ProfileViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTests.swift; sourceTree = "<group>"; };
 		3180253E2D809D940061610D /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
 		318025412D81E4E70061610D /* ProfileScreenSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenSnapshotTests.swift; sourceTree = "<group>"; };
@@ -615,6 +623,17 @@
 				31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */,
 			);
 			path = Activate;
+			sourceTree = "<group>";
+		};
+		3175042C2DF71B3D00CE072F /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				317504332DF71BE800CE072F /* ResetPasswordModels.swift */,
+				317504312DF71BD800CE072F /* ResetPasswordViewModel.swift */,
+				3175042F2DF71BCC00CE072F /* ResetPasswordBuilder.swift */,
+				3175042D2DF71BB900CE072F /* ResetPasswordView.swift */,
+			);
+			path = ResetPassword;
 			sourceTree = "<group>";
 		};
 		318025392D79C1ED0061610D /* Profile */ = {
@@ -1204,6 +1223,7 @@
 		EFD7EEF12C3C415F00C8CE70 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3175042C2DF71B3D00CE072F /* ResetPassword */,
 				31EAF7BC2DEEF4E6003A6984 /* RecoverPassword */,
 				31E2B06C2DDB329500DC9A5E /* ActivateAccount */,
 				311FA2032DB79B6F00C4EC99 /* RegistrationConfirmation */,
@@ -2043,15 +2063,19 @@
 				EFF9C8782C9992EF00DE50BC /* URLRequest+BearerToken.swift in Sources */,
 				313D57452D61272C001F4E95 /* ProfileBuilder.swift in Sources */,
 				EFD7EF232C3D8F2400C8CE70 /* RemoteEventListModel.swift in Sources */,
+				317504342DF71BF100CE072F /* ResetPasswordModels.swift in Sources */,
 				EF3158532C53D9EE00DE157A /* NetworkError.swift in Sources */,
 				EF4213D22C4134B500686033 /* NetworkMonitor.swift in Sources */,
 				EF21284D2C8615F000D00887 /* KeychainBuilder.swift in Sources */,
 				EFE34D982C74A6FB00724DDC /* UserRepository.swift in Sources */,
+				317504322DF71BE400CE072F /* ResetPasswordViewModel.swift in Sources */,
 				EFE34DDF2C81CD5C00724DDC /* View+NavigationBar.swift in Sources */,
 				EFF8B81F2CBEB889007470A9 /* CustomJSONDecoder.swift in Sources */,
 				31E2B07C2DDF3CBB00DC9A5E /* ErrorDialogViewModel.swift in Sources */,
 				EFEECD2C2D7F49C6002BBF66 /* PreferencesKeys.swift in Sources */,
+				317504302DF71BD500CE072F /* ResetPasswordBuilder.swift in Sources */,
 				EFD7EF022C3D3BB100C8CE70 /* RemoteEventsDataSource.swift in Sources */,
+				3175042E2DF71BC900CE072F /* ResetPasswordView.swift in Sources */,
 				EF0811DA2C9328CE00DE4887 /* MainCoordinator.swift in Sources */,
 				EFE34DE22C81CDA500724DDC /* NavigationBar.swift in Sources */,
 				31E2B0782DDCC20900DC9A5E /* ActivateUserDataSource.swift in Sources */,

@@ -17,7 +17,7 @@ class RecoverPasswordViewModel: BaseViewModel<RecoverPasswordViewStates> {
                                                                          title: LocalizationKeys.TextField.Title.email.localize(),
                                                                          placeholder: "Introduce tu email")
 
-    @Published var primaryButton = RecoverPasswordModels.Button(title: "Enviar",
+    @Published var primaryButton = RecoverPasswordModels.Button(title:LocalizationKeys.Buttons.forgotPasswordSend.localize(),
                                                                 isLoading: false)
 
     private let recoverPasswordUserUseCase: RecoverPasswordUserUseCaseAlias
@@ -56,7 +56,7 @@ class RecoverPasswordViewModel: BaseViewModel<RecoverPasswordViewStates> {
             emailTextField.errorMessage = checkIsEmpty ? LocalizationKeys.TextField.InlineError.emptyField.localize() : nil
             return !checkIsEmpty
         } else {
-            emailTextField.errorMessage = LocalizationKeys.TextField.InlineError.email.localize()
+            emailTextField.errorMessage = LocalizationKeys.TextField.InlineError.invalidCredentials.localize()
             return false
         }
     }
@@ -72,7 +72,7 @@ class RecoverPasswordViewModel: BaseViewModel<RecoverPasswordViewStates> {
                 switch result {
                 case .success:
                     self.primaryButton.isLoading = false
-                    self.snackBar = .init(message: "Email de recuperación enviado", isShown: true)
+                    self.snackBar = .init(message: LocalizationKeys.Snackbar.passwordReset.localize(), isShown: true)
                 case .failure(let error):
                     self.primaryButton.isLoading = false
                     switch error {

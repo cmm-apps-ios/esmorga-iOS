@@ -54,7 +54,7 @@ struct RecoverPasswordView: View {
 }
 
 private func createTitleView() -> some View {
-    Text("Recupera tu contraseña")
+    Text(LocalizationKeys.forgotPassword.title.localize())
         .style(.heading1)
 }
 

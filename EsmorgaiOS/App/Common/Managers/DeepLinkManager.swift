@@ -28,7 +28,7 @@ class DeepLinkManager: ObservableObject {
             print("Deep link: verification, code: \(code)")
         } else if let code = components.queryItems?.first(where: { $0.name == "forgotPasswordCode" })?.value {
             deepLink = .resetPassword(code: code)
-            print("Deep link: invite, token: \(code)")
+            print("Deep link reset password: \(code)")
         } else {
             deepLink = .unknown
             print("Deep link no reconocido: \(url)")

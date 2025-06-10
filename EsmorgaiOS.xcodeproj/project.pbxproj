@@ -40,6 +40,8 @@
 		317504302DF71BD500CE072F /* ResetPasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175042F2DF71BCC00CE072F /* ResetPasswordBuilder.swift */; };
 		317504322DF71BE400CE072F /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317504312DF71BD800CE072F /* ResetPasswordViewModel.swift */; };
 		317504342DF71BF100CE072F /* ResetPasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317504332DF71BE800CE072F /* ResetPasswordModels.swift */; };
+		317504362DF86D2E00CE072F /* ResetPasswordUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317504352DF86D2100CE072F /* ResetPasswordUserUseCase.swift */; };
+		317504382DF86D8B00CE072F /* ResetPasswordDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317504372DF86D7400CE072F /* ResetPasswordDataSource.swift */; };
 		3180253B2D79C20E0061610D /* ProfileViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253A2D79C20E0061610D /* ProfileViewTests.swift */; };
 		3180253F2D809D940061610D /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253E2D809D940061610D /* ProfileViewModelTests.swift */; };
 		318025422D81E4E70061610D /* ProfileScreenSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318025412D81E4E70061610D /* ProfileScreenSnapshotTests.swift */; };
@@ -311,6 +313,8 @@
 		3175042F2DF71BCC00CE072F /* ResetPasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordBuilder.swift; sourceTree = "<group>"; };
 		317504312DF71BD800CE072F /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		317504332DF71BE800CE072F /* ResetPasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordModels.swift; sourceTree = "<group>"; };
+		317504352DF86D2100CE072F /* ResetPasswordUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordUserUseCase.swift; sourceTree = "<group>"; };
+		317504372DF86D7400CE072F /* ResetPasswordDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordDataSource.swift; sourceTree = "<group>"; };
 		3180253A2D79C20E0061610D /* ProfileViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTests.swift; sourceTree = "<group>"; };
 		3180253E2D809D940061610D /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
 		318025412D81E4E70061610D /* ProfileScreenSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenSnapshotTests.swift; sourceTree = "<group>"; };
@@ -1082,6 +1086,7 @@
 		EF65D16F2CB91F70005078D9 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				317504352DF86D2100CE072F /* ResetPasswordUserUseCase.swift */,
 				31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */,
 				EFE34D9C2C74A92800724DDC /* LoginUseCase.swift */,
 				EFE34DD22C7DE28D00724DDC /* RegisterUserUseCase.swift */,
@@ -1470,6 +1475,7 @@
 		EFE34DAD2C7C948F00724DDC /* User */ = {
 			isa = PBXGroup;
 			children = (
+				317504372DF86D7400CE072F /* ResetPasswordDataSource.swift */,
 				31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */,
 				EFE34D952C74A59800724DDC /* LoginUserDataSource.swift */,
 				EFE34DD02C7DE0D300724DDC /* RegisterUserDataSource.swift */,
@@ -2097,6 +2103,7 @@
 				31518AD72D6CC5B000363A3C /* View+ConfirmationDialog.swift in Sources */,
 				EF503C0A2C98753F00EE9128 /* AccountSession.swift in Sources */,
 				31E2B0742DDB32E800DC9A5E /* ActivateAccountBuilder.swift in Sources */,
+				317504362DF86D2E00CE072F /* ResetPasswordUserUseCase.swift in Sources */,
 				EFF8B8282CBFC982007470A9 /* LeaveEventUseCase.swift in Sources */,
 				EF4213D62C413FC800686033 /* SnackbarView.swift in Sources */,
 				EF2983E72C6B729A00C2393E /* WelcomeScreenBuilder.swift in Sources */,
@@ -2142,6 +2149,7 @@
 				EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */,
 				EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */,
 				311FA2092DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift in Sources */,
+				317504382DF86D8B00CE072F /* ResetPasswordDataSource.swift in Sources */,
 				EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */,
 				EF31589C2C63755E00DE157A /* WelcomeScreenView.swift in Sources */,
 				EF0811E22C932FCF00DE4887 /* SplashBuilder.swift in Sources */,

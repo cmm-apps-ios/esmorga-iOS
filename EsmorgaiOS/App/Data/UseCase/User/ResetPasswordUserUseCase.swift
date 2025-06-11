@@ -28,16 +28,16 @@ class ResetPasswordUserUseCase: ResetPasswordUserUseCaseAlias {
     init(userRepository: UserRepositoryProtocol = UserRepository()) {
         self.userRepository = userRepository
     }
-/*
-    override func job(input: RecoverPasswordUserUseCaseInput) async -> RecoverPasswordUserResult {
+
+    override func job(input: ResetPasswordUserUseCaseInput) async -> ResetPasswordUserResult {
         do {
-            try await userRepository.recoverPassword(email: input.email)
+            try await userRepository.resetPassword(password: input.pass, code: input.code)
             return .success(())
         } catch let error {
             return .failure(self.mapError(error))
         }
     }
-*/
+
     private func mapError(_ error: Error) -> ResetPasswordUserError {
 
         switch error {

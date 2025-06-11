@@ -42,7 +42,8 @@ struct CustomButton: View {
                     .tint(buttonStyle.textColor)
             } else {
                 Text(title)
-                    .style(.button, textColor: buttonStyle.textColor)
+                    .style(.button, textColor: isDisabled ? .gray : buttonStyle.textColor)
+                    .foregroundColor(isDisabled ? .black : buttonStyle.textColor)
                     .frame(maxWidth: .infinity, alignment: .center)
             }
         }
@@ -81,7 +82,8 @@ struct FilledButton: ButtonStyle {
         configuration
             .label
             .padding()
-            .background(style.backgroundColor)
+        //.background(style.backgroundColor)
+            .background(isEnabled ? style.backgroundColor : Color.onDesactivated)
             .cornerRadius(8)
             .frame(maxWidth: .infinity, alignment: .center)
             .opacity(configuration.isPressed ? 0.7 : 1)

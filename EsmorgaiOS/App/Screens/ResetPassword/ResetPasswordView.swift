@@ -13,7 +13,7 @@ struct ResetPasswordView: View {
 
     @StateObject var viewModel: ResetPasswordViewModel
     @Environment(\.dismiss) private var dismiss
-    //  @FocusState private var focusedField: Field?
+    @FocusState private var focusedField: ResetPasswordModels.TextFieldType?
     init(viewModel: ResetPasswordViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
@@ -32,14 +32,20 @@ struct ResetPasswordView: View {
                                         isProtected: viewModel.textFields[index].isProtected,
                                         title: viewModel.textFields[index].title,
                                         hint: viewModel.textFields[index].placeholder)
+                        .onFocusChange { isFocused in
+                            if !isFocused {
+                                viewModel.validateTextField(type: viewModel.textFields[index].type, checkIsEmpty: false)
+                            }
+                        }
+                        .focused($focusedField, equals: viewModel.textFields[index].type)
                     }
                 }
                 .padding(.bottom, 32)
                 LazyVStack(spacing: 16) {
                     CustomButton(title: $viewModel.primaryButton.title,
                                  buttonStyle: .primary,
-                                 isDisabled: $viewModel.primaryButton.isLoading) {
-                        //  viewModel.sendMailForgotPass()
+                                 isDisabled: .constant(!viewModel.isFormValid)) { //To stay unactive while fields not valid
+                        viewModel.performResetPassword()
                     }
                 }
                 Spacer()
@@ -56,6 +62,29 @@ struct ResetPasswordView: View {
 private func createTitleView() -> some View {
     Text("Cambia tu contraseña")
         .style(.heading1)
+}
+
+extension ResetPasswordView {
+
+    private func focusPreviousField() {
+        focusedField = focusedField.map {
+            ResetPasswordModels.TextFieldType(rawValue: $0.rawValue - 1) ?? .confirmPass
+        }
+    }
+    
+    private func canFocusPreviousField() -> Bool {
+        guard let currentFocusedField = focusedField else {
+            return false
+        }
+        return currentFocusedField.rawValue > 0
+    }
+
+    private func canFocusNextField() -> Bool {
+        guard let currentFocusedField = focusedField else {
+            return false
+        }
+        return currentFocusedField.rawValue <  ResetPasswordModels.TextFieldType.allCases.count - 1
+    }
 }
 
 

@@ -44,7 +44,8 @@ struct ResetPasswordView: View {
                 LazyVStack(spacing: 16) {
                     CustomButton(title: $viewModel.primaryButton.title,
                                  buttonStyle: .primary,
-                                 isDisabled: .constant(!viewModel.isFormValid)) { //To stay unactive while fields not valid
+                                 isLoading: $viewModel.primaryButton.isLoading,
+                                 isDisabled: .constant(!viewModel.isFormValid)) { 
                         viewModel.performResetPassword()
                     }
                 }
@@ -53,9 +54,7 @@ struct ResetPasswordView: View {
             .padding(.init(top: 20, leading: 16, bottom: 16, trailing: 16))
             .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .navigationBar {
-            dismiss()
-        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

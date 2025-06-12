@@ -79,6 +79,9 @@ struct LoginView: View {
                 }
             }.frame(maxWidth: .infinity, alignment: .leading)
         }
+        .onAppear {
+            viewModel.showSnackbar()
+        }
         .navigationBar {
             dismiss()
         }

@@ -50,7 +50,6 @@ class UserRepository: UserRepositoryProtocol {
     }
 
     func login(email: String, password: String) async throws -> UserModels.User {
-
         do {
             let loginResponse = try await loginUserDataSource.login(email: email, password: password)
             let user = await processLoginResponse(loginResponse)

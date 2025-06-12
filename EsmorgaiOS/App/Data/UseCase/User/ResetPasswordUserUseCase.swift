@@ -39,7 +39,6 @@ class ResetPasswordUserUseCase: ResetPasswordUserUseCaseAlias {
     }
 
     private func mapError(_ error: Error) -> ResetPasswordUserError {
-
         switch error {
         case NetworkError.noInternetConnection: return .noInternetConnection
         case NetworkError.mappingError: return .mappingError

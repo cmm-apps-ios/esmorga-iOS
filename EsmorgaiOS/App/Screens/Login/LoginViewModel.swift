@@ -32,6 +32,7 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
     init(coordinator: (any CoordinatorProtocol)?,
          loginUseCase: LoginUseCaseAlias = LoginUseCase()) {
         self.loginUseCase = loginUseCase
+        print("Se inicia el login")
         super.init(coordinator: coordinator)
     }
 
@@ -136,5 +137,12 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
             self.emailTextField.text = ""
         }
         coordinator?.push(destination: .dialog(dialogModel))
+    }
+
+    func showSnackbar(){
+        if UserDefaults.standard.bool(forKey: "showSnackBarPassword") {
+            self.snackBar = .init(message: "HASJDASJDKASJDLKASDJLA", isShown: true)
+            UserDefaults.standard.set(false, forKey: "showSnackBarPassword")
+        }
     }
 }

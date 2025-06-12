@@ -13,10 +13,16 @@ enum ResetPasswordViewStates: ViewStateProtocol {
 
 class ResetPasswordViewModel: BaseViewModel<ActivateAccountViewStates> {
 
+    private let resetPasswordUserUseCase: ResetPasswordUserUseCaseAlias
+
     @Published var textFields = [ResetPasswordModels.TextFieldModels]()
 
     @Published var primaryButton = RecoverPasswordModels.Button(title:"Cambiar constraseña",
                                                                 isLoading: false)
+
+
+
+    private let code: String
 
     var isFormValid: Bool {
         textFields.allSatisfy { tf in //true si cumple
@@ -28,10 +34,10 @@ class ResetPasswordViewModel: BaseViewModel<ActivateAccountViewStates> {
         )
     }
 
-    init(coordinator: (any CoordinatorProtocol)?, code: String) {
-
+    init(coordinator: (any CoordinatorProtocol)?, resetPasswordUserUseCase: ResetPasswordUserUseCaseAlias = ResetPasswordUserUseCase(), code: String) {
+        self.resetPasswordUserUseCase = resetPasswordUserUseCase
         print("Código recibido al viewModel: \(code)")
-
+        self.code = code
         super.init(coordinator: coordinator)
 
         textFields =  [ResetPasswordModels.TextFieldModels(type: .pass,
@@ -102,8 +108,39 @@ class ResetPasswordViewModel: BaseViewModel<ActivateAccountViewStates> {
         }
     }
 
+    @MainActor
     func performResetPassword() {
-        //
-        print("reset")
+
+        guard validateAllFields() else { return }
+        primaryButton.isLoading = true
+
+        Task { [weak self] in
+            guard let self else { return }
+            let pass = textFields.first(where: { $0.type == .pass })?.text ?? ""
+
+            let result = await ResetPasswordUserUseCase().execute(input: ResetPasswordUserUseCaseInput(pass: pass, code: code))
+
+            await MainActor.run {
+                switch result {
+                case .success:
+                    self.primaryButton.isLoading = false
+                    UserDefaults.standard.set(true, forKey: "showSnackBarPassword")
+                    self.coordinator?.popToRoot()
+                    self.coordinator?.push(destination: .login)
+                case .failure(let error):
+                    self.primaryButton.isLoading = false
+                    switch error {
+                    default:
+                        self.showErrorDialog()
+                    }
+                }
+            }
+        }
+    }
+
+    private func showErrorDialog() {
+        let dialogModel = ErrorDialogModelBuilder.build(type: .commonError) {
+        }
+        coordinator?.push(destination: .dialog(dialogModel))
     }
 }

@@ -34,7 +34,7 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
 
     func activateUser() {
         button.isLoading = true
-
+        
         Task { [weak self] in
             guard let self else { return }
 

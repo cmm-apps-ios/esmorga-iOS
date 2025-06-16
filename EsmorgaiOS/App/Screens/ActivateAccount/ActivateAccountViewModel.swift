@@ -20,6 +20,7 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
 
     private let code: String
     private var defaultErrorCount = 0
+    private(set) var hasAttemptedActivation = false
 
     init(coordinator: (any CoordinatorProtocol)?, networkMonitor: NetworkMonitorProtocol? = NetworkMonitor.shared, activateUserUseCase: ActivateUserUseCaseAlias =  ActivateUserUseCase(), code: String) {
 
@@ -32,9 +33,12 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
     }
 
 
-    func activateUser() {
+    func activateUser(isAuto: Bool = false) {
+
+        if isAuto && hasAttemptedActivation { return }
+        hasAttemptedActivation = true
         button.isLoading = true
-        
+
         Task { [weak self] in
             guard let self else { return }
 
@@ -61,7 +65,7 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
             }
         }
     }
-    
+
     private func showErrorDialog() {
         let dialogModel = ErrorDialogModelBuilder.build(type: .expiredCode) {
         }

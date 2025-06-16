@@ -141,7 +141,7 @@ class LoginViewModel: BaseViewModel<LoginViewStates> {
 
     func showSnackbar(){
         if UserDefaults.standard.bool(forKey: "showSnackBarPassword") {
-            self.snackBar = .init(message: "HASJDASJDKASJDLKASDJLA", isShown: true)
+            self.snackBar = .init(message: LocalizationKeys.Snackbar.passwordChange.localize(), isShown: true)
             UserDefaults.standard.set(false, forKey: "showSnackBarPassword")
         }
     }

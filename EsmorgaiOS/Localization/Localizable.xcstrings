@@ -158,9 +158,6 @@
         }
       }
     },
-    "Cambia tu contraseña" : {
-
-    },
     "Cancelar" : {
 
     },
@@ -494,6 +491,17 @@
         }
       }
     },
+    "password_set_snackbar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Nueva contraseña establecida!"
+          }
+        }
+      }
+    },
     "placeholder_confirm_password" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -534,6 +542,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ingresa tu nombre"
+          }
+        }
+      }
+    },
+    "placeholder_new_password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce la nueva constraseña"
           }
         }
       }
@@ -677,6 +696,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Un nuevo email de confirmación ha sido enviado"
+          }
+        }
+      }
+    },
+    "reset_password_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambiar contraseña"
+          }
+        }
+      }
+    },
+    "reset_password_invalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mínimo 8 caracteres, debe incluir al menos 1 dígito, 1 letra y 1 símbolo"
+          }
+        }
+      }
+    },
+    "reset_password_screen_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambio de contraseña"
           }
         }
       }

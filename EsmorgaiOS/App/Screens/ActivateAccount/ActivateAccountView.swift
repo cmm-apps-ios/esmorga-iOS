@@ -51,6 +51,9 @@ struct ActivateAccountView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .onAppear {
+                viewModel.activateUser(isAuto: true)
+            }
         }
         .navigationBarBackButtonHidden(true)
     }

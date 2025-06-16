@@ -55,6 +55,7 @@ class LocalizationKeys {
         static let navigate: String = "button_navigate"
         static let register: String = "button_register"
         static let forgotPasswordSend: String = "forgot_password_button"
+        static let resetPassword: String = "reset_password_button" //
         static let retry: String = "button_retry"
         static let joinEvent: String = "button_join_event"
         static let leaveEvent: String = "button_leave_event"
@@ -84,10 +85,12 @@ class LocalizationKeys {
             static let passwordMismatch: String = "inline_error_password_mismatch"
             static let emptyField: String = "inline_error_empty_field"
             static let invalidCredentials: String = "invalid_credentials_error"
+            static let passwordInvalidLong = "reset_password_invalid" //
         }
 
         enum Placeholders {
             static let password: String = "placeholder_password"
+            static let newPassword: String = "placeholder_new_password" //
             static let confirmPassword: String = "placeholder_confirm_password"
             static let email: String = "placeholder_email"
             static let lastName: String = "placeholder_last_name"
@@ -129,6 +132,10 @@ class LocalizationKeys {
         static let title: String = "forgot_password_screen_title"
     }
 
+    enum ResetPassword {
+        static let title: String = "reset_password_screen_title"
+    }
+
     enum Snackbar {
         static let noInternet: String = "snackbar_no_internet"
         static let eventJoined: String = "snackbar_event_joined"
@@ -136,6 +143,7 @@ class LocalizationKeys {
         static let resendEmail: String = "register_resend_code_success"
         static let resendEmailFailed: String = "register_resend_code_error"
         static let passwordReset: String = "forgot_password_snackbar_success"
+        static let passwordChange: String = "password_set_snackbar" //
     }
 
     enum Dashboard {

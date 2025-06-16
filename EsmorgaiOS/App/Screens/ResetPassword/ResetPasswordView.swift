@@ -45,7 +45,7 @@ struct ResetPasswordView: View {
                     CustomButton(title: $viewModel.primaryButton.title,
                                  buttonStyle: .primary,
                                  isLoading: $viewModel.primaryButton.isLoading,
-                                 isDisabled: .constant(!viewModel.isFormValid)) { 
+                                 isDisabled: .constant(!viewModel.isFormValid)) {
                         viewModel.performResetPassword()
                     }
                 }
@@ -59,7 +59,7 @@ struct ResetPasswordView: View {
 }
 
 private func createTitleView() -> some View {
-    Text("Cambia tu contraseña")
+    Text(LocalizationKeys.ResetPassword.title.localize())
         .style(.heading1)
 }
 
@@ -70,7 +70,7 @@ extension ResetPasswordView {
             ResetPasswordModels.TextFieldType(rawValue: $0.rawValue - 1) ?? .confirmPass
         }
     }
-    
+
     private func canFocusPreviousField() -> Bool {
         guard let currentFocusedField = focusedField else {
             return false
@@ -85,5 +85,3 @@ extension ResetPasswordView {
         return currentFocusedField.rawValue <  ResetPasswordModels.TextFieldType.allCases.count - 1
     }
 }
-
-

@@ -17,8 +17,7 @@ class ResetPasswordViewModel: BaseViewModel<ActivateAccountViewStates> {
 
     @Published var textFields = [ResetPasswordModels.TextFieldModels]()
 
-    @Published var primaryButton = RecoverPasswordModels.Button(title:"Cambiar constraseña",
-                                                                isLoading: false)
+    @Published var primaryButton = RecoverPasswordModels.Button(title: LocalizationKeys.Buttons.resetPassword.localize(), isLoading: false)
 
 
 
@@ -36,19 +35,18 @@ class ResetPasswordViewModel: BaseViewModel<ActivateAccountViewStates> {
 
     init(coordinator: (any CoordinatorProtocol)?, resetPasswordUserUseCase: ResetPasswordUserUseCaseAlias = ResetPasswordUserUseCase(), code: String) {
         self.resetPasswordUserUseCase = resetPasswordUserUseCase
-        print("Código recibido al viewModel: \(code)")
         self.code = code
         super.init(coordinator: coordinator)
 
         textFields =  [ResetPasswordModels.TextFieldModels(type: .pass,
                                                            text: "",
                                                            title: "Nueva Contraseña",
-                                                           placeholder: "Introduce la nueva contraseña",
+                                                           placeholder: LocalizationKeys.TextField.Placeholders.newPassword.localize(),
                                                            isProtected: true),
                        ResetPasswordModels.TextFieldModels(type: .confirmPass,
                                                            text: "",
                                                            title: "Repetir Contraseña",
-                                                           placeholder: "Confirma tu contraseña",
+                                                           placeholder: LocalizationKeys.TextField.Placeholders.confirmPassword.localize(),
                                                            isProtected: true)]
     }
 

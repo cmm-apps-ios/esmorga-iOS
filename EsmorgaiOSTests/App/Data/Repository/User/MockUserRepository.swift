@@ -41,8 +41,15 @@ final class MockUserRepository: UserRepositoryProtocol {
         return mockUser
     }
 
-
     func verify(email: String) async throws {
+        return
+    }
+
+    func recoverPassword(email: String) async throws {
+        return
+    }
+
+    func resetPassword(password: String, code: String) async throws {
         return
     }
 

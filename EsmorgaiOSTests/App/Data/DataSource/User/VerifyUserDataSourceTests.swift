@@ -30,7 +30,7 @@ final class VerifyUserDataSourceTests: XCTestCase {
     }
 
     func test_given_verify_when_success_response_then_return_correct_mail() async {
-        stubRequest(file: "mock_dummy_file.json")// -> ?
+        stubRequest(file: "mock_empty_file")
         let results: ()? = try? await sut.verify(email: "test@yopmail.com")
         expect(results).toNot(beNil())
     }

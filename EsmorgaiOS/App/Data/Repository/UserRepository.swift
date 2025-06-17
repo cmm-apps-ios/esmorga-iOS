@@ -13,6 +13,7 @@ protocol UserRepositoryProtocol {
     func verify(email: String) async throws
     func activate (code: String) async throws -> UserModels.User
     func recoverPassword(email: String) async throws
+    func resetPassword(password: String, code: String) async throws
     func getLocalUser() async -> UserModels.User?
     func logoutUser() async -> Bool
 }
@@ -23,6 +24,7 @@ class UserRepository: UserRepositoryProtocol {
     private var registerUserDataSource: RegisterUserDataSourceProtocol
     private var verifyUserDataSource: VerifyUserDataSourceProtocol
     private var recoverPasswordUserDataSource: RecoverPasswordUserDataSourceProtocol
+    private var resetPasswordUserDataSource: ResetPasswordUserDataSourceProtocol
     private var activateUserDataSource: ActivateUserDataSourceProtocol
     private var localEventsDataSource: LocalEventsDataSourceProtocol
     private var sessionKeychain: CodableKeychain<AccountSession>
@@ -33,6 +35,7 @@ class UserRepository: UserRepositoryProtocol {
          verifyUserDataSource: VerifyUserDataSourceProtocol = VerifyUserDataSource(),
          activateUserDataSource: ActivateUserDataSourceProtocol = ActivateUserDataSource(),
          recoverPasswordUserDataSource: RecoverPasswordUserDataSourceProtocol = RecoverPasswordUserDataSource(),
+         resetPasswordUserDataSource: ResetPasswordUserDataSourceProtocol = ResetPasswordUserDataSource(),
          localEventsDataSource: LocalEventsDataSourceProtocol = LocalEventsDataSource(),
          sessionKeychain: CodableKeychain<AccountSession> = AccountSession.buildCodableKeychain()) {
         self.localUserDataSource = localUserDataSource
@@ -41,12 +44,12 @@ class UserRepository: UserRepositoryProtocol {
         self.verifyUserDataSource = verifyUserDataSource
         self.activateUserDataSource = activateUserDataSource
         self.recoverPasswordUserDataSource = recoverPasswordUserDataSource
+        self.resetPasswordUserDataSource = resetPasswordUserDataSource
         self.localEventsDataSource = localEventsDataSource
         self.sessionKeychain = sessionKeychain
     }
 
     func login(email: String, password: String) async throws -> UserModels.User {
-
         do {
             let loginResponse = try await loginUserDataSource.login(email: email, password: password)
             let user = await processLoginResponse(loginResponse)
@@ -91,6 +94,14 @@ class UserRepository: UserRepositoryProtocol {
     func recoverPassword(email: String) async throws {
         do {
             try await recoverPasswordUserDataSource.recoverPassword(email: email)
+        } catch {
+            throw error
+        }
+    }
+
+    func resetPassword(password: String, code: String) async throws {
+        do {
+            try await resetPasswordUserDataSource.resetPassword(pass: password, code: code)
         } catch {
             throw error
         }

@@ -42,11 +42,13 @@ struct CustomButton: View {
                     .tint(buttonStyle.textColor)
             } else {
                 Text(title)
-                    .style(.button, textColor: buttonStyle.textColor)
+                    .style(.button, textColor: isDisabled ? .gray : buttonStyle.textColor)
+                    .foregroundColor(isDisabled ? .black : buttonStyle.textColor)
                     .frame(maxWidth: .infinity, alignment: .center)
             }
         }
-        .buttonStyle(FilledButton(style: buttonStyle))
+        //.buttonStyle(FilledButton(style: buttonStyle))
+        .buttonStyle(FilledButton(isLoading: isLoading, style: buttonStyle))
         .disabled(isLoading || isDisabled)
     }
 }
@@ -75,13 +77,14 @@ enum CustomButtonStyle {
 
 struct FilledButton: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
+    var isLoading: Bool
     @State var style: CustomButtonStyle = .primary
 
     func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
             .padding()
-            .background(style.backgroundColor)
+            .background(isEnabled || isLoading ? style.backgroundColor : Color.onDesactivated)
             .cornerRadius(8)
             .frame(maxWidth: .infinity, alignment: .center)
             .opacity(configuration.isPressed ? 0.7 : 1)

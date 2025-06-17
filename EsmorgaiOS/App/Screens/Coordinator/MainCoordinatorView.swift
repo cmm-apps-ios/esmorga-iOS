@@ -18,13 +18,18 @@ struct MainCoordinatorView: View {
                     coordinator.build(destination: destination)
                 }
         }
-
-        .onChange(of: deepLinkManager.verificationCode) { newCode in
-            if let code = newCode {
-                print("onChange con code:", newCode ?? "nil")
+        .onChange(of: deepLinkManager.deepLink) { newDeepLink in
+            guard let deepLink = newDeepLink else { return }
+            switch deepLink {
+            case .verification(let code):
                 coordinator.push(destination: .activate(code: code))
-                deepLinkManager.verificationCode = nil
+            case .resetPassword(let code):
+                coordinator.push(destination: .resetPassword(code: code))
+            case .unknown:
+                break
             }
+            deepLinkManager.deepLink = nil
         }
     }
 }
+

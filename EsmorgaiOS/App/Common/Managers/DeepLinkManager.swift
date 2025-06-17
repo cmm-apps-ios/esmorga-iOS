@@ -7,17 +7,31 @@
 
 import Foundation
 
+enum DeepLinkType :Equatable {
+    case verification(code: String)
+    case resetPassword(code: String)
+    case unknown
+}
+
 class DeepLinkManager: ObservableObject {
-    ///Por ahora solo gestiona el de verificationCode. Lo óptimo sería modificarlo a futuro para manejar otras url
-    @Published var verificationCode: String? = nil
+    @Published var deepLink: DeepLinkType?
 
     func handle(url: URL) {
-        if let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
-           let code = components.queryItems?.first(where: { $0.name == "verificationCode" })?.value {
-            self.verificationCode = code
-            print("Código se envía: \(code)")
-           } else {
-               print("Deep link no reconocido: \(url)")
-           }
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+            deepLink = .unknown
+            print("Deep link no reconocido: \(url)")
+            return
+        }
+
+        if let code = components.queryItems?.first(where: { $0.name == "verificationCode" })?.value {
+            deepLink = .verification(code: code)
+            print("Deep link: verification, code: \(code)")
+        } else if let code = components.queryItems?.first(where: { $0.name == "forgotPasswordCode" })?.value {
+            deepLink = .resetPassword(code: code)
+            print("Deep link reset password: \(code)")
+        } else {
+            deepLink = .unknown
+            print("Deep link no reconocido: \(url)")
+        }
     }
 }

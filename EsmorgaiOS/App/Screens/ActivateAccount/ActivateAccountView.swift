@@ -5,8 +5,6 @@
 //  Created by Ares Armesto, Yago on 19/5/25.
 //
 
-import Foundation
-
 import SwiftUI
 
 struct ActivateAccountView: View {
@@ -52,6 +50,9 @@ struct ActivateAccountView: View {
                     .padding(.horizontal, 16)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .onAppear {
+                viewModel.activateUser(isAuto: true)
             }
         }
         .navigationBarBackButtonHidden(true)

@@ -16,6 +16,7 @@ enum AccountNetworkService: NetworkService {
     case verify(email:String)
     case activate(code:String)
     case forgotPassword(email: String)
+    case resetPassword(pass: String, code: String)
     case refresh(token: String)
     case join(eventId: String)
     case leave(eventId: String)
@@ -29,6 +30,7 @@ enum AccountNetworkService: NetworkService {
         case .verify: return "account/email/verification"
         case .activate: return "account/activate"
         case .forgotPassword: return "account/password/forgot-init"
+        case .resetPassword: return "account/password/forgot-update"
         case .refresh: return "account/refresh"
         case .myEvents, .join, .leave: return "account/events"
         }
@@ -38,7 +40,7 @@ enum AccountNetworkService: NetworkService {
         switch self {
         case .myEvents: return .get
         case .leave: return .delete
-        case .activate: return .put
+        case .activate, .resetPassword: return .put
         default: return .post
         }
     }
@@ -66,6 +68,10 @@ enum AccountNetworkService: NetworkService {
             return try? JSONSerialization.data(withJSONObject: json, options: [])
         case .forgotPassword(let email):
             let json = ["email": email]
+            return try? JSONSerialization.data(withJSONObject: json, options: [])
+        case .resetPassword(let pass, let code):
+            let json = ["password": pass,
+                        "forgotPasswordCode": code]
             return try? JSONSerialization.data(withJSONObject: json, options: [])
         case .refresh(let token):
             let json = ["refreshToken": token]

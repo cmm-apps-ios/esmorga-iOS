@@ -101,7 +101,7 @@ class ResetPasswordViewModel: BaseViewModel<ActivateAccountViewStates> {
 
     private func getTextFieldErrorMessage(type: ResetPasswordModels.TextFieldType) -> String {
         switch type {
-        case .pass: return LocalizationKeys.TextField.InlineError.password.localize()
+        case .pass: return LocalizationKeys.TextField.InlineError.passwordInvalidLong.localize()
         case .confirmPass: return LocalizationKeys.TextField.InlineError.passwordMismatch.localize()
         }
     }

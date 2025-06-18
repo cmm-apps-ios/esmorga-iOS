@@ -54,26 +54,22 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
                 case .failure:
                     self.activationResult = .failure
                     self.defaultErrorCount += 1
+                    if self.defaultErrorCount >= 3 {
+                        self.showErrorDialog2()
+                    } else {
+                        self.showErrorDialog()
+                    }
                 }
             }
         }
     }
 
     func continueAction() {
-        switch activationResult {
-        case .success:
+        if activationResult == .success {
             coordinator?.push(destination: .dashboard)
-        case .failure:
-            if defaultErrorCount >= 3 {
-                showErrorDialog2()
-            } else {
-                showErrorDialog()
-            }
-        case .none:
-            showErrorDialog()
         }
     }
-
+    
 
     private func showErrorDialog() {
         let dialogModel = ErrorDialogModelBuilder.build(type: .expiredCode) {

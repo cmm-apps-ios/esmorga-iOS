@@ -44,7 +44,7 @@ struct ActivateAccountView: View {
                         CustomButton(title: $viewModel.button.title,
                                      buttonStyle: .primary,
                                      isLoading: $viewModel.button.isLoading) {
-                            viewModel.activateUser()
+                            viewModel.continueAction()
                         }
                     }
                     .padding(.horizontal, 16)
@@ -52,7 +52,7 @@ struct ActivateAccountView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
             .onAppear {
-                viewModel.activateUser(isAuto: true)
+                viewModel.activateUser()
             }
         }
         .navigationBarBackButtonHidden(true)

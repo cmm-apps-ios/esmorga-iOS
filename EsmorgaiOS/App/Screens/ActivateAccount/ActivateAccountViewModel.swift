@@ -16,6 +16,14 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
     @Published var button = LoginModels.Button(title: LocalizationKeys.Buttons.continueVerify.localize(),
                                                isLoading: false)
 
+    enum ActivationResult {
+        case none
+        case success
+        case failure
+    }
+
+    @Published var activationResult: ActivationResult = .none
+
     private let activateUserUseCase: ActivateUserUseCaseAlias
 
     private let code: String
@@ -33,38 +41,39 @@ class ActivateAccountViewModel: BaseViewModel<ActivateAccountViewStates> {
     }
 
 
-    func activateUser(isAuto: Bool = false) {
-
-        if isAuto && hasAttemptedActivation { return }
-        hasAttemptedActivation = true
+    func activateUser() {
         button.isLoading = true
-
         Task { [weak self] in
             guard let self else { return }
-
             let result = await activateUserUseCase.execute(input: ActivateUserUseCaseInput(code: code))
             await MainActor.run {
+                self.button.isLoading = false
                 switch result {
                 case .success:
-                    self.button.isLoading = false
-                    self.coordinator?.push(destination: .dashboard)
-                case .failure(let error):
-                    self.button.isLoading = false
-                    switch error {
-                    case NetworkError.noInternetConnection:
-                        print("No internet, pero quiza no lo contemplo") //temporal porque la US no lo pide
-                    default:
-                        self.defaultErrorCount += 1
-                        if self.defaultErrorCount >= 3 {
-                            self.showErrorDialog2()
-                        } else {
-                            self.showErrorDialog()
-                        }
-                    }
+                    self.activationResult = .success
+                case .failure:
+                    self.activationResult = .failure
+                    self.defaultErrorCount += 1
                 }
             }
         }
     }
+
+    func continueAction() {
+        switch activationResult {
+        case .success:
+            coordinator?.push(destination: .dashboard)
+        case .failure:
+            if defaultErrorCount >= 3 {
+                showErrorDialog2()
+            } else {
+                showErrorDialog()
+            }
+        case .none:
+            showErrorDialog()
+        }
+    }
+
 
     private func showErrorDialog() {
         let dialogModel = ErrorDialogModelBuilder.build(type: .expiredCode) {

@@ -49,7 +49,7 @@ enum ProfileModels {
     }
 
     enum OptionsItemType {
-        case changePassword
+     //   case changePassword ///Temporaly dissabled
         case closeSession
     }
 }

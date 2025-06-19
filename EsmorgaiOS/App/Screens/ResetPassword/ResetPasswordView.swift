@@ -25,6 +25,7 @@ struct ResetPasswordView: View {
             VStack(alignment: .leading, spacing: 12) {
                 createTitleView()
                     .padding(.bottom, 16.5)
+                    .padding(.top, 50)
                 VStack(alignment: .leading, spacing: 8) {
                     ForEach(viewModel.textFields.indices, id: \.self) { index in
                         CustomTextField(text: $viewModel.textFields[index].text,
@@ -34,7 +35,7 @@ struct ResetPasswordView: View {
                                         hint: viewModel.textFields[index].placeholder)
                         .onFocusChange { isFocused in
                             if !isFocused {
-                                viewModel.validateTextField(type: viewModel.textFields[index].type, checkIsEmpty: false)
+                                viewModel.validateTextField(type: viewModel.textFields[index].type, checkIsEmpty: true)
                             }
                         }
                         .focused($focusedField, equals: viewModel.textFields[index].type)

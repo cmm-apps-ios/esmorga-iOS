@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum ProfileModels {
     struct ErrorModel {
         let animation: Animation
@@ -25,7 +24,7 @@ enum ProfileModels {
     }
 
     struct UserDataItem: Identifiable {
-        var id: String {title}
+        var id: String { title }
         var title: String
         var value: String
         var type: UserDataItemType
@@ -42,14 +41,30 @@ enum ProfileModels {
     }
 
     struct OptionItem: Identifiable {
-        var id: String {title}
+        var id: String { title }
         var title: String
-        var image: String
+        var subtitle: String?      // <--- NUEVO
+        var textButton: String?    // <--- NUEVO (antes era caption)
+        var image: String?
         var type: OptionsItemType
+
+        init(
+            title: String,
+            subtitle: String? = nil,
+            textButton: String? = nil,
+            image: String? = "arrow.right",
+            type: OptionsItemType
+        ) {
+            self.title = title
+            self.subtitle = subtitle
+            self.textButton = textButton
+            self.image = image
+            self.type = type
+        }
     }
 
     enum OptionsItemType {
-     //   case changePassword ///Temporaly dissabled
+        // case changePassword // Temporarily disabled
         case closeSession
     }
 }

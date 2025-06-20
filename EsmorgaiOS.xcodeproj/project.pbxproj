@@ -42,6 +42,7 @@
 		317504342DF71BF100CE072F /* ResetPasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317504332DF71BE800CE072F /* ResetPasswordModels.swift */; };
 		317504362DF86D2E00CE072F /* ResetPasswordUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317504352DF86D2100CE072F /* ResetPasswordUserUseCase.swift */; };
 		317504382DF86D8B00CE072F /* ResetPasswordDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317504372DF86D7400CE072F /* ResetPasswordDataSource.swift */; };
+		3175043A2E04530E00CE072F /* EsmorgaRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317504392E0452FF00CE072F /* EsmorgaRow.swift */; };
 		3180253B2D79C20E0061610D /* ProfileViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253A2D79C20E0061610D /* ProfileViewTests.swift */; };
 		3180253F2D809D940061610D /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3180253E2D809D940061610D /* ProfileViewModelTests.swift */; };
 		318025422D81E4E70061610D /* ProfileScreenSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318025412D81E4E70061610D /* ProfileScreenSnapshotTests.swift */; };
@@ -315,6 +316,7 @@
 		317504332DF71BE800CE072F /* ResetPasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordModels.swift; sourceTree = "<group>"; };
 		317504352DF86D2100CE072F /* ResetPasswordUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordUserUseCase.swift; sourceTree = "<group>"; };
 		317504372DF86D7400CE072F /* ResetPasswordDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordDataSource.swift; sourceTree = "<group>"; };
+		317504392E0452FF00CE072F /* EsmorgaRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsmorgaRow.swift; sourceTree = "<group>"; };
 		3180253A2D79C20E0061610D /* ProfileViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTests.swift; sourceTree = "<group>"; };
 		3180253E2D809D940061610D /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
 		318025412D81E4E70061610D /* ProfileScreenSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenSnapshotTests.swift; sourceTree = "<group>"; };
@@ -1725,6 +1727,7 @@
 		EFF7A1EC2C3802410024704A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				317504392E0452FF00CE072F /* EsmorgaRow.swift */,
 				31518AD02D6C8C3400363A3C /* ConfirmationDialogView.swift */,
 				EFF7A1DD2C3587810024704A /* CustomButton.swift */,
 				EFF7A1E72C36DECC0024704A /* LoadingBar.swift */,
@@ -2170,6 +2173,7 @@
 				EFF9C87F2C99936400DE50BC /* AccountCredential.swift in Sources */,
 				EFD377062CA1A2FB0090B90A /* MyEventsView.swift in Sources */,
 				EFE34DA62C77790900724DDC /* CustomTextField.swift in Sources */,
+				3175043A2E04530E00CE072F /* EsmorgaRow.swift in Sources */,
 				EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */,
 				31EAF7CE2DF04D3C003A6984 /* RecoverPasswordUserUseCase.swift in Sources */,
 				31D232932DA68B230084057E /* CrashEventManager.swift in Sources */,

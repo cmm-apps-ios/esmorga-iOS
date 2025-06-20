@@ -94,20 +94,14 @@ struct ProfileView: View {
                         .padding(.bottom, 35)
                         .accessibilityIdentifier(AccessibilityIds.rowOptionTitle)
                     ForEach(model.optionsSection.items) { item in
-                        Button {
-                            viewModel.optionTapped(type: item.type)
-                        } label: {
-                            HStack {
-                                Text(item.title)
-                                    .style(.heading2)
-                                    .accessibilityIdentifier(AccessibilityIds.rowOptionTitleSecondary + "TitleSecondary" + "\(item.id)")
-                                Spacer()
-                                Image(systemName: item.image)
-                                    .font(.system(size: 25, weight: .bold))
-                                    .foregroundColor(.claret)
-                                    .accessibilityIdentifier(AccessibilityIds.rowOptionImage + "Image" + "\(item.id)")
+                        EsmorgaRow(
+                            title: item.title,
+                            subtitle: item.subtitle,
+                            textButton: item.textButton,
+                            buttonAction: {
+                                viewModel.optionTapped(type: item.type)
                             }
-                        }
+                        )
                         .padding(.bottom, 30)
                     }
                 }

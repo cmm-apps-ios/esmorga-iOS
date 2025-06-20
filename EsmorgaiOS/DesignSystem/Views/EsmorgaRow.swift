@@ -34,7 +34,7 @@ struct EsmorgaRow: View {
                         .padding(.bottom, 2)
                     if let subtitle = subtitle {
                         Text(subtitle)
-                            .style(.caption)
+                            .style(.body1)
                     }
                 }
                 Spacer()
@@ -47,7 +47,7 @@ struct EsmorgaRow: View {
                     .foregroundColor(.claret)
             }
             .padding(.vertical, 12)
-          //  .background(Color(.white))
+            .contentShape(Rectangle())
         }
         .buttonStyle(PlainButtonStyle())
         .disabled(buttonAction == nil)

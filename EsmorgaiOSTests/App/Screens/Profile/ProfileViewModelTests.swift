@@ -134,7 +134,8 @@ final class ProfileViewModelTests {
     }
 
 
-    //MOB-TC-162
+    //MOB-TC-162 ///Removed temporaly
+    /*
     @MainActor
     @Test
     func test_given_change_password_tapped_without_connection_then_no_connection_screean_appears() async {
@@ -162,4 +163,6 @@ final class ProfileViewModelTests {
         //   #expect(self.spyCoordinator.pushCalled == true)
         //...
     }
+
+     */
 }

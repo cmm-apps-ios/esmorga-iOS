@@ -16,6 +16,10 @@
 		311FA21A2DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA2192DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift */; };
 		311FA21C2DCCBEDB00C4EC99 /* RegistrationConfirmViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA21B2DCCBEDB00C4EC99 /* RegistrationConfirmViewTests.swift */; };
 		311FA21F2DCD545000C4EC99 /* RegistrationConfirmSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FA21E2DCD545000C4EC99 /* RegistrationConfirmSnapshotTests.swift */; };
+		31222E572E0B168700FC30DA /* RecoverPasswordDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31222E562E0B167600FC30DA /* RecoverPasswordDataSourceTests.swift */; };
+		31222E5B2E0B275300FC30DA /* ResetPasswordDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31222E5A2E0B274400FC30DA /* ResetPasswordDataSourceTests.swift */; };
+		31222E5D2E0B394800FC30DA /* MockRecoverPasswordUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31222E5C2E0B393500FC30DA /* MockRecoverPasswordUserUseCase.swift */; };
+		31222E612E0B3D2D00FC30DA /* MockResetPaswordUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31222E602E0B3CF800FC30DA /* MockResetPaswordUserUseCase.swift */; };
 		312E0BC42DE47620009BD181 /* ActivateAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E0BC32DE47620009BD181 /* ActivateAccountViewModelTests.swift */; };
 		312E0BC62DE5B707009BD181 /* MockActivateUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E0BC52DE5B707009BD181 /* MockActivateUserDataSource.swift */; };
 		312E0BC82DE5B738009BD181 /* ActivateUserDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312E0BC72DE5B738009BD181 /* ActivateUserDataSourceTests.swift */; };
@@ -295,6 +299,10 @@
 		311FA2192DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyUserDataSourceTests.swift; sourceTree = "<group>"; };
 		311FA21B2DCCBEDB00C4EC99 /* RegistrationConfirmViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmViewTests.swift; sourceTree = "<group>"; };
 		311FA21E2DCD545000C4EC99 /* RegistrationConfirmSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmSnapshotTests.swift; sourceTree = "<group>"; };
+		31222E562E0B167600FC30DA /* RecoverPasswordDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordDataSourceTests.swift; sourceTree = "<group>"; };
+		31222E5A2E0B274400FC30DA /* ResetPasswordDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordDataSourceTests.swift; sourceTree = "<group>"; };
+		31222E5C2E0B393500FC30DA /* MockRecoverPasswordUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecoverPasswordUserUseCase.swift; sourceTree = "<group>"; };
+		31222E602E0B3CF800FC30DA /* MockResetPaswordUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResetPaswordUserUseCase.swift; sourceTree = "<group>"; };
 		312E0BC32DE47620009BD181 /* ActivateAccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateAccountViewModelTests.swift; sourceTree = "<group>"; };
 		312E0BC52DE5B707009BD181 /* MockActivateUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockActivateUserDataSource.swift; sourceTree = "<group>"; };
 		312E0BC72DE5B738009BD181 /* ActivateUserDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateUserDataSourceTests.swift; sourceTree = "<group>"; };
@@ -1149,6 +1157,8 @@
 		EFA646492C8B0CCD00D528F9 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				31222E602E0B3CF800FC30DA /* MockResetPaswordUserUseCase.swift */,
+				31222E5C2E0B393500FC30DA /* MockRecoverPasswordUserUseCase.swift */,
 				EFE34DC62C7CBFC500724DDC /* MockLoginUseCase.swift */,
 				EF21283C2C85D98800D00887 /* MockRegisterUserUseCase.swift */,
 				EFA6464A2C8B0CEC00D528F9 /* MockGetLocalUserUseCase.swift */,
@@ -1504,10 +1514,12 @@
 			children = (
 				EFA6463E2C8B092700D528F9 /* Mocks */,
 				EFE34DB02C7C94B800724DDC /* UserRemoteDataSourceTests.swift */,
+				31222E5A2E0B274400FC30DA /* ResetPasswordDataSourceTests.swift */,
 				EF2128362C85D42800D00887 /* RegisterUserDataSourceTests.swift */,
 				EFA6463F2C8B093800D528F9 /* LocalUserDataSourceTests.swift */,
 				311FA2192DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift */,
 				312E0BC72DE5B738009BD181 /* ActivateUserDataSourceTests.swift */,
+				31222E562E0B167600FC30DA /* RecoverPasswordDataSourceTests.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2231,7 +2243,9 @@
 				EFE34DB92C7C99B500724DDC /* UserRepositoryTests.swift in Sources */,
 				EF21283B2C85D7DE00D00887 /* RegisterUserUseCaseTests.swift in Sources */,
 				EFF8B8212CBEB97B007470A9 /* JoinEventUseCaseTests.swift in Sources */,
+				31222E5B2E0B275300FC30DA /* ResetPasswordDataSourceTests.swift in Sources */,
 				311FA2162DCA52CC00C4EC99 /* RegistrationConfirmViewModelTests.swift in Sources */,
+				31222E612E0B3D2D00FC30DA /* MockResetPaswordUserUseCase.swift in Sources */,
 				EFBBE6F12C7489BC0085632A /* WelcomeScreenViewModelTests.swift in Sources */,
 				EFF9C8872C999C8600DE50BC /* AccountCredentialTests.swift in Sources */,
 				3182174B2DCFE45D0031685D /* MockVerifyUserUseCase.swift in Sources */,
@@ -2248,9 +2262,11 @@
 				312E0BCA2DE5C8ED009BD181 /* MockActivateUserUseCase.swift in Sources */,
 				EFE34DB12C7C94B800724DDC /* UserRemoteDataSourceTests.swift in Sources */,
 				EF3158652C5A27DF00DE157A /* EventsRepositoryTests.swift in Sources */,
+				31222E5D2E0B394800FC30DA /* MockRecoverPasswordUserUseCase.swift in Sources */,
 				311FA21A2DCB63C800C4EC99 /* VerifyUserDataSourceTests.swift in Sources */,
 				EFE34DC72C7CBFC500724DDC /* MockLoginUseCase.swift in Sources */,
 				EFEECD322D7F50BB002BBF66 /* UserDefaults+Clear.swift in Sources */,
+				31222E572E0B168700FC30DA /* RecoverPasswordDataSourceTests.swift in Sources */,
 				EFA646422C8B09E700D528F9 /* UserModelBuilder.swift in Sources */,
 				EFF8B8242CBEC2B7007470A9 /* MockJoinEventUseCase.swift in Sources */,
 				EF2983FA2C6B987A00C2393E /* EventDetailsViewModelTests.swift in Sources */,

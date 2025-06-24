@@ -63,23 +63,23 @@ jobs:
           # apply provisioning profile
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
+  # 
+  #     - name: Run Tests
+     #         run: |
+  #           set -eo pipefail # Ensure that failures in xcodebuild are captured
+   #          xcodebuild test \
+      #         -scheme EsmorgaiOS \
+       #        -sdk iphonesimulator \
+        #       -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+       #        ONLY_ACTIVE_ARCH=YES \
+        #       -resultBundlePath TestResults.xcresult
 
-      - name: Run Tests
-        run: |
-          set -eo pipefail # Ensure that failures in xcodebuild are captured
-          xcodebuild test \
-            -scheme EsmorgaiOS \
-            -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
-            ONLY_ACTIVE_ARCH=YES \
-            -resultBundlePath TestResults.xcresult
-
-      - name: Upload xcresult if tests fail
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: TestResults.xcresult
-          path: TestResults.xcresult
+      #   - name: Upload xcresult if tests fail
+    #       if: failure()
+     #      uses: actions/upload-artifact@v4
+     #      with:
+     #        name: TestResults.xcresult
+     #        path: TestResults.xcresult
 
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}

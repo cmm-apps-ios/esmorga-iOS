@@ -10,5 +10,5 @@
 
 #include "BaseConfig.xcconfig"
 
-PROJECT_BUILD = 10102
+PROJECT_BUILD = 20002
 APP_BASE_URL = https:/$()/esmorga.canarte.org

@@ -82,8 +82,9 @@ jobs:
                 xcodebuild archive \
                            -project EsmorgaiOS.xcodeproj \
                            -scheme EsmorgaiOS \
-                           -sdk iphoneos \
                            -configuration Release-QA \
+                           -sdk iphoneos \
+                           -destination "generic/platform=iOS" \
                            -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
                            clean archive
         
@@ -98,9 +99,12 @@ jobs:
             OUTPUT_PATH: ./build-prod
           run: |
                 xcodebuild  \
+                xcodebuild archive \
+                           -project EsmorgaiOS.xcodeproj \
                            -scheme EsmorgaiOS \
-                           -sdk iphoneos \
                            -configuration Release-PROD \
+                           -sdk iphoneos \
+                           -destination "generic/platform=iOS" \
                            -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
                            clean archive
 

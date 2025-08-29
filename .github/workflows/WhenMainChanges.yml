@@ -100,7 +100,6 @@ jobs:
             OUTPUT_PATH: ./build-prod
           run: |
                 sudo xcode-select --switch /Applications/Xcode_16.4.app
-                xcodebuild  \
                 xcodebuild archive \
                            -project EsmorgaiOS.xcodeproj \
                            -scheme EsmorgaiOS \

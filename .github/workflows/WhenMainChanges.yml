@@ -79,7 +79,8 @@ jobs:
           env:
             OUTPUT_PATH: ./build-qa
           run: |
-                xcodebuild  \
+                xcodebuild  archive \
+                           -project EsmorgaiOS.xcodeproj \
                            -scheme EsmorgaiOS \
                            -sdk iphoneos \
                            -configuration Release-QA \

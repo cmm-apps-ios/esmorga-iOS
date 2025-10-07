@@ -10,4 +10,4 @@
 #include "BaseConfig.xcconfig"
 
 PROJECT_BUILD = 20101
-APP_BASE_URL = https:/$()/qa.esmorga.canarte.org
+APP_BASE_URL = https:/$()/qa.api.esmorgaevents.com

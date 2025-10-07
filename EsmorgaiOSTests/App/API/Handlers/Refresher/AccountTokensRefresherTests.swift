@@ -82,7 +82,7 @@ final class AccountTokensRefresherTests: XCTestCase {
 
     private func stubRequest(file: String = "mock_dummy_file.json", statusCode: Int = 200) {
 
-        stub(condition: isHost("qa.esmorga.canarte.org") && isPath("/v1/account/refresh") && isMethodPOST()) { _ in
+        stub(condition: isHost("qa.api.esmorgaevents.com") && isPath("/v1/account/refresh") && isMethodPOST()) { _ in
             return HTTPStubsResponse(fileAtPath: OHPathForFile(file, type(of: self))!,
                                      statusCode: Int32(statusCode),
                                      headers: ["Content-Type": "application/json"])

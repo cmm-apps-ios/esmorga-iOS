@@ -52,7 +52,7 @@ final class ActivateUserDataSourceTests: XCTestCase {
 
     private func stubRequest(file: String) {
 
-        stub(condition: isHost("qa.esmorga.canarte.org") && isPath("/v1/account/activate") && isMethodPUT()) { _ in
+        stub(condition: isHost("qa.api.esmorgaevents.com") && isPath("/v1/account/activate") && isMethodPUT()) { _ in
             return HTTPStubsResponse(fileAtPath: OHPathForFile(file, type(of: self))!,
                                      statusCode: Int32(204),
                                      headers: ["Content-Type": "application/json"])
@@ -60,7 +60,7 @@ final class ActivateUserDataSourceTests: XCTestCase {
     }
 
     private func stubErrorRequest(code: Int) {
-        stub(condition: isHost("qa.esmorga.canarte.org") && isPath("/v1/account/activate") && isMethodPUT()) { _ in
+        stub(condition: isHost("qa.api.esmorgaevents.com") && isPath("/v1/account/activate") && isMethodPUT()) { _ in
             let error = NSError(domain: NSURLErrorDomain, code: code, userInfo: nil)
             return HTTPStubsResponse(error: error)
         }

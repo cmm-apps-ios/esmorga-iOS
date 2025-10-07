@@ -127,7 +127,7 @@ final class RemoteMyEventsDataSourceTests {
 
     private func stubRequest(file: String) {
 
-        stub(condition: isHost("qa.esmorga.canarte.org") && isPath("/v1/account/events") && isMethodGET()) { _ in
+        stub(condition: isHost("qa.api.esmorgaevents.com") && isPath("/v1/account/events") && isMethodGET()) { _ in
             return HTTPStubsResponse(fileAtPath: OHPathForFile(file, type(of: self))!,
                                      statusCode: Int32(200),
                                      headers: ["Content-Type": "application/json"])
@@ -136,7 +136,7 @@ final class RemoteMyEventsDataSourceTests {
 
     private func stubJoinEventRequest(file: String) {
 
-        stub(condition: isHost("qa.esmorga.canarte.org") && isPath("/v1/account/events") && isMethodPOST()) { _ in
+        stub(condition: isHost("qa.api.esmorgaevents.com") && isPath("/v1/account/events") && isMethodPOST()) { _ in
             return HTTPStubsResponse(fileAtPath: OHPathForFile(file, type(of: self))!,
                                      statusCode: Int32(200),
                                      headers: ["Content-Type": "application/json"])
@@ -145,7 +145,7 @@ final class RemoteMyEventsDataSourceTests {
 
     private func stubLeaveEventRequest(file: String) {
 
-        stub(condition: isHost("qa.esmorga.canarte.org") && isPath("/v1/account/events") && isMethodDELETE()) { _ in
+        stub(condition: isHost("qa.api.esmorgaevents.com") && isPath("/v1/account/events") && isMethodDELETE()) { _ in
             return HTTPStubsResponse(fileAtPath: OHPathForFile(file, type(of: self))!,
                                      statusCode: Int32(200),
                                      headers: ["Content-Type": "application/json"])
@@ -153,21 +153,21 @@ final class RemoteMyEventsDataSourceTests {
     }
 
     private func stubErrorRequest(code: Int) {
-        stub(condition: isHost("qa.esmorga.canarte.org") && isPath("/v1/account/events") && isMethodGET()) { _ in
+        stub(condition: isHost("qa.api.esmorgaevents.com") && isPath("/v1/account/events") && isMethodGET()) { _ in
             let error = NSError(domain: NSURLErrorDomain, code: code, userInfo: nil)
             return HTTPStubsResponse(error: error)
         }
     }
 
     private func stubJoinEventErrorRequest(code: Int) {
-        stub(condition: isHost("qa.esmorga.canarte.org") && isPath("/v1/account/events") && isMethodPOST()) { _ in
+        stub(condition: isHost("qa.api.esmorgaevents.com") && isPath("/v1/account/events") && isMethodPOST()) { _ in
             let error = NSError(domain: NSURLErrorDomain, code: code, userInfo: nil)
             return HTTPStubsResponse(error: error)
         }
     }
 
     private func stubLeaveEventErrorRequest(code: Int) {
-        stub(condition: isHost("qa.esmorga.canarte.org") && isPath("/v1/account/events") && isMethodDELETE()) { _ in
+        stub(condition: isHost("qa.api.esmorgaevents.com") && isPath("/v1/account/events") && isMethodDELETE()) { _ in
             let error = NSError(domain: NSURLErrorDomain, code: code, userInfo: nil)
             return HTTPStubsResponse(error: error)
         }

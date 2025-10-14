@@ -4,10 +4,10 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:esmorga.canarte.org</string>
-		<string>applinks:qa.esmorga.canarte.org</string>
-		<string>webcredentials:esmorga.canarte.org</string>
-		<string>webcredentials:qa.esmorga.canarte.org</string>
+		<string>applinks:api.esmorgaevents.com</string>
+		<string>applinks:qa.api.esmorgaevents.com</string>
+		<string>webcredentials:api.esmorgaevents.com</string>
+		<string>webcredentials:qa.api.esmorgaevents.com</string>
 	</array>
 </dict>
 </plist>

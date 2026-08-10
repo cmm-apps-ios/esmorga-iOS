@@ -9,10 +9,27 @@ import SwiftUI
 import Firebase
 import FirebaseCrashlytics
 
+import Flutter
+// The following library connects plugins with iOS platform code to this app.
+import FlutterPluginRegistrant
+
+@Observable
+class FlutterDependencies {
+ let flutterEngine = FlutterEngine(name: "my flutter engine")
+ init() {
+   // Runs the default Dart entrypoint with a default Flutter route.
+   flutterEngine.run()
+   // Connects plugins with iOS platform code to this app.
+   GeneratedPluginRegistrant.register(with: self.flutterEngine);
+ }
+}
+
 @main
 struct EsmorgaiOSApp: App {
       @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
       @StateObject var deepLinkManager = DeepLinkManager()
+    @State var flutterDependencies = FlutterDependencies()
+
 
     init() {
         FirebaseApp.configure()
@@ -31,6 +48,7 @@ struct EsmorgaiOSApp: App {
         WindowGroup {
             if NSClassFromString("XCTest") == nil {
                 MainCoordinatorView()
+                    .environment(flutterDependencies)
                     .environmentObject(deepLinkManager)
                     .onOpenURL { url in
                         deepLinkManager.handle(url: url)

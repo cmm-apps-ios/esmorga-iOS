@@ -8,6 +8,22 @@
 import SwiftUI
 import UIKit
 
+import Flutter
+
+struct FlutterViewControllerRepresentable: UIViewControllerRepresentable {
+  // Flutter dependencies are passed in through the view environment.
+  @Environment(FlutterDependencies.self) var flutterDependencies
+
+  func makeUIViewController(context: Context) -> some UIViewController {
+    return FlutterViewController(
+      engine: flutterDependencies.flutterEngine,
+      nibName: nil,
+      bundle: nil)
+  }
+
+  func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
+}
+
 struct EventDetailsView: View {
 
     @Environment(\.dismiss) private var dismiss
@@ -18,74 +34,6 @@ struct EventDetailsView: View {
     }
 
     var body: some View {
-        BaseView(viewModel: viewModel) {
-            switch viewModel.state {
-            case .ready:
-                EmptyView()
-            case .loaded:
-                ScrollView {
-                    AsyncImage(url: viewModel.model.imageUrl) { image in
-                        image.resizable()
-                            .aspectRatio(16/9, contentMode: .fill)
-                    } placeholder: {
-                        Image("placeholder-esmorga")
-                            .resizable()
-                            .aspectRatio(16/9, contentMode: .fill)
-                    }
-                    .padding(.bottom, 24)
-                    VStack(alignment: .leading) {
-                        Text(viewModel.model.title)
-                            .style(.title)
-                            .padding(.bottom, 16)
-                        Text(viewModel.model.body)
-                            .style(.body1Accent)
-                            .padding(.bottom, 29)
-                        Text(viewModel.model.descriptionTitle)
-                            .style(.heading1)
-                            .padding(.bottom, 16)
-                        Text(viewModel.model.descriptionBody)
-                            .style(.body1)
-                            .padding(.bottom, 32)
-                        Text(viewModel.model.locationTitle)
-                            .style(.heading1)
-                            .padding(.bottom, 16)
-                        Text(viewModel.model.locationBody)
-                            .style(.body1)
-                            .padding(.bottom, 12)
-                        VStack(spacing: 32) {
-                            CustomButton(title: $viewModel.model.secondaryButton.title,
-                                         buttonStyle: .secondary,
-                                         isDisabled: $viewModel.model.primaryButton.isLoading) {
-                                viewModel.openLocation()
-                            }
-                            CustomButton(title: $viewModel.model.primaryButton.title,
-                                         buttonStyle: .primary,
-                                         isLoading: $viewModel.model.primaryButton.isLoading) {
-                                Task {
-                                    await viewModel.primaryButtonTapped()
-                                }
-                            }
-                        }.padding(.top, 32)
-
-                    }.padding(.horizontal, 16)
-                }
-                .alert("Selecciona tu app de navigacion", isPresented: $viewModel.showMethodsAlert) {
-                    ForEach(viewModel.navigationMethods, id: \.title) { method in
-                        Button(method.title) {
-                            viewModel.openNavigationMethod(method)
-                        }
-                    }
-                    Button("Cancelar", role: .cancel) { }
-                }
-            }
-        }
-        .onFirstAppear {
-            Task {
-                await viewModel.viewLoad()
-            }
-        }
-        .navigationBar {
-            dismiss()
-        }
+        FlutterViewControllerRepresentable()
     }
 }

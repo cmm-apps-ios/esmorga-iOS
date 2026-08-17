@@ -61,6 +61,8 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
             EventDetailsBuilder().build(coordinator: self, event: event)
         case .dashboard:
             DashboardBuilder().build(coordinator: self)
+        case .flutterCreateEvent:
+            FlutterCreateEventViewControllerRepresentable()
         }
     }
 

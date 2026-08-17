@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Lottie
+import Flutter
 
 struct MyEventsView: View {
 
@@ -128,26 +129,48 @@ struct MyEventsView: View {
     }
 
     private func createEventList() -> some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 12) {
-                createTitleView()
-                    .padding(.horizontal, 16)
-                LazyVStack(spacing: 0) {
-                    ForEach(viewModel.events) { event in
-                        Button {
-                            viewModel.eventTapped(event)
-                        } label: {
-                            EventListCell(imageUrl: event.imageURL,
-                                          title: event.name,
-                                          subtitle: event.date.string(format: .dayMonthHour),
-                                          secondary: event.location)
+        ZStack(alignment: .bottomTrailing) {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 12) {
+                    createTitleView()
+                        .padding(.horizontal, 16)
+                    LazyVStack(spacing: 0) {
+                        ForEach(viewModel.events) { event in
+                            Button {
+                                viewModel.eventTapped(event)
+                            } label: {
+                                EventListCell(imageUrl: event.imageURL,
+                                              title: event.name,
+                                              subtitle: event.date.string(format: .dayMonthHour),
+                                              secondary: event.location)
+                            }
                         }
                     }
                 }
+                .padding(.top, 20)
             }
-            .padding(.top, 20)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .accessibilityIdentifier(AccessibilityIds.emptyView)
+            
+            Button {
+                viewModel.createEventTapped()
+            } label: {
+                Image(systemName: "plus.circle.fill")
+                    .resizable()
+                    .foregroundColor(.brown)
+                    .frame(width: 40, height: 40)
+                    .padding(40)
+            }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .accessibilityIdentifier(AccessibilityIds.emptyView)
+        
     }
 }
+
+struct MyProvider: PreviewProvider {
+    static var previews: some View {
+        let vm = MyEventsViewModel(coordinator: MainCoordinator())
+        vm.state = MyEventsViewStates.loaded
+        return MyEventsView(viewModel: vm)
+    }
+}
+

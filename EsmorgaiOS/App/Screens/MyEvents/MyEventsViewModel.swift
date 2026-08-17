@@ -43,6 +43,10 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
     func eventTapped(_ event: EventModels.Event) {
         coordinator?.push(destination: .eventDetails(event))
     }
+    
+    func createEventTapped() {
+        coordinator?.push(destination: .flutterCreateEvent)
+    }
 
     @MainActor
     func getEventList(forceRefresh: Bool) async {
@@ -56,6 +60,7 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
 
         guard case .success = isUserLogged else {
             self.changeState(.loggedOut)
+            self.changeState(.loaded)
             return
         }
 
@@ -77,6 +82,8 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
         case .failure:
             self.changeState(.error)
         }
+        
+        self.changeState(.loaded)
     }
 
     func loginButtonTapped() {

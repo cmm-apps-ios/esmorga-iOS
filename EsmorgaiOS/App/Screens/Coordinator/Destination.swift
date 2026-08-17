@@ -20,6 +20,7 @@ enum Destination: Hashable, Identifiable {
     case eventList
     case eventDetails(EventModels.Event)
     case dashboard
+    case flutterCreateEvent
 
     public var id: Self { self }
 

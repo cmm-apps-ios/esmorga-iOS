@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -540,6 +540,10 @@
 		EFF9C8892C99C7CA00DE50BC /* AccountTokensRefresherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTokensRefresherTests.swift; sourceTree = "<group>"; };
 		EFF9C88B2C99C88000DE50BC /* mock_refresh_token.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_refresh_token.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3DBF484E3033254800039CAD /* Flutter */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Flutter; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EF0811AD2C9093C400DE4887 /* Frameworks */ = {
@@ -1244,6 +1248,7 @@
 		EFD7EEF12C3C415F00C8CE70 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3DBF484E3033254800039CAD /* Flutter */,
 				3175042C2DF71B3D00CE072F /* ResetPassword */,
 				31EAF7BC2DEEF4E6003A6984 /* RecoverPassword */,
 				31E2B06C2DDB329500DC9A5E /* ActivateAccount */,
@@ -1871,6 +1876,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3DBF484E3033254800039CAD /* Flutter */,
 			);
 			name = EsmorgaiOS;
 			packageProductDependencies = (

@@ -49,11 +49,26 @@ struct FlutterViewControllerRepresentable: UIViewControllerRepresentable {
           binaryMessenger: flutterEngine.binaryMessenger
       )
 
+      /*
       DispatchQueue.main.async {
           
           channel.invokeMethod(
             "openEvent",
             arguments: event
+          )
+      }
+       */
+      
+      let userLoginData: [String: Any] = [
+          "accessToken": "email",
+          "refreshToken": "password",
+          "expirationDate": ""
+      ]
+      
+      DispatchQueue.main.async {
+          channel.invokeMethod(
+            "loginUser",
+            arguments: userLoginData
           )
       }
       

@@ -20,7 +20,7 @@ struct FlutterCreateEventViewControllerRepresentable: UIViewControllerRepresenta
         nibName: nil,
         bundle: nil)
 
-      flutterViewController.pushRoute("/create-event")
+      flutterViewController.pushRoute("/create-event/")
       
       return flutterViewController
   }

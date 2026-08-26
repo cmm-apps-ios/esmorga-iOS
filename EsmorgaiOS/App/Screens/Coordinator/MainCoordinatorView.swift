@@ -53,6 +53,11 @@ struct MainCoordinatorView: View {
                 print("Flutter button tapped")
                 coordinator.push(destination: .register)
                 result(nil)
+                
+            case "login":
+                print("Flutter button tapped")
+                coordinator.push(destination: .login)
+                result(nil)
 
             default:
                 result(FlutterMethodNotImplemented)

@@ -23,15 +23,12 @@ class ProfileViewModelMapper {
             )
         ]
 
-        let optionsItems = [
-            ProfileModels.OptionItem(
-                title: LocalizationKeys.Profile.logout.localize(),
-                subtitle: nil,
-                textButton: nil,
-                image: "arrow.right",
-                type: .closeSession
-            )
-        ]
+        let optionsItems = [ProfileModels.OptionItem(title: LocalizationKeys.Profile.changePassword.localize(),
+                                                     image: "arrow.right",
+                                                     type: .changePassword),
+                            ProfileModels.OptionItem(title: LocalizationKeys.Profile.logout.localize(),
+                                                     image: "arrow.right",
+                                                     type: .closeSession)]
 
         return ProfileModels.LoggedModel(
             userSection: ProfileModels.UserData(items: userItems),

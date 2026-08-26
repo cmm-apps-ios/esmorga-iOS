@@ -68,16 +68,14 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
 
     func optionTapped(type: ProfileModels.OptionsItemType) {
         switch type {
-            
-            ///Temporaly dissabled
-            /*
-             case .changePassword:
-             guard networkMonitor.isConnected else {
-             self.showErrorDialog(type: .noInternet)
-             self.reportErrorToCrashlytics()
-             return
-             }
-             */
+        case .changePassword:
+            guard networkMonitor.isConnected else {
+                self.showErrorDialog(type: .noInternet)
+                self.reportErrorToCrashlytics()
+                return
+            }
+            coordinator?.push(destination: .resetPassword(code: "1434"))
+
 
         case .closeSession:
             showConfirmationDialog()
@@ -97,13 +95,13 @@ class ProfileViewModel: BaseViewModel<ProfileViewStates> {
             }
         }
         self.confirmationDialog = ConfirmationDialogView.Model(title: LocalizationKeys.Profile.logoutPopupDescription.localize(),
-                                                               isShown: true,
-                                                               primaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize(),
-                                                               secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(),
-                                                               primaryAction: nil,
-                                                               secondaryAction: secondaryAction)
+                                                                    isShown: true,
+                                                                    primaryButtonTitle: LocalizationKeys.Profile.logoutPopupCancel.localize(),
+                                                                    secondaryButtonTitle: LocalizationKeys.Profile.logoutPopupConfirm.localize(),
+                                                                    primaryAction: nil,
+                                                                    secondaryAction: secondaryAction)
     }
-
+   
 
     func closeSession() async {
         let result = await logoutUserUseCase.execute()

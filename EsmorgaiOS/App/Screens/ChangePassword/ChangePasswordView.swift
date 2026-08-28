@@ -53,7 +53,6 @@ struct ChangePasswordView: View {
             .padding(.init(top: 20, leading: 16, bottom: 16, trailing: 16))
             .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 

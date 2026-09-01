@@ -42,7 +42,7 @@ enum AccountNetworkService: NetworkService {
         switch self {
         case .myEvents: return .get
         case .leave: return .delete
-        case .activate, .resetPassword: return .put
+        case .activate, .resetPassword, .changePassword: return .put
         default: return .post
         }
     }
@@ -91,7 +91,7 @@ enum AccountNetworkService: NetworkService {
 
     var requestInterceptor: RequestInterceptor? {
         switch self {
-        case .myEvents, .join, .leave:
+        case .myEvents, .join, .leave, .changePassword:
             return AuthenticationInterceptor(authenticator: AccountAuthenticator(),
                                              credential: AccountCredential())
         default: return nil

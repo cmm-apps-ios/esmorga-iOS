@@ -161,6 +161,17 @@
     "Cancelar" : {
 
     },
+    "change_password_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambiar contraseña"
+          }
+        }
+      }
+    },
     "default_error_body" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -223,6 +234,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nombre"
+          }
+        }
+      }
+    },
+    "field_title_new_password" : {
+      "extractionState" : "pasted",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nueva contraseña"
           }
         }
       }
@@ -913,5 +935,5 @@
       }
     }
   },
-  "version" : "1.0"
+  "version" : "1.2"
 }

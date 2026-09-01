@@ -55,7 +55,8 @@ class LocalizationKeys {
         static let navigate: String = "button_navigate"
         static let register: String = "button_register"
         static let forgotPasswordSend: String = "forgot_password_button"
-        static let resetPassword: String = "reset_password_button" //
+        static let resetPassword: String = "reset_password_button"
+        static let changePassword: String = "change_password_button"
         static let retry: String = "button_retry"
         static let joinEvent: String = "button_join_event"
         static let leaveEvent: String = "button_leave_event"
@@ -73,6 +74,7 @@ class LocalizationKeys {
             static let name: String = "field_title_name"
             static let password: String = "field_title_password"
             static let repeatPassword: String = "field_title_repeat_password"
+            static let newPassword: String = "field_title_new_password"
         }
 
         enum InlineError {

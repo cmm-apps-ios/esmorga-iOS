@@ -37,17 +37,17 @@ class ChangePasswordViewModel: BaseViewModel<ActivateAccountViewStates> {
 
         textFields =  [ChangePasswordModels.TextFieldModels(type: .oldPass,
                                                             text: "",
-                                                            title: "Contraseña",
+                                                            title: LocalizationKeys.TextField.Title.password.localize(),
                                                             placeholder: LocalizationKeys.TextField.Placeholders.password.localize(),
                                                             isProtected: true),
                        ChangePasswordModels.TextFieldModels(type: .pass,
                                                            text: "",
-                                                           title: "Nueva Contraseña",
+                                                           title: LocalizationKeys.TextField.Title.newPassword.localize(),
                                                            placeholder: LocalizationKeys.TextField.Placeholders.newPassword.localize(),
                                                            isProtected: true),
                        ChangePasswordModels.TextFieldModels(type: .confirmPass,
                                                            text: "",
-                                                           title: "Repetir Contraseña",
+                                                           title: LocalizationKeys.TextField.Title.repeatPassword.localize(),
                                                            placeholder: LocalizationKeys.TextField.Placeholders.confirmPassword.localize(),
                                                            isProtected: true)]
     }

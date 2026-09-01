@@ -13,15 +13,12 @@ enum ChangePasswordViewStates: ViewStateProtocol {
 
 class ChangePasswordViewModel: BaseViewModel<ActivateAccountViewStates> {
 
-    private let resetPasswordUserUseCase: ResetPasswordUserUseCaseAlias
+    private let changePasswordUserUseCase: ChangePasswordUserUseCaseAlias
 
     @Published var textFields = [ChangePasswordModels.TextFieldModels]()
 
-    @Published var primaryButton = RecoverPasswordModels.Button(title: LocalizationKeys.Buttons.resetPassword.localize(), isLoading: false)
+    @Published var primaryButton = RecoverPasswordModels.Button(title: LocalizationKeys.Buttons.changePassword.localize(), isLoading: false)
 
-
-
-    private let code: String
 
     var isFormValid: Bool {
         textFields.allSatisfy { tf in //true si cumple
@@ -34,13 +31,11 @@ class ChangePasswordViewModel: BaseViewModel<ActivateAccountViewStates> {
     }
 
     init(coordinator: (any CoordinatorProtocol)?,
-         resetPasswordUserUseCase: ResetPasswordUserUseCaseAlias = ResetPasswordUserUseCase(),
-         code: String = "") { // TODO: Delete 'code' parameter
-        self.resetPasswordUserUseCase = resetPasswordUserUseCase
-        self.code = code
+         changePasswordUserUseCase: ChangePasswordUserUseCaseAlias = ChangePasswordUserUseCase()) {
+        self.changePasswordUserUseCase = changePasswordUserUseCase
         super.init(coordinator: coordinator)
 
-        textFields =  [ChangePasswordModels.TextFieldModels(type: .pass,
+        textFields =  [ChangePasswordModels.TextFieldModels(type: .oldPass,
                                                             text: "",
                                                             title: "Contraseña",
                                                             placeholder: LocalizationKeys.TextField.Placeholders.password.localize(),
@@ -122,9 +117,11 @@ class ChangePasswordViewModel: BaseViewModel<ActivateAccountViewStates> {
 
         Task { [weak self] in
             guard let self else { return }
-            let pass = textFields.first(where: { $0.type == .pass })?.text ?? ""
+            
+            let currentPassword = textFields.first(where: { $0.type == .oldPass })?.text ?? ""
+            let newPassword = textFields.first(where: { $0.type == .confirmPass })?.text ?? ""
 
-            let result = await ResetPasswordUserUseCase().execute(input: ResetPasswordUserUseCaseInput(pass: pass, code: code))
+            let result = await ChangePasswordUserUseCase().execute(input: ChangePasswordUserUseCaseInput(currentPassword: currentPassword, newPassword: newPassword))
 
             await MainActor.run {
                 switch result {

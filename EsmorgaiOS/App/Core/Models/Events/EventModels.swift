@@ -24,6 +24,7 @@ enum EventModels {
         let location: String
         let creationDate: Date
         var isUserJoined: Bool
+        let currentAttendeeCount: Int32
 
         typealias NSManagedObject = MOEvent
 
@@ -45,6 +46,7 @@ enum EventModels {
             managedObject.location = location
             managedObject.creationDate = creationDate
             managedObject.isUserJoined = isUserJoined
+            managedObject.currentAttendeeCount = currentAttendeeCount
             return managedObject
         }
 
@@ -60,7 +62,8 @@ enum EventModels {
                                      longitude: managedObject.longitude,
                                      location: managedObject.location!,
                                      creationDate: managedObject.creationDate!,
-                                     isUserJoined: managedObject.isUserJoined)
+                                     isUserJoined: managedObject.isUserJoined,
+                                     currentAttendeeCount: managedObject.currentAttendeeCount)
         }
 
         static func == (lhs: Event, rhs: Event) -> Bool {
@@ -73,6 +76,7 @@ enum EventModels {
             && lhs.latitude == rhs.latitude
             && lhs.longitude == rhs.longitude
             && lhs.isUserJoined == rhs.isUserJoined
+            && lhs.currentAttendeeCount == rhs.currentAttendeeCount
         }
     }
 }

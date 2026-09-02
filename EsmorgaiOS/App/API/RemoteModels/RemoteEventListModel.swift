@@ -21,6 +21,7 @@ class RemoteEventListModel {
         let eventType: String
         let imageUrl: String?
         let location: Location
+        let currentAttendeeCount: Int32
 
         struct Location: Codable {
             let lat: Double?
@@ -39,7 +40,8 @@ class RemoteEventListModel {
                                      longitude: location.long,
                                      location: location.name,
                                      creationDate: creationDate,
-                                     isUserJoined: false)
+                                     isUserJoined: false,
+                                     currentAttendeeCount: currentAttendeeCount)
         }
     }
 }

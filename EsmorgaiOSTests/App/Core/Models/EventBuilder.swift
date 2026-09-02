@@ -21,6 +21,7 @@ final class EventBuilder {
     private var location: String = "A Coruña"
     private var creationDate: Date = Date(timeIntervalSince1970: 10000)
     private var isUserJoined: Bool = false
+    private var currentAttendeeCount: Int = 0
 
     func with(eventId: String) -> Self {
         self.eventId = eventId
@@ -76,6 +77,11 @@ final class EventBuilder {
         self.isUserJoined = isUserJoined
         return self
     }
+    
+    func with(currentAttendeeCount: Int) -> Self {
+        self.currentAttendeeCount = currentAttendeeCount
+        return self
+    }
 
     func build() -> EventModels.Event {
         return EventModels.Event(eventId: eventId,
@@ -88,6 +94,7 @@ final class EventBuilder {
                                  longitude: longitude,
                                  location: location,
                                  creationDate: creationDate,
-                                 isUserJoined: isUserJoined)
+                                 isUserJoined: isUserJoined,
+                                 currentAttendeeCount: currentAttendeeCount)
     }
 }

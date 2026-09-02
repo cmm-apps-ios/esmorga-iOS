@@ -42,8 +42,8 @@ class RemoteEventListModel {
                                      location: location.name,
                                      creationDate: creationDate,
                                      isUserJoined: false,
-                                     currentAttendeeCount: currentAttendeeCount,
-                                     maxCapacity: maxCapacity)
+                                     currentAttendeeCount: Int(currentAttendeeCount),
+                                     maxCapacity: Int(maxCapacity))
         }
     }
 }

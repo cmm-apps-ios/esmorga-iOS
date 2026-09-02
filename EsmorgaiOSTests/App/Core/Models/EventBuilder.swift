@@ -101,8 +101,8 @@ final class EventBuilder {
                                  location: location,
                                  creationDate: creationDate,
                                  isUserJoined: isUserJoined,
-                                 currentAttendeeCount: currentAttendeeCount,
-                                 maxCapacity: maxCapacity
+                                 currentAttendeeCount: Int(currentAttendeeCount),
+                                 maxCapacity: Int(maxCapacity)
         )
     }
 }

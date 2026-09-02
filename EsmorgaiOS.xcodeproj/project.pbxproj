@@ -69,6 +69,9 @@
 		3DCC738D30486B5C00EA1FA0 /* EventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */; };
 		3DCC738F30486E6100EA1FA0 /* RemoteEventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */; };
 		3DCC73913048702800EA1FA0 /* GetEventAttendeesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */; };
+		3DCC73943048713700EA1FA0 /* EventAttendeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC73933048713300EA1FA0 /* EventAttendeesViewModel.swift */; };
+		3DCC7396304872C000EA1FA0 /* EventAttendeesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC7395304872B600EA1FA0 /* EventAttendeesBuilder.swift */; };
+		3DCC739A3048730E00EA1FA0 /* EventAttendeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC73993048730C00EA1FA0 /* EventAttendeesView.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -350,6 +353,9 @@
 		3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendee.swift; sourceTree = "<group>"; };
 		3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEventAttendee.swift; sourceTree = "<group>"; };
 		3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventAttendeesUseCase.swift; sourceTree = "<group>"; };
+		3DCC73933048713300EA1FA0 /* EventAttendeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesViewModel.swift; sourceTree = "<group>"; };
+		3DCC7395304872B600EA1FA0 /* EventAttendeesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesBuilder.swift; sourceTree = "<group>"; };
+		3DCC73993048730C00EA1FA0 /* EventAttendeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesView.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -692,6 +698,16 @@
 				31EAF7BA2DEEF4DE003A6984 /* RecoverPasswordView.swift */,
 			);
 			path = RecoverPassword;
+			sourceTree = "<group>";
+		};
+		3DCC73923048711E00EA1FA0 /* EventAttendees */ = {
+			isa = PBXGroup;
+			children = (
+				3DCC73993048730C00EA1FA0 /* EventAttendeesView.swift */,
+				3DCC7395304872B600EA1FA0 /* EventAttendeesBuilder.swift */,
+				3DCC73933048713300EA1FA0 /* EventAttendeesViewModel.swift */,
+			);
+			path = EventAttendees;
 			sourceTree = "<group>";
 		};
 		EF0811B12C9093C500DE4887 /* EsmorgaiOSSnapshotTests */ = {
@@ -1248,6 +1264,7 @@
 		EFD7EEF12C3C415F00C8CE70 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3DCC73923048711E00EA1FA0 /* EventAttendees */,
 				3175042C2DF71B3D00CE072F /* ResetPassword */,
 				31EAF7BC2DEEF4E6003A6984 /* RecoverPassword */,
 				31E2B06C2DDB329500DC9A5E /* ActivateAccount */,
@@ -2150,6 +2167,7 @@
 				313D57472D612755001F4E95 /* ProfileView.swift in Sources */,
 				EF3158692C5A373A00DE157A /* String+Date.swift in Sources */,
 				EFD7EF072C3D41EC00C8CE70 /* EventsRepository.swift in Sources */,
+				3DCC7396304872C000EA1FA0 /* EventAttendeesBuilder.swift in Sources */,
 				EFE34DA02C74AAD500724DDC /* LoginView.swift in Sources */,
 				EF21284F2C86161400D00887 /* KeychainProtocols.swift in Sources */,
 				EFD7EF152C3D740700C8CE70 /* EventsNetworkService.swift in Sources */,
@@ -2188,6 +2206,7 @@
 				EFF9C87A2C99931500DE50BC /* NSNotification+Name.swift in Sources */,
 				EFE34DA92C77859D00724DDC /* ErrorDialog.swift in Sources */,
 				EFF9C8752C99921100DE50BC /* TokensRefresher.swift in Sources */,
+				3DCC739A3048730E00EA1FA0 /* EventAttendeesView.swift in Sources */,
 				EFE3E9762CBE7F2300C975D0 /* WelcomeScreenModels.swift in Sources */,
 				EF3158872C5BD63400DE157A /* BaseView.swift in Sources */,
 				EFE34D942C74A34A00724DDC /* AccountLoginModel.swift in Sources */,
@@ -2217,6 +2236,7 @@
 				EFE34DCE2C7CC9F900724DDC /* LoginModels.swift in Sources */,
 				EF4213C52C3ECB4400686033 /* DataConvertible.swift in Sources */,
 				3DCC73913048702800EA1FA0 /* GetEventAttendeesUseCase.swift in Sources */,
+				3DCC73943048713700EA1FA0 /* EventAttendeesViewModel.swift in Sources */,
 				EF0811DC2C9329F200DE4887 /* Destination.swift in Sources */,
 				EFD7EF202C3D8E9F00C8CE70 /* EventListCell.swift in Sources */,
 				EF2983F72C6B95F500C2393E /* ViewState.swift in Sources */,

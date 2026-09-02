@@ -59,6 +59,8 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
             EventListBuilder().build(coordinator: self)
         case .eventDetails(let event):
             EventDetailsBuilder().build(coordinator: self, event: event)
+        case .eventAttendees(let eventId):
+            EventAttendeesBuilder().build(coordinator: self, eventId: eventId)
         case .dashboard:
             DashboardBuilder().build(coordinator: self)
         }

@@ -19,6 +19,7 @@ enum Destination: Hashable, Identifiable {
     case dialog(ErrorDialog.Model)
     case eventList
     case eventDetails(EventModels.Event)
+    case eventAttendees(eventId: String)
     case dashboard
 
     public var id: Self { self }

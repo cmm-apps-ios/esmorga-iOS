@@ -24,6 +24,7 @@ class LocalizationKeys {
     enum EventDetails {
         static let description: String = "screen_event_details_description"
         static let location: String = "screen_event_details_location"
+        static let attendeesInfo: String = "screen_event_details_attendees_info"
     }
     
     enum Profile {
@@ -157,5 +158,9 @@ extension String {
 
     func localize() -> String {
         NSLocalizedString(self, comment: self)
+    }
+    
+    func localize(_ arguments: CVarArg...) -> String{
+       return String(format: self.localize(), arguments: arguments)
     }
 }

@@ -24,6 +24,8 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
     @Published var showMethodsAlert: Bool = false
     @Published var model: EventDetails.Model = .empty
     var navigationMethods = [DeepLinkModels.Method]()
+    
+    @Published var attendeesText: String = ""
 
     init(coordinator: (any CoordinatorProtocol)?,
          networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,
@@ -39,6 +41,11 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
         self.leaveEventUseCase = leaveEventUseCase
         super.init(coordinator: coordinator,
                    networkMonitor: networkMonitor)
+        setupAttendeesText()
+    }
+    
+    func setupAttendeesText() {
+        self.attendeesText = LocalizationKeys.EventDetails.attendeesInfo.localize(event.currentAttendeeCount, event.maxCapacity)
     }
 
     @MainActor

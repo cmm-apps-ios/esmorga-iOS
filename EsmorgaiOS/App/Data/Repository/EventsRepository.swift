@@ -11,6 +11,7 @@ protocol EventsRepositoryProtocol {
     func getEventList(refresh: Bool) async throws -> ([EventModels.Event], Bool)
     func joinEvent(id: String) async throws
     func leaveEvent(id: String) async throws
+    func getEventAttendees(id: String) async throws -> [EventAttendee]
 }
 
 class EventsRepository: EventsRepositoryProtocol {
@@ -127,5 +128,16 @@ class EventsRepository: EventsRepositoryProtocol {
         } catch {
             throw error
         }
+    }
+    
+    func getEventAttendees(id: String) async throws -> [EventAttendee] {
+        do {
+            let attendeesDTO = try await remoteDataSource.fetchEventAttendees(eventId: id)
+            let attendees = attendeesDTO.compactMap { $0.toDomain() }
+            return attendees
+        }
+        catch {
+           throw error
+       }
     }
 }

@@ -66,6 +66,9 @@
 		31EAF7CE2DF04D3C003A6984 /* RecoverPasswordUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */; };
 		31EAF7D02DF04D5E003A6984 /* RecoverPasswordUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */; };
 		31FC29292DEDDA8F00255606 /* ActivateSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */; };
+		3DCC738D30486B5C00EA1FA0 /* EventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */; };
+		3DCC738F30486E6100EA1FA0 /* RemoteEventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */; };
+		3DCC73913048702800EA1FA0 /* GetEventAttendeesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -344,6 +347,9 @@
 		31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUserUseCase.swift; sourceTree = "<group>"; };
 		31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUserDataSource.swift; sourceTree = "<group>"; };
 		31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivateSnapshotTests.swift; path = /Users/yago.ares.armesto/ActivateSnapshotTests.swift; sourceTree = "<absolute>"; };
+		3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendee.swift; sourceTree = "<group>"; };
+		3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEventAttendee.swift; sourceTree = "<group>"; };
+		3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventAttendeesUseCase.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -1034,6 +1040,7 @@
 		EF4213BF2C3EC9C100686033 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */,
 				EF4213C02C3EC9DE00686033 /* EventModels.swift */,
 			);
 			path = Events;
@@ -1089,6 +1096,7 @@
 				EFF8B8272CBFC97B007470A9 /* LeaveEventUseCase.swift */,
 				EFD7EF092C3D44A300C8CE70 /* GetEventListUseCase.swift */,
 				EF65D16C2CB91F56005078D9 /* JoinEventUseCase.swift */,
+				3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -1373,6 +1381,7 @@
 		EFD7EF212C3D8F0100C8CE70 /* RemoteModels */ = {
 			isa = PBXGroup;
 			children = (
+				3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */,
 				EFD7EF222C3D8F2400C8CE70 /* RemoteEventListModel.swift */,
 				EFE34D932C74A34A00724DDC /* AccountLoginModel.swift */,
 			);
@@ -2124,6 +2133,7 @@
 				EF2983E72C6B729A00C2393E /* WelcomeScreenBuilder.swift in Sources */,
 				EFE0A9792C3D925600E28953 /* TextStyles.swift in Sources */,
 				EF4213D82C41412300686033 /* AppManager.swift in Sources */,
+				3DCC738F30486E6100EA1FA0 /* RemoteEventAttendee.swift in Sources */,
 				311FA2132DBA85B900C4EC99 /* VerifyUserUserCase.swift in Sources */,
 				EFE34D9D2C74A92800724DDC /* LoginUseCase.swift in Sources */,
 				EFE0A97F2C3D92F200E28953 /* Text+TextStyle.swift in Sources */,
@@ -2147,6 +2157,7 @@
 				EFA6463D2C8B02B200D528F9 /* DomainError.swift in Sources */,
 				31518AD52D6CC57300363A3C /* ConfirmationDialog.swift in Sources */,
 				EF2A6DD62CAEA7B600164FD5 /* EventDetailsMapper.swift in Sources */,
+				3DCC738D30486B5C00EA1FA0 /* EventAttendee.swift in Sources */,
 				EF4213D02C3FF9E500686033 /* CacheRule.swift in Sources */,
 				EFD7EEFE2C3D387800C8CE70 /* LocalizationKeys.swift in Sources */,
 				31EAF7CC2DEF3138003A6984 /* RecoverPasswordModels.swift in Sources */,
@@ -2205,6 +2216,7 @@
 				EF503C082C9874C000EE9128 /* AccountAuthenticator.swift in Sources */,
 				EFE34DCE2C7CC9F900724DDC /* LoginModels.swift in Sources */,
 				EF4213C52C3ECB4400686033 /* DataConvertible.swift in Sources */,
+				3DCC73913048702800EA1FA0 /* GetEventAttendeesUseCase.swift in Sources */,
 				EF0811DC2C9329F200DE4887 /* Destination.swift in Sources */,
 				EFD7EF202C3D8E9F00C8CE70 /* EventListCell.swift in Sources */,
 				EF2983F72C6B95F500C2393E /* ViewState.swift in Sources */,

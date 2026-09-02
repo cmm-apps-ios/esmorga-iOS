@@ -11,18 +11,20 @@ import Alamofire
 enum EventsNetworkService: NetworkService {
 
     case eventsList
+    case eventAttendees(eventId: String)
 
     var url: URL { URL(string: "\(Bundle.baseURL)/v1")! }
 
     var path: String {
         switch self {
         case .eventsList: return "/events"
+        case .eventAttendees(let eventId): return "/events/\(eventId)/users"
         }
     }
 
     var method: HTTPMethod {
         switch self {
-        case .eventsList: return .get
+        case .eventsList, .eventAttendees(_): return .get
         }
     }
 

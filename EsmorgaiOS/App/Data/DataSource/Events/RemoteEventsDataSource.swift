@@ -9,6 +9,7 @@ import Foundation
 
 protocol RemoteEventsDataSourceProtocol {
     func fetchEvents() async throws -> [RemoteEventListModel.Event]
+    func fetchEventAttendees(eventId: String) async throws -> [RemoteEventAttendee]
 }
 
 class RemoteEventsDataSource: RemoteEventsDataSourceProtocol {
@@ -23,6 +24,15 @@ class RemoteEventsDataSource: RemoteEventsDataSourceProtocol {
         do {
             let eventList: RemoteEventListModel.EventList = try await networkRequest.request(networkService: EventsNetworkService.eventsList)
             return eventList.events
+        } catch let error {
+            throw error
+        }
+    }
+    
+    func fetchEventAttendees(eventId: String) async throws -> [RemoteEventAttendee] {
+        do {
+            let eventAttendees: [RemoteEventAttendee] = try await networkRequest.request(networkService: EventsNetworkService.eventAttendees(eventId: eventId))
+            return eventAttendees
         } catch let error {
             throw error
         }

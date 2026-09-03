@@ -31,5 +31,12 @@ enum EventsNetworkService: NetworkService {
     var parameters: [String : Any]? { nil }
     var headers: HTTPHeaders { ["Content-Type": "application/json"] }
     var body: Data? { nil }
-    var requestInterceptor: RequestInterceptor? { nil }
+    var requestInterceptor: RequestInterceptor? {
+        switch self {
+        case .eventAttendees:
+            return AuthenticationInterceptor(authenticator: AccountAuthenticator(),
+                                             credential: AccountCredential())
+        default: return nil
+        }
+    }
 }

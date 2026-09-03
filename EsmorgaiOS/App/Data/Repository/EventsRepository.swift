@@ -133,7 +133,7 @@ class EventsRepository: EventsRepositoryProtocol {
     func getEventAttendees(id: String) async throws -> [EventAttendee] {
         do {
             let attendeesDTO = try await remoteDataSource.fetchEventAttendees(eventId: id)
-            let attendees = attendeesDTO.compactMap { $0.toDomain() }
+            let attendees = attendeesDTO.toDomain()
             return attendees
         }
         catch {

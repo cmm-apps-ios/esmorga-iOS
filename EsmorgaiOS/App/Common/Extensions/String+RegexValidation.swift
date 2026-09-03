@@ -9,7 +9,7 @@ import Foundation
 
 enum RegexCase: String {
     case userEmail = "^(?!.{101})[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
-    case userPassword = "^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#\\$%^&*()_+'\\-=+/<>]).{8,50}$"
+    case userPassword = #"^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!-/:-@\[-`{-~]).{8,50}$"#
     case userName = "^[a-zA-Z '\\-]{3,100}$"
 }
 

@@ -137,4 +137,8 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
         let dialogModel = ErrorDialogModelBuilder.build(type: type)
         coordinator?.push(destination: .dialog(dialogModel))
     }
+    
+    func seeEventAttendees() {
+        coordinator?.push(destination: Destination.eventAttendees(eventId: self.event.eventId))
+    }
 }

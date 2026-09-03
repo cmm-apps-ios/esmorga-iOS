@@ -239,7 +239,7 @@
       }
     },
     "field_title_new_password" : {
-      "extractionState" : "pasted",
+      "extractionState" : "manual",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -388,6 +388,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Las contraseñas no coinciden, inténtalo de nuevo!"
+          }
+        }
+      }
+    },
+    "inline_error_password_must_be_different" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La nueva contraseña debe ser diferente de la actual."
           }
         }
       }

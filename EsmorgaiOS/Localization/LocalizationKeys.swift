@@ -87,7 +87,8 @@ class LocalizationKeys {
             static let passwordMismatch: String = "inline_error_password_mismatch"
             static let emptyField: String = "inline_error_empty_field"
             static let invalidCredentials: String = "invalid_credentials_error"
-            static let passwordInvalidLong = "reset_password_invalid" //
+            static let passwordInvalidLong = "reset_password_invalid"
+            static let passwordMustBeDifferent = "inline_error_password_must_be_different"
         }
 
         enum Placeholders {

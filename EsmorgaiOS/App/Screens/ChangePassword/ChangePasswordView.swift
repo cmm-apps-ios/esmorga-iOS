@@ -45,7 +45,7 @@ struct ChangePasswordView: View {
                                  buttonStyle: .primary,
                                  isLoading: $viewModel.primaryButton.isLoading,
                                  isDisabled: .constant(!viewModel.isFormValid)) {
-                        viewModel.performResetPassword()
+                        viewModel.performChangePassword()
                     }
                 }
                 Spacer()

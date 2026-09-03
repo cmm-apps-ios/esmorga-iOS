@@ -52,6 +52,8 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
         case .resetPassword(let code):
             //Cambiar
            ResetPasswordBuilder().build(coordinator: self, code: code)
+        case .changePassword:
+            ChangePasswordBuilder().build(coordinator: self)
         case .dialog(let model):
             let viewModel = ErrorDialogViewModel(coordinator: self)
             ErrorDialog(viewModel: viewModel, model: model)

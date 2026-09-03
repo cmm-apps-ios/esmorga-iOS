@@ -58,6 +58,7 @@ class ChangePasswordViewModel: BaseViewModel<ActivateAccountViewStates> {
                 isProtected: true)]
     }
 
+    // TODO: Move this validation to a class, to avoid repeating same code than ResetPaswordViewModel
     private func validateAllFields() -> Bool {
         var isValid: Bool = true
         for textField in textFields {
@@ -71,18 +72,62 @@ class ChangePasswordViewModel: BaseViewModel<ActivateAccountViewStates> {
     @discardableResult
     func validateTextField(type: ChangePasswordModels.TextFieldType, checkIsEmpty: Bool) -> Bool {
 
-        guard let index = textFields.firstIndex(where: { $0.type == type }) else { return false }
-        textFields[index].text = textFields[index].text.trimmingCharacters(in: .whitespacesAndNewlines)
-
-        if getTextFieldIsValid(type: type, checkIsEmpty: checkIsEmpty) {
-            textFields[index].errorMessage = nil
-            return true
-        } else if textFields[index].text.isEmpty {
-            textFields[index].errorMessage = checkIsEmpty ? LocalizationKeys.TextField.InlineError.emptyField.localize() : nil
-            return !checkIsEmpty
-        } else {
-            textFields[index].errorMessage = getTextFieldErrorMessage(type: type)
+        guard let index = textFields.firstIndex(where: { $0.type == type }) else {
             return false
+        }
+
+        textFields[index].text = textFields[index]
+            .text
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+
+        let validationError = validateField(type: type, checkIsEmpty: checkIsEmpty)
+        textFields[index].errorMessage = validationError.map { $0.messageError }
+        return validationError == nil
+    }
+    
+    private func validateField(
+        type: ChangePasswordModels.TextFieldType,
+        checkIsEmpty: Bool
+    ) -> PasswordValidationError? {
+
+        guard let index = textFields.firstIndex(where: { $0.type == type }) else {
+            return .invalidFormat
+        }
+
+        let text = textFields[index].text
+
+        if checkIsEmpty && text.isEmpty {
+            return .empty
+        }
+
+        switch type {
+
+        case .oldPass:
+            return text.isValid(regexPattern: .userPassword) ? nil : .invalidFormat
+
+        case .pass:
+
+            guard let oldPass = textFields.first(where: { $0.type == .oldPass })?.text else {
+                return .invalidFormat
+            }
+
+            if !text.isValid(regexPattern: .userPassword) {
+                return .invalidFormat
+            }
+
+            if text == oldPass {
+                return .sameAsOldPassword
+            }
+
+            return nil
+
+        case .confirmPass:
+
+            guard let password = textFields.first(where: { $0.type == .pass })?.text else {
+                return .invalidFormat
+            }
+
+            return text == password ? nil : .confirmationMismatch
         }
     }
     
@@ -120,35 +165,6 @@ class ChangePasswordViewModel: BaseViewModel<ActivateAccountViewStates> {
 
         case .oldPass:
             return textFields[index].text.isValid(regexPattern: .userPassword)
-        }
-    }
-
-    private func getTextFieldRegex(type: ChangePasswordModels.TextFieldType) -> RegexCase {
-        switch type {
-        case .oldPass, .pass, .confirmPass: return .userPassword
-        }
-    }
-
-    private func getTextFieldErrorMessage(type: ChangePasswordModels.TextFieldType) -> String {
-
-        switch type {
-
-        case .oldPass:
-            return LocalizationKeys.TextField.InlineError.passwordInvalid.localize()
-
-        case .pass:
-
-            let oldPassword = textFields.first(where: { $0.type == .oldPass })?.text
-            let newPassword = textFields.first(where: { $0.type == .pass })?.text
-
-            if oldPassword == newPassword {
-                return LocalizationKeys.TextField.InlineError.passwordMustBeDifferent.localize()
-            }
-
-            return LocalizationKeys.TextField.InlineError.passwordInvalidLong.localize()
-
-        case .confirmPass:
-            return LocalizationKeys.TextField.InlineError.passwordMismatch.localize()
         }
     }
 

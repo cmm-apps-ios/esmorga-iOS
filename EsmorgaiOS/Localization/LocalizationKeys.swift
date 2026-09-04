@@ -136,6 +136,12 @@ class LocalizationKeys {
     enum ResetPassword {
         static let title: String = "reset_password_screen_title"
     }
+    
+    enum Attendees {
+        static let title: String = "attendees_screen_title"
+        static let columnName: String = "attendees_screen_column_name"
+        static let columnPaid: String = "attendees_screen_column_paid"
+    }
 
     enum Snackbar {
         static let noInternet: String = "snackbar_no_internet"

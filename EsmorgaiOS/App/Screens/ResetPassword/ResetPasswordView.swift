@@ -19,7 +19,6 @@ struct ResetPasswordView: View {
     }
 
 
-
     var body: some View {
         BaseView(viewModel: viewModel) {
             VStack(alignment: .leading, spacing: 12) {

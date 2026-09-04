@@ -4,6 +4,49 @@
     "" : {
 
     },
+    "%lld. %@" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld. %2$@"
+          }
+        }
+      }
+    },
+    "attendees_screen_column_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre"
+          }
+        }
+      }
+    },
+    "attendees_screen_column_paid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pagado"
+          }
+        }
+      }
+    },
+    "attendees_screen_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista de asistentes"
+          }
+        }
+      }
+    },
     "bottom_bar_explore" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -922,6 +965,9 @@
           }
         }
       }
+    },
+    "Ver todos los asistentes" : {
+
     }
   },
   "version" : "1.2"

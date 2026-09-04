@@ -9,8 +9,9 @@ import SwiftUI
 
 struct EventAttendeesView: View {
     
-    @StateObject var viewModel: EventAttendeesViewModel
     @Environment(\.dismiss) private var dismiss
+    @StateObject var viewModel: EventAttendeesViewModel
+    @State private var doesClose: Bool = false
 
     init(viewModel: EventAttendeesViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -18,11 +19,30 @@ struct EventAttendeesView: View {
     
     var body: some View {
         BaseView(viewModel: viewModel) {
-            VStack {
-                ForEach(0..<viewModel.attendeesNames.count, id: \.self) { i in
-                    Text(viewModel.attendeesNames[i])
+            VStack(alignment: .leading, spacing: 12) {
+                title
+                    .padding(.bottom, 16.5)
+                    .padding(.top, 50)
+                columnNames
+                ScrollView {
+                    VStack {
+                        ForEach(0..<viewModel.attendeesNames.count, id: \.self) { i in
+                            VStack(alignment: .center) {
+                                Divider()
+                                HStack(spacing: 0) {
+                                    Text("\(i). \(viewModel.attendeesNames[i])")
+                                        .style(.body1)
+                                    Spacer()
+                                    CheckBoxView(checked: $doesClose)
+                                        .padding(.trailing, 15)
+                                }
+                                .padding(.vertical, 5)
+                            }
+                        }
+                    }
                 }
             }
+            .padding(.horizontal, 16)
         }
         .navigationBar {
             dismiss()
@@ -32,4 +52,23 @@ struct EventAttendeesView: View {
         }
     }
     
+    var title: some View {
+        Text(LocalizationKeys.Attendees.title.localize())
+            .style(.heading1)
+    }
+    
+    var columnNames: some View {
+        HStack {
+            Text(LocalizationKeys.Attendees.columnName.localize())
+                .style(.heading2)
+            Spacer()
+            Text(LocalizationKeys.Attendees.columnPaid.localize())
+                .style(.heading2)
+        }
+    }
+    
+}
+
+#Preview {
+    EventAttendeesView(viewModel: EventAttendeesViewModel(coordinator: MainCoordinator(), eventId: ""))
 }

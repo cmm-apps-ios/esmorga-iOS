@@ -19,13 +19,16 @@ enum EventAttendeesViewStates: ViewStateProtocol {
 class EventAttendeesViewModel: BaseViewModel<EventAttendeesViewStates> {
     
     private let getEventAttendeesUseCase: GetEventAttendeesUseCaseAlias
+    private let saveEventAttendeesUseCase: SaveEventAttendeesUseCaseAlias
     private let eventId: String
-    @Published var attendeesNames: [String] = []
+    @Published var attendees: [EventAttendee] = []
     
     init(coordinator: (any CoordinatorProtocol)?,
          getEventAttendeesUseCase: GetEventAttendeesUseCaseAlias = GetEventAttendeesUseCase(),
+         saveEventAttendeesUseCase: SaveEventAttendeesUseCaseAlias = SaveEventAttendeesUseCase(),
          eventId: String) {
         self.getEventAttendeesUseCase = getEventAttendeesUseCase
+        self.saveEventAttendeesUseCase = saveEventAttendeesUseCase
         self.eventId = eventId
         super.init(coordinator: coordinator)
     }
@@ -37,11 +40,20 @@ class EventAttendeesViewModel: BaseViewModel<EventAttendeesViewStates> {
         await MainActor.run {
             switch result {
             case .success(let attendees):
-                attendeesNames = attendees.map(\.name)
+                self.attendees = attendees
             case .failure(let error):
                 //TODO: ask what happens if there is an error from backend
-                attendeesNames = []
+                attendees = []
             }
         }
+    }
+    
+    @MainActor
+    func updateAttendeeHasPayed() async {
+        let inputSaveEventAttendeesUseCase: SaveEventAttendeesUseCaseInput = .init(
+            eventId: self.eventId,
+            attendees: self.attendees
+        )
+        _ = await saveEventAttendeesUseCase.execute(input: inputSaveEventAttendeesUseCase)
     }
 }

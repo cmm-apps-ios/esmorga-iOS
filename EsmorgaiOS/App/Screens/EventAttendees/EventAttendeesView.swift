@@ -11,7 +11,6 @@ struct EventAttendeesView: View {
     
     @Environment(\.dismiss) private var dismiss
     @StateObject var viewModel: EventAttendeesViewModel
-    @State private var doesClose: Bool = false
 
     init(viewModel: EventAttendeesViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -26,15 +25,17 @@ struct EventAttendeesView: View {
                 columnNames
                 ScrollView {
                     VStack {
-                        ForEach(0..<viewModel.attendeesNames.count, id: \.self) { i in
+                        ForEach(0..<viewModel.attendees.count, id: \.self) { i in
                             VStack(alignment: .center) {
                                 Divider()
                                 HStack(spacing: 0) {
-                                    Text("\(i). \(viewModel.attendeesNames[i])")
+                                    Text("\(i). \(viewModel.attendees[i].name)")
                                         .style(.body1)
                                     Spacer()
-                                    CheckBoxView(checked: $doesClose)
+                                    CheckBoxView(checked: $viewModel.attendees[i].hasPayed)
                                         .padding(.trailing, 15)
+ 
+                                        
                                 }
                                 .padding(.vertical, 5)
                             }
@@ -49,6 +50,11 @@ struct EventAttendeesView: View {
         }
         .task {
             await viewModel.getEventAttendees()
+        }
+        .onDisappear {
+            Task {
+                await viewModel.updateAttendeeHasPayed()
+            }
         }
     }
     

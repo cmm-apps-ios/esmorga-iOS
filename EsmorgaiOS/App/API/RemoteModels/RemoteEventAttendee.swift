@@ -10,6 +10,6 @@ struct RemoteEventAttendee: Codable {
     let users: [String]
     
     func toDomain() -> [EventAttendee] {
-        return users.map { EventAttendee(name: $0) }
+        return users.map { EventAttendee(name: $0, hasPayed: false) }
     }
 }

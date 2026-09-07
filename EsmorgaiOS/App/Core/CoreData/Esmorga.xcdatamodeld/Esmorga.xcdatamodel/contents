@@ -14,6 +14,13 @@
         <attribute name="longitude" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="maxCapacity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
+        <relationship name="attendees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MOEventAttendee" inverseName="event" inverseEntity="MOEventAttendee"/>
+    </entity>
+    <entity name="MOEventAttendee" representedClassName="MOEventAttendee" syncable="YES" codeGenerationType="class">
+        <attribute name="hasPayed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOEvent" inverseName="attendees" inverseEntity="MOEvent"/>
     </entity>
     <entity name="MOUser" representedClassName="MOUser" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String"/>

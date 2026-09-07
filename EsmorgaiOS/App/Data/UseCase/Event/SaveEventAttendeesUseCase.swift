@@ -7,8 +7,13 @@
 
 import Foundation
 
-typealias SaveEventAttendeesUseCaseResult = Result<[EventAttendee], Error>
-typealias SaveEventAttendeesUseCaseAlias = BaseUseCase<String, SaveEventAttendeesUseCaseResult>
+struct SaveEventAttendeesUseCaseInput {
+    let eventId: String
+    let attendees: [EventAttendee]
+}
+
+typealias SaveEventAttendeesUseCaseResult = Result<Void, Error>
+typealias SaveEventAttendeesUseCaseAlias = BaseUseCase<SaveEventAttendeesUseCaseInput, SaveEventAttendeesUseCaseResult>
 
 class SaveEventAttendeesUseCase: SaveEventAttendeesUseCaseAlias {
 
@@ -18,10 +23,10 @@ class SaveEventAttendeesUseCase: SaveEventAttendeesUseCaseAlias {
         self.eventsRepository = eventsRepository
     }
 
-    override func job(input: String) async -> SaveEventAttendeesUseCaseResult {
+    override func job(input: SaveEventAttendeesUseCaseInput) async -> SaveEventAttendeesUseCaseResult {
         do {
-            let attendees = try await eventsRepository.getEventAttendees(id: input)
-            return .success((attendees))
+            try await eventsRepository.saveAttendees(input.attendees, for: input.eventId)
+            return .success(())
         } catch {
             return .failure(error)
         }

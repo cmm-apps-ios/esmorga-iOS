@@ -132,14 +132,21 @@ class EventsRepository: EventsRepositoryProtocol {
     }
     
     func getEventAttendees(id: String) async throws -> [EventAttendee] {
-        do {
-            let attendeesDTO = try await remoteDataSource.fetchEventAttendees(eventId: id)
-            let attendees = attendeesDTO.toDomain()
-            return attendees
+        let attendeesDTO = try await remoteDataSource.fetchEventAttendees(eventId: id)
+        let remoteAttendeesData = attendeesDTO.toDomain()
+        var finalAttendeesData = remoteAttendeesData
+
+        let localAttendeesData = try await localEventsDataSource.getAttendees(eventId: id)
+
+        for localAttendee in localAttendeesData {
+            if let index = remoteAttendeesData.firstIndex(where: {
+                $0.name == localAttendee.name
+            }) {
+                finalAttendeesData[index].hasPayed = localAttendee.hasPayed
+            }
         }
-        catch {
-           throw error
-       }
+
+        return finalAttendeesData
     }
     
     func saveAttendees(_ attendees: [EventAttendee], for eventId: String) async throws {

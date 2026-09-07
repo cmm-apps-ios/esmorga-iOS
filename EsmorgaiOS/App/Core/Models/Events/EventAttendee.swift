@@ -13,7 +13,7 @@ struct EventAttendee: Identifiable, DataConvertible {
     
     let id: UUID
     let name: String
-    let hasPayed: Bool
+    var hasPayed: Bool
     
     init(id: UUID = UUID(), name: String, hasPayed: Bool) {
         self.id = id

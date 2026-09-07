@@ -66,6 +66,7 @@
 		31EAF7CE2DF04D3C003A6984 /* RecoverPasswordUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */; };
 		31EAF7D02DF04D5E003A6984 /* RecoverPasswordUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */; };
 		31FC29292DEDDA8F00255606 /* ActivateSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */; };
+		3D33D091304F11DA00EB4C21 /* SaveEventAttendeesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D33D090304F11DA00EB4C21 /* SaveEventAttendeesUseCase.swift */; };
 		3DCC738D30486B5C00EA1FA0 /* EventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */; };
 		3DCC738F30486E6100EA1FA0 /* RemoteEventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */; };
 		3DCC73913048702800EA1FA0 /* GetEventAttendeesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */; };
@@ -351,6 +352,7 @@
 		31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUserUseCase.swift; sourceTree = "<group>"; };
 		31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUserDataSource.swift; sourceTree = "<group>"; };
 		31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivateSnapshotTests.swift; path = /Users/yago.ares.armesto/ActivateSnapshotTests.swift; sourceTree = "<absolute>"; };
+		3D33D090304F11DA00EB4C21 /* SaveEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveEventAttendeesUseCase.swift; sourceTree = "<group>"; };
 		3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendee.swift; sourceTree = "<group>"; };
 		3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEventAttendee.swift; sourceTree = "<group>"; };
 		3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventAttendeesUseCase.swift; sourceTree = "<group>"; };
@@ -1115,6 +1117,7 @@
 				EFD7EF092C3D44A300C8CE70 /* GetEventListUseCase.swift */,
 				EF65D16C2CB91F56005078D9 /* JoinEventUseCase.swift */,
 				3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */,
+				3D33D090304F11DA00EB4C21 /* SaveEventAttendeesUseCase.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -2191,6 +2194,7 @@
 				EF2983ED2C6B758100C2393E /* EventListBuilder.swift in Sources */,
 				EF21285E2C8711D300D00887 /* Bundle+Configuration.swift in Sources */,
 				EFE34DD62C7DE6D900724DDC /* RegistrationView.swift in Sources */,
+				3D33D091304F11DA00EB4C21 /* SaveEventAttendeesUseCase.swift in Sources */,
 				EFE34DD92C7DE6F300724DDC /* RegistrationViewModel.swift in Sources */,
 				EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */,
 				EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */,

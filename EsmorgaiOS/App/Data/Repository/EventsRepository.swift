@@ -12,6 +12,7 @@ protocol EventsRepositoryProtocol {
     func joinEvent(id: String) async throws
     func leaveEvent(id: String) async throws
     func getEventAttendees(id: String) async throws -> [EventAttendee]
+    func saveAttendees(_ attendees: [EventAttendee], for eventId: String) async throws
 }
 
 class EventsRepository: EventsRepositoryProtocol {
@@ -139,5 +140,9 @@ class EventsRepository: EventsRepositoryProtocol {
         catch {
            throw error
        }
+    }
+    
+    func saveAttendees(_ attendees: [EventAttendee], for eventId: String) async throws {
+        try await localEventsDataSource.saveAttendees(attendees, for: eventId)
     }
 }

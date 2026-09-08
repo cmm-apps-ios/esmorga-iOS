@@ -61,6 +61,7 @@ class LocalizationKeys {
         static let joinEvent: String = "button_join_event"
         static let leaveEvent: String = "button_leave_event"
         static let loginToJoin: String = "button_login_to_join"
+        static let seeAttendees: String = "button_see_attendees"
         static let ok: String = "button_ok"
         static let cancel: String = "register_confirmation_button_cancel"
 
@@ -141,6 +142,7 @@ class LocalizationKeys {
         static let title: String = "attendees_screen_title"
         static let columnName: String = "attendees_screen_column_name"
         static let columnPaid: String = "attendees_screen_column_paid"
+        static let butt: String = "attendees_screen_column_paid"
     }
 
     enum Snackbar {

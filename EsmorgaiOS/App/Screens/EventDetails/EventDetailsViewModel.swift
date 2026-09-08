@@ -19,13 +19,14 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
     private let joinEventUseCase: JoinEventUseCaseAlias
     private let leaveEventUseCase: LeaveEventUseCaseAlias
     private var event: EventModels.Event
-    private var isUserLogged: Bool = false
+    private var user: UserModels.User?
 
     @Published var showMethodsAlert: Bool = false
     @Published var model: EventDetails.Model = .empty
     var navigationMethods = [DeepLinkModels.Method]()
     
     @Published var attendeesText: String = ""
+    @Published var showSeeAttendeesButton: Bool = false
 
     init(coordinator: (any CoordinatorProtocol)?,
          networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,
@@ -41,21 +42,25 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
         self.leaveEventUseCase = leaveEventUseCase
         super.init(coordinator: coordinator,
                    networkMonitor: networkMonitor)
-        setupAttendeesText()
-    }
-    
-    func setupAttendeesText() {
-        self.attendeesText = LocalizationKeys.EventDetails.attendeesInfo.localize(event.currentAttendeeCount, event.maxCapacity)
     }
 
     @MainActor
     func viewLoad() async {
-        isUserLogged = await getLocalUserUseCase.execute().isSuccess
+        user = try? await getLocalUserUseCase.execute().get()
+        let isUserLogged = user != nil
         showEventModel()
         changeState(.loaded(isLogged: isUserLogged))
+        setupAttendeesInfo()
+    }
+    
+    private func setupAttendeesInfo() {
+        self.attendeesText = LocalizationKeys.EventDetails.attendeesInfo.localize(event.currentAttendeeCount, event.maxCapacity)
+        
+        self.showSeeAttendeesButton = (event.currentAttendeeCount >= event.maxCapacity) && (user?.role == .admin)
     }
 
     private func showEventModel() {
+        let isUserLogged = user != nil
         model = EventDetailsMapper.mapEventDetails(event, isUserLogged: isUserLogged)
     }
 

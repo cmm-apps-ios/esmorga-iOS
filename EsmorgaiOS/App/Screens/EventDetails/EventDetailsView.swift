@@ -97,8 +97,10 @@ struct EventDetailsView: View {
             Text(viewModel.attendeesText)
                 .style(.body1Accent)
             Spacer()
-            Button("Ver todos los asistentes") {
-                viewModel.seeEventAttendees()
+            if !viewModel.showSeeAttendeesButton {
+                Button(LocalizationKeys.Buttons.seeAttendees.localize()) {
+                    viewModel.seeEventAttendees()
+                }
             }
         }
     }

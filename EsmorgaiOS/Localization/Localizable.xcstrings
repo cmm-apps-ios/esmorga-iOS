@@ -201,6 +201,17 @@
         }
       }
     },
+    "button_see_attendees" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver asistentes"
+          }
+        }
+      }
+    },
     "Cancelar" : {
 
     },
@@ -965,9 +976,6 @@
           }
         }
       }
-    },
-    "Ver todos los asistentes" : {
-
     }
   },
   "version" : "1.2"

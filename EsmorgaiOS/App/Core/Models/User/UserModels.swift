@@ -8,11 +8,17 @@
 import Foundation
 
 enum UserModels {
+    
+    enum RoleType: String {
+      case user
+      case admin
+    }
 
     struct User: DataConvertible, Equatable {
         let name: String
         let lastName: String
         let email: String
+        let role: RoleType
         
         typealias NSManagedObject = MOUser
 
@@ -27,9 +33,10 @@ enum UserModels {
 
         static func convert(from managedObject: MOUser) -> UserModels.User? {
 
-            return UserModels.User(name: managedObject.name!,
-                                   lastName: managedObject.lastName!,
-                                   email: managedObject.email!)
+            return UserModels.User(name: managedObject.name ?? "",
+                                   lastName: managedObject.lastName ?? "",
+                                   email: managedObject.email ?? "",
+                                   role: RoleType(rawValue: managedObject.role ?? "") ?? .user)
         }
     }
 }

@@ -17,6 +17,7 @@ class RemoteEventListModel {
         let eventId: String
         let eventName: String
         let eventDate: String
+        let joinDeadline: String
         let description: String
         let eventType: String
         let imageUrl: String?
@@ -39,7 +40,8 @@ class RemoteEventListModel {
                                      longitude: location.long,
                                      location: location.name,
                                      creationDate: creationDate,
-                                     isUserJoined: false)
+                                     isUserJoined: false,
+                                     joinDeadline: joinDeadline.date(format: .iso8601) ?? Date())
         }
     }
 }

@@ -7,12 +7,15 @@
 
 import Foundation
 
+// TODO: Think about refactoring this. Maybe its redudant if we already have a model from domain. Also the names are confusing.
+
 enum EventDetails {
 
     struct Model {
         let imageUrl: URL?
         let title: String
         let body: String
+        let deadline: String
         let descriptionTitle: String
         let descriptionBody: String
         let locationTitle: String
@@ -24,6 +27,7 @@ enum EventDetails {
             return Model(imageUrl: nil,
                          title: "",
                          body: "",
+                         deadline: "",
                          descriptionTitle: "",
                          descriptionBody: "",
                          locationTitle: "",

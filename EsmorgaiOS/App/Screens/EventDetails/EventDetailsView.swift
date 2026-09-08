@@ -39,6 +39,9 @@ struct EventDetailsView: View {
                             .padding(.bottom, 16)
                         Text(viewModel.model.body)
                             .style(.body1Accent)
+                            .padding(.bottom, 16)
+                        Text(viewModel.model.deadline)
+                            .style(.body1)
                             .padding(.bottom, 29)
                         Text(viewModel.model.descriptionTitle)
                             .style(.heading1)
@@ -88,4 +91,8 @@ struct EventDetailsView: View {
             dismiss()
         }
     }
+}
+
+#Preview {
+    EventDetailsView(viewModel: EventDetailsViewModel(coordinator: MainCoordinator(), event: EventModels.Event(eventId: "", name: "Fiesta del eclipse", date: Date(), details: "", eventType: "", imageURL: nil, latitude: nil, longitude: nil, location: "", creationDate: Date(), isUserJoined: true, joinDeadline: Date())))
 }

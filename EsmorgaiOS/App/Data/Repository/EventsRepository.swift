@@ -137,15 +137,20 @@ class EventsRepository: EventsRepositoryProtocol {
         var finalAttendeesData = remoteAttendeesData
 
         let localAttendeesData = try await localEventsDataSource.getAttendees(eventId: id)
+        var remainingLocalAttendees = localAttendeesData
 
-        for localAttendee in localAttendeesData {
-            if let index = remoteAttendeesData.firstIndex(where: {
-                $0.name == localAttendee.name
+        for index in finalAttendeesData.indices {
+
+            if let localIndex = remainingLocalAttendees.firstIndex(where: {
+                $0.name == finalAttendeesData[index].name
             }) {
-                finalAttendeesData[index].hasPayed = localAttendee.hasPayed
+
+                finalAttendeesData[index].hasPayed =
+                    remainingLocalAttendees[localIndex].hasPayed
+
+                remainingLocalAttendees.remove(at: localIndex)
             }
         }
-
         return finalAttendeesData
     }
     

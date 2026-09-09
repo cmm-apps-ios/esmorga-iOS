@@ -97,7 +97,7 @@ struct EventDetailsView: View {
             Text(viewModel.attendeesText)
                 .style(.body1Accent)
             Spacer()
-            if !viewModel.showSeeAttendeesButton {
+            if viewModel.showSeeAttendeesButton {
                 Button {
                     viewModel.seeEventAttendees()
                 } label: {

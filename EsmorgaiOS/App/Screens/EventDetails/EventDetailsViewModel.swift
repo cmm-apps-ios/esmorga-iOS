@@ -56,7 +56,7 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
     private func setupAttendeesInfo() {
         self.attendeesText = LocalizationKeys.EventDetails.attendeesInfo.localize(event.currentAttendeeCount, event.maxCapacity)
         
-        self.showSeeAttendeesButton = (event.currentAttendeeCount >= event.maxCapacity) && (user?.role == .admin)
+        self.showSeeAttendeesButton = (event.currentAttendeeCount >= 0) && (user?.role == .admin)
     }
 
     private func showEventModel() {

@@ -28,6 +28,7 @@ enum UserModels {
             managedObject.name = name
             managedObject.lastName = lastName
             managedObject.email = email
+            managedObject.role = role.rawValue
             return managedObject
         }
 

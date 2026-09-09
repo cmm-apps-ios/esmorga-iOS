@@ -98,8 +98,11 @@ struct EventDetailsView: View {
                 .style(.body1Accent)
             Spacer()
             if !viewModel.showSeeAttendeesButton {
-                Button(LocalizationKeys.Buttons.seeAttendees.localize()) {
+                Button {
                     viewModel.seeEventAttendees()
+                } label: {
+                    Text(LocalizationKeys.Buttons.seeAttendees.localize())
+                        .style(.button, textColor: TextStyle.body1Accent.fontColor)
                 }
             }
         }

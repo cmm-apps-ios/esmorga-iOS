@@ -25,6 +25,18 @@ struct CustomButton: View {
         self._isDisabled = isDisabled ?? .constant(false)
         self.action = action
     }
+    
+    init(title: String,
+         buttonStyle: CustomButtonStyle = .primary,
+         isLoading: Binding<Bool>? = nil,
+         isDisabled: Binding<Bool>? = nil,
+         action: (() -> Void)? = nil) {
+        self._title = .constant(title)
+        self.buttonStyle = buttonStyle
+        self._isLoading = isLoading ?? .constant(false)
+        self._isDisabled = isDisabled ?? .constant(false)
+        self.action = action
+    }
 
     var body: some View {
         Button {

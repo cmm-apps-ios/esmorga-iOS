@@ -14,6 +14,7 @@ protocol UserRepositoryProtocol {
     func activate (code: String) async throws -> UserModels.User
     func recoverPassword(email: String) async throws
     func resetPassword(password: String, code: String) async throws
+    func changePassword(currentPassword: String, newPassword: String) async throws
     func getLocalUser() async -> UserModels.User?
     func logoutUser() async -> Bool
 }
@@ -25,6 +26,7 @@ class UserRepository: UserRepositoryProtocol {
     private var verifyUserDataSource: VerifyUserDataSourceProtocol
     private var recoverPasswordUserDataSource: RecoverPasswordUserDataSourceProtocol
     private var resetPasswordUserDataSource: ResetPasswordUserDataSourceProtocol
+    private var changePasswordUserDataSource: ChangePasswordUserDataSourceProtocol
     private var activateUserDataSource: ActivateUserDataSourceProtocol
     private var localEventsDataSource: LocalEventsDataSourceProtocol
     private var sessionKeychain: CodableKeychain<AccountSession>
@@ -36,6 +38,7 @@ class UserRepository: UserRepositoryProtocol {
          activateUserDataSource: ActivateUserDataSourceProtocol = ActivateUserDataSource(),
          recoverPasswordUserDataSource: RecoverPasswordUserDataSourceProtocol = RecoverPasswordUserDataSource(),
          resetPasswordUserDataSource: ResetPasswordUserDataSourceProtocol = ResetPasswordUserDataSource(),
+         changePasswordUserDataSource: ChangePasswordUserDataSourceProtocol = ChangePasswordUserDataSource(),
          localEventsDataSource: LocalEventsDataSourceProtocol = LocalEventsDataSource(),
          sessionKeychain: CodableKeychain<AccountSession> = AccountSession.buildCodableKeychain()) {
         self.localUserDataSource = localUserDataSource
@@ -45,6 +48,7 @@ class UserRepository: UserRepositoryProtocol {
         self.activateUserDataSource = activateUserDataSource
         self.recoverPasswordUserDataSource = recoverPasswordUserDataSource
         self.resetPasswordUserDataSource = resetPasswordUserDataSource
+        self.changePasswordUserDataSource = changePasswordUserDataSource
         self.localEventsDataSource = localEventsDataSource
         self.sessionKeychain = sessionKeychain
     }
@@ -102,6 +106,15 @@ class UserRepository: UserRepositoryProtocol {
     func resetPassword(password: String, code: String) async throws {
         do {
             try await resetPasswordUserDataSource.resetPassword(pass: password, code: code)
+        } catch {
+            throw error
+        }
+    }
+    
+    
+    func changePassword(currentPassword: String, newPassword: String) async throws {
+        do {
+            try await changePasswordUserDataSource.changePassword(currentPassword: currentPassword, newPassword: newPassword)
         } catch {
             throw error
         }

@@ -17,6 +17,7 @@ enum AccountNetworkService: NetworkService {
     case activate(code:String)
     case forgotPassword(email: String)
     case resetPassword(pass: String, code: String)
+    case changePassword(currentPassword: String, newPassword: String)
     case refresh(token: String)
     case join(eventId: String)
     case leave(eventId: String)
@@ -31,6 +32,7 @@ enum AccountNetworkService: NetworkService {
         case .activate: return "account/activate"
         case .forgotPassword: return "account/password/forgot-init"
         case .resetPassword: return "account/password/forgot-update"
+        case .changePassword: return "account/password"
         case .refresh: return "account/refresh"
         case .myEvents, .join, .leave: return "account/events"
         }
@@ -40,7 +42,7 @@ enum AccountNetworkService: NetworkService {
         switch self {
         case .myEvents: return .get
         case .leave: return .delete
-        case .activate, .resetPassword: return .put
+        case .activate, .resetPassword, .changePassword: return .put
         default: return .post
         }
     }
@@ -73,6 +75,10 @@ enum AccountNetworkService: NetworkService {
             let json = ["password": pass,
                         "forgotPasswordCode": code]
             return try? JSONSerialization.data(withJSONObject: json, options: [])
+        case .changePassword(let currentPassword, let newPassword):
+            let json = ["currentPassword": currentPassword,
+                        "newPassword": newPassword]
+            return try? JSONSerialization.data(withJSONObject: json, options: [])
         case .refresh(let token):
             let json = ["refreshToken": token]
             return try? JSONSerialization.data(withJSONObject: json, options: [])
@@ -85,7 +91,7 @@ enum AccountNetworkService: NetworkService {
 
     var requestInterceptor: RequestInterceptor? {
         switch self {
-        case .myEvents, .join, .leave:
+        case .myEvents, .join, .leave, .changePassword:
             return AuthenticationInterceptor(authenticator: AccountAuthenticator(),
                                              credential: AccountCredential())
         default: return nil

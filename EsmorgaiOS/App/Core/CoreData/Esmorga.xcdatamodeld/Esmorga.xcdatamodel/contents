@@ -9,6 +9,7 @@
         <attribute name="eventType" attributeType="String"/>
         <attribute name="imageURL" optional="YES" attributeType="URI"/>
         <attribute name="isUserJoined" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="joinDeadline" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="latitude" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="location" attributeType="String"/>
         <attribute name="longitude" optional="YES" attributeType="Double" usesScalarValueType="YES"/>

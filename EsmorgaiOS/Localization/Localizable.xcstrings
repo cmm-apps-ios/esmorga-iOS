@@ -468,6 +468,9 @@
         }
       }
     },
+    "Key" : {
+      "extractionState" : "manual"
+    },
     "login_forgot_password" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -827,6 +830,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%d/%d asistentes"
+          }
+        }
+      }
+    },
+    "screen_event_details_deadline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apúntante antes del %@"
           }
         }
       }

@@ -24,6 +24,7 @@ class LocalizationKeys {
     enum EventDetails {
         static let description: String = "screen_event_details_description"
         static let location: String = "screen_event_details_location"
+        static let attendeesInfo: String = "screen_event_details_attendees_info"
     }
     
     enum Profile {
@@ -61,6 +62,7 @@ class LocalizationKeys {
         static let joinEvent: String = "button_join_event"
         static let leaveEvent: String = "button_leave_event"
         static let loginToJoin: String = "button_login_to_join"
+        static let seeAttendees: String = "button_see_attendees"
         static let ok: String = "button_ok"
         static let cancel: String = "register_confirmation_button_cancel"
 
@@ -138,6 +140,13 @@ class LocalizationKeys {
     enum ResetPassword {
         static let title: String = "reset_password_screen_title"
     }
+    
+    enum Attendees {
+        static let title: String = "attendees_screen_title"
+        static let columnName: String = "attendees_screen_column_name"
+        static let columnPaid: String = "attendees_screen_column_paid"
+        static let butt: String = "attendees_screen_column_paid"
+    }
 
     enum Snackbar {
         static let noInternet: String = "snackbar_no_internet"
@@ -160,5 +169,9 @@ extension String {
 
     func localize() -> String {
         NSLocalizedString(self, comment: self)
+    }
+    
+    func localize(_ arguments: CVarArg...) -> String{
+       return String(format: self.localize(), arguments: arguments)
     }
 }

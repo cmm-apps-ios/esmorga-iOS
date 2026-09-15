@@ -21,7 +21,7 @@ final class EventDetailsMapper {
             }
         }
         
-        let deadlineText: String = LocalizationKeys.EventDetails.deadline.localize(event.joinDeadline.string(format: .dayMonthHour) ?? "")
+        let deadlineText: String = LocalizationKeys.EventDetails.deadline.localize(event.joinDeadline?.string(format: .dayMonthHour) ?? "")
 
         return EventDetails.Model(imageUrl: event.imageURL,
                                   title: event.name,

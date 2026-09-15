@@ -24,7 +24,7 @@ enum EventModels {
         let location: String
         let creationDate: Date
         var isUserJoined: Bool
-        let joinDeadline: Date
+        let joinDeadline: Date?
         let currentAttendeeCount: Int
         let maxCapacity: Int
 
@@ -67,7 +67,7 @@ enum EventModels {
                                      location: managedObject.location!,
                                      creationDate: managedObject.creationDate!,
                                      isUserJoined: managedObject.isUserJoined,
-                                     joinDeadline: managedObject.joinDeadline ?? Date(),
+                                     joinDeadline: managedObject.joinDeadline,
                                      currentAttendeeCount: Int(managedObject.currentAttendeeCount),
                                      maxCapacity: Int(managedObject.maxCapacity)
             )

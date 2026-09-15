@@ -43,7 +43,7 @@ class RemoteEventListModel {
                                      location: location.name,
                                      creationDate: creationDate,
                                      isUserJoined: false,
-                                     joinDeadline: joinDeadline.date(format: .iso8601) ?? Date(),
+                                     joinDeadline: joinDeadline.date(format: .iso8601),
                                      currentAttendeeCount: Int(currentAttendeeCount ?? 0),
                                      maxCapacity: Int(maxCapacity ?? 0))
         }

@@ -40,6 +40,8 @@ struct EventDetailsView: View {
                         Text(viewModel.model.body)
                             .style(.body1Accent)
                             .padding(.bottom, 16)
+                        attendees
+                            .padding(.bottom, 16)
                         Text(viewModel.model.deadline)
                             .style(.body1)
                             .padding(.bottom, 29)
@@ -91,8 +93,25 @@ struct EventDetailsView: View {
             dismiss()
         }
     }
+    
+    var attendees: some View {
+        HStack(spacing: 4) {
+            Image(systemName: "person.2.fill")
+            Text(viewModel.attendeesText)
+                .style(.body1Accent)
+            Spacer()
+            if viewModel.showSeeAttendeesButton {
+                Button {
+                    viewModel.seeEventAttendees()
+                } label: {
+                    Text(LocalizationKeys.Buttons.seeAttendees.localize())
+                        .style(.button, textColor: TextStyle.body1Accent.fontColor)
+                }
+            }
+        }
+    }
 }
 
 #Preview {
-    EventDetailsView(viewModel: EventDetailsViewModel(coordinator: MainCoordinator(), event: EventModels.Event(eventId: "", name: "Fiesta del eclipse", date: Date(), details: "", eventType: "", imageURL: nil, latitude: nil, longitude: nil, location: "", creationDate: Date(), isUserJoined: true, joinDeadline: Date())))
+    EventDetailsView(viewModel: EventDetailsViewModel(coordinator: MainCoordinator(), event: EventModels.Event(eventId: "", name: "Fiesta del eclipse", date: Date(), details: "", eventType: "", imageURL: nil, latitude: nil, longitude: nil, location: "", creationDate: Date(), isUserJoined: true, joinDeadline: Date(), currentAttendeeCount: 2, maxCapacity: 12)))
 }

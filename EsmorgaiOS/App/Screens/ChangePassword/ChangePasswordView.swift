@@ -1,23 +1,22 @@
 //
-//  RecoverPasswordView.swift
+//  ChangePasswordView.swift
 //  EsmorgaiOS
 //
-//  Created by Ares Armesto, Yago on 9/6/25.
+//  Created by Moran, Marcelo on 27/8/26.
 //
 
 import Foundation
 
 import SwiftUI
 
-struct ResetPasswordView: View {
+struct ChangePasswordView: View {
 
-    @StateObject var viewModel: ResetPasswordViewModel
+    @StateObject var viewModel: ChangePasswordViewModel
     @Environment(\.dismiss) private var dismiss
-    @FocusState private var focusedField: ResetPasswordModels.TextFieldType?
-    init(viewModel: ResetPasswordViewModel) {
+    @FocusState private var focusedField: ChangePasswordModels.TextFieldType?
+    init(viewModel: ChangePasswordViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
-
 
     var body: some View {
         BaseView(viewModel: viewModel) {
@@ -46,7 +45,7 @@ struct ResetPasswordView: View {
                                  buttonStyle: .primary,
                                  isLoading: $viewModel.primaryButton.isLoading,
                                  isDisabled: .constant(!viewModel.isFormValid)) {
-                        viewModel.performResetPassword()
+                        viewModel.performChangePassword()
                     }
                 }
                 Spacer()
@@ -54,7 +53,6 @@ struct ResetPasswordView: View {
             .padding(.init(top: 20, leading: 16, bottom: 16, trailing: 16))
             .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -63,11 +61,11 @@ private func createTitleView() -> some View {
         .style(.heading1)
 }
 
-extension ResetPasswordView {
+extension ChangePasswordView {
 
     private func focusPreviousField() {
         focusedField = focusedField.map {
-            ResetPasswordModels.TextFieldType(rawValue: $0.rawValue - 1) ?? .confirmPass
+            ChangePasswordModels.TextFieldType(rawValue: $0.rawValue - 1) ?? .confirmPass
         }
     }
 
@@ -82,6 +80,6 @@ extension ResetPasswordView {
         guard let currentFocusedField = focusedField else {
             return false
         }
-        return currentFocusedField.rawValue <  ResetPasswordModels.TextFieldType.allCases.count - 1
+        return currentFocusedField.rawValue <  ChangePasswordModels.TextFieldType.allCases.count - 1
     }
 }

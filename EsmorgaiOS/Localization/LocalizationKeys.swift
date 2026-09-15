@@ -25,6 +25,7 @@ class LocalizationKeys {
         static let description: String = "screen_event_details_description"
         static let location: String = "screen_event_details_location"
         static let deadline: String = "screen_event_details_deadline"
+        static let attendeesInfo: String = "screen_event_details_attendees_info"
     }
     
     enum Profile {
@@ -56,11 +57,13 @@ class LocalizationKeys {
         static let navigate: String = "button_navigate"
         static let register: String = "button_register"
         static let forgotPasswordSend: String = "forgot_password_button"
-        static let resetPassword: String = "reset_password_button" //
+        static let resetPassword: String = "reset_password_button"
+        static let changePassword: String = "change_password_button"
         static let retry: String = "button_retry"
         static let joinEvent: String = "button_join_event"
         static let leaveEvent: String = "button_leave_event"
         static let loginToJoin: String = "button_login_to_join"
+        static let seeAttendees: String = "button_see_attendees"
         static let ok: String = "button_ok"
         static let cancel: String = "register_confirmation_button_cancel"
 
@@ -74,6 +77,7 @@ class LocalizationKeys {
             static let name: String = "field_title_name"
             static let password: String = "field_title_password"
             static let repeatPassword: String = "field_title_repeat_password"
+            static let newPassword: String = "field_title_new_password"
         }
 
         enum InlineError {
@@ -86,7 +90,8 @@ class LocalizationKeys {
             static let passwordMismatch: String = "inline_error_password_mismatch"
             static let emptyField: String = "inline_error_empty_field"
             static let invalidCredentials: String = "invalid_credentials_error"
-            static let passwordInvalidLong = "reset_password_invalid" //
+            static let passwordInvalidLong = "reset_password_invalid"
+            static let passwordMustBeDifferent = "inline_error_password_must_be_different"
         }
 
         enum Placeholders {
@@ -135,6 +140,13 @@ class LocalizationKeys {
 
     enum ResetPassword {
         static let title: String = "reset_password_screen_title"
+    }
+    
+    enum Attendees {
+        static let title: String = "attendees_screen_title"
+        static let columnName: String = "attendees_screen_column_name"
+        static let columnPaid: String = "attendees_screen_column_paid"
+        static let butt: String = "attendees_screen_column_paid"
     }
 
     enum Snackbar {

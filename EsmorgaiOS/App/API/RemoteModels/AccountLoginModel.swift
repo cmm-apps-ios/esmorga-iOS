@@ -20,11 +20,12 @@ class AccountLoginModel {
         let name: String
         let lastName: String
         let email: String
+        let role: String
 
         func toDomain() -> UserModels.User {
             return UserModels.User(name: name,
                                    lastName: lastName,
-                                   email: email)
+                                   email: email, role: UserModels.RoleType(rawValue: role.lowercased()) ?? .user)
         }
     }
 }

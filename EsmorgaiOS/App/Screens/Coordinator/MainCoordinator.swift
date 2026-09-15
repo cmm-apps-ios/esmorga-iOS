@@ -52,6 +52,8 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
         case .resetPassword(let code):
             //Cambiar
            ResetPasswordBuilder().build(coordinator: self, code: code)
+        case .changePassword:
+            ChangePasswordBuilder().build(coordinator: self)
         case .dialog(let model):
             let viewModel = ErrorDialogViewModel(coordinator: self)
             ErrorDialog(viewModel: viewModel, model: model)
@@ -59,6 +61,8 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
             EventListBuilder().build(coordinator: self)
         case .eventDetails(let event):
             EventDetailsBuilder().build(coordinator: self, event: event)
+        case .eventAttendees(let eventId):
+            EventAttendeesBuilder().build(coordinator: self, eventId: eventId)
         case .dashboard:
             DashboardBuilder().build(coordinator: self)
         }

@@ -11,6 +11,8 @@ protocol EventsRepositoryProtocol {
     func getEventList(refresh: Bool) async throws -> ([EventModels.Event], Bool)
     func joinEvent(id: String) async throws
     func leaveEvent(id: String) async throws
+    func getEventAttendees(id: String) async throws -> [EventAttendee]
+    func saveAttendees(_ attendees: [EventAttendee], for eventId: String) async throws
 }
 
 class EventsRepository: EventsRepositoryProtocol {
@@ -127,5 +129,32 @@ class EventsRepository: EventsRepositoryProtocol {
         } catch {
             throw error
         }
+    }
+    
+    func getEventAttendees(id: String) async throws -> [EventAttendee] {
+        let attendeesDTO = try await remoteDataSource.fetchEventAttendees(eventId: id)
+        let remoteAttendeesData = attendeesDTO.toDomain()
+        var finalAttendeesData = remoteAttendeesData
+
+        let localAttendeesData = try await localEventsDataSource.getAttendees(eventId: id)
+        var remainingLocalAttendees = localAttendeesData
+
+        for index in finalAttendeesData.indices {
+
+            if let localIndex = remainingLocalAttendees.firstIndex(where: {
+                $0.name == finalAttendeesData[index].name
+            }) {
+
+                finalAttendeesData[index].hasPayed =
+                    remainingLocalAttendees[localIndex].hasPayed
+
+                remainingLocalAttendees.remove(at: localIndex)
+            }
+        }
+        return finalAttendeesData
+    }
+    
+    func saveAttendees(_ attendees: [EventAttendee], for eventId: String) async throws {
+        try await localEventsDataSource.saveAttendees(attendees, for: eventId)
     }
 }

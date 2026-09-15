@@ -12,6 +12,8 @@ protocol LocalEventsDataSourceProtocol {
     func getEvents() async -> [EventModels.Event]
     func saveEvents(_ events: [EventModels.Event]) async throws -> ()
     func updateIsUserJoinedEvent(id: String, isUserJoined: Bool) async throws
+    func getAttendees(eventId: String) async throws -> [EventAttendee]
+    func saveAttendees(_ attendees: [EventAttendee], for eventId: String) async throws
     func clearAll()
 }
 
@@ -71,4 +73,82 @@ class LocalEventsDataSource: LocalEventsDataSourceProtocol {
             print(error.localizedDescription)
         }
     }
+    
+    // MARK: Attendees
+    
+    func getAttendees(eventId: String) async throws -> [EventAttendee] {
+
+        let request = NSFetchRequest<MOEvent>(
+            entityName: "MOEvent"
+        )
+
+        request.predicate = NSPredicate(
+            format: "eventId == %@",
+            eventId
+        )
+
+        guard let event = try container.viewContext
+            .fetch(request)
+            .first
+        else {
+            return []
+        }
+
+        let attendees = event.attendees as? Set<MOEventAttendee> ?? []
+
+        return attendees.map {
+            EventAttendee(id: $0.id ?? UUID(),
+                          name: $0.name ?? "",
+                          hasPayed: $0.hasPayed)
+        }
+    }
+    
+    func saveAttendees(
+        _ attendees: [EventAttendee],
+        for eventId: String
+    ) async throws {
+
+        let context = container.viewContext
+
+        let eventRequest = NSFetchRequest<MOEvent>(
+            entityName: "MOEvent"
+        )
+        eventRequest.predicate = NSPredicate(
+            format: "eventId == %@",
+            eventId
+        )
+
+        guard let event = try context.fetch(eventRequest).first else {
+            throw NSError(
+                domain: "LocalEventsDataSource",
+                code: 404,
+                userInfo: [
+                    NSLocalizedDescriptionKey: "Event not found"
+                ]
+            )
+        }
+
+        // Remove existing attendees for this event
+        if let existingAttendees = event.attendees as? Set<MOEventAttendee> {
+            existingAttendees.forEach {
+                
+                event.removeFromAttendees($0)
+                context.delete($0)
+            }
+        }
+
+        // Add new attendees
+        attendees.forEach { attendee in
+
+            let moAttendee = MOEventAttendee(context: context)
+            moAttendee.id = attendee.id
+            moAttendee.name = attendee.name
+            moAttendee.hasPayed = attendee.hasPayed
+
+            event.addToAttendees(moAttendee)
+        }
+
+        try context.save()
+    }
+    
 }

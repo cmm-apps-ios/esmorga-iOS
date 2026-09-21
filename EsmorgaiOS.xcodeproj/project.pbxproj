@@ -85,7 +85,7 @@
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
 		EF0811C32C90943300DE4887 /* View+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811C22C90943300DE4887 /* View+UIViewController.swift */; };
 		EF0811C72C91915700DE4887 /* RegistrationViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811C62C91915700DE4887 /* RegistrationViewTests.swift */; };
-		EF0811C92C919B4F00DE4887 /* RegistrationSpanshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811C82C919B4F00DE4887 /* RegistrationSpanshotTests.swift */; };
+		EF0811C92C919B4F00DE4887 /* RegistrationSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811C82C919B4F00DE4887 /* RegistrationSnapshotTests.swift */; };
 		EF0811CD2C91D2B400DE4887 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811CC2C91D2B400DE4887 /* DashboardView.swift */; };
 		EF0811D12C9325C300DE4887 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811D02C9325C300DE4887 /* DashboardViewModel.swift */; };
 		EF0811D32C9325EF00DE4887 /* DashboardBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811D22C9325EF00DE4887 /* DashboardBuilder.swift */; };
@@ -376,7 +376,7 @@
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
 		EF0811C62C91915700DE4887 /* RegistrationViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewTests.swift; sourceTree = "<group>"; };
-		EF0811C82C919B4F00DE4887 /* RegistrationSpanshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSpanshotTests.swift; sourceTree = "<group>"; };
+		EF0811C82C919B4F00DE4887 /* RegistrationSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811CC2C91D2B400DE4887 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		EF0811D02C9325C300DE4887 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		EF0811D22C9325EF00DE4887 /* DashboardBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardBuilder.swift; sourceTree = "<group>"; };
@@ -788,7 +788,7 @@
 		EF0811CA2C919B5700DE4887 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				EF0811C82C919B4F00DE4887 /* RegistrationSpanshotTests.swift */,
+				EF0811C82C919B4F00DE4887 /* RegistrationSnapshotTests.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -2119,7 +2119,7 @@
 			files = (
 				EFE0F5F12CC277390046959A /* WelcomeScreenSnapshotTests.swift in Sources */,
 				EF2A6DDE2CAED84400164FD5 /* MockGetLocalUserUseCase.swift in Sources */,
-				EF0811C92C919B4F00DE4887 /* RegistrationSpanshotTests.swift in Sources */,
+				EF0811C92C919B4F00DE4887 /* RegistrationSnapshotTests.swift in Sources */,
 				EF2A6DDD2CAED77400164FD5 /* EventDetailsSnapshotTests.swift in Sources */,
 				EF0811ED2C94424B00DE4887 /* BottomBarSnapshotsTests.swift in Sources */,
 				EF2A6DE12CAEE33E00164FD5 /* TestHelper.swift in Sources */,

@@ -5,6 +5,7 @@
     "profile": {
         "name": "John",
         "lastName": "O'Donnel-Vic",
-        "email": "eventslogin01@yopmail.com"
+        "email": "eventslogin01@yopmail.com",
+        "role": "user"
     }
 }

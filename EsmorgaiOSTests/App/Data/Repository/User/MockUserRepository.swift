@@ -53,6 +53,10 @@ final class MockUserRepository: UserRepositoryProtocol {
         return
     }
 
+    func changePassword(currentPassword: String, newPassword: String) async throws {
+        return
+    }
+
     func getLocalUser() async -> UserModels.User? {
         return mockUser
     }

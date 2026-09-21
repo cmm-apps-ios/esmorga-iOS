@@ -1,203 +1,374 @@
-name: Build APP 
-run-name: ${{ github.actor }} is Building the APP 🚀
+name: Build APP
+
+run-name: ${{ github.actor }} is building the APP 🚀
+
 on:
-#Delete this , just for test
-#  pull_request:
-#    types: [opened,reopened,edited,synchronize]
-#    branches:
-#      - main
-#    paths:
-#      - '**'
-
-
+  # Build automatically when code is pushed to main or a release branch.
   push:
     branches:
       - main
-      - release/release*
+      - 'release/release*'
+
+  # Allow this workflow to be launched manually from GitHub Actions.
   workflow_dispatch:
-  
+
+# The workflow only needs read access to this repository.
+# The external E2E repository is accessed using E2E_Github_Token.
+permissions:
+  contents: read
+
 jobs:
-    Run-tests-and-build:
-      name: Run npm test & build
-      runs-on: macos-15
-      permissions:
-        contents: write
-        pull-requests: write
-        
-      steps:
-        - name: Checkout repository
-          uses: actions/checkout@v4
-          with:
-            lfs: true
+  build:
+    name: Build QA & PROD
+    runs-on: macos-15
 
+    steps:
+      # -----------------------------------------------------------------------
+      # 1. CHECKOUT
+      # -----------------------------------------------------------------------
+      # Download the repository and all files stored with Git LFS.
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          lfs: true
 
+      # -----------------------------------------------------------------------
+      # 2. INSTALL APPLE SIGNING ASSETS
+      # -----------------------------------------------------------------------
+      # Install the Apple Distribution certificate and both provisioning
+      # profiles required by the QA and PROD builds.
+      #
+      # The same Apple Distribution certificate is used for both builds.
+      # The signing assets are installed into a temporary keychain that will
+      # be removed at the end of the workflow.
+      - name: Install Apple certificate and provisioning profiles
+        env:
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
+          BUILD_ENT_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_ENT_PROVISION_PROFILE_BASE64 }}
+          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
 
-        - name: Install the Apple certificate and provisioning profile
-          env:
-            BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
-            DIST_CERTIFICATE_BASE64: ${{ secrets.DIST_CERTIFICATE_BASE64 }}
-            P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
-            P12_DISS_PASSWORD: ${{ secrets.P12_DISS_PASSWORD }}
-            BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
-            BUILD_ENT_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_ENT_PROVISION_PROFILE_BASE64 }}
-            KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
-          run: |
-              # create variables
-              CERTIFICATE_DIS_PATH=$RUNNER_TEMP/dist_certificate.p12
-              CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
-              PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
-              KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
-  
-              # import certificate and provisioning profile from secrets
-              echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_PATH
-              echo -n "$DIST_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_DIS_PATH
-              echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode -o $PP_PATH
-              echo -n "$BUILD_ENT_PROVISION_PROFILE_BASE64" | base64 --decode -o $PP_PATH 
+        run: |
+          set -euo pipefail
 
-              # create temporary keychain
-              security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-              security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
-              security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-  
-              # import certificate to keychain
-              security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
-              security import $CERTIFICATE_DIS_PATH -P "$P12_DISS_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
-              security find-certificate $KEYCHAIN_PATH
-              security set-key-partition-list -S apple-tool:,apple: -k "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-              security list-keychain -d user -s $KEYCHAIN_PATH
-  
-              # apply provisioning profile
-              mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-              cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
-  
-    #    - name: Test 
-    #      run: 
-    #        |
-    #          xcodebuild test  -scheme EsmorgaiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' ONLY_ACTIVE_ARCH=YES
-    
-        - name: Build QA .ipa file
-          env:
-            OUTPUT_PATH: ./build-qa
-          run: |
-                sudo xcode-select --switch /Applications/Xcode_16.4.app
-                xcodebuild archive \
-                           -project EsmorgaiOS.xcodeproj \
-                           -scheme EsmorgaiOS \
-                           -configuration Release-QA \
-                           -sdk iphoneos \
-                           -destination "generic/platform=iOS" \
-                           -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
-                           clean archive
-        
-                xcodebuild -exportArchive \
-                           -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
-                           -exportPath $OUTPUT_PATH \
-                           -exportOptionsPlist github.plist
-                ls $OUTPUT_PATH/*.ipa
+          CERTIFICATE_PATH="$RUNNER_TEMP/build_certificate.p12"
 
-        - name: Build PROD .ipa file
-          env:
-            OUTPUT_PATH: ./build-prod
-          run: |
-                sudo xcode-select --switch /Applications/Xcode_16.4.app
-                xcodebuild archive \
-                           -project EsmorgaiOS.xcodeproj \
-                           -scheme EsmorgaiOS \
-                           -configuration Release-PROD \
-                           -sdk iphoneos \
-                           -destination "generic/platform=iOS" \
-                           -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
-                           clean archive
+          BUILD_PROFILE_PATH="$RUNNER_TEMP/build.mobileprovision"
+          ENT_PROFILE_PATH="$RUNNER_TEMP/enterprise.mobileprovision"
 
-                xcodebuild -exportArchive \
-                           -archivePath $OUTPUT_PATH/EsmorgaiOS.xcarchive \
-                           -exportPath $OUTPUT_PATH \
-                           -exportOptionsPlist github.plist
-                ls $OUTPUT_PATH/*.ipa
+          KEYCHAIN_PATH="$RUNNER_TEMP/app-signing.keychain-db"
+          PROFILES_DIR="$HOME/Library/MobileDevice/Provisioning Profiles"
 
-        - name: Upload Release-QA build to OTA
-          id: otashare_file_url 
-          run: |
+          # Decode the Apple Distribution certificate.
+          echo -n "$BUILD_CERTIFICATE_BASE64" \
+            | base64 --decode -o "$CERTIFICATE_PATH"
 
-                rootDir="./"
-                CONFIG_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/BaseConfig.xcconfig"
-                QA_CONFIG_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/Config-QA.xcconfig"
-                IPAfile=$rootDir"build-qa/EsmorgaiOS.ipa"
-                name=iOS_Esmorga_QA
-                versionName=$(grep "VERSION" $CONFIG_FILE | awk '{print $3}')
-                versionCode=$(grep "PROJECT_BUILD" $QA_CONFIG_FILE | awk '{print $3}')
-                buildHash=$(md5sum $fileQA | awk '{print $4}')
+          # Decode the QA provisioning profile.
+          echo -n "$BUILD_PROVISION_PROFILE_BASE64" \
+            | base64 --decode -o "$BUILD_PROFILE_PATH"
 
-                project_id=2793
-                api_key=inml59pangaa
-                api_key_build=rqFyHkwuA12sUrq9mvxa2be84t2fyu
-                visibleClient=true
-                buildType="QA"
-                name="Esmorga [QA]"
-                function main
-                {
-                  curl  -vs -F "buiFile=@${IPAfile}" \
-                      -F "buiName=${name}" \
-                      -F "buiVersion=${versionName}" \
-                      -F "buiBuildNum=${versionCode}" \
-                      -F "buiBuildType=${buildType}" \
-                      -F "buiTemplate=0" \
-                      -F "buiHash=${buildHash}" \
-                      -F "buiVisibleClient=${visibleClient}" \
-                      -F "buiChangeLog=none" \
-                      -F "buiUser=${{ secrets.BUIUSER }}" -F "buiPassword=${{ secrets.BUIPASSWORD }}" \
-                      "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
-                    }
-                    OUT=$(main)
-                    echo "url=$(echo "$OUT" | grep https)" >> $GITHUB_OUTPUT
-    
-        - name: Upload Release-PROD build to OTA
-          run: |
+          # Decode the Enterprise/PROD provisioning profile.
+          echo -n "$BUILD_ENT_PROVISION_PROFILE_BASE64" \
+            | base64 --decode -o "$ENT_PROFILE_PATH"
 
-                rootDir="./"
-                CONFIG_FILE=$rootDir"EsmorgaiOS/Resources/Configuration/BaseConfig.xcconfig"
-                PROD_CONFIG_FILE=$rootDir"EsmorgaiOS/Resources//Configuration/Config-PROD.xcconfig"
-                IPAfile=$rootDir"build-prod/EsmorgaiOS.ipa"
-                name=iOS_Esmorga_PROD
-                versionName=$(grep "VERSION" $CONFIG_FILE | awk '{print $3}')
-                versionCode=$(grep "PROJECT_BUILD" $PROD_CONFIG_FILE | awk '{print $3}')
-                buildHash=$(md5sum $fileQA | awk '{print $4}')
+          # Create a temporary macOS keychain for this workflow.
+          security create-keychain \
+            -p "$KEYCHAIN_PASSWORD" \
+            "$KEYCHAIN_PATH"
 
-                project_id=2793
-                api_key=inml59pangaa
-                api_key_build=rqFyHkwuA12sUrq9mvxa2be84t2fyu
-                visibleClient=true
-                buildType="PROD"
-                name="Esmorga [PROD]"
-               
-                curl -vvv -F "buiFile=@${IPAfile}" \
-                    -F "buiName=${name}" \
-                    -F "buiVersion=${versionName}" \
-                    -F "buiBuildNum=${versionCode}" \
-                    -F "buiBuildType=${buildType}" \
-                    -F "buiTemplate=0" \
-                    -F "buiHash=${buildHash}" \
-                    -F "buiVisibleClient=${visibleClient}" \
-                    -F "buiChangeLog=none" \
-                    -F "buiUser=${{ secrets.BUIUSER }}" -F "buiPassword=${{ secrets.BUIPASSWORD }}" \
-                    "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${project_id}/${api_key}/${api_key_build}"
+          # Keep the temporary keychain unlocked for up to 6 hours.
+          security set-keychain-settings \
+            -lut 21600 \
+            "$KEYCHAIN_PATH"
 
-        - name: Trigger E2E Workflow just in QA 
-          shell: bash
-          run: |
-            curl -L \
+          # Unlock the temporary keychain.
+          security unlock-keychain \
+            -p "$KEYCHAIN_PASSWORD" \
+            "$KEYCHAIN_PATH"
+
+          # Import the Apple Distribution certificate.
+          security import "$CERTIFICATE_PATH" \
+            -P "$P12_PASSWORD" \
+            -A \
+            -t cert \
+            -f pkcs12 \
+            -k "$KEYCHAIN_PATH"
+
+          # Allow Xcode and codesign to access the private key without
+          # requiring an interactive password prompt.
+          security set-key-partition-list \
+            -S apple-tool:,apple: \
+            -k "$KEYCHAIN_PASSWORD" \
+            "$KEYCHAIN_PATH"
+
+          # Make the temporary keychain available to the current user.
+          security list-keychains \
+            -d user \
+            -s "$KEYCHAIN_PATH"
+
+          # Install both provisioning profiles where Xcode expects them.
+          mkdir -p "$PROFILES_DIR"
+
+          cp "$BUILD_PROFILE_PATH" \
+            "$PROFILES_DIR/build.mobileprovision"
+
+          cp "$ENT_PROFILE_PATH" \
+            "$PROFILES_DIR/enterprise.mobileprovision"
+
+      # -----------------------------------------------------------------------
+      # 3. SELECT XCODE
+      # -----------------------------------------------------------------------
+      # Select the Xcode version required by the project.
+      #
+      # This is done once and shared by both QA and PROD builds.
+      - name: Select Xcode
+        run: |
+          set -euo pipefail
+
+          sudo xcode-select --switch /Applications/Xcode_16.4.app
+          xcodebuild -version
+
+      # -----------------------------------------------------------------------
+      # 4. BUILD QA
+      # -----------------------------------------------------------------------
+      # Archive the Release-QA configuration and export it as an IPA.
+      - name: Build QA IPA
+        env:
+          OUTPUT_PATH: ./build-qa
+
+        run: |
+          set -euo pipefail
+
+          xcodebuild clean archive \
+            -project EsmorgaiOS.xcodeproj \
+            -scheme EsmorgaiOS \
+            -configuration Release-QA \
+            -sdk iphoneos \
+            -destination "generic/platform=iOS" \
+            -archivePath "$OUTPUT_PATH/EsmorgaiOS.xcarchive"
+
+          xcodebuild -exportArchive \
+            -archivePath "$OUTPUT_PATH/EsmorgaiOS.xcarchive" \
+            -exportPath "$OUTPUT_PATH" \
+            -exportOptionsPlist github.plist
+
+          # Verify that the IPA was generated successfully.
+          ls -lh "$OUTPUT_PATH"/*.ipa
+
+      # -----------------------------------------------------------------------
+      # 5. BUILD PROD
+      # -----------------------------------------------------------------------
+      # Archive the Release-PROD configuration and export it as an IPA.
+      - name: Build PROD IPA
+        env:
+          OUTPUT_PATH: ./build-prod
+
+        run: |
+          set -euo pipefail
+
+          xcodebuild clean archive \
+            -project EsmorgaiOS.xcodeproj \
+            -scheme EsmorgaiOS \
+            -configuration Release-PROD \
+            -sdk iphoneos \
+            -destination "generic/platform=iOS" \
+            -archivePath "$OUTPUT_PATH/EsmorgaiOS.xcarchive"
+
+          xcodebuild -exportArchive \
+            -archivePath "$OUTPUT_PATH/EsmorgaiOS.xcarchive" \
+            -exportPath "$OUTPUT_PATH" \
+            -exportOptionsPlist github.plist
+
+          # Verify that the IPA was generated successfully.
+          ls -lh "$OUTPUT_PATH"/*.ipa
+
+      # -----------------------------------------------------------------------
+      # 6. UPLOAD QA BUILD TO OTA
+      # -----------------------------------------------------------------------
+      # Upload the QA IPA to OTA Share.
+      #
+      # The URL returned by OTA Share is exposed as a step output so it can
+      # later be passed to the external E2E workflow.
+      - name: Upload Release-QA build to OTA
+        id: otashare_file_url
+        env:
+          BUI_USER: ${{ secrets.BUIUSER }}
+          BUI_PASSWORD: ${{ secrets.BUIPASSWORD }}
+
+        run: |
+          set -euo pipefail
+
+          ROOT_DIR="./"
+
+          CONFIG_FILE="${ROOT_DIR}EsmorgaiOS/Resources/Configuration/BaseConfig.xcconfig"
+          QA_CONFIG_FILE="${ROOT_DIR}EsmorgaiOS/Resources/Configuration/Config-QA.xcconfig"
+          IPA_FILE="${ROOT_DIR}build-qa/EsmorgaiOS.ipa"
+
+          # Read the application version and QA build number.
+          VERSION_NAME=$(grep "VERSION" "$CONFIG_FILE" | awk '{print $3}')
+          VERSION_CODE=$(grep "PROJECT_BUILD" "$QA_CONFIG_FILE" | awk '{print $3}')
+
+          # Calculate the MD5 checksum of the generated QA IPA.
+          BUILD_HASH=$(md5 -q "$IPA_FILE")
+
+          # Existing OTA Share configuration.
+          PROJECT_ID=2793
+          API_KEY="inml59pangaa"
+          API_KEY_BUILD="rqFyHkwuA12sUrq9mvxa2be84t2fyu"
+
+          VISIBLE_CLIENT=true
+          BUILD_TYPE="QA"
+          NAME="Esmorga [QA]"
+
+          # Upload the IPA to OTA Share.
+          RESPONSE=$(curl --fail-with-body --silent --show-error \
+            -F "buiFile=@${IPA_FILE}" \
+            -F "buiName=${NAME}" \
+            -F "buiVersion=${VERSION_NAME}" \
+            -F "buiBuildNum=${VERSION_CODE}" \
+            -F "buiBuildType=${BUILD_TYPE}" \
+            -F "buiTemplate=0" \
+            -F "buiHash=${BUILD_HASH}" \
+            -F "buiVisibleClient=${VISIBLE_CLIENT}" \
+            -F "buiChangeLog=none" \
+            -F "buiUser=${BUI_USER}" \
+            -F "buiPassword=${BUI_PASSWORD}" \
+            "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${PROJECT_ID}/${API_KEY}/${API_KEY_BUILD}")
+
+          # Extract the generated OTA URL from the response.
+          BUILD_URL=$(echo "$RESPONSE" \
+            | grep -oE 'https?://[^"[:space:]]+' \
+            | head -1)
+
+          if [[ -z "$BUILD_URL" ]]; then
+            echo "::error::OTA Share did not return a build URL."
+            exit 1
+          fi
+
+          echo "OTA build URL: $BUILD_URL"
+
+          # Expose the OTA URL to following workflow steps.
+          echo "url=$BUILD_URL" >> "$GITHUB_OUTPUT"
+
+      # -----------------------------------------------------------------------
+      # 7. UPLOAD PROD BUILD TO OTA
+      # -----------------------------------------------------------------------
+      # Upload the PROD IPA to OTA Share.
+      - name: Upload Release-PROD build to OTA
+        env:
+          BUI_USER: ${{ secrets.BUIUSER }}
+          BUI_PASSWORD: ${{ secrets.BUIPASSWORD }}
+
+        run: |
+          set -euo pipefail
+
+          ROOT_DIR="./"
+
+          CONFIG_FILE="${ROOT_DIR}EsmorgaiOS/Resources/Configuration/BaseConfig.xcconfig"
+          PROD_CONFIG_FILE="${ROOT_DIR}EsmorgaiOS/Resources/Configuration/Config-PROD.xcconfig"
+          IPA_FILE="${ROOT_DIR}build-prod/EsmorgaiOS.ipa"
+
+          # Read the application version and PROD build number.
+          VERSION_NAME=$(grep "VERSION" "$CONFIG_FILE" | awk '{print $3}')
+          VERSION_CODE=$(grep "PROJECT_BUILD" "$PROD_CONFIG_FILE" | awk '{print $3}')
+
+          # Calculate the MD5 checksum of the generated PROD IPA.
+          BUILD_HASH=$(md5 -q "$IPA_FILE")
+
+          # Existing OTA Share configuration.
+          PROJECT_ID=2793
+          API_KEY="inml59pangaa"
+          API_KEY_BUILD="rqFyHkwuA12sUrq9mvxa2be84t2fyu"
+
+          VISIBLE_CLIENT=true
+          BUILD_TYPE="PROD"
+          NAME="Esmorga [PROD]"
+
+          # Upload the IPA to OTA Share.
+          curl --fail-with-body --silent --show-error \
+            -F "buiFile=@${IPA_FILE}" \
+            -F "buiName=${NAME}" \
+            -F "buiVersion=${VERSION_NAME}" \
+            -F "buiBuildNum=${VERSION_CODE}" \
+            -F "buiBuildType=${BUILD_TYPE}" \
+            -F "buiTemplate=0" \
+            -F "buiHash=${BUILD_HASH}" \
+            -F "buiVisibleClient=${VISIBLE_CLIENT}" \
+            -F "buiChangeLog=none" \
+            -F "buiUser=${BUI_USER}" \
+            -F "buiPassword=${BUI_PASSWORD}" \
+            "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${PROJECT_ID}/${API_KEY}/${API_KEY_BUILD}"
+
+      # -----------------------------------------------------------------------
+      # 8. TRIGGER QA E2E TESTS
+      # -----------------------------------------------------------------------
+      # Trigger RunTest.yml in the external E2E repository using the QA build.
+      #
+      # A dedicated GitHub token is required because the target workflow lives
+      # in another repository.
+      - name: Trigger E2E Workflow just in QA
+        env:
+          E2E_GITHUB_TOKEN: ${{ secrets.E2E_Github_Token }}
+          BUILD_URL: ${{ steps.otashare_file_url.outputs.url }}
+
+        run: |
+          set -euo pipefail
+
+          # Read the branch that originated this build.
+          BRANCH_NAME="$(cat .github/tmp/branch.txt)"
+
+          # Build a valid JSON request body safely using jq.
+          jq -n \
+            --arg build_url "$BUILD_URL" \
+            --arg branch "$BRANCH_NAME" \
+            '{
+              ref: "main",
+              inputs: {
+                build_url: $build_url,
+                OS: "ios",
+                Branch: $branch
+              }
+            }' > "$RUNNER_TEMP/e2e-dispatch.json"
+
+          # Trigger the external E2E GitHub Actions workflow.
+          curl --fail-with-body --silent --show-error \
+            -L \
             -X POST \
             -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.E2E_Github_Token }}" \
+            -H "Authorization: Bearer ${E2E_GITHUB_TOKEN}" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/repos/Esmorga-E2E/E2E-APP-Tests/actions/workflows/RunTest.yml/dispatches \
-            -d '{"ref":"main","inputs":{"build_url":${{steps.otashare_file_url.outputs.url}},"OS":"ios","Branch":"$(cat .github/tmp/branch.txt)"}}'
-          
+            "https://api.github.com/repos/Esmorga-E2E/E2E-APP-Tests/actions/workflows/RunTest.yml/dispatches" \
+            -d @"$RUNNER_TEMP/e2e-dispatch.json"
 
+      # -----------------------------------------------------------------------
+      # 9. CLEANUP
+      # -----------------------------------------------------------------------
+      # Always remove the temporary signing assets, even when a previous step
+      # fails.
+      #
+      # The existence check prevents cleanup errors from hiding the actual
+      # workflow failure.
+      - name: Clean up signing assets
+        if: always()
 
-        - name: Clean up keychain and provisioning profile
-          if: ${{ always() }}
-          run: |
-                  security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
-                  rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
+        run: |
+          KEYCHAIN_PATH="$RUNNER_TEMP/app-signing.keychain-db"
+          PROFILES_DIR="$HOME/Library/MobileDevice/Provisioning Profiles"
 
+          # Remove the temporary keychain if it was successfully created.
+          if [[ -f "$KEYCHAIN_PATH" ]]; then
+            security delete-keychain "$KEYCHAIN_PATH" || true
+          fi
+
+          # Remove installed provisioning profiles.
+          rm -f "$PROFILES_DIR/build.mobileprovision"
+          rm -f "$PROFILES_DIR/enterprise.mobileprovision"
+
+          # Remove temporary signing files.
+          rm -f "$RUNNER_TEMP/build_certificate.p12"
+          rm -f "$RUNNER_TEMP/build.mobileprovision"
+          rm -f "$RUNNER_TEMP/enterprise.mobileprovision"
+
+          # Remove the temporary E2E request body.
+          rm -f "$RUNNER_TEMP/e2e-dispatch.json"

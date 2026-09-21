@@ -17,8 +17,8 @@ runs:
         set -euo pipefail
 
         echo "Checking branch name: $BRANCH_NAME"
-
-        if [[ ! "$BRANCH_NAME" =~ ^((feature|bugfix|hotfix)/MOB-[0-9]+(\(.*\))*|release/[.0-9]+)$ ]]; then
+        
+        if [[ ! "$BRANCH_NAME" =~ ^((feature|bugfix|hotfix)/MOB-[A-Za-z0-9_-]+|release/[0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
           echo "::error::Invalid branch name: $BRANCH_NAME"
           echo "Expected formats:"
           echo "  feature/MOB-123"

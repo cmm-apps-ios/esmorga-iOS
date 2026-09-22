@@ -26,6 +26,4 @@ class PollsRepository: PollsRepositoryProtocol {
             throw error
         }
     }
-    
-    
 }

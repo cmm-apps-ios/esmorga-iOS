@@ -18,7 +18,7 @@ class GetPollsUseCase: GetPollsUseCaseAlias {
         self.pollsRepository = pollsRepository
     }
 
-    override func job(input: Void) async -> GetPollsUseCaseResult {
+    override func job() async -> GetPollsUseCaseResult {
         do {
             let polls = try await pollsRepository.fetchPolls()
             return .success(polls)

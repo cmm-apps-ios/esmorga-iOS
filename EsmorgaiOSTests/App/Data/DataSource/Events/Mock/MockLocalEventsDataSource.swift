@@ -18,6 +18,9 @@ final class MockLocalEventsDataSource: LocalEventsDataSourceProtocol {
     var eventIsUserJoined: Bool?
     var clearAllCalled: Bool = false
 
+    var mockAttendee: [EventAttendee]?
+    var saveAttendeesCalled: Bool = false
+
     func getEvents() async -> [EventModels.Event] {
         return mockEvents
     }
@@ -34,6 +37,18 @@ final class MockLocalEventsDataSource: LocalEventsDataSourceProtocol {
         guard updateEventResult else {
             throw mockError
         }
+    }
+
+    func getAttendees(eventId: String) async throws -> [EventAttendee] {
+        guard let mockAttendee else {
+            throw mockError
+        }
+        return mockAttendee
+    }
+
+    func saveAttendees(_ attendees: [EventAttendee], for eventId: String) async throws {
+        saveAttendeesCalled = true
+        return
     }
 
     func clearAll() {

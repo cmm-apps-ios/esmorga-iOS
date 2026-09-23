@@ -7,7 +7,6 @@
 
 import Foundation
 
-// TODO: Change names removing 'poll'
 struct Poll {
     let id: String
     let name: String

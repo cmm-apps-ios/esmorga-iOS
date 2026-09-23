@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct  DashboardView: View {
+struct DashboardView: View {
     
     enum AccessibilityIds {
         static let bottomBar: String = "DashboardView.bottomBar"

@@ -50,7 +50,9 @@ final class EventsRepositoryTests {
                                           description: "Event description",
                                           eventType: "Party",
                                           imageUrl: nil,
-                                          location: RemoteEventListModel.Event.Location(lat: 0.0, long: 0.0, name: "location"))
+                                          location: RemoteEventListModel.Event.Location(lat: 0.0, long: 0.0, name: "location"),
+                                          currentAttendeeCount: 1,
+                                          maxCapacity: 12)
     }
 
     @Test

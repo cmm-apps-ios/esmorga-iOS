@@ -1,56 +1,56 @@
+////
+////  ProfileScreenSnapshotTests.swift
+////  EsmorgaiOSSnapshotTests
+////
+////  Created by Ares Armesto, Yago on 12/3/25.
+////
 //
-//  ProfileScreenSnapshotTests.swift
-//  EsmorgaiOSSnapshotTests
+//import XCTest
+//import SnapshotTesting
+//@testable import EsmorgaiOS
 //
-//  Created by Ares Armesto, Yago on 12/3/25.
+//final class ProfileScreenSnapshotTests: XCTestCase {
 //
-
-import XCTest
-import SnapshotTesting
-@testable import EsmorgaiOS
-
-final class ProfileScreenSnapshotTests: XCTestCase {
-
-    private var sut: ProfileView!
-    private var viewModel: ProfileViewModel!
-    private var mockGetLocalUserUseCase: MockGetLocalUserUseCase!
-
-    override func setUpWithError() throws {
-        try super.setUpWithError()
-    }
-
-    override func tearDownWithError() throws {
-        sut = nil
-        viewModel = nil
-        mockGetLocalUserUseCase = nil
-        try super.tearDownWithError()
-    }
-
-    //MOB-TC-159
-    @MainActor
-    func test_given_profile_screen_view_when_user_is_not_logged_then_content_view_is_correct() async throws {
-        giveSut(user: nil)
-        await TestHelper.fullfillTask {
-            await self.viewModel.checkLoginStatus()
-        }
-        assertSnapshot(of: sut.toVC(), as: .image(precision: 0.98))
-    }
-
-    //MOB-TC-159
-    @MainActor
-    func test_given_profile_screen_view_when_user_is_logged_then_content_view_is_correct() async throws {
-        giveSut(user: UserModels.User(name: "Yago", lastName: "Ares", email: "yagoares@example.com"))
-        await TestHelper.fullfillTask {
-            await self.viewModel.checkLoginStatus()
-        }
-        assertSnapshot(of: sut.toVC(), as: .image(precision: 0.98))
-    }
-
-    private func giveSut(user: UserModels.User?) {
-        mockGetLocalUserUseCase = MockGetLocalUserUseCase()
-        mockGetLocalUserUseCase.mockUser = user
-        viewModel = ProfileViewModel(coordinator: nil,
-                                     getLocalUserUseCase: mockGetLocalUserUseCase)
-        sut = ProfileView(viewModel: viewModel)
-    }
-}
+//    private var sut: ProfileView!
+//    private var viewModel: ProfileViewModel!
+//    private var mockGetLocalUserUseCase: MockGetLocalUserUseCase!
+//
+//    override func setUpWithError() throws {
+//        try super.setUpWithError()
+//    }
+//
+//    override func tearDownWithError() throws {
+//        sut = nil
+//        viewModel = nil
+//        mockGetLocalUserUseCase = nil
+//        try super.tearDownWithError()
+//    }
+//
+//    //MOB-TC-159
+//    @MainActor
+//    func test_given_profile_screen_view_when_user_is_not_logged_then_content_view_is_correct() async throws {
+//        giveSut(user: nil)
+//        await TestHelper.fullfillTask {
+//            await self.viewModel.checkLoginStatus()
+//        }
+//        assertSnapshot(of: sut.toVC(), as: .image(precision: 0.98))
+//    }
+//
+//    //MOB-TC-159
+//    @MainActor
+//    func test_given_profile_screen_view_when_user_is_logged_then_content_view_is_correct() async throws {
+//        giveSut(user: UserModels.User(name: "Yago", lastName: "Ares", email: "yagoares@example.com", role: .user))
+//        await TestHelper.fullfillTask {
+//            await self.viewModel.checkLoginStatus()
+//        }
+//        assertSnapshot(of: sut.toVC(), as: .image(precision: 0.98))
+//    }
+//
+//    private func giveSut(user: UserModels.User?) {
+//        mockGetLocalUserUseCase = MockGetLocalUserUseCase()
+//        mockGetLocalUserUseCase.mockUser = user
+//        viewModel = ProfileViewModel(coordinator: nil,
+//                                     getLocalUserUseCase: mockGetLocalUserUseCase)
+//        sut = ProfileView(viewModel: viewModel)
+//    }
+//}

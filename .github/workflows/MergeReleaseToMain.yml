@@ -1,32 +1,83 @@
 name: Auto-Merge Release to Main
 
+run-name: Merge ${{ github.ref_name }} into main 🚀
+
 on:
+  # Trigger automatically whenever a release branch receives a push.
   push:
     branches:
-      - release/*  # Trigger the workflow on pushes to the release branch
+      - 'release/*'
+
+# Required because this workflow pushes the merge commit to main.
+permissions:
+  contents: write
 
 jobs:
   merge-release-to-main:
+    name: Merge Release into Main
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      # -----------------------------------------------------------------------
+      # 1. CHECKOUT
+      # -----------------------------------------------------------------------
+      # Checkout the release branch that triggered the workflow.
+      #
+      # fetch-depth: 0 downloads the complete Git history because the workflow
+      # needs both the release branch and main in order to perform the merge.
+      #
+      # No PAT is required. actions/checkout persists the temporary
+      # GITHUB_TOKEN credentials and git push can reuse them.
+      - name: Checkout repository
+        uses: actions/checkout@v7
         with:
-          token: ${{ secrets.PAT_TOKEN }}
+          fetch-depth: 0
 
-      # Step 2: Set up Git configuration
+      # -----------------------------------------------------------------------
+      # 2. CONFIGURE GIT
+      # -----------------------------------------------------------------------
+      # Configure the identity used for the automatic merge commit.
       - name: Configure Git
         run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "Github Actions"
+          set -euo pipefail
 
-      # Step 3: Merge release into main
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      # -----------------------------------------------------------------------
+      # 3. MERGE RELEASE INTO MAIN
+      # -----------------------------------------------------------------------
+      # Update the local main branch and merge the release branch that
+      # triggered this workflow.
+      #
+      # github.ref_name contains only the branch name, for example:
+      #
+      #   release/1.2.0
+      #
+      # Using origin/main explicitly avoids relying on the runner's local
+      # branch state.
       - name: Merge Release into Main
+        env:
+          RELEASE_BRANCH: ${{ github.ref_name }}
+
         run: |
-          git fetch --unshallow
-          git checkout main
-          git pull
-          git merge --no-ff ${{ github.ref }} -m "Auto-merge ${{ github.ref }} to develop"
-          git push
+          set -euo pipefail
+
+          echo "Merging $RELEASE_BRANCH into main"
+
+          # Get the latest state of main.
+          git fetch origin main
+
+          # Create/reset the local main branch from the current remote main.
+          git checkout -B main origin/main
+
+          # Merge the release branch that triggered the workflow.
+          git merge \
+            --no-ff \
+            "origin/$RELEASE_BRANCH" \
+            -m "chore: merge $RELEASE_BRANCH into main"
+
+          # Push the resulting merge commit to main.
+          git push origin main
+
+          echo "$RELEASE_BRANCH successfully merged into main."

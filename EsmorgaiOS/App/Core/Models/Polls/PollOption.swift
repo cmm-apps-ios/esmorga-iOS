@@ -8,7 +8,7 @@
 import Foundation
 
 struct PollOption {
-    let optionId: String
-    let option: String
+    let id: String
+    let name: String
     let voteCount: Int
 }

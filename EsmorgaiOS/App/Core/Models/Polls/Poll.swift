@@ -7,12 +7,13 @@
 
 import Foundation
 
+// TODO: Change names removing 'poll'
 struct Poll {
-    let pollId: String
-    let pollName: String
+    let id: String
+    let name: String
     let description: String
     let options: [PollOption]
-    let voteDeadline: String
+    let voteDeadline: Date
     let isMultipleChoice: Bool
     let userSelectedOptions: [String]
 }

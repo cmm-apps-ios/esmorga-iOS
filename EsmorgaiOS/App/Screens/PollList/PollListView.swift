@@ -41,12 +41,12 @@ struct PollListView: View {
                             .padding(.top, 20)
                         case .loaded:
                             LazyVStack(spacing: 0) {
-                                ForEach(viewModel.polls, id: \.pollId) { poll in
+                                ForEach(viewModel.polls, id: \.id) { poll in
                                     Button {
                                         viewModel.pollTapped(poll)
                                     } label: {
-                                        PollListCell(title: poll.pollName,
-                                                     subtitle: poll.voteDeadline, //TODO: .string(format: .dayMonthHour),
+                                        PollListCell(title: poll.name,
+                                                     subtitle: poll.voteDeadline.string(format: .dayMonthHour),
                                                      secondary: "")
                                     }
                                 }

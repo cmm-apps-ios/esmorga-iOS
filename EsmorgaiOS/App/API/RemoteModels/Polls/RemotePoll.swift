@@ -20,11 +20,11 @@ struct RemotePoll: Codable {
 extension RemotePoll {
     func toDomain() -> Poll {
         Poll(
-            pollId: self.pollId ?? "",
-            pollName: self.pollName ?? "",
+            id: self.pollId ?? "",
+            name: self.pollName ?? "",
             description: self.description ?? "",
             options: self.options?.map { $0.toDomain() } ?? [],
-            voteDeadline: self.voteDeadline ?? "",
+            voteDeadline: self.voteDeadline?.date(format: .iso8601) ?? Date(),
             isMultipleChoice: self.isMultipleChoice ?? false,
             userSelectedOptions: self.userSelectedOptions ?? []
         )

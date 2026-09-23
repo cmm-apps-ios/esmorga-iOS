@@ -16,8 +16,8 @@ struct RemotePollOption: Codable {
 extension RemotePollOption {
     func toDomain() -> PollOption {
         PollOption(
-            optionId: self.optionId ?? "",
-            option: self.option ?? "",
+            id: self.optionId ?? "",
+            name: self.option ?? "",
             voteCount: self.voteCount ?? 0
         )
     }

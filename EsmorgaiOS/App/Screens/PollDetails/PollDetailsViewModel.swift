@@ -21,21 +21,15 @@ final class PollDetailsViewModel: ObservableObject {
     @Published private(set) var currentSelection: Set<String>
     @Published private(set) var voteState: VoteState = .idle
 
-    private let voteHandler: (
-        _ pollID: String,
-        _ selectedOptionIDs: [String]
-    ) async throws -> Void
+    private let sendVoteUseCase: SendVotePollUseCaseAlias
 
     init(
         poll: Poll,
-        voteHandler: @escaping (
-            _ pollID: String,
-            _ selectedOptionIDs: [String]
-        ) async throws -> Void
+        sendVoteUseCase: SendVotePollUseCaseAlias = SendVotePollUseCase()
     ) {
         self.poll = poll
         self.currentSelection = Set(poll.userSelectedOptions)
-        self.voteHandler = voteHandler
+        self.sendVoteUseCase = sendVoteUseCase
     }
 
     var isDeadlinePassed: Bool {
@@ -87,24 +81,20 @@ final class PollDetailsViewModel: ObservableObject {
 
         voteState = .loading
 
-        do {
-            try await voteHandler(
-                poll.id,
-                Array(currentSelection)
+        let result = await sendVoteUseCase.execute(
+            input: VotePollRequest(
+                pollId: poll.id,
+                selectedOptionIds: Array(currentSelection)
             )
+        )
 
-            poll = Poll(
-                id: poll.id,
-                name: poll.name,
-                description: poll.description,
-                options: poll.options,
-                voteDeadline: poll.voteDeadline,
-                isMultipleChoice: poll.isMultipleChoice,
-                userSelectedOptions: Array(currentSelection)
-            )
-
+        switch result {
+        case .success(let poll):
+            self.poll = poll
+            currentSelection = Set(poll.userSelectedOptions)
             voteState = .success
-        } catch {
+
+        case .failure(let error):
             voteState = .failure(
                 error.localizedDescription
             )

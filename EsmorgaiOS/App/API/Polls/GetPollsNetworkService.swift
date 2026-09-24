@@ -18,7 +18,7 @@ enum PollsNetworkService: NetworkService {
     var path: String {
         switch self {
         case .pollsList: "/polls"
-        case .sendVote(let vote): "/vote/\(vote.pollId)"
+        case .sendVote(let vote): "/polls/\(vote.pollId)/vote"
         }
     }
 

@@ -15,16 +15,11 @@ struct PollDetailsView: View {
     @State private var alertMessage: AlertMessage?
 
     init(
-        poll: Poll,
-        voteHandler: @escaping (
-            _ pollID: String,
-            _ selectedOptionIDs: [String]
-        ) async throws -> Void
+        poll: Poll
     ) {
         _viewModel = StateObject(
             wrappedValue: PollDetailsViewModel(
-                poll: poll,
-                voteHandler: voteHandler
+                poll: poll
             )
         )
     }
@@ -314,9 +309,7 @@ private struct AlertMessage: Identifiable {
                 isMultipleChoice: false,
                 userSelectedOptions: ["opt2"]
             )
-        ) { _, _ in
-            try await Task.sleep(for: .seconds(1))
-        }
+        )
     }
 }
 
@@ -352,9 +345,7 @@ private struct AlertMessage: Identifiable {
                 isMultipleChoice: true,
                 userSelectedOptions: ["opt1", "opt3"]
             )
-        ) { _, _ in
-            try await Task.sleep(for: .seconds(1))
-        }
+        )
     }
 }
 
@@ -385,8 +376,6 @@ private struct AlertMessage: Identifiable {
                 isMultipleChoice: false,
                 userSelectedOptions: []
             )
-        ) { _, _ in
-            try await Task.sleep(for: .seconds(1))
-        }
+        )
     }
 }

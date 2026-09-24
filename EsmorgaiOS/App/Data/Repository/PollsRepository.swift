@@ -7,6 +7,7 @@
 
 protocol PollsRepositoryProtocol {
     func fetchPolls() async throws -> [Poll]
+    func sendVote(vote: VotePollRequest) async throws -> Poll
 }
 
 class PollsRepository: PollsRepositoryProtocol {
@@ -22,6 +23,15 @@ class PollsRepository: PollsRepositoryProtocol {
             let polls = try await remoteDataSource.fetchPolls()
             let domainEvents = polls.compactMap { $0.toDomain() }
             return domainEvents
+        } catch {
+            throw error
+        }
+    }
+    
+    func sendVote(vote: VotePollRequest) async throws -> Poll {
+        do {
+            let poll = try await remoteDataSource.sendVote(vote: vote)
+            return poll.toDomain()
         } catch {
             throw error
         }

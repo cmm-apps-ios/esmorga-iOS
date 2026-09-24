@@ -11,27 +11,37 @@ import Alamofire
 enum PollsNetworkService: NetworkService {
 
     case pollsList
+    case sendVote(VotePollRequest)
 
     var url: URL { URL(string: "\(Bundle.baseURL)/v1")! }
 
     var path: String {
         switch self {
-        case .pollsList: return "/polls"
+        case .pollsList: "/polls"
+        case .sendVote(let vote): "/vote/\(vote.pollId)"
         }
     }
 
     var method: HTTPMethod {
         switch self {
-        case .pollsList: return .get
+        case .pollsList: .get
+        case .sendVote: .post
         }
     }
 
     var parameters: [String : Any]? { nil }
     var headers: HTTPHeaders { ["Content-Type": "application/json"] }
-    var body: Data? { nil }
+    var body: Data? {
+        switch self {
+        case .pollsList: return nil
+        case .sendVote(let vote):
+            let json = ["selectedOptions": vote.selectedOptionIds]
+            return try? JSONSerialization.data(withJSONObject: json, options: [])
+        }
+    }
     var requestInterceptor: RequestInterceptor? {
         switch self {
-        case .pollsList:
+        case .pollsList, .sendVote(_):
             return AuthenticationInterceptor(authenticator: AccountAuthenticator(),
                                              credential: AccountCredential())
         }

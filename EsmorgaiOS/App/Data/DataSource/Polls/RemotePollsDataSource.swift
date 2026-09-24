@@ -7,6 +7,7 @@
 
 protocol RemotePollsDataSourceProtocol {
     func fetchPolls() async throws -> [RemotePoll]
+    func sendVote(vote: VotePollRequest) async throws -> RemotePoll
 }
 
 class RemotePollsDataSource: RemotePollsDataSourceProtocol {
@@ -22,6 +23,16 @@ class RemotePollsDataSource: RemotePollsDataSourceProtocol {
             let endpoint = PollsNetworkService.pollsList
             let pollListResponse: RemotePollList = try await networkRequest.request(networkService: endpoint)
             return pollListResponse.polls ?? []
+        } catch let error {
+            throw error
+        }
+    }
+    
+    func sendVote(vote: VotePollRequest) async throws -> RemotePoll {
+        do {
+            let endpoint = PollsNetworkService.sendVote(vote)
+            let response: RemotePoll = try await networkRequest.request(networkService: endpoint)
+            return response
         } catch let error {
             throw error
         }

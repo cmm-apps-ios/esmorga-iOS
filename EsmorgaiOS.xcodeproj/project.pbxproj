@@ -65,6 +65,7 @@
 		31EAF7CC2DEF3138003A6984 /* RecoverPasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CB2DEF312D003A6984 /* RecoverPasswordModels.swift */; };
 		31EAF7CE2DF04D3C003A6984 /* RecoverPasswordUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */; };
 		31EAF7D02DF04D5E003A6984 /* RecoverPasswordUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */; };
+		3D0F62CC306577A800B8599E /* VotePollRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0F62CB306577A800B8599E /* VotePollRequest.swift */; };
 		3D22E317304049570054D8C0 /* ChangePasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E312304049570054D8C0 /* ChangePasswordModels.swift */; };
 		3D22E318304049570054D8C0 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E313304049570054D8C0 /* ChangePasswordViewModel.swift */; };
 		3D22E319304049570054D8C0 /* ChangePasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E314304049570054D8C0 /* ChangePasswordBuilder.swift */; };
@@ -81,6 +82,7 @@
 		3DA0FBE230615DA4007674F0 /* GetPollsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBE130615DA4007674F0 /* GetPollsNetworkService.swift */; };
 		3DA0FBE530615EA2007674F0 /* RemotePollsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBE430615E98007674F0 /* RemotePollsDataSource.swift */; };
 		3DA0FBEA30616963007674F0 /* GetPollsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBE930616963007674F0 /* GetPollsUseCase.swift */; };
+		3DCBD5F430657B35006A3CD0 /* SendVotePollUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCBD5F330657B35006A3CD0 /* SendVotePollUseCase.swift */; };
 		3DCC738D30486B5C00EA1FA0 /* EventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */; };
 		3DCC738F30486E6100EA1FA0 /* RemoteEventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */; };
 		3DCC73913048702800EA1FA0 /* GetEventAttendeesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */; };
@@ -370,6 +372,7 @@
 		31EAF7CB2DEF312D003A6984 /* RecoverPasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordModels.swift; sourceTree = "<group>"; };
 		31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUserUseCase.swift; sourceTree = "<group>"; };
 		31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUserDataSource.swift; sourceTree = "<group>"; };
+		3D0F62CB306577A800B8599E /* VotePollRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotePollRequest.swift; sourceTree = "<group>"; };
 		3D22E312304049570054D8C0 /* ChangePasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordModels.swift; sourceTree = "<group>"; };
 		3D22E313304049570054D8C0 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		3D22E314304049570054D8C0 /* ChangePasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordBuilder.swift; sourceTree = "<group>"; };
@@ -387,6 +390,7 @@
 		3DA0FBE430615E98007674F0 /* RemotePollsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollsDataSource.swift; sourceTree = "<group>"; };
 		3DA0FBE6306168F0007674F0 /* PollsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsUseCase.swift; sourceTree = "<group>"; };
 		3DA0FBE930616963007674F0 /* GetPollsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPollsUseCase.swift; sourceTree = "<group>"; };
+		3DCBD5F330657B35006A3CD0 /* SendVotePollUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVotePollUseCase.swift; sourceTree = "<group>"; };
 		3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendee.swift; sourceTree = "<group>"; };
 		3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEventAttendee.swift; sourceTree = "<group>"; };
 		3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventAttendeesUseCase.swift; sourceTree = "<group>"; };
@@ -765,6 +769,7 @@
 			children = (
 				3DA0FBD9306155D2007674F0 /* PollOption.swift */,
 				3DA0FBDA306155D2007674F0 /* Poll.swift */,
+				3D0F62CB306577A800B8599E /* VotePollRequest.swift */,
 			);
 			path = Polls;
 			sourceTree = "<group>";
@@ -789,6 +794,7 @@
 			isa = PBXGroup;
 			children = (
 				3DA0FBE930616963007674F0 /* GetPollsUseCase.swift */,
+				3DCBD5F330657B35006A3CD0 /* SendVotePollUseCase.swift */,
 			);
 			path = Polls;
 			sourceTree = "<group>";
@@ -2351,6 +2357,7 @@
 				3DCC739D30498DD900EA1FA0 /* PasswordValidationError.swift in Sources */,
 				EFE34DA92C77859D00724DDC /* ErrorDialog.swift in Sources */,
 				EFF9C8752C99921100DE50BC /* TokensRefresher.swift in Sources */,
+				3D0F62CC306577A800B8599E /* VotePollRequest.swift in Sources */,
 				3DCC739A3048730E00EA1FA0 /* EventAttendeesView.swift in Sources */,
 				EFE3E9762CBE7F2300C975D0 /* WelcomeScreenModels.swift in Sources */,
 				EF3158872C5BD63400DE157A /* BaseView.swift in Sources */,
@@ -2362,6 +2369,7 @@
 				EFF9C87F2C99936400DE50BC /* AccountCredential.swift in Sources */,
 				3DA0FBD43061554B007674F0 /* RemotePollList.swift in Sources */,
 				EFD377062CA1A2FB0090B90A /* MyEventsView.swift in Sources */,
+				3DCBD5F430657B35006A3CD0 /* SendVotePollUseCase.swift in Sources */,
 				EFE34DA62C77790900724DDC /* CustomTextField.swift in Sources */,
 				3175043A2E04530E00CE072F /* EsmorgaRow.swift in Sources */,
 				EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */,

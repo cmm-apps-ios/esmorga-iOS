@@ -162,6 +162,9 @@ class EventsRepository: EventsRepositoryProtocol {
     func createEvent(params: CreateEventParams) async throws {
         do {
             try await remoteDataSource.createEvent(params: params)
+            // Invalidate the local cache so the next event list request bypasses
+            // the CacheRule (30 min) and fetches the freshly created event from remote.
+            localEventsDataSource.clearAll()
         } catch {
             throw error
         }

@@ -17,12 +17,12 @@ class RemoteEventListModel {
         let eventId: String
         let eventName: String
         let eventDate: String
-        let description: String
+        let description: String?
         let eventType: String
         let imageUrl: String?
         let location: Location
-        let currentAttendeeCount: Int32
-        let maxCapacity: Int32
+        let currentAttendeeCount: Int32?
+        let maxCapacity: Int32?
 
         struct Location: Codable {
             let lat: Double?
@@ -34,7 +34,7 @@ class RemoteEventListModel {
             return EventModels.Event(eventId: eventId,
                                      name: eventName,
                                      date: eventDate.date(format: .iso8601) ?? Date(),
-                                     details: description,
+                                     details: description ?? "",
                                      eventType: eventType,
                                      imageURL: URL(string: imageUrl ?? ""),
                                      latitude: location.lat,
@@ -42,8 +42,8 @@ class RemoteEventListModel {
                                      location: location.name,
                                      creationDate: creationDate,
                                      isUserJoined: false,
-                                     currentAttendeeCount: Int(currentAttendeeCount),
-                                     maxCapacity: Int(maxCapacity))
+                                     currentAttendeeCount: Int(currentAttendeeCount ?? 0),
+                                     maxCapacity: Int(maxCapacity ?? 0))
         }
     }
 }

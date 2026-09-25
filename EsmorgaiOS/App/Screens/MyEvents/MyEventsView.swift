@@ -51,6 +51,21 @@ struct MyEventsView: View {
                     await viewModel.getEventList(forceRefresh: false)
                 }
             }
+            .overlay(alignment: .bottomTrailing) {
+                Button {
+                    viewModel.createEventTapped()
+                } label: {
+                    Image(systemName: "plus")
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundColor(.white)
+                        .frame(width: 56, height: 56)
+                        .background(Color.claret)
+                        .clipShape(Circle())
+                        .shadow(radius: 4)
+                }
+                .padding(.trailing, 16)
+                .padding(.bottom, 16)
+            }
         }.navigationBarBackButtonHidden(true)
     }
 

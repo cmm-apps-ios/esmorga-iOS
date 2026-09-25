@@ -20,6 +20,11 @@ protocol CoordinatorProtocol: AnyObject {
 class MainCoordinator: ObservableObject, CoordinatorProtocol {
     @Published var path: NavigationPath = NavigationPath()
 
+    /// Shared ViewModel that lives for the whole create-event flow so state is
+    /// preserved while navigating back and forth (Option A). It is created lazily
+    /// when the flow starts and released when the flow returns to the root.
+    private var createEventViewModel: CreateEventViewModel?
+
     func push(destination: Destination) {
         path.append(destination)
     }
@@ -30,6 +35,14 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
 
     func popToRoot() {
         path.removeLast(path.count)
+        createEventViewModel = nil
+    }
+
+    private func sharedCreateEventViewModel() -> CreateEventViewModel {
+        if let viewModel = createEventViewModel { return viewModel }
+        let viewModel = CreateEventViewModel(coordinator: self)
+        createEventViewModel = viewModel
+        return viewModel
     }
 
     @ViewBuilder
@@ -65,6 +78,16 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
             EventAttendeesBuilder().build(coordinator: self, eventId: eventId)
         case .dashboard:
             DashboardBuilder().build(coordinator: self)
+        case .createEvent:
+            CreateEventBuilder().build(viewModel: sharedCreateEventViewModel(), step: .name)
+        case .createEventType:
+            CreateEventBuilder().build(viewModel: sharedCreateEventViewModel(), step: .type)
+        case .createEventDate:
+            CreateEventBuilder().build(viewModel: sharedCreateEventViewModel(), step: .date)
+        case .createEventLocation:
+            CreateEventBuilder().build(viewModel: sharedCreateEventViewModel(), step: .location)
+        case .createEventImage:
+            CreateEventBuilder().build(viewModel: sharedCreateEventViewModel(), step: .image)
         }
     }
 

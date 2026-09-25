@@ -26,7 +26,54 @@ class LocalizationKeys {
         static let location: String = "screen_event_details_location"
         static let attendeesInfo: String = "screen_event_details_attendees_info"
     }
-    
+
+    enum CreateEvent {
+        static let title: String = "screen_create_event_title"
+        static let typeScreenTitle: String = "create_event_type_screen_title"
+        static let dateScreenTitle: String = "create_event_date_screen_title"
+
+        static let fieldTitleName: String = "field_title_event_name"
+        static let placeholderName: String = "placeholder_event_name"
+        static let fieldTitleDescription: String = "field_title_event_description"
+        static let placeholderDescription: String = "placeholder_event_description"
+        static let fieldTitleLocation: String = "field_title_event_location"
+        static let placeholderLocation: String = "placeholder_event_location"
+        static let fieldTitleCoordinates: String = "field_title_event_coordinates"
+        static let placeholderCoordinates: String = "placeholder_event_coordinates"
+        static let fieldTitleMaxCapacity: String = "field_title_event_max_capacity"
+        static let placeholderMaxCapacity: String = "placeholder_event_max_capacity"
+        static let fieldTitleImage: String = "field_title_event_image"
+        static let placeholderImage: String = "placeholder_event_image"
+        static let fieldTitleJoinDeadline: String = "field_title_join_deadline"
+        static let fieldTitleJoinDeadlineTime: String = "field_title_join_deadline_time"
+        static let dateRowDate: String = "create_event_date_row_date"
+        static let dateRowTime: String = "create_event_date_row_time"
+
+        static let typeParty: String = "create_event_type_party"
+        static let typeSport: String = "create_event_type_sport"
+        static let typeFood: String = "create_event_type_food"
+        static let typeCharity: String = "create_event_type_charity"
+        static let typeGames: String = "create_event_type_games"
+
+        static let continueButton: String = "step_continue_button"
+        static let createButton: String = "button_create_event"
+        static let previewButton: String = "button_preview"
+        static let deleteButton: String = "button_delete"
+
+        enum InlineError {
+            static let invalidLengthName: String = "inline_error_invalid_length_name"
+            static let invalidLengthDescription: String = "inline_error_invalid_length_description"
+            static let locationRequired: String = "inline_error_location_required"
+            static let locationInvalidChars: String = "inline_error_location_invalid_chars"
+            static let coordinatesInvalid: String = "inline_error_coordinates_invalid"
+            static let coordinatesOutOfBounds: String = "inline_error_coordinates_out_of_bounds"
+            static let maxCapacityInvalid: String = "inline_error_max_capacity_invalid"
+            static let imageUrlRequired: String = "inline_error_image_url_required"
+            static let eventDatePast: String = "inline_error_event_date_past"
+            static let eventTimePast: String = "inline_error_event_time_past"
+            static let joinDeadlineExceeded: String = "inline_error_join_deadline_exceeded"
+        }
+    }
     enum Profile {
         static let title: String = "my_profile_title"
         static let name: String = "my_profile_name"

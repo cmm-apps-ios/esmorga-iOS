@@ -15,35 +15,35 @@ class RemoteEventListModel {
 
     struct Event: Codable {
         let eventId: String
-        let eventName: String
-        let eventDate: String
-        let description: String
-        let eventType: String
+        let eventName: String?
+        let eventDate: String?
+        let description: String?
+        let eventType: String?
         let imageUrl: String?
-        let location: Location
-        let currentAttendeeCount: Int32
-        let maxCapacity: Int32
+        let location: Location?
+        let currentAttendeeCount: Int32?
+        let maxCapacity: Int32?
 
         struct Location: Codable {
             let lat: Double?
             let long: Double?
-            let name: String
+            let name: String?
         }
 
         func toDomain(creationDate: Date = Date.now) -> EventModels.Event {
             return EventModels.Event(eventId: eventId,
-                                     name: eventName,
-                                     date: eventDate.date(format: .iso8601) ?? Date(),
-                                     details: description,
-                                     eventType: eventType,
+                                     name: eventName ?? "",
+                                     date: eventDate?.date(format: .iso8601) ?? Date(),
+                                     details: description ?? "",
+                                     eventType: eventType ?? "",
                                      imageURL: URL(string: imageUrl ?? ""),
-                                     latitude: location.lat,
-                                     longitude: location.long,
-                                     location: location.name,
+                                     latitude: location?.lat,
+                                     longitude: location?.long,
+                                     location: location?.name ?? "",
                                      creationDate: creationDate,
                                      isUserJoined: false,
-                                     currentAttendeeCount: Int(currentAttendeeCount),
-                                     maxCapacity: Int(maxCapacity))
+                                     currentAttendeeCount: Int(currentAttendeeCount ?? 0),
+                                     maxCapacity: Int(maxCapacity ?? 0))
         }
     }
 }

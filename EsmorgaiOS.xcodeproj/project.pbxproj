@@ -161,6 +161,8 @@
 		EF31587A2C5A78B900DE157A /* mock_event_list.json in Resources */ = {isa = PBXBuildFile; fileRef = EF3158792C5A78B900DE157A /* mock_event_list.json */; };
 		EF31587C2C5A7DA800DE157A /* mock_dummy_file.json in Resources */ = {isa = PBXBuildFile; fileRef = EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */; };
 		EF3158802C5A7E7100DE157A /* EventListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31587F2C5A7E7100DE157A /* EventListViewModelTests.swift */; };
+		CE0000000000000000000501 /* CreateEventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000401 /* CreateEventViewModelTests.swift */; };
+		CE0000000000000000000502 /* MockCreateEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000402 /* MockCreateEventUseCase.swift */; };
 		EF3158822C5A80AC00DE157A /* MockGetEventListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */; };
 		EF3158872C5BD63400DE157A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158862C5BD63400DE157A /* BaseView.swift */; };
 		EF3158892C5CF0A700DE157A /* EventDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158882C5CF0A700DE157A /* EventDetailsViewModel.swift */; };
@@ -457,6 +459,8 @@
 		EF3158792C5A78B900DE157A /* mock_event_list.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_event_list.json; sourceTree = "<group>"; };
 		EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_dummy_file.json; sourceTree = "<group>"; };
 		EF31587F2C5A7E7100DE157A /* EventListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModelTests.swift; sourceTree = "<group>"; };
+		CE0000000000000000000401 /* CreateEventViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModelTests.swift; sourceTree = "<group>"; };
+		CE0000000000000000000402 /* MockCreateEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCreateEventUseCase.swift; sourceTree = "<group>"; };
 		EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetEventListUseCase.swift; sourceTree = "<group>"; };
 		EF3158832C5B872100DE157A /* Config-QA.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-QA.xcconfig"; sourceTree = "<group>"; };
 		EF3158862C5BD63400DE157A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -1048,6 +1052,7 @@
 				EFBBE6EF2C7489A90085632A /* WelcomeScreen */,
 				EF2983F82C6B986200C2393E /* EventDetails */,
 				EF31587E2C5A7E5900DE157A /* EventList */,
+				CE0000000000000000000601 /* CreateEvent */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1058,6 +1063,14 @@
 				EF31587F2C5A7E7100DE157A /* EventListViewModelTests.swift */,
 			);
 			path = EventList;
+			sourceTree = "<group>";
+		};
+		CE0000000000000000000601 /* CreateEvent */ = {
+			isa = PBXGroup;
+			children = (
+				CE0000000000000000000401 /* CreateEventViewModelTests.swift */,
+			);
+			path = CreateEvent;
 			sourceTree = "<group>";
 		};
 		CE0000000000000000000301 /* CreateEvent */ = {
@@ -1853,6 +1866,7 @@
 				EFF8B8292CBFDCED007470A9 /* MockLeaveEventUseCase.swift */,
 				EFF8B8232CBEC2AD007470A9 /* MockJoinEventUseCase.swift */,
 				EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */,
+				CE0000000000000000000402 /* MockCreateEventUseCase.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -2377,6 +2391,7 @@
 				EFE34DB52C7C990400724DDC /* MockUserRemoteDataSource.swift in Sources */,
 				EF3158622C5A221400DE157A /* CacheRuleTests.swift in Sources */,
 				EF3158822C5A80AC00DE157A /* MockGetEventListUseCase.swift in Sources */,
+				CE0000000000000000000502 /* MockCreateEventUseCase.swift in Sources */,
 				312E0BC42DE47620009BD181 /* ActivateAccountViewModelTests.swift in Sources */,
 				EF0811E92C94326000DE4887 /* DashboardViewTests.swift in Sources */,
 				312E0BCA2DE5C8ED009BD181 /* MockActivateUserUseCase.swift in Sources */,
@@ -2408,6 +2423,7 @@
 				EF2128402C85DA0000D00887 /* RegistrationViewModelTests.swift in Sources */,
 				3180253F2D809D940061610D /* ProfileViewModelTests.swift in Sources */,
 				EF3158802C5A7E7100DE157A /* EventListViewModelTests.swift in Sources */,
+				CE0000000000000000000501 /* CreateEventViewModelTests.swift in Sources */,
 				EFA646472C8B0C8400D528F9 /* SplashViewModelTests.swift in Sources */,
 				EFDDF90D2C8B1AD00087AD97 /* SplashViewTests.swift in Sources */,
 				3180253B2D79C20E0061610D /* ProfileViewTests.swift in Sources */,

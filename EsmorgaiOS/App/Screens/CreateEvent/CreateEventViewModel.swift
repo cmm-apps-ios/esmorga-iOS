@@ -66,9 +66,10 @@ class CreateEventViewModel: BaseViewModel<CreateEventViewState> {
     @Published var isSubmitting: Bool = false
 
     init(coordinator: (any CoordinatorProtocol)?,
+         networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,
          createEventUseCase: CreateEventUseCaseAlias = CreateEventUseCase()) {
         self.createEventUseCase = createEventUseCase
-        super.init(coordinator: coordinator)
+        super.init(coordinator: coordinator, networkMonitor: networkMonitor)
     }
 
     // MARK: - Step 1 validation

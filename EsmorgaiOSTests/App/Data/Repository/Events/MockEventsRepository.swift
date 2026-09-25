@@ -18,6 +18,9 @@ final class MockEventsRepository: EventsRepositoryProtocol {
     var eventIdToJoin: String?
     var mockEventAttendees: [EventAttendee]?
 
+    var createEventResult: Bool = true
+    var createdEventParams: CreateEventParams?
+
     func getEventList(refresh: Bool) async throws -> ([EventModels.Event], Bool) {
         refreshValue = refresh
         guard let mockResult else {
@@ -49,5 +52,12 @@ final class MockEventsRepository: EventsRepositoryProtocol {
 
     func saveAttendees(_ attendees: [EsmorgaiOS.EventAttendee], for eventId: String) async throws {
         return
+    }
+
+    func createEvent(params: CreateEventParams) async throws {
+        createdEventParams = params
+        guard createEventResult else {
+            throw NetworkError.generalError(code: 500)
+        }
     }
 }

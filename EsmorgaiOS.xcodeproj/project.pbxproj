@@ -95,6 +95,10 @@
 		3DD647963063F9AB0053B900 /* PollListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD647903063F9AB0053B900 /* PollListView.swift */; };
 		3DD647973063F9AB0053B900 /* PollListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD647913063F9AB0053B900 /* PollListViewModel.swift */; };
 		3DD647983063F9AB0053B900 /* PollListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD647923063F9AB0053B900 /* PollListCell.swift */; };
+		FA3D9A000000000000000031 /* ExploreHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000024 /* ExploreHomeView.swift */; };
+		FA3D9A000000000000000032 /* ExploreHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000022 /* ExploreHomeViewModel.swift */; };
+		FA3D9A000000000000000033 /* ExploreHomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000023 /* ExploreHomeBuilder.swift */; };
+		FA3D9A000000000000000034 /* ExploreHomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000021 /* ExploreHomeModels.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -403,6 +407,10 @@
 		3DD647913063F9AB0053B900 /* PollListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListViewModel.swift; sourceTree = "<group>"; };
 		3DD647923063F9AB0053B900 /* PollListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListCell.swift; sourceTree = "<group>"; };
 		3DD647933063F9AB0053B900 /* PollListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListBuilder.swift; sourceTree = "<group>"; };
+		FA3D9A000000000000000021 /* ExploreHomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeModels.swift; sourceTree = "<group>"; };
+		FA3D9A000000000000000022 /* ExploreHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeViewModel.swift; sourceTree = "<group>"; };
+		FA3D9A000000000000000023 /* ExploreHomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeBuilder.swift; sourceTree = "<group>"; };
+		FA3D9A000000000000000024 /* ExploreHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeView.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -815,6 +823,17 @@
 				3DCC739C30498DD900EA1FA0 /* PasswordValidationError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		FA3D9A000000000000000035 /* ExploreHome */ = {
+			isa = PBXGroup;
+			children = (
+				FA3D9A000000000000000024 /* ExploreHomeView.swift */,
+				FA3D9A000000000000000022 /* ExploreHomeViewModel.swift */,
+				FA3D9A000000000000000021 /* ExploreHomeModels.swift */,
+				FA3D9A000000000000000023 /* ExploreHomeBuilder.swift */,
+			);
+			path = ExploreHome;
 			sourceTree = "<group>";
 		};
 		3DD647943063F9AB0053B900 /* PollList */ = {
@@ -1385,6 +1404,7 @@
 		EFD7EEF12C3C415F00C8CE70 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FA3D9A000000000000000035 /* ExploreHome */,
 				3DD64799306409A70053B900 /* PollDetails */,
 				3DCC73923048711E00EA1FA0 /* EventAttendees */,
 				3175042C2DF71B3D00CE072F /* ResetPassword */,
@@ -2241,6 +2261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3D9A000000000000000031 /* ExploreHomeView.swift in Sources */,
+				FA3D9A000000000000000032 /* ExploreHomeViewModel.swift in Sources */,
+				FA3D9A000000000000000033 /* ExploreHomeBuilder.swift in Sources */,
+				FA3D9A000000000000000034 /* ExploreHomeModels.swift in Sources */,
 				EFF9C8782C9992EF00DE50BC /* URLRequest+BearerToken.swift in Sources */,
 				313D57452D61272C001F4E95 /* ProfileBuilder.swift in Sources */,
 				EFD7EF232C3D8F2400C8CE70 /* RemoteEventListModel.swift in Sources */,

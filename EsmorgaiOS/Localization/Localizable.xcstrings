@@ -952,6 +952,39 @@
         }
       }
     },
+    "screen_poll_list_empty_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay votaciones disponibles. ¡Vuelve más tarde!"
+          }
+        }
+      }
+    },
+    "screen_poll_list_loading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando votaciones…"
+          }
+        }
+      }
+    },
+    "screen_poll_list_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votaciones"
+          }
+        }
+      }
+    },
     "screen_registration_title" : {
       "extractionState" : "manual",
       "localizations" : {

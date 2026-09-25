@@ -20,20 +20,16 @@ struct PollListView: View {
             ZStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
-                        // TODO: Add title
-                        /*
                         Text(LocalizationKeys.PollList.title.localize())
                             .style(.heading1)
                             .padding(.horizontal, 16)
                             .padding(.bottom, 12)
                             .padding(.top, 20)
-                         */
 
                         switch viewModel.state {
                         case .ready, .loading:
                             VStack(alignment: .leading, spacing: 12) {
-                                // TODO: Add text
-                                Text("LocalizationKeys.PollList.loading.localize()")
+                                Text(LocalizationKeys.PollList.loading.localize())
                                     .style(.heading2)
                                 LoadingBar()
                             }
@@ -53,9 +49,8 @@ struct PollListView: View {
                             }
                         case .empty:
                             LazyVStack(spacing: 0) {
-                                // TODO: Add text
-                                PollListCell(title: "LocalizationKeys.PollList.empty.localize()",
-                                              titleAlignment: .center)
+                                PollListCell(title: LocalizationKeys.PollList.empty.localize(),
+                                             titleAlignment: .center)
                             }
                         case .error:
                             EmptyView()

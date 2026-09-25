@@ -26,7 +26,7 @@ struct DashboardView: View {
         BaseView(viewModel: viewModel) {
             VStack(spacing: 0) {
                 TabView(selection: $viewModel.selectedTab) {
-                    EventListBuilder().build(coordinator: viewModel.coordinator)
+                    ExploreHomeBuilder().build(coordinator: viewModel.coordinator)
                         .accessibilityIdentifier(AccessibilityIds.eventList)
                         .tag(0)
                     MyEventsBuilder().build(coordinator: viewModel.coordinator)

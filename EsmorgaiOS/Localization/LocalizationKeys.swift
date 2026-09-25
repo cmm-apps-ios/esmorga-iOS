@@ -15,6 +15,12 @@ class LocalizationKeys {
         static let empty: String = "screen_event_list_empty_text"
     }
 
+    enum PollList {
+        static let title: String = "screen_poll_list_title"
+        static let loading: String = "screen_poll_list_loading"
+        static let empty: String = "screen_poll_list_empty_text"
+    }
+
     enum MyEventList {
         static let title: String = "screen_my_events_title"
         static let empty: String = "screen_my_events_empty_text"

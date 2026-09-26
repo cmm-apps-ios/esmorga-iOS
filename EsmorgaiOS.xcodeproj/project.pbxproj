@@ -95,10 +95,6 @@
 		3DD647963063F9AB0053B900 /* PollListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD647903063F9AB0053B900 /* PollListView.swift */; };
 		3DD647973063F9AB0053B900 /* PollListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD647913063F9AB0053B900 /* PollListViewModel.swift */; };
 		3DD647983063F9AB0053B900 /* PollListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD647923063F9AB0053B900 /* PollListCell.swift */; };
-		FA3D9A000000000000000031 /* ExploreHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000024 /* ExploreHomeView.swift */; };
-		FA3D9A000000000000000032 /* ExploreHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000022 /* ExploreHomeViewModel.swift */; };
-		FA3D9A000000000000000033 /* ExploreHomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000023 /* ExploreHomeBuilder.swift */; };
-		FA3D9A000000000000000034 /* ExploreHomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000021 /* ExploreHomeModels.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -296,6 +292,10 @@
 		EFF9C8872C999C8600DE50BC /* AccountCredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8862C999C8300DE50BC /* AccountCredentialTests.swift */; };
 		EFF9C88A2C99C7D300DE50BC /* AccountTokensRefresherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8892C99C7CA00DE50BC /* AccountTokensRefresherTests.swift */; };
 		EFF9C88C2C99C88C00DE50BC /* mock_refresh_token.json in Resources */ = {isa = PBXBuildFile; fileRef = EFF9C88B2C99C88000DE50BC /* mock_refresh_token.json */; };
+		FA3D9A000000000000000031 /* ExploreHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000024 /* ExploreHomeView.swift */; };
+		FA3D9A000000000000000032 /* ExploreHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000022 /* ExploreHomeViewModel.swift */; };
+		FA3D9A000000000000000033 /* ExploreHomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000023 /* ExploreHomeBuilder.swift */; };
+		FA3D9A000000000000000034 /* ExploreHomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000021 /* ExploreHomeModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -392,7 +392,6 @@
 		3DA0FBDA306155D2007674F0 /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		3DA0FBE130615DA4007674F0 /* GetPollsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPollsNetworkService.swift; sourceTree = "<group>"; };
 		3DA0FBE430615E98007674F0 /* RemotePollsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollsDataSource.swift; sourceTree = "<group>"; };
-		3DA0FBE6306168F0007674F0 /* PollsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsUseCase.swift; sourceTree = "<group>"; };
 		3DA0FBE930616963007674F0 /* GetPollsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPollsUseCase.swift; sourceTree = "<group>"; };
 		3DCBD5F330657B35006A3CD0 /* SendVotePollUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVotePollUseCase.swift; sourceTree = "<group>"; };
 		3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendee.swift; sourceTree = "<group>"; };
@@ -407,10 +406,6 @@
 		3DD647913063F9AB0053B900 /* PollListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListViewModel.swift; sourceTree = "<group>"; };
 		3DD647923063F9AB0053B900 /* PollListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListCell.swift; sourceTree = "<group>"; };
 		3DD647933063F9AB0053B900 /* PollListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListBuilder.swift; sourceTree = "<group>"; };
-		FA3D9A000000000000000021 /* ExploreHomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeModels.swift; sourceTree = "<group>"; };
-		FA3D9A000000000000000022 /* ExploreHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeViewModel.swift; sourceTree = "<group>"; };
-		FA3D9A000000000000000023 /* ExploreHomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeBuilder.swift; sourceTree = "<group>"; };
-		FA3D9A000000000000000024 /* ExploreHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeView.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -604,6 +599,10 @@
 		EFF9C8862C999C8300DE50BC /* AccountCredentialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialTests.swift; sourceTree = "<group>"; };
 		EFF9C8892C99C7CA00DE50BC /* AccountTokensRefresherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTokensRefresherTests.swift; sourceTree = "<group>"; };
 		EFF9C88B2C99C88000DE50BC /* mock_refresh_token.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_refresh_token.json; sourceTree = "<group>"; };
+		FA3D9A000000000000000021 /* ExploreHomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeModels.swift; sourceTree = "<group>"; };
+		FA3D9A000000000000000022 /* ExploreHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeViewModel.swift; sourceTree = "<group>"; };
+		FA3D9A000000000000000023 /* ExploreHomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeBuilder.swift; sourceTree = "<group>"; };
+		FA3D9A000000000000000024 /* ExploreHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -823,17 +822,6 @@
 				3DCC739C30498DD900EA1FA0 /* PasswordValidationError.swift */,
 			);
 			path = Errors;
-			sourceTree = "<group>";
-		};
-		FA3D9A000000000000000035 /* ExploreHome */ = {
-			isa = PBXGroup;
-			children = (
-				FA3D9A000000000000000024 /* ExploreHomeView.swift */,
-				FA3D9A000000000000000022 /* ExploreHomeViewModel.swift */,
-				FA3D9A000000000000000021 /* ExploreHomeModels.swift */,
-				FA3D9A000000000000000023 /* ExploreHomeBuilder.swift */,
-			);
-			path = ExploreHome;
 			sourceTree = "<group>";
 		};
 		3DD647943063F9AB0053B900 /* PollList */ = {
@@ -1846,7 +1834,6 @@
 				EFF7A1C82C354BD00024704A /* EsmorgaiOSUITests */,
 				EF0811B12C9093C500DE4887 /* EsmorgaiOSSnapshotTests */,
 				EFD3770C2CA1B0BB0090B90A /* Frameworks */,
-				3DA0FBE6306168F0007674F0 /* PollsUseCase.swift */,
 				EFF7A1AC2C354BCD0024704A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -2005,6 +1992,17 @@
 				EFF9C8892C99C7CA00DE50BC /* AccountTokensRefresherTests.swift */,
 			);
 			path = Refresher;
+			sourceTree = "<group>";
+		};
+		FA3D9A000000000000000035 /* ExploreHome */ = {
+			isa = PBXGroup;
+			children = (
+				FA3D9A000000000000000024 /* ExploreHomeView.swift */,
+				FA3D9A000000000000000022 /* ExploreHomeViewModel.swift */,
+				FA3D9A000000000000000021 /* ExploreHomeModels.swift */,
+				FA3D9A000000000000000023 /* ExploreHomeBuilder.swift */,
+			);
+			path = ExploreHome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

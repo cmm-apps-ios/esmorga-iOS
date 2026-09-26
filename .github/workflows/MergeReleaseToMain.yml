@@ -1,6 +1,6 @@
-name: Auto-Merge Release to Main
+name: Auto-PR Release to Main
 
-run-name: Merge ${{ github.ref_name }} into main 🚀
+run-name: Create PR for ${{ github.ref_name }} into main 🚀
 
 on:
   # Trigger automatically whenever a release branch receives a push.
@@ -8,13 +8,18 @@ on:
     branches:
       - 'release/*'
 
-# Required because this workflow pushes the merge commit to main.
+  # Allow the workflow to be launched manually from GitHub Actions.
+  workflow_dispatch:
+
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
-  merge-release-to-main:
-    name: Merge Release into Main
+  create-pr:
+    name: Open PR into Main (or merge if already open)
+
+    # This workflow only needs Git and gh, so a Linux runner is enough.
     runs-on: ubuntu-latest
 
     steps:
@@ -23,61 +28,136 @@ jobs:
       # -----------------------------------------------------------------------
       # Checkout the release branch that triggered the workflow.
       #
-      # fetch-depth: 0 downloads the complete Git history because the workflow
-      # needs both the release branch and main in order to perform the merge.
-      #
-      # No PAT is required. actions/checkout persists the temporary
-      # GITHUB_TOKEN credentials and git push can reuse them.
+      # fetch-depth: 0 downloads the complete Git history because the job
+      # needs both the release branch and main up to date.
       - name: Checkout repository
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       # -----------------------------------------------------------------------
-      # 2. CONFIGURE GIT
+      # 2. SETUP
       # -----------------------------------------------------------------------
-      # Configure the identity used for the automatic merge commit.
-      - name: Configure Git
+      # Configure the Git identity used for the sync commit and authenticate
+      # the gh CLI that is used to create the pull request.
+      #
+      # main is a protected branch, so pushing to it directly is rejected.
+      # The merge therefore happens through a GitHub pull request instead.
+      - name: Configure Git and gh CLI
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
 
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          # Resolve the repository from the checkout so the workflow works
+          # no matter which fork/repo it runs in.
+          REPO_URL=$(git remote get-url origin)
+          REPO="${REPO#https://github.com/}"
+          REPO="${REPO#git@github.com:}"
+          REPO="${REPO%.git}"
+
+          echo "GH_REPO=${REPO}" >> "$GITHUB_ENV"
+
+          # Fail early with a clear message when gh cannot authenticate.
+          if ! gh auth status; then
+            echo "::error::Unable to authenticate the gh CLI with GITHUB_TOKEN."
+            exit 1
+          fi
+
       # -----------------------------------------------------------------------
-      # 3. MERGE RELEASE INTO MAIN
+      # 3. SYNC MAIN INTO RELEASE
       # -----------------------------------------------------------------------
-      # Update the local main branch and merge the release branch that
-      # triggered this workflow.
+      # Merge the current state of main back into the release branch.
       #
-      # github.ref_name contains only the branch name, for example:
-      #
-      #   release/1.2.0
-      #
-      # Using origin/main explicitly avoids relying on the runner's local
-      # branch state.
-      - name: Merge Release into Main
+      # A protected PR cannot be merged when its base branch has moved, so the
+      # release branch is kept up to date before the PR is opened or merged.
+      # The sync commit is pushed to the release branch, which this workflow
+      # is allowed to push to.
+      - name: Sync main into release branch
         env:
           RELEASE_BRANCH: ${{ github.ref_name }}
 
         run: |
           set -euo pipefail
 
-          echo "Merging $RELEASE_BRANCH into main"
+          # A manual workflow_dispatch run has no release branch context.
+          if [[ -z "$RELEASE_BRANCH" || "$RELEASE_BRANCH" == "main" ]]; then
+            echo "::warning::Skipping: no release branch is available in this run context."
+            exit 0
+          fi
 
-          # Get the latest state of main.
+          echo "Syncing main into $RELEASE_BRANCH"
+
           git fetch origin main
 
-          # Create/reset the local main branch from the current remote main.
-          git checkout -B main origin/main
+          # The checkout of the push trigger is in detached HEAD state, so an
+          # explicit local branch is created from the checked-out commit.
+          git checkout -B "$RELEASE_BRANCH"
 
-          # Merge the release branch that triggered the workflow.
-          git merge \
+          if git merge \
             --no-ff \
-            "origin/$RELEASE_BRANCH" \
-            -m "chore: merge $RELEASE_BRANCH into main"
+            origin/main \
+            -m "chore: sync main into $RELEASE_BRANCH"; then
+            echo "main synced into $RELEASE_BRANCH."
+          else
+            echo "::error::Automatic sync failed. Resolve the conflicts manually and push the result to $RELEASE_BRANCH."
+            exit 1
+          fi
 
-          # Push the resulting merge commit to main.
-          git push origin main
+          git push origin "$RELEASE_BRANCH"
 
-          echo "$RELEASE_BRANCH successfully merged into main."
+      # -----------------------------------------------------------------------
+      # 4. OPEN Or MERGE THE PULL REQUEST
+      # -----------------------------------------------------------------------
+      # Open a pull request from the release branch into main when none is
+      # open yet.
+      #
+      # When a PR is already open this step merges it instead. The required
+      # approving review is expected to come from a maintainer who watches
+      # the PR created by this workflow, so the merge only succeeds when the
+      # branch protection rules allow it.
+      - name: Create or merge pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_BRANCH: ${{ github.ref_name }}
+          GH_REPO: ${{ env.GH_REPO }}
+
+        run: |
+          set -euo pipefail
+
+          PR_URL=$(gh pr list \
+            --repo "$GH_REPO" \
+            --head "$RELEASE_BRANCH" \
+            --base main \
+            --state open \
+            --json url \
+            --jq '.[0].url // empty')
+
+          if [[ -z "$PR_URL" ]]; then
+            echo "Opening a pull request from $RELEASE_BRANCH into main"
+
+            PR_BODY="Automatic merge of \`${RELEASE_BRANCH}\` into \`main\`, created by the Auto-PR Release to Main workflow. Once the required review approval is in place, this workflow merges the pull request on the next push."
+
+            gh pr create \
+              --repo "$GH_REPO" \
+              --head "$RELEASE_BRANCH" \
+              --base main \
+              --title "chore: merge $RELEASE_BRANCH into main" \
+              --body "$PR_BODY"
+
+            echo "Pull request created."
+          else
+            echo "Checking merge state of existing pull request $PR_URL"
+
+            if gh pr merge "$RELEASE_BRANCH" \
+              --repo "$GH_REPO" \
+              --squash; then
+              echo "$RELEASE_BRANCH successfully merged into main."
+            else
+              echo "::warning::The open pull request cannot be merged yet. It is waiting for the required review approval or passing status checks. The workflow will try to merge it again on the next push to $RELEASE_BRANCH."
+              exit 0
+            fi
+          fi

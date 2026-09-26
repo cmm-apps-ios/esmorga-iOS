@@ -44,7 +44,9 @@ jobs:
       - name: Install Apple certificate and provisioning profiles
         env:
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+          DIST_CERTIFICATE_BASE64: ${{ secrets.DIST_CERTIFICATE_BASE64 }}
           P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+          P12_DISS_PASSWORD: ${{ secrets.P12_DISS_PASSWORD }}
           BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
           BUILD_ENT_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_ENT_PROVISION_PROFILE_BASE64 }}
           KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
@@ -52,7 +54,8 @@ jobs:
         run: |
           set -euo pipefail
 
-          CERTIFICATE_PATH="$RUNNER_TEMP/build_certificate.p12"
+          BUILD_CERTIFICATE_PATH="$RUNNER_TEMP/build_certificate.p12"
+          DIST_CERTIFICATE_PATH="$RUNNER_TEMP/dist_certificate.p12"
 
           BUILD_PROFILE_PATH="$RUNNER_TEMP/build.mobileprovision"
           ENT_PROFILE_PATH="$RUNNER_TEMP/enterprise.mobileprovision"
@@ -60,9 +63,29 @@ jobs:
           KEYCHAIN_PATH="$RUNNER_TEMP/app-signing.keychain-db"
           PROFILES_DIR="$HOME/Library/MobileDevice/Provisioning Profiles"
 
-          # Decode the Apple Distribution certificate.
+          # Fail fast if any signing secret is missing or empty so the error
+          # points at the secret instead of appearing deep inside xcodebuild.
+          for secret in \
+            "BUILD_CERTIFICATE_BASE64" \
+            "DIST_CERTIFICATE_BASE64" \
+            "P12_PASSWORD" \
+            "P12_DISS_PASSWORD" \
+            "BUILD_PROVISION_PROFILE_BASE64" \
+            "BUILD_ENT_PROVISION_PROFILE_BASE64" \
+            "KEYCHAIN_PASSWORD"; do
+            if [[ -z "${!secret:-}" ]]; then
+              echo "::error::Required secret $secret is missing or empty. Define it under Settings > Secrets and variables > Actions."
+              exit 1
+            fi
+          done
+
+          # Decode the Apple Distribution (build) certificate.
           echo -n "$BUILD_CERTIFICATE_BASE64" \
-            | base64 --decode -o "$CERTIFICATE_PATH"
+            | base64 --decode -o "$BUILD_CERTIFICATE_PATH"
+
+          # Decode the Apple Distribution (signing) certificate.
+          echo -n "$DIST_CERTIFICATE_BASE64" \
+            | base64 --decode -o "$DIST_CERTIFICATE_PATH"
 
           # Decode the QA provisioning profile.
           echo -n "$BUILD_PROVISION_PROFILE_BASE64" \
@@ -71,6 +94,20 @@ jobs:
           # Decode the Enterprise/PROD provisioning profile.
           echo -n "$BUILD_ENT_PROVISION_PROFILE_BASE64" \
             | base64 --decode -o "$ENT_PROFILE_PATH"
+
+          # Fail fast if a stored provisioning profile has expired, so the
+          # workflow reports the problem immediately instead of during the
+          # archive step.
+          for profile in "$BUILD_PROFILE_PATH" "$ENT_PROFILE_PATH"; do
+            PROFILE_NAME=$(basename "$profile")
+            EXPIRY_DATE=$(security cms -D -i "$profile" \
+              | plutil -extract ExpirationDate raw -o - - \
+              | cut -c1-10 || true)
+            if [[ "$EXPIRY_DATE" == 202[0-9]-* ]] && [[ "$EXPIRY_DATE" < "$(date +%Y-%m-%d)" ]]; then
+              echo "::error::Provisioning profile $PROFILE_NAME expired on $EXPIRY_DATE. Upload a renewed profile to the matching GitHub secret."
+              exit 1
+            fi
+          done
 
           # Create a temporary macOS keychain for this workflow.
           security create-keychain \
@@ -87,9 +124,19 @@ jobs:
             -p "$KEYCHAIN_PASSWORD" \
             "$KEYCHAIN_PATH"
 
-          # Import the Apple Distribution certificate.
-          security import "$CERTIFICATE_PATH" \
+          # Import the Apple Distribution (build) certificate.
+          security import "$BUILD_CERTIFICATE_PATH" \
             -P "$P12_PASSWORD" \
+            -A \
+            -t cert \
+            -f pkcs12 \
+            -k "$KEYCHAIN_PATH"
+
+          # Import the Apple Distribution (signing) certificate. The Release
+          # configurations sign with "iPhone Distribution", so this one is
+          # the certificate Xcode actually looks for.
+          security import "$DIST_CERTIFICATE_PATH" \
+            -P "$P12_DISS_PASSWORD" \
             -A \
             -t cert \
             -f pkcs12 \
@@ -101,6 +148,15 @@ jobs:
             -S apple-tool:,apple: \
             -k "$KEYCHAIN_PASSWORD" \
             "$KEYCHAIN_PATH"
+
+          # Verify that a valid "iPhone Distribution" identity (certificate +
+          # private key) is available before spending ~10 minutes on the
+          # archive step.
+          if ! security find-identity -v -p signing \
+            "$KEYCHAIN_PATH" | grep -q "iPhone Distribution"; then
+            echo "::error::No valid 'iPhone Distribution' identity found in the signing keychain. The DIST_CERTIFICATE_BASE64 / P12_DISS_PASSWORD secrets must contain a certificate that includes its private key for team 49934BYA74."
+            exit 1
+          fi
 
           # Make the temporary keychain available to the current user.
           security list-keychains \
@@ -311,12 +367,15 @@ jobs:
         env:
           E2E_GITHUB_TOKEN: ${{ secrets.E2E_Github_Token }}
           BUILD_URL: ${{ steps.otashare_file_url.outputs.url }}
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 
         run: |
           set -euo pipefail
 
-          # Read the branch that originated this build.
-          BRANCH_NAME="$(cat .github/tmp/branch.txt)"
+          # Use the branch that triggered the workflow directly. The file
+          # .github/tmp/branch.txt is a commit reference kept up to date by
+          # the PR workflow, so it can be stale when this workflow runs on
+          # main.
 
           # Build a valid JSON request body safely using jq.
           jq -n \
@@ -367,6 +426,7 @@ jobs:
 
           # Remove temporary signing files.
           rm -f "$RUNNER_TEMP/build_certificate.p12"
+          rm -f "$RUNNER_TEMP/dist_certificate.p12"
           rm -f "$RUNNER_TEMP/build.mobileprovision"
           rm -f "$RUNNER_TEMP/enterprise.mobileprovision"
 

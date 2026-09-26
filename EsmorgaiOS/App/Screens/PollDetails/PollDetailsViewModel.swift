@@ -93,6 +93,11 @@ final class PollDetailsViewModel: ObservableObject {
             self.poll = poll
             currentSelection = Set(poll.userSelectedOptions)
             voteState = .success
+            NotificationCenter.default.post(
+                name: .pollUpdated,
+                object: nil,
+                userInfo: ["poll": poll]
+            )
 
         case .failure(let error):
             voteState = .failure(

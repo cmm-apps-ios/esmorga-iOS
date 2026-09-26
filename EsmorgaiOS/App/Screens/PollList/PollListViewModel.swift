@@ -25,10 +25,30 @@ class PollListViewModel: BaseViewModel<PollListViewStates> {
          getPollListUseCase: GetPollsUseCaseAlias = GetPollsUseCase()) {
         self.getPollListUseCase = getPollListUseCase
         super.init(coordinator: coordinator)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handlePollUpdated(notification:)),
+            name: .pollUpdated,
+            object: nil
+        )
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     func pollTapped(_ poll: Poll) {
         coordinator?.push(destination: .pollDetails(poll))
+    }
+
+    @objc
+    private func handlePollUpdated(notification: Notification) {
+        guard let updatedPoll = notification.userInfo?["poll"] as? Poll,
+              let index = polls.firstIndex(where: { $0.id == updatedPoll.id }) else {
+            return
+        }
+        polls[index] = updatedPoll
     }
 
     @MainActor

@@ -15,13 +15,9 @@ struct PollDetailsView: View {
     @State private var alertMessage: AlertMessage?
 
     init(
-        poll: Poll
+        viewModel: PollDetailsViewModel
     ) {
-        _viewModel = StateObject(
-            wrappedValue: PollDetailsViewModel(
-                poll: poll
-            )
-        )
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
@@ -280,34 +276,36 @@ private struct AlertMessage: Identifiable {
 #Preview("Single Choice") {
     NavigationStack {
         PollDetailsView(
-            poll: Poll(
-                id: "1",
-                name: "Where should the next company event be held?",
-                description: "Vote for your preferred location for the upcoming company event.",
-                options: [
-                    PollOption(
-                        id: "opt1",
-                        name: "Madrid",
-                        voteCount: 12
-                    ),
-                    PollOption(
-                        id: "opt2",
-                        name: "Barcelona",
-                        voteCount: 18
-                    ),
-                    PollOption(
-                        id: "opt3",
-                        name: "Valencia",
-                        voteCount: 7
-                    )
-                ],
-                voteDeadline: Calendar.current.date(
-                    byAdding: .day,
-                    value: 7,
-                    to: .now
-                )!,
-                isMultipleChoice: false,
-                userSelectedOptions: ["opt2"]
+            viewModel: PollDetailsViewModel(
+                poll: Poll(
+                    id: "1",
+                    name: "Where should the next company event be held?",
+                    description: "Vote for your preferred location for the upcoming company event.",
+                    options: [
+                        PollOption(
+                            id: "opt1",
+                            name: "Madrid",
+                            voteCount: 12
+                        ),
+                        PollOption(
+                            id: "opt2",
+                            name: "Barcelona",
+                            voteCount: 18
+                        ),
+                        PollOption(
+                            id: "opt3",
+                            name: "Valencia",
+                            voteCount: 7
+                        )
+                    ],
+                    voteDeadline: Calendar.current.date(
+                        byAdding: .day,
+                        value: 7,
+                        to: .now
+                    )!,
+                    isMultipleChoice: false,
+                    userSelectedOptions: ["opt2"]
+                )
             )
         )
     }
@@ -316,34 +314,36 @@ private struct AlertMessage: Identifiable {
 #Preview("Multiple Choice") {
     NavigationStack {
         PollDetailsView(
-            poll: Poll(
-                id: "2",
-                name: "Which activities should be included?",
-                description: "Select one or more activities you'd like to see during the event.",
-                options: [
-                    PollOption(
-                        id: "opt1",
-                        name: "Escape Room",
-                        voteCount: 15
-                    ),
-                    PollOption(
-                        id: "opt2",
-                        name: "Go Kart",
-                        voteCount: 20
-                    ),
-                    PollOption(
-                        id: "opt3",
-                        name: "Bowling",
-                        voteCount: 11
-                    )
-                ],
-                voteDeadline: Calendar.current.date(
-                    byAdding: .day,
-                    value: 5,
-                    to: .now
-                )!,
-                isMultipleChoice: true,
-                userSelectedOptions: ["opt1", "opt3"]
+            viewModel: PollDetailsViewModel(
+                poll: Poll(
+                    id: "2",
+                    name: "Which activities should be included?",
+                    description: "Select one or more activities you'd like to see during the event.",
+                    options: [
+                        PollOption(
+                            id: "opt1",
+                            name: "Escape Room",
+                            voteCount: 15
+                        ),
+                        PollOption(
+                            id: "opt2",
+                            name: "Go Kart",
+                            voteCount: 20
+                        ),
+                        PollOption(
+                            id: "opt3",
+                            name: "Bowling",
+                            voteCount: 11
+                        )
+                    ],
+                    voteDeadline: Calendar.current.date(
+                        byAdding: .day,
+                        value: 5,
+                        to: .now
+                    )!,
+                    isMultipleChoice: true,
+                    userSelectedOptions: ["opt1", "opt3"]
+                )
             )
         )
     }
@@ -352,29 +352,31 @@ private struct AlertMessage: Identifiable {
 #Preview("Deadline Passed") {
     NavigationStack {
         PollDetailsView(
-            poll: Poll(
-                id: "3",
-                name: "Past Poll",
-                description: "Voting is closed for this poll.",
-                options: [
-                    PollOption(
-                        id: "opt1",
-                        name: "Option A",
-                        voteCount: 10
-                    ),
-                    PollOption(
-                        id: "opt2",
-                        name: "Option B",
-                        voteCount: 8
-                    )
-                ],
-                voteDeadline: Calendar.current.date(
-                    byAdding: .day,
-                    value: -1,
-                    to: .now
-                )!,
-                isMultipleChoice: false,
-                userSelectedOptions: []
+            viewModel: PollDetailsViewModel(
+                poll: Poll(
+                    id: "3",
+                    name: "Past Poll",
+                    description: "Voting is closed for this poll.",
+                    options: [
+                        PollOption(
+                            id: "opt1",
+                            name: "Option A",
+                            voteCount: 10
+                        ),
+                        PollOption(
+                            id: "opt2",
+                            name: "Option B",
+                            voteCount: 8
+                        )
+                    ],
+                    voteDeadline: Calendar.current.date(
+                        byAdding: .day,
+                        value: -1,
+                        to: .now
+                    )!,
+                    isMultipleChoice: false,
+                    userSelectedOptions: []
+                )
             )
         )
     }

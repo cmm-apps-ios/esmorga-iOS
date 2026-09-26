@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Poll {
+struct Poll: Hashable {
     let id: String
     let name: String
     let description: String

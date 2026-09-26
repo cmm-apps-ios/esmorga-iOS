@@ -7,7 +7,6 @@
 
 import Foundation
 
-@MainActor
 final class PollDetailsViewModel: ObservableObject {
 
     enum VoteState: Equatable {
@@ -74,6 +73,7 @@ final class PollDetailsViewModel: ObservableObject {
         }
     }
 
+    @MainActor
     func vote() async {
         guard isButtonEnabled else {
             return

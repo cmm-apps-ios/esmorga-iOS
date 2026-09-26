@@ -28,8 +28,7 @@ class PollListViewModel: BaseViewModel<PollListViewStates> {
     }
 
     func pollTapped(_ poll: Poll) {
-        // TODO: Implement when poll details
-        //coordinator?.push(destination: .pollDetails(poll))
+        coordinator?.push(destination: .pollDetails(poll))
     }
 
     @MainActor

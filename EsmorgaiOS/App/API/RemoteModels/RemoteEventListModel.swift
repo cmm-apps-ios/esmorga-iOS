@@ -17,7 +17,7 @@ class RemoteEventListModel {
         let eventId: String
         let eventName: String
         let eventDate: String
-        let joinDeadline: String
+        let joinDeadline: String?
         let description: String
         let eventType: String
         let imageUrl: String?
@@ -43,7 +43,7 @@ class RemoteEventListModel {
                                      location: location.name,
                                      creationDate: creationDate,
                                      isUserJoined: false,
-                                     joinDeadline: joinDeadline.date(format: .iso8601),
+                                     joinDeadline: joinDeadline?.date(format: .iso8601),
                                      currentAttendeeCount: Int(currentAttendeeCount ?? 0),
                                      maxCapacity: Int(maxCapacity ?? 0))
         }

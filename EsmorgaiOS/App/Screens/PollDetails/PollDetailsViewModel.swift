@@ -7,14 +7,15 @@
 
 import Foundation
 
-final class PollDetailsViewModel: ObservableObject {
+enum VoteState: ViewStateProtocol {
+    case ready
+    case idle
+    case loading
+    case success
+    case failure(String)
+}
 
-    enum VoteState: Equatable {
-        case idle
-        case loading
-        case success
-        case failure(String)
-    }
+final class PollDetailsViewModel: BaseViewModel<VoteState> {
 
     @Published private(set) var poll: Poll
     @Published private(set) var currentSelection: Set<String>
@@ -24,11 +25,13 @@ final class PollDetailsViewModel: ObservableObject {
 
     init(
         poll: Poll,
+        coordinator: (any CoordinatorProtocol)?,
         sendVoteUseCase: SendVotePollUseCaseAlias = SendVotePollUseCase()
     ) {
         self.poll = poll
         self.currentSelection = Set(poll.userSelectedOptions)
         self.sendVoteUseCase = sendVoteUseCase
+        super.init(coordinator: coordinator)
     }
 
     var isDeadlinePassed: Bool {

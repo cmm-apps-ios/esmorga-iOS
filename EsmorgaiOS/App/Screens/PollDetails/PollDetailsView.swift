@@ -21,36 +21,38 @@ struct PollDetailsView: View {
     }
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                pollImage
-
+        BaseView(viewModel: viewModel) {
+            
+            ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text(viewModel.poll.name)
-                        .font(.largeTitle.bold())
-
-                    Text(
-                        "Voting deadline: \(formattedDeadline)"
-                    )
-                    .font(.body)
-                    .foregroundStyle(.tint)
-                    .padding(.top, 8)
-
-                    Text("Information")
-                        .font(.title2.bold())
-                        .padding(.top, 24)
-
-                    Text(viewModel.poll.description)
-                        .font(.body)
+                    pollImage
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text(viewModel.poll.name)
+                            .style(.title)
+                        
+                        Text(
+                            "Voting deadline: \(formattedDeadline)"
+                        )
+                        .style(.body1Accent)
                         .padding(.top, 8)
-
-                    pollOptions
-                        .padding(.top, 24)
-
-                    voteButton
-                        .padding(.top, 24)
+                        
+                        Text("Information")
+                            .style(.heading1)
+                            .padding(.top, 24)
+                        
+                        Text(viewModel.poll.description)
+                            .style(.body1)
+                            .padding(.top, 8)
+                        
+                        pollOptions
+                            .padding(.top, 24)
+                        
+                        voteButton
+                            .padding(.top, 24)
+                    }
+                    .padding(16)
                 }
-                .padding(16)
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -140,6 +142,13 @@ struct PollDetailsView: View {
                     viewModel.toggleOption(option.id)
                 } label: {
                     HStack(spacing: 12) {
+                        Text(optionText(option))
+                            .style(.body1)
+                            .frame(
+                                maxWidth: .infinity,
+                                alignment: .leading
+                            )
+                        
                         Image(
                             systemName: viewModel.currentSelection.contains(option.id)
                                 ? "checkmark.square.fill"
@@ -150,13 +159,6 @@ struct PollDetailsView: View {
                                 ? Color.accentColor
                                 : Color.secondary
                         )
-
-                        Text(optionText(option))
-                            .foregroundStyle(.primary)
-                            .frame(
-                                maxWidth: .infinity,
-                                alignment: .leading
-                            )
                     }
                     .contentShape(Rectangle())
                     .padding(.vertical, 12)
@@ -194,7 +196,7 @@ struct PollDetailsView: View {
                         )
 
                         Text(optionText(option))
-                            .foregroundStyle(.primary)
+                            .style(.body1)
                             .frame(
                                 maxWidth: .infinity,
                                 alignment: .leading
@@ -209,29 +211,14 @@ struct PollDetailsView: View {
         }
     }
 
+    // TODO: Add is loading
     private var voteButton: some View {
-        Button {
+        CustomButton(title: viewModel.buttonText,
+                     buttonStyle: .primary) {
             Task {
                 await viewModel.vote()
             }
-        } label: {
-            HStack {
-                Spacer()
-
-                if viewModel.isLoading {
-                    ProgressView()
-                        .tint(.white)
-                } else {
-                    Text(viewModel.buttonText)
-                        .font(.headline)
-                }
-
-                Spacer()
-            }
-            .frame(minHeight: 48)
         }
-        .buttonStyle(.borderedProminent)
-        .disabled(!viewModel.isButtonEnabled)
     }
 
     private var formattedDeadline: String {
@@ -246,10 +233,10 @@ struct PollDetailsView: View {
     }
 
     private func handleVoteState(
-        _ state: PollDetailsViewModel.VoteState
+        _ state: VoteState
     ) {
         switch state {
-        case .idle, .loading:
+        case .idle, .loading, .ready:
             break
 
         case .success:
@@ -305,7 +292,8 @@ private struct AlertMessage: Identifiable {
                     )!,
                     isMultipleChoice: false,
                     userSelectedOptions: ["opt2"]
-                )
+                ),
+                coordinator: MainCoordinator()
             )
         )
     }
@@ -343,7 +331,8 @@ private struct AlertMessage: Identifiable {
                     )!,
                     isMultipleChoice: true,
                     userSelectedOptions: ["opt1", "opt3"]
-                )
+                ),
+                coordinator: MainCoordinator()
             )
         )
     }
@@ -376,7 +365,8 @@ private struct AlertMessage: Identifiable {
                     )!,
                     isMultipleChoice: false,
                     userSelectedOptions: []
-                )
+                ),
+                coordinator: MainCoordinator()
             )
         )
     }

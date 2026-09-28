@@ -10,7 +10,7 @@ import Foundation
 class PollDetailsBuilder {
 
     func build(coordinator: any CoordinatorProtocol, poll: Poll) -> PollDetailsView {
-        let viewModel = PollDetailsViewModel(poll: poll)
+        let viewModel = PollDetailsViewModel(poll: poll, coordinator: coordinator)
         return PollDetailsView(viewModel: viewModel)
     }
 }

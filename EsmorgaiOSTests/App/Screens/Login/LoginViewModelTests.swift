@@ -103,7 +103,7 @@ final class LoginViewModelTests: XCTestCase {
         sut.emailTextField.text = "valid@yopmail.com"
         sut.passTextField.text = "SuperSecret!1"
 
-        mockLoginUseCase.mockUser = UserModels.User(name: "User", lastName: "fake", email: "valid@yopmail.com")
+        mockLoginUseCase.mockUser = UserModels.User(name: "User", lastName: "fake", email: "valid@yopmail.com", role: .user)
 
         sut.performLogin()
 

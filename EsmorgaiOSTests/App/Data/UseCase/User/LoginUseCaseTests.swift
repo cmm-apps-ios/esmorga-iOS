@@ -27,7 +27,7 @@ final class LoginUseCaseTests: XCTestCase {
     }
 
     func test_given_get_user_when_success_response_then_return_user() async {
-        let user = UserModels.User(name: "esmorga", lastName: "user", email: "esmorga@yopmail.com")
+        let user = UserModels.User(name: "esmorga", lastName: "user", email: "esmorga@yopmail.com", role: .user)
         mockUserRepository.mockUser = user
 
         let result = await sut.execute(input: LoginUseCaseInput(email: "esmorga@yopmail.com", password: "Secret1!"))

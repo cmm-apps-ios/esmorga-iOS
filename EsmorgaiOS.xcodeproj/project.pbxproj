@@ -65,7 +65,12 @@
 		31EAF7CC2DEF3138003A6984 /* RecoverPasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CB2DEF312D003A6984 /* RecoverPasswordModels.swift */; };
 		31EAF7CE2DF04D3C003A6984 /* RecoverPasswordUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */; };
 		31EAF7D02DF04D5E003A6984 /* RecoverPasswordUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */; };
-		31FC29292DEDDA8F00255606 /* ActivateSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */; };
+		3D22E317304049570054D8C0 /* ChangePasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E312304049570054D8C0 /* ChangePasswordModels.swift */; };
+		3D22E318304049570054D8C0 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E313304049570054D8C0 /* ChangePasswordViewModel.swift */; };
+		3D22E319304049570054D8C0 /* ChangePasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E314304049570054D8C0 /* ChangePasswordBuilder.swift */; };
+		3D22E31A304049570054D8C0 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E315304049570054D8C0 /* ChangePasswordView.swift */; };
+		3D22E31C3041BC420054D8C0 /* ChangePasswordUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E31B3041BC420054D8C0 /* ChangePasswordUserUseCase.swift */; };
+		3D22E31E30456F850054D8C0 /* ChangePasswordDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E31D30456F850054D8C0 /* ChangePasswordDataSource.swift */; };
 		3D33D091304F11DA00EB4C21 /* SaveEventAttendeesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D33D090304F11DA00EB4C21 /* SaveEventAttendeesUseCase.swift */; };
 		3DCC738D30486B5C00EA1FA0 /* EventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */; };
 		3DCC738F30486E6100EA1FA0 /* RemoteEventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */; };
@@ -73,20 +78,14 @@
 		3DCC73943048713700EA1FA0 /* EventAttendeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC73933048713300EA1FA0 /* EventAttendeesViewModel.swift */; };
 		3DCC7396304872C000EA1FA0 /* EventAttendeesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC7395304872B600EA1FA0 /* EventAttendeesBuilder.swift */; };
 		3DCC739A3048730E00EA1FA0 /* EventAttendeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC73993048730C00EA1FA0 /* EventAttendeesView.swift */; };
-		3DCC739F304AE08E00EA1FA0 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC739E304AE08E00EA1FA0 /* CheckBoxView.swift */; };
-		3D22E317304049570054D8C0 /* ChangePasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E312304049570054D8C0 /* ChangePasswordModels.swift */; };
-		3D22E318304049570054D8C0 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E313304049570054D8C0 /* ChangePasswordViewModel.swift */; };
-		3D22E319304049570054D8C0 /* ChangePasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E314304049570054D8C0 /* ChangePasswordBuilder.swift */; };
-		3D22E31A304049570054D8C0 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E315304049570054D8C0 /* ChangePasswordView.swift */; };
-		3D22E31C3041BC420054D8C0 /* ChangePasswordUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E31B3041BC420054D8C0 /* ChangePasswordUserUseCase.swift */; };
-		3D22E31E30456F850054D8C0 /* ChangePasswordDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E31D30456F850054D8C0 /* ChangePasswordDataSource.swift */; };
 		3DCC739D30498DD900EA1FA0 /* PasswordValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC739C30498DD900EA1FA0 /* PasswordValidationError.swift */; };
+		3DCC739F304AE08E00EA1FA0 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC739E304AE08E00EA1FA0 /* CheckBoxView.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
 		EF0811C32C90943300DE4887 /* View+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811C22C90943300DE4887 /* View+UIViewController.swift */; };
 		EF0811C72C91915700DE4887 /* RegistrationViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811C62C91915700DE4887 /* RegistrationViewTests.swift */; };
-		EF0811C92C919B4F00DE4887 /* RegistrationSpanshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811C82C919B4F00DE4887 /* RegistrationSpanshotTests.swift */; };
+		EF0811C92C919B4F00DE4887 /* RegistrationSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811C82C919B4F00DE4887 /* RegistrationSnapshotTests.swift */; };
 		EF0811CD2C91D2B400DE4887 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811CC2C91D2B400DE4887 /* DashboardView.swift */; };
 		EF0811D12C9325C300DE4887 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811D02C9325C300DE4887 /* DashboardViewModel.swift */; };
 		EF0811D32C9325EF00DE4887 /* DashboardBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811D22C9325EF00DE4887 /* DashboardBuilder.swift */; };
@@ -358,7 +357,12 @@
 		31EAF7CB2DEF312D003A6984 /* RecoverPasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordModels.swift; sourceTree = "<group>"; };
 		31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUserUseCase.swift; sourceTree = "<group>"; };
 		31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUserDataSource.swift; sourceTree = "<group>"; };
-		31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivateSnapshotTests.swift; path = /Users/yago.ares.armesto/ActivateSnapshotTests.swift; sourceTree = "<absolute>"; };
+		3D22E312304049570054D8C0 /* ChangePasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordModels.swift; sourceTree = "<group>"; };
+		3D22E313304049570054D8C0 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		3D22E314304049570054D8C0 /* ChangePasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordBuilder.swift; sourceTree = "<group>"; };
+		3D22E315304049570054D8C0 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		3D22E31B3041BC420054D8C0 /* ChangePasswordUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordUserUseCase.swift; sourceTree = "<group>"; };
+		3D22E31D30456F850054D8C0 /* ChangePasswordDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordDataSource.swift; sourceTree = "<group>"; };
 		3D33D090304F11DA00EB4C21 /* SaveEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveEventAttendeesUseCase.swift; sourceTree = "<group>"; };
 		3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendee.swift; sourceTree = "<group>"; };
 		3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEventAttendee.swift; sourceTree = "<group>"; };
@@ -366,19 +370,13 @@
 		3DCC73933048713300EA1FA0 /* EventAttendeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesViewModel.swift; sourceTree = "<group>"; };
 		3DCC7395304872B600EA1FA0 /* EventAttendeesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesBuilder.swift; sourceTree = "<group>"; };
 		3DCC73993048730C00EA1FA0 /* EventAttendeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesView.swift; sourceTree = "<group>"; };
-		3DCC739E304AE08E00EA1FA0 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
-		3D22E312304049570054D8C0 /* ChangePasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordModels.swift; sourceTree = "<group>"; };
-		3D22E313304049570054D8C0 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
-		3D22E314304049570054D8C0 /* ChangePasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordBuilder.swift; sourceTree = "<group>"; };
-		3D22E315304049570054D8C0 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
-		3D22E31B3041BC420054D8C0 /* ChangePasswordUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordUserUseCase.swift; sourceTree = "<group>"; };
-		3D22E31D30456F850054D8C0 /* ChangePasswordDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordDataSource.swift; sourceTree = "<group>"; };
 		3DCC739C30498DD900EA1FA0 /* PasswordValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationError.swift; sourceTree = "<group>"; };
+		3DCC739E304AE08E00EA1FA0 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
 		EF0811C62C91915700DE4887 /* RegistrationViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewTests.swift; sourceTree = "<group>"; };
-		EF0811C82C919B4F00DE4887 /* RegistrationSpanshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSpanshotTests.swift; sourceTree = "<group>"; };
+		EF0811C82C919B4F00DE4887 /* RegistrationSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811CC2C91D2B400DE4887 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		EF0811D02C9325C300DE4887 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		EF0811D22C9325EF00DE4887 /* DashboardBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardBuilder.swift; sourceTree = "<group>"; };
@@ -661,14 +659,6 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		31648A072DEDBADF004A96FF /* Activate */ = {
-			isa = PBXGroup;
-			children = (
-				31FC29282DEDDA8F00255606 /* ActivateSnapshotTests.swift */,
-			);
-			path = Activate;
-			sourceTree = "<group>";
-		};
 		3175042C2DF71B3D00CE072F /* ResetPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -718,16 +708,6 @@
 			path = RecoverPassword;
 			sourceTree = "<group>";
 		};
-		3DCC73923048711E00EA1FA0 /* EventAttendees */ = {
-			isa = PBXGroup;
-			children = (
-				3DCC73993048730C00EA1FA0 /* EventAttendeesView.swift */,
-				3DCC7395304872B600EA1FA0 /* EventAttendeesBuilder.swift */,
-				3DCC73933048713300EA1FA0 /* EventAttendeesViewModel.swift */,
-			);
-			path = EventAttendees;
-			sourceTree = "<group>";
-		};
 		3D22E316304049570054D8C0 /* ChangePassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -737,6 +717,16 @@
 				3D22E315304049570054D8C0 /* ChangePasswordView.swift */,
 			);
 			path = ChangePassword;
+			sourceTree = "<group>";
+		};
+		3DCC73923048711E00EA1FA0 /* EventAttendees */ = {
+			isa = PBXGroup;
+			children = (
+				3DCC73993048730C00EA1FA0 /* EventAttendeesView.swift */,
+				3DCC7395304872B600EA1FA0 /* EventAttendeesBuilder.swift */,
+				3DCC73933048713300EA1FA0 /* EventAttendeesViewModel.swift */,
+			);
+			path = EventAttendees;
 			sourceTree = "<group>";
 		};
 		3DCC739B30498DD300EA1FA0 /* Errors */ = {
@@ -760,7 +750,6 @@
 		EF0811C02C90940D00DE4887 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				31648A072DEDBADF004A96FF /* Activate */,
 				311FA21D2DCD540A00C4EC99 /* RegistrationConfirm */,
 				318025402D81E4B60061610D /* Profile */,
 				EFE0F5EF2CC2772D0046959A /* WelcomeScreen */,
@@ -799,7 +788,7 @@
 		EF0811CA2C919B5700DE4887 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				EF0811C82C919B4F00DE4887 /* RegistrationSpanshotTests.swift */,
+				EF0811C82C919B4F00DE4887 /* RegistrationSnapshotTests.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -2130,7 +2119,7 @@
 			files = (
 				EFE0F5F12CC277390046959A /* WelcomeScreenSnapshotTests.swift in Sources */,
 				EF2A6DDE2CAED84400164FD5 /* MockGetLocalUserUseCase.swift in Sources */,
-				EF0811C92C919B4F00DE4887 /* RegistrationSpanshotTests.swift in Sources */,
+				EF0811C92C919B4F00DE4887 /* RegistrationSnapshotTests.swift in Sources */,
 				EF2A6DDD2CAED77400164FD5 /* EventDetailsSnapshotTests.swift in Sources */,
 				EF0811ED2C94424B00DE4887 /* BottomBarSnapshotsTests.swift in Sources */,
 				EF2A6DE12CAEE33E00164FD5 /* TestHelper.swift in Sources */,
@@ -2138,7 +2127,6 @@
 				EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */,
 				EF2A6DE02CAEDA8500164FD5 /* UserModelBuilder.swift in Sources */,
 				EF0811C32C90943300DE4887 /* View+UIViewController.swift in Sources */,
-				31FC29292DEDDA8F00255606 /* ActivateSnapshotTests.swift in Sources */,
 				EF2A6DDF2CAED8B800164FD5 /* EventBuilder.swift in Sources */,
 				EF0811E62C933BEB00DE4887 /* SpyCoordinator.swift in Sources */,
 				318025422D81E4E70061610D /* ProfileScreenSnapshotTests.swift in Sources */,

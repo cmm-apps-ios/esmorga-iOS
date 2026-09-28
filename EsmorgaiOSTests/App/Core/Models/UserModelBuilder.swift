@@ -15,6 +15,6 @@ final class UserModelBuilder {
     var email: String = "test@email.com"
 
     func build() -> UserModels.User {
-        return UserModels.User(name: name, lastName: lastName, email: email)
+        return UserModels.User(name: name, lastName: lastName, email: email, role: .user)
     }
 }

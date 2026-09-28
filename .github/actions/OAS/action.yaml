@@ -1,38 +1,78 @@
-name: "Push OAS to github"
-description: "Push OAS to github"
-inputs:
-  PAT:
-    description: 'A Github key'
-    required: true
+name: "Update branch reference"
+description: "Validate the branch name and update the OAS branch reference"
+
 runs:
   using: "composite"
-  steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ inputs.PAT }}
-          ref: ${{ github.head_ref }}
 
-      - name: Check branch name
-        shell: bash
-        run: |
-          if ! echo "${{ github.head_ref }}" | egrep '^((feature|bugfix|hotfix)/MOB-[0-9]*(\(.*\))*|release/[\.0-9]*)$' ; 
-          then 
+  steps:
+    # Validate that the branch follows the naming convention used by the project.
+    #
+    # github.head_ref contains the source branch when running from a Pull Request.
+    # github.ref_name is used as a fallback when the workflow is triggered manually.
+    - name: Check branch name
+      shell: bash
+      env:
+        BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+      run: |
+        set -euo pipefail
+
+        echo "Checking branch name: $BRANCH_NAME"
+        
+        if [[ ! "$BRANCH_NAME" =~ ^((feature|bugfix|hotfix)/MOB-[A-Za-z0-9_-]+|release/[0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+          echo "::error::Invalid branch name: $BRANCH_NAME"
+          echo "Expected formats:"
+          echo "  feature/MOB-123"
+          echo "  bugfix/MOB-123"
+          echo "  hotfix/MOB-123"
+          echo "  release/1.2.3"
           exit 1
-          fi
-          
-      - name: Push branch name if needed to github
-        shell: bash
-        run: |          
-          echo "${{ github.head_ref }}" > /tmp/branch.txt
-          if ! cmp -s "/tmp/branch.txt" ".github/tmp/branch.txt" ; then
-          cp /tmp/branch.txt .github/tmp/branch.txt
-          git config --local user.email "actions@github.com"
-          git config --local user.name "Github Actions"
-          git fetch
-          git pull
-          git add .github/tmp/branch.txt
-          git commit -m "Update BranchReference from GitHub Actions"
-          git push origin "${{ github.head_ref }}"
-          exit 1
-          fi
+        fi
+
+        echo "Branch name is valid."
+
+    # Keep .github/tmp/branch.txt synchronized with the current branch.
+    #
+    # The repository has already been checked out by the parent workflow,
+    # so this composite action does not need to run actions/checkout again.
+    #
+    # If the branch reference changes, commit it and push it back to the
+    # current branch using the credentials persisted by actions/checkout.
+    - name: Update branch reference if needed
+      shell: bash
+      env:
+        BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+      run: |
+        set -euo pipefail
+
+        BRANCH_FILE=".github/tmp/branch.txt"
+
+        mkdir -p "$(dirname "$BRANCH_FILE")"
+
+        # Stop here if the branch reference is already correct.
+        if [[ -f "$BRANCH_FILE" ]] && [[ "$(cat "$BRANCH_FILE")" == "$BRANCH_NAME" ]]; then
+          echo "Branch reference is already up to date."
+          exit 0
+        fi
+
+        echo "Updating branch reference to: $BRANCH_NAME"
+
+        printf '%s\n' "$BRANCH_NAME" > "$BRANCH_FILE"
+
+        # Configure the GitHub Actions bot as the commit author.
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+        git add "$BRANCH_FILE"
+
+        # Safety check: do not try to commit if nothing actually changed.
+        if git diff --cached --quiet; then
+          echo "No changes to commit."
+          exit 0
+        fi
+
+        git commit -m "chore: update branch reference"
+
+        # Push the new commit to the source branch of the Pull Request.
+        git push origin "HEAD:$BRANCH_NAME"
+
+        echo "Branch reference updated successfully."

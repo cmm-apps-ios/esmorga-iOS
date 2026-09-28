@@ -33,7 +33,7 @@ final class RegistrationViewModelTests: XCTestCase {
     //MOB-TC-129
     func test_given_performa_registration_when_success_response_then_navigate_to_dashboard() async {
 
-        mockRegisterUserUseCase.mockUser = UserModels.User(name: "Name", lastName: "LastName", email: "test@yopmail.com")
+        mockRegisterUserUseCase.mockUser = UserModels.User(name: "Name", lastName: "LastName", email: "test@yopmail.com", role: .user)
 
         givenTextfieldsValid()
         sut.performRegistration()

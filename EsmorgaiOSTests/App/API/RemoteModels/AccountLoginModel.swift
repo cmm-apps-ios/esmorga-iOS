@@ -16,6 +16,7 @@ final class LoginModelBuilder {
                                        ttl: 60,
                                        profile: AccountLoginModel.Profile(name: "user",
                                                                           lastName: "fake",
-                                                                          email: "email@yopmail.com"))
+                                                                          email: "email@yopmail.com",
+                                                                          role: "user"))
     }
 }

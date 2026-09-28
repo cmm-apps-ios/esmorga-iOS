@@ -20,10 +20,13 @@ final class EventDetailsMapper {
                 return LocalizationKeys.Buttons.joinEvent.localize()
             }
         }
+        
+        let deadlineText: String = LocalizationKeys.EventDetails.deadline.localize(event.joinDeadline?.string(format: .dayMonthHour) ?? "")
 
         return EventDetails.Model(imageUrl: event.imageURL,
                                   title: event.name,
                                   body: event.date.string(format: .dayMonthHour) ?? "",
+                                  deadline: deadlineText,
                                   descriptionTitle: LocalizationKeys.EventDetails.description.localize(),
                                   descriptionBody: event.details,
                                   locationTitle: LocalizationKeys.EventDetails.location.localize(),

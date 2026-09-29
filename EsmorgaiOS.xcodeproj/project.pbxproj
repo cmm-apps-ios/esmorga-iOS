@@ -95,6 +95,20 @@
 		3DD647963063F9AB0053B900 /* PollListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD647903063F9AB0053B900 /* PollListView.swift */; };
 		3DD647973063F9AB0053B900 /* PollListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD647913063F9AB0053B900 /* PollListViewModel.swift */; };
 		3DD647983063F9AB0053B900 /* PollListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD647923063F9AB0053B900 /* PollListCell.swift */; };
+		C0FFEE1000000000000000A1 /* PollBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A1 /* PollBuilder.swift */; };
+		C0FFEE1000000000000000A2 /* RemotePollBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A2 /* RemotePollBuilder.swift */; };
+		C0FFEE1000000000000000A4 /* MockPollsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A4 /* MockPollsRepository.swift */; };
+		C0FFEE1000000000000000A5 /* MockRemotePollsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A5 /* MockRemotePollsDataSource.swift */; };
+		C0FFEE1000000000000000A6 /* MockGetPollsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A6 /* MockGetPollsUseCase.swift */; };
+		C0FFEE1000000000000000A7 /* MockSendVotePollUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A7 /* MockSendVotePollUseCase.swift */; };
+		C0FFEE1000000000000000A8 /* PollsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A8 /* PollsRepositoryTests.swift */; };
+		C0FFEE1000000000000000A9 /* RemotePollsDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A9 /* RemotePollsDataSourceTests.swift */; };
+		C0FFEE1000000000000000AA /* GetPollsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AA /* GetPollsUseCaseTests.swift */; };
+		C0FFEE1000000000000000AB /* SendVotePollUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AB /* SendVotePollUseCaseTests.swift */; };
+		C0FFEE1000000000000000AC /* PollListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AC /* PollListViewModelTests.swift */; };
+		C0FFEE1000000000000000AD /* PollDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */; };
+		C0FFEE1000000000000000AE /* ExploreHomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */; };
+		C0FFEE1000000000000000AF /* mock_polls.json in Resources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AF /* mock_polls.json */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -394,6 +408,20 @@
 		3DA0FBE430615E98007674F0 /* RemotePollsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollsDataSource.swift; sourceTree = "<group>"; };
 		3DA0FBE930616963007674F0 /* GetPollsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPollsUseCase.swift; sourceTree = "<group>"; };
 		3DCBD5F330657B35006A3CD0 /* SendVotePollUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVotePollUseCase.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A1 /* PollBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollBuilder.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A2 /* RemotePollBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollBuilder.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A4 /* MockPollsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPollsRepository.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A5 /* MockRemotePollsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRemotePollsDataSource.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A6 /* MockGetPollsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetPollsUseCase.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A7 /* MockSendVotePollUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSendVotePollUseCase.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A8 /* PollsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsRepositoryTests.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A9 /* RemotePollsDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollsDataSourceTests.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000AA /* GetPollsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPollsUseCaseTests.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000AB /* SendVotePollUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVotePollUseCaseTests.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000AC /* PollListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListViewModelTests.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeViewModelTests.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000AF /* mock_polls.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_polls.json; sourceTree = "<group>"; };
 		3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendee.swift; sourceTree = "<group>"; };
 		3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEventAttendee.swift; sourceTree = "<group>"; };
 		3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventAttendeesUseCase.swift; sourceTree = "<group>"; };
@@ -1068,8 +1096,28 @@
 			children = (
 				EFE34DC32C7CBC4A00724DDC /* User */,
 				EFE34DC22C7CBC3E00724DDC /* Events */,
+				C0FFEE3000000000000000B0 /* Polls */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B0 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000AA /* GetPollsUseCaseTests.swift */,
+				C0FFEE2000000000000000AB /* SendVotePollUseCaseTests.swift */,
+				C0FFEE3000000000000000B1 /* Mocks */,
+			);
+			path = Polls;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000A6 /* MockGetPollsUseCase.swift */,
+				C0FFEE2000000000000000A7 /* MockSendVotePollUseCase.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		EF31585F2C5A21EA00DE157A /* Helpers */ = {
@@ -1085,8 +1133,18 @@
 			children = (
 				EFE34DB72C7C99A800724DDC /* User */,
 				EFE34DB62C7C999C00724DDC /* Events */,
+				C0FFEE3000000000000000B2 /* Polls */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B2 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000A4 /* MockPollsRepository.swift */,
+				C0FFEE2000000000000000A8 /* PollsRepositoryTests.swift */,
+			);
+			path = Polls;
 			sourceTree = "<group>";
 		};
 		EF31586A2C5A5D7800DE157A /* DataSource */ = {
@@ -1094,8 +1152,26 @@
 			children = (
 				EFE34DAF2C7C94AA00724DDC /* User */,
 				EFE34DAE2C7C94A000724DDC /* Events */,
+				C0FFEE3000000000000000B3 /* Polls */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B3 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000A9 /* RemotePollsDataSourceTests.swift */,
+				C0FFEE3000000000000000B4 /* Mock */,
+			);
+			path = Polls;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B4 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000A5 /* MockRemotePollsDataSource.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		EF3158782C5A788E00DE157A /* MockFiles */ = {
@@ -1106,6 +1182,7 @@
 				EF3158792C5A78B900DE157A /* mock_event_list.json */,
 				EFE34DB22C7C95B600724DDC /* mock_account_login.json */,
 				EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */,
+				C0FFEE2000000000000000AF /* mock_polls.json */,
 			);
 			path = MockFiles;
 			sourceTree = "<group>";
@@ -1126,8 +1203,35 @@
 				EFBBE6EF2C7489A90085632A /* WelcomeScreen */,
 				EF2983F82C6B986200C2393E /* EventDetails */,
 				EF31587E2C5A7E5900DE157A /* EventList */,
+				C0FFEE3000000000000000B5 /* PollList */,
+				C0FFEE3000000000000000B6 /* PollDetails */,
+				C0FFEE3000000000000000B7 /* ExploreHome */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B5 /* PollList */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000AC /* PollListViewModelTests.swift */,
+			);
+			path = PollList;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B6 /* PollDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */,
+			);
+			path = PollDetails;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B7 /* ExploreHome */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */,
+			);
+			path = ExploreHome;
 			sourceTree = "<group>";
 		};
 		EF31587E2C5A7E5900DE157A /* EventList */ = {
@@ -1719,6 +1823,7 @@
 			children = (
 				EFD6100B2CA2C40400E3DB1E /* EventBuilder.swift */,
 				EFA646412C8B09E700D528F9 /* UserModelBuilder.swift */,
+				C0FFEE2000000000000000A1 /* PollBuilder.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1736,6 +1841,7 @@
 			isa = PBXGroup;
 			children = (
 				EFE34DC02C7CBB9300724DDC /* AccountLoginModel.swift */,
+				C0FFEE2000000000000000A2 /* RemotePollBuilder.swift */,
 			);
 			path = RemoteModels;
 			sourceTree = "<group>";
@@ -2193,6 +2299,7 @@
 				EF31587A2C5A78B900DE157A /* mock_event_list.json in Resources */,
 				EF65D16B2CB82F13005078D9 /* mock_empty_file.json in Resources */,
 				EFF9C88C2C99C88C00DE50BC /* mock_refresh_token.json in Resources */,
+				C0FFEE1000000000000000AF /* mock_polls.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2512,6 +2619,19 @@
 				EF31585B2C59384800DE157A /* GetEventListUseCaseTests.swift in Sources */,
 				EF0811C72C91915700DE4887 /* RegistrationViewTests.swift in Sources */,
 				EF2A6DC32CA6BBC000164FD5 /* MyEventsViewModelTests.swift in Sources */,
+				C0FFEE1000000000000000A1 /* PollBuilder.swift in Sources */,
+				C0FFEE1000000000000000A2 /* RemotePollBuilder.swift in Sources */,
+				C0FFEE1000000000000000A4 /* MockPollsRepository.swift in Sources */,
+				C0FFEE1000000000000000A5 /* MockRemotePollsDataSource.swift in Sources */,
+				C0FFEE1000000000000000A6 /* MockGetPollsUseCase.swift in Sources */,
+				C0FFEE1000000000000000A7 /* MockSendVotePollUseCase.swift in Sources */,
+				C0FFEE1000000000000000A8 /* PollsRepositoryTests.swift in Sources */,
+				C0FFEE1000000000000000A9 /* RemotePollsDataSourceTests.swift in Sources */,
+				C0FFEE1000000000000000AA /* GetPollsUseCaseTests.swift in Sources */,
+				C0FFEE1000000000000000AB /* SendVotePollUseCaseTests.swift in Sources */,
+				C0FFEE1000000000000000AC /* PollListViewModelTests.swift in Sources */,
+				C0FFEE1000000000000000AD /* PollDetailsViewModelTests.swift in Sources */,
+				C0FFEE1000000000000000AE /* ExploreHomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

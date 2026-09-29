@@ -47,6 +47,9 @@
         }
       }
     },
+    "Back" : {
+
+    },
     "bottom_bar_explore" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -212,6 +215,28 @@
         }
       }
     },
+    "button_update_vote" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizar voto"
+          }
+        }
+      }
+    },
+    "button_vote" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votar"
+          }
+        }
+      }
+    },
     "Cancelar" : {
 
     },
@@ -357,6 +382,9 @@
           }
         }
       }
+    },
+    "Information" : {
+
     },
     "inline_error_email" : {
       "extractionState" : "manual",
@@ -577,6 +605,9 @@
           }
         }
       }
+    },
+    "OK" : {
+
     },
     "password_set_snackbar" : {
       "extractionState" : "manual",
@@ -1032,6 +1063,17 @@
         }
       }
     },
+    "snackbar_vote_submitted" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu voto ha sido enviado."
+          }
+        }
+      }
+    },
     "unauthenticated_error_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1042,6 +1084,9 @@
           }
         }
       }
+    },
+    "Voting deadline: %@" : {
+
     }
   },
   "version" : "1.2"

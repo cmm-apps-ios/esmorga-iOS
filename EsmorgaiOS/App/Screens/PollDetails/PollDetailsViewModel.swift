@@ -15,11 +15,25 @@ enum VoteState: ViewStateProtocol {
     case failure(String)
 }
 
+enum PollDetails {
+
+    struct Model {
+        var voteButton: Button
+
+        struct Button {
+            var title: String
+            var isLoading: Bool
+            var isDeadlinePassed: Bool
+        }
+    }
+}
+
 final class PollDetailsViewModel: BaseViewModel<VoteState> {
 
     @Published private(set) var poll: Poll
     @Published private(set) var currentSelection: Set<String>
     @Published private(set) var voteState: VoteState = .idle
+    @Published var model: PollDetails.Model
 
     private let sendVoteUseCase: SendVotePollUseCaseAlias
 
@@ -31,6 +45,16 @@ final class PollDetailsViewModel: BaseViewModel<VoteState> {
         self.poll = poll
         self.currentSelection = Set(poll.userSelectedOptions)
         self.sendVoteUseCase = sendVoteUseCase
+        let alreadyVoted = !poll.userSelectedOptions.isEmpty
+        self.model = PollDetails.Model(
+            voteButton: .init(
+                title: alreadyVoted
+                    ? LocalizationKeys.Buttons.updateVote.localize()
+                    : LocalizationKeys.Buttons.vote.localize(),
+                isLoading: false,
+                isDeadlinePassed: Date() > poll.voteDeadline
+            )
+        )
         super.init(coordinator: coordinator)
     }
 
@@ -52,10 +76,6 @@ final class PollDetailsViewModel: BaseViewModel<VoteState> {
         !isLoading
     }
 
-    var buttonText: String {
-        hasVoted ? "Update vote" : "Vote"
-    }
-
     func toggleOption(_ optionID: String) {
         guard !isDeadlinePassed, !isLoading else {
             return
@@ -74,6 +94,7 @@ final class PollDetailsViewModel: BaseViewModel<VoteState> {
                 currentSelection = [optionID]
             }
         }
+        updateVoteButton()
     }
 
     @MainActor
@@ -83,6 +104,7 @@ final class PollDetailsViewModel: BaseViewModel<VoteState> {
         }
 
         voteState = .loading
+        model.voteButton.isLoading = true
 
         let result = await sendVoteUseCase.execute(
             input: VotePollRequest(
@@ -96,20 +118,38 @@ final class PollDetailsViewModel: BaseViewModel<VoteState> {
             self.poll = poll
             currentSelection = Set(poll.userSelectedOptions)
             voteState = .success
+            updateVoteButton()
             NotificationCenter.default.post(
                 name: .pollUpdated,
                 object: nil,
                 userInfo: ["poll": poll]
             )
-
+            self.snackBar = .init(message: LocalizationKeys.Snackbar.voteSubmitted.localize(),
+                                  isShown: true)
         case .failure(let error):
             voteState = .failure(
                 error.localizedDescription
             )
+            model.voteButton.isLoading = false
+            self.reportErrorToCrashlytics()
+            self.showErrorDialog(type: .commonError)
         }
     }
 
     func clearMessage() {
         voteState = .idle
+    }
+
+    private func updateVoteButton() {
+        model.voteButton.title = hasVoted
+            ? LocalizationKeys.Buttons.updateVote.localize()
+            : LocalizationKeys.Buttons.vote.localize()
+        model.voteButton.isDeadlinePassed = isDeadlinePassed
+        model.voteButton.isLoading = isLoading
+    }
+
+    private func showErrorDialog(type: ErrorDialog.DialogType) {
+        let dialogModel = ErrorDialogModelBuilder.build(type: type)
+        coordinator?.push(destination: .dialog(dialogModel))
     }
 }

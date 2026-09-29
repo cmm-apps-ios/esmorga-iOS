@@ -75,6 +75,19 @@ final class PollDetailsViewModelTests {
 
         #expect(self.sut.isDeadlinePassed)
         #expect(!self.sut.isButtonEnabled)
+        #expect(self.sut.model.voteButton.isDeadlinePassed)
+    }
+
+    @MainActor
+    @Test
+    func test_given_poll_without_vote_then_button_title_is_vote_and_when_user_has_voted_it_is_update_vote() {
+        makeSut(poll: singlePoll)
+
+        #expect(self.sut.model.voteButton.title == LocalizationKeys.Buttons.vote.localize())
+
+        makeSut(poll: votedSinglePoll)
+
+        #expect(self.sut.model.voteButton.title == LocalizationKeys.Buttons.updateVote.localize())
     }
 
     @MainActor
@@ -155,8 +168,11 @@ final class PollDetailsViewModelTests {
         #expect(self.sut.poll == votedPoll)
         #expect(self.sut.currentSelection == ["opt1"])
         #expect(self.sut.hasVoted)
-        #expect(self.sut.buttonText == "Update vote")
+        #expect(self.sut.model.voteButton.title == LocalizationKeys.Buttons.updateVote.localize())
+        #expect(self.sut.model.voteButton.isLoading == false)
         #expect(self.polledPolls == [votedPoll])
+        #expect(self.sut.snackBar.isShown)
+        #expect(self.sut.snackBar.message == LocalizationKeys.Snackbar.voteSubmitted.localize())
     }
 
     @MainActor
@@ -172,6 +188,8 @@ final class PollDetailsViewModelTests {
         #expect(self.sut.voteState != .success)
         #expect(self.sut.voteState != .loading)
         #expect(!self.sut.isLoading)
+        #expect(self.sut.model.voteButton.isLoading == false)
+        #expect(self.spyCoordinator.destination == .dialog(ErrorDialogModelBuilder.build(type: .commonError)))
     }
 
     @MainActor

@@ -71,6 +71,8 @@ class LocalizationKeys {
         static let seeAttendees: String = "button_see_attendees"
         static let ok: String = "button_ok"
         static let cancel: String = "register_confirmation_button_cancel"
+        static let vote: String = "button_vote"
+        static let updateVote: String = "button_update_vote"
 
     }
 
@@ -158,6 +160,7 @@ class LocalizationKeys {
         static let noInternet: String = "snackbar_no_internet"
         static let eventJoined: String = "snackbar_event_joined"
         static let eventLeft: String = "snackbar_event_left"
+        static let voteSubmitted: String = "snackbar_vote_submitted"
         static let resendEmail: String = "register_resend_code_success"
         static let resendEmailFailed: String = "register_resend_code_error"
         static let passwordReset: String = "forgot_password_snackbar_success"

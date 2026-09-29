@@ -12,8 +12,6 @@ struct PollDetailsView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel: PollDetailsViewModel
 
-    @State private var alertMessage: AlertMessage?
-
     init(
         viewModel: PollDetailsViewModel
     ) {
@@ -65,18 +63,6 @@ struct PollDetailsView: View {
                 }
                 .accessibilityLabel("Back")
             }
-        }
-        .alert(item: $alertMessage) { message in
-            Alert(
-                title: Text(message.title),
-                message: Text(message.message),
-                dismissButton: .default(Text("OK")) {
-                    viewModel.clearMessage()
-                }
-            )
-        }
-        .onChange(of: viewModel.voteState) { newState in
-            handleVoteState(newState)
         }
     }
 
@@ -211,10 +197,11 @@ struct PollDetailsView: View {
         }
     }
 
-    // TODO: Add is loading
     private var voteButton: some View {
-        CustomButton(title: viewModel.buttonText,
-                     buttonStyle: .primary) {
+        CustomButton(title: $viewModel.model.voteButton.title,
+                     buttonStyle: .primary,
+                     isLoading: $viewModel.model.voteButton.isLoading,
+                     isDisabled: $viewModel.model.voteButton.isDeadlinePassed) {
             Task {
                 await viewModel.vote()
             }
@@ -231,33 +218,6 @@ struct PollDetailsView: View {
     private func optionText(_ option: PollOption) -> String {
         "\(option.name) (\(option.voteCount) votes)"
     }
-
-    private func handleVoteState(
-        _ state: VoteState
-    ) {
-        switch state {
-        case .idle, .loading, .ready:
-            break
-
-        case .success:
-            alertMessage = AlertMessage(
-                title: "Success",
-                message: "Your vote was submitted successfully."
-            )
-
-        case .failure(let message):
-            alertMessage = AlertMessage(
-                title: "Error",
-                message: message
-            )
-        }
-    }
-}
-
-private struct AlertMessage: Identifiable {
-    let id = UUID()
-    let title: String
-    let message: String
 }
 
 #Preview("Single Choice") {

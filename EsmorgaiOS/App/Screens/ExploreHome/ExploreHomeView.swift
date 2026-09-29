@@ -120,7 +120,7 @@ struct ExploreHomeView: View {
     private var pollsTitle: some View {
         VStack(alignment: .leading) {
             Text(LocalizationKeys.PollList.title.localize())
-                .style(.heading1)
+                .style(.heading2)
             Rectangle()
                 .frame(height: 1)
                 .foregroundColor(Color.claret)
@@ -133,7 +133,7 @@ struct ExploreHomeView: View {
     private var eventsTitle: some View {
         VStack(alignment: .leading) {
             Text(LocalizationKeys.EventList.title.localize())
-                .style(.heading1)
+                .style(.heading2)
             Rectangle()
                 .frame(height: 1)
                 .foregroundColor(Color.claret)

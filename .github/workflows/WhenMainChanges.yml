@@ -221,8 +221,16 @@ jobs:
           BUILD_TYPE="QA"
           NAME="Esmorga [QA]"
 
+          # Log some context to help debugging (no secrets are printed).
+          echo "IPA: $IPA_FILE ($(ls -lh "$IPA_FILE" | awk '{print $5}'))"
+          echo "Version: $VERSION_NAME  Build: $VERSION_CODE  Hash: $BUILD_HASH"
+
           # Upload the IPA to OTA Share.
-          RESPONSE=$(curl --fail-with-body --silent --show-error \
+          # Capture body and HTTP status separately, and DON'T let curl's exit
+          # code abort the step silently (we want to inspect the response).
+          HTTP_STATUS=$(curl --silent --show-error \
+            -o "$RUNNER_TEMP/ota_response.txt" \
+            -w "%{http_code}" \
             -F "buiFile=@${IPA_FILE}" \
             -F "buiName=${NAME}" \
             -F "buiVersion=${VERSION_NAME}" \
@@ -234,15 +242,19 @@ jobs:
             -F "buiChangeLog=none" \
             -F "buiUser=${BUI_USER}" \
             -F "buiPassword=${BUI_PASSWORD}" \
-            "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${PROJECT_ID}/${API_KEY}/${API_KEY_BUILD}")
+            "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${PROJECT_ID}/${API_KEY}/${API_KEY_BUILD}") || true
 
-          # Extract the generated OTA URL from the response.
-          BUILD_URL=$(echo "$RESPONSE" \
-            | grep -oE 'https?://[^"[:space:]]+' \
-            | head -1)
+          RESPONSE="$(cat "$RUNNER_TEMP/ota_response.txt" 2>/dev/null || true)"
+
+          echo "OTA HTTP status: $HTTP_STATUS"
+          echo "OTA raw response: $RESPONSE"
+
+          # Extract the generated OTA URL from the response WITHOUT letting a
+          # non-matching grep (exit 1) kill the step under 'set -e / pipefail'.
+          BUILD_URL="$(printf '%s' "$RESPONSE" | grep -oE 'https?://[^"[:space:]]+' | head -1 || true)"
 
           if [[ -z "$BUILD_URL" ]]; then
-            echo "::error::OTA Share did not return a build URL."
+            echo "::error::OTA Share did not return a build URL (HTTP $HTTP_STATUS). See raw response above."
             exit 1
           fi
 

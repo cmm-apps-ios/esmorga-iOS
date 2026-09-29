@@ -87,17 +87,13 @@ jobs:
             -p "$KEYCHAIN_PASSWORD" \
             "$KEYCHAIN_PATH"
 
-          # Import the Apple Distribution certificate AND its private key.
-          # NOTE: do NOT pass "-t cert": with many .p12 files that flag makes
-          # `security` import only the certificate and drop the private key,
-          # which later causes "No signing certificate with a private key".
-          # We whitelist codesign/security so they can use the key non-interactively.
+          # Import the Apple Distribution certificate.
           security import "$CERTIFICATE_PATH" \
             -P "$P12_PASSWORD" \
+            -A \
+            -t cert \
             -f pkcs12 \
-            -k "$KEYCHAIN_PATH" \
-            -T /usr/bin/codesign \
-            -T /usr/bin/security
+            -k "$KEYCHAIN_PATH"
 
           # Allow Xcode and codesign to access the private key without
           # requiring an interactive password prompt.
@@ -106,18 +102,10 @@ jobs:
             -k "$KEYCHAIN_PASSWORD" \
             "$KEYCHAIN_PATH"
 
-          # Make the temporary keychain available to the current user
-          # (keep the login keychain too so the Apple WWDR intermediate and
-          # system anchors remain in the search list).
+          # Make the temporary keychain available to the current user.
           security list-keychains \
             -d user \
-            -s "$KEYCHAIN_PATH" login.keychain-db
-
-          # Diagnostic: this MUST list a valid "Apple Distribution ... (49934BYA74)"
-          # identity. If it prints "0 valid identities found", the problem is the
-          # .p12 itself (exported without the private key or wrong certificate type).
-          echo "Codesigning identities available in the temp keychain:"
-          security find-identity -v -p codesigning "$KEYCHAIN_PATH"
+            -s "$KEYCHAIN_PATH"
 
           # Install both provisioning profiles where Xcode expects them.
           mkdir -p "$PROFILES_DIR"

@@ -46,7 +46,7 @@ final class EventsRepositoryTests {
     private func buidRemoteEvent(eventId: String) -> RemoteEventListModel.Event {
         return RemoteEventListModel.Event(eventId: eventId,
                                           eventName: "Event name",
-                                          eventDate: "2025-03-08T10:05:30.915Z",
+                                          eventDate: "2025-03-08T10:05:30.915Z", joinDeadline: "2026-03-08T10:05:30.915Z",
                                           description: "Event description",
                                           eventType: "Party",
                                           imageUrl: nil,

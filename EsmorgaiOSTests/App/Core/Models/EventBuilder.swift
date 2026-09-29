@@ -21,6 +21,7 @@ final class EventBuilder {
     private var location: String = "A Coruña"
     private var creationDate: Date = Date(timeIntervalSince1970: 10000)
     private var isUserJoined: Bool = false
+    private var joinDeadline: Date = Date(timeIntervalSince1970: 10000)
     private var currentAttendeeCount: Int32 = 0
     private var maxCapacity: Int32 = 0
 
@@ -101,6 +102,7 @@ final class EventBuilder {
                                  location: location,
                                  creationDate: creationDate,
                                  isUserJoined: isUserJoined,
+                                 joinDeadline: joinDeadline,
                                  currentAttendeeCount: Int(currentAttendeeCount),
                                  maxCapacity: Int(maxCapacity)
         )

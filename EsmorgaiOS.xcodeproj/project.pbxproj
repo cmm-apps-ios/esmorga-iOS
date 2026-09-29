@@ -408,6 +408,18 @@
 		3DA0FBE430615E98007674F0 /* RemotePollsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollsDataSource.swift; sourceTree = "<group>"; };
 		3DA0FBE930616963007674F0 /* GetPollsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPollsUseCase.swift; sourceTree = "<group>"; };
 		3DCBD5F330657B35006A3CD0 /* SendVotePollUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVotePollUseCase.swift; sourceTree = "<group>"; };
+		3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendee.swift; sourceTree = "<group>"; };
+		3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEventAttendee.swift; sourceTree = "<group>"; };
+		3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventAttendeesUseCase.swift; sourceTree = "<group>"; };
+		3DCC73933048713300EA1FA0 /* EventAttendeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesViewModel.swift; sourceTree = "<group>"; };
+		3DCC7395304872B600EA1FA0 /* EventAttendeesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesBuilder.swift; sourceTree = "<group>"; };
+		3DCC73993048730C00EA1FA0 /* EventAttendeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesView.swift; sourceTree = "<group>"; };
+		3DCC739C30498DD900EA1FA0 /* PasswordValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationError.swift; sourceTree = "<group>"; };
+		3DCC739E304AE08E00EA1FA0 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		3DD647903063F9AB0053B900 /* PollListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListView.swift; sourceTree = "<group>"; };
+		3DD647913063F9AB0053B900 /* PollListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListViewModel.swift; sourceTree = "<group>"; };
+		3DD647923063F9AB0053B900 /* PollListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListCell.swift; sourceTree = "<group>"; };
+		3DD647933063F9AB0053B900 /* PollListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListBuilder.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000A1 /* PollBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollBuilder.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000A2 /* RemotePollBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollBuilder.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000A4 /* MockPollsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPollsRepository.swift; sourceTree = "<group>"; };
@@ -422,18 +434,6 @@
 		C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeViewModelTests.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000AF /* mock_polls.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_polls.json; sourceTree = "<group>"; };
-		3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendee.swift; sourceTree = "<group>"; };
-		3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEventAttendee.swift; sourceTree = "<group>"; };
-		3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventAttendeesUseCase.swift; sourceTree = "<group>"; };
-		3DCC73933048713300EA1FA0 /* EventAttendeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesViewModel.swift; sourceTree = "<group>"; };
-		3DCC7395304872B600EA1FA0 /* EventAttendeesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesBuilder.swift; sourceTree = "<group>"; };
-		3DCC73993048730C00EA1FA0 /* EventAttendeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesView.swift; sourceTree = "<group>"; };
-		3DCC739C30498DD900EA1FA0 /* PasswordValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationError.swift; sourceTree = "<group>"; };
-		3DCC739E304AE08E00EA1FA0 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
-		3DD647903063F9AB0053B900 /* PollListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListView.swift; sourceTree = "<group>"; };
-		3DD647913063F9AB0053B900 /* PollListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListViewModel.swift; sourceTree = "<group>"; };
-		3DD647923063F9AB0053B900 /* PollListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListCell.swift; sourceTree = "<group>"; };
-		3DD647933063F9AB0053B900 /* PollListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListBuilder.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -863,6 +863,75 @@
 			path = PollList;
 			sourceTree = "<group>";
 		};
+		C0FFEE3000000000000000B0 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000AA /* GetPollsUseCaseTests.swift */,
+				C0FFEE2000000000000000AB /* SendVotePollUseCaseTests.swift */,
+				C0FFEE3000000000000000B1 /* Mocks */,
+			);
+			path = Polls;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000A6 /* MockGetPollsUseCase.swift */,
+				C0FFEE2000000000000000A7 /* MockSendVotePollUseCase.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B2 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000A4 /* MockPollsRepository.swift */,
+				C0FFEE2000000000000000A8 /* PollsRepositoryTests.swift */,
+			);
+			path = Polls;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B3 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000A9 /* RemotePollsDataSourceTests.swift */,
+				C0FFEE3000000000000000B4 /* Mock */,
+			);
+			path = Polls;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B4 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000A5 /* MockRemotePollsDataSource.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B5 /* PollList */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000AC /* PollListViewModelTests.swift */,
+			);
+			path = PollList;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B6 /* PollDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */,
+			);
+			path = PollDetails;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B7 /* ExploreHome */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */,
+			);
+			path = ExploreHome;
+			sourceTree = "<group>";
+		};
 		EF0811B12C9093C500DE4887 /* EsmorgaiOSSnapshotTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1101,25 +1170,6 @@
 			path = UseCase;
 			sourceTree = "<group>";
 		};
-		C0FFEE3000000000000000B0 /* Polls */ = {
-			isa = PBXGroup;
-			children = (
-				C0FFEE2000000000000000AA /* GetPollsUseCaseTests.swift */,
-				C0FFEE2000000000000000AB /* SendVotePollUseCaseTests.swift */,
-				C0FFEE3000000000000000B1 /* Mocks */,
-			);
-			path = Polls;
-			sourceTree = "<group>";
-		};
-		C0FFEE3000000000000000B1 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				C0FFEE2000000000000000A6 /* MockGetPollsUseCase.swift */,
-				C0FFEE2000000000000000A7 /* MockSendVotePollUseCase.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
 		EF31585F2C5A21EA00DE157A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1138,15 +1188,6 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		C0FFEE3000000000000000B2 /* Polls */ = {
-			isa = PBXGroup;
-			children = (
-				C0FFEE2000000000000000A4 /* MockPollsRepository.swift */,
-				C0FFEE2000000000000000A8 /* PollsRepositoryTests.swift */,
-			);
-			path = Polls;
-			sourceTree = "<group>";
-		};
 		EF31586A2C5A5D7800DE157A /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1155,23 +1196,6 @@
 				C0FFEE3000000000000000B3 /* Polls */,
 			);
 			path = DataSource;
-			sourceTree = "<group>";
-		};
-		C0FFEE3000000000000000B3 /* Polls */ = {
-			isa = PBXGroup;
-			children = (
-				C0FFEE2000000000000000A9 /* RemotePollsDataSourceTests.swift */,
-				C0FFEE3000000000000000B4 /* Mock */,
-			);
-			path = Polls;
-			sourceTree = "<group>";
-		};
-		C0FFEE3000000000000000B4 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				C0FFEE2000000000000000A5 /* MockRemotePollsDataSource.swift */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		EF3158782C5A788E00DE157A /* MockFiles */ = {
@@ -1208,30 +1232,6 @@
 				C0FFEE3000000000000000B7 /* ExploreHome */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		C0FFEE3000000000000000B5 /* PollList */ = {
-			isa = PBXGroup;
-			children = (
-				C0FFEE2000000000000000AC /* PollListViewModelTests.swift */,
-			);
-			path = PollList;
-			sourceTree = "<group>";
-		};
-		C0FFEE3000000000000000B6 /* PollDetails */ = {
-			isa = PBXGroup;
-			children = (
-				C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */,
-			);
-			path = PollDetails;
-			sourceTree = "<group>";
-		};
-		C0FFEE3000000000000000B7 /* ExploreHome */ = {
-			isa = PBXGroup;
-			children = (
-				C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */,
-			);
-			path = ExploreHome;
 			sourceTree = "<group>";
 		};
 		EF31587E2C5A7E5900DE157A /* EventList */ = {

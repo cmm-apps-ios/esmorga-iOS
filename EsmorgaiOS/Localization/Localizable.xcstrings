@@ -47,9 +47,6 @@
         }
       }
     },
-    "Back" : {
-
-    },
     "bottom_bar_explore" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -221,7 +218,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Actualizar voto"
+            "value" : "Cambiar mi voto"
           }
         }
       }
@@ -384,7 +381,15 @@
       }
     },
     "Information" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información"
+          }
+        }
+      }
     },
     "inline_error_email" : {
       "extractionState" : "manual",
@@ -605,9 +610,6 @@
           }
         }
       }
-    },
-    "OK" : {
-
     },
     "password_set_snackbar" : {
       "extractionState" : "manual",
@@ -917,6 +919,17 @@
         }
       }
     },
+    "screen_explore_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Está pasando…"
+          }
+        }
+      }
+    },
     "screen_homescreen_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -979,6 +992,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hay conexión"
+          }
+        }
+      }
+    },
+    "screen_poll_details_deadline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vota antes de %@"
+          }
+        }
+      }
+    },
+    "screen_poll_details_information" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información"
+          }
+        }
+      }
+    },
+    "screen_poll_details_option_count_votes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ (%d votos)"
           }
         }
       }
@@ -1069,7 +1115,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tu voto ha sido enviado."
+            "value" : "Se ha registrado tu voto correctamente"
           }
         }
       }
@@ -1084,9 +1130,6 @@
           }
         }
       }
-    },
-    "Voting deadline: %@" : {
-
     }
   },
   "version" : "1.2"

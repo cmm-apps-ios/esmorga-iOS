@@ -20,7 +20,7 @@ struct ExploreHomeView: View {
             ZStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
-                        Text(LocalizationKeys.EventList.title.localize())
+                        Text(LocalizationKeys.Explore.title.localize())
                             .style(.heading1)
                             .padding(.horizontal, 16)
                             .padding(.bottom, 12)
@@ -63,15 +63,16 @@ struct ExploreHomeView: View {
 
     private var sectionsView: some View {
         VStack(alignment: .leading, spacing: 0) {
-            eventsSection
             if viewModel.isUserLogged {
                 pollsSection
             }
+            eventsSection
         }
     }
 
     private var eventsSection: some View {
-        Group {
+        VStack(alignment: .leading, spacing: 0) {
+            eventsTitle
             if viewModel.events.isEmpty {
                 EventListCell(title: LocalizationKeys.EventList.empty.localize(),
                               titleAlignment: .center)
@@ -117,11 +118,29 @@ struct ExploreHomeView: View {
     }
 
     private var pollsTitle: some View {
-        Text(LocalizationKeys.PollList.title.localize())
-            .style(.heading1)
-            .padding(.horizontal, 16)
-            .padding(.bottom, 12)
-            .padding(.top, 20)
+        VStack(alignment: .leading) {
+            Text(LocalizationKeys.PollList.title.localize())
+                .style(.heading1)
+            Rectangle()
+                .frame(height: 1)
+                .foregroundColor(Color.claret)
+        }
+        .padding(.horizontal, 16)
+        .padding(.bottom, 12)
+        .padding(.top, 20)
+    }
+    
+    private var eventsTitle: some View {
+        VStack(alignment: .leading) {
+            Text(LocalizationKeys.EventList.title.localize())
+                .style(.heading1)
+            Rectangle()
+                .frame(height: 1)
+                .foregroundColor(Color.claret)
+        }
+        .padding(.horizontal, 16)
+        .padding(.bottom, 12)
+        .padding(.top, 20)
     }
 
     private var errorView: some View {

@@ -29,13 +29,11 @@ struct PollDetailsView: View {
                         Text(viewModel.poll.name)
                             .style(.title)
                         
-                        Text(
-                            "Voting deadline: \(formattedDeadline)"
-                        )
+                        Text(LocalizationKeys.PollDetails.deadline.localize(formattedDeadline))
                         .style(.body1Accent)
                         .padding(.top, 8)
                         
-                        Text("Information")
+                        Text(LocalizationKeys.PollDetails.information.localize())
                             .style(.heading1)
                             .padding(.top, 24)
                         
@@ -53,21 +51,14 @@ struct PollDetailsView: View {
                 }
             }
         }
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "arrow.left")
-                }
-                .accessibilityLabel("Back")
-            }
+        .navigationBar {
+            dismiss()
         }
     }
 
     @ViewBuilder
     private var pollImage: some View {
+        //TODO: Implement this when imageURL on remote model
         /*
         if let imageURL = viewModel.poll.imageURL {
             AsyncImage(url: imageURL) { phase in
@@ -101,7 +92,7 @@ struct PollDetailsView: View {
     }
 
     private var imagePlaceholder: some View {
-        Image("placeholder-esmorga")
+        Image("poll_placeholder")
             .resizable()
             .aspectRatio(16/9, contentMode: .fill)
     }
@@ -118,7 +109,7 @@ struct PollDetailsView: View {
     private var multipleChoiceOptions: some View {
         VStack(spacing: 0) {
             Divider()
-                .overlay(Color.secondary)
+                .overlay(Color.customPink)
 
             ForEach(
                 Array(viewModel.poll.options.enumerated()),
@@ -142,7 +133,7 @@ struct PollDetailsView: View {
                         )
                         .foregroundStyle(
                             viewModel.currentSelection.contains(option.id)
-                                ? Color.accentColor
+                                ? Color.claret
                                 : Color.secondary
                         )
                     }
@@ -154,12 +145,12 @@ struct PollDetailsView: View {
 
                 if index < viewModel.poll.options.count - 1 {
                     Divider()
-                        .overlay(Color.secondary)
+                        .overlay(Color.customPink)
                 }
             }
 
             Divider()
-                .overlay(Color.secondary)
+                .overlay(Color.customPink)
         }
     }
 
@@ -177,7 +168,7 @@ struct PollDetailsView: View {
                         )
                         .foregroundStyle(
                             viewModel.currentSelection.contains(option.id)
-                                ? Color.accentColor
+                                ? Color.claret
                                 : Color.secondary
                         )
 
@@ -216,7 +207,7 @@ struct PollDetailsView: View {
     }
 
     private func optionText(_ option: PollOption) -> String {
-        "\(option.name) (\(option.voteCount) votes)"
+        LocalizationKeys.PollDetails.countVotes.localize(option.name, option.voteCount)
     }
 }
 

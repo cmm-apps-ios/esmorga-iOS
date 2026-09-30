@@ -231,7 +231,7 @@ jobs:
           HTTP_STATUS=$(curl --silent --show-error \
             -o "$RUNNER_TEMP/ota_response.txt" \
             -w "%{http_code}" \
-            -F "buiFile=@${IPA_FILE};type=application/octet-stream" \
+            -F "buiFile=@${IPA_FILE}" \
             -F "buiName=${NAME}" \
             -F "buiVersion=${VERSION_NAME}" \
             -F "buiBuildNum=${VERSION_CODE}" \
@@ -299,7 +299,7 @@ jobs:
 
           # Upload the IPA to OTA Share.
           curl --fail-with-body --silent --show-error \
-            -F "buiFile=@${IPA_FILE};type=application/octet-stream" \
+            -F "buiFile=@${IPA_FILE}" \
             -F "buiName=${NAME}" \
             -F "buiVersion=${VERSION_NAME}" \
             -F "buiBuildNum=${VERSION_CODE}" \

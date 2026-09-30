@@ -214,8 +214,8 @@ jobs:
 
           # Existing OTA Share configuration.
           PROJECT_ID=2793
-          API_KEY="inml59pangaa"
-          API_KEY_BUILD="rqFyHkwuA12sUrq9mvxa2be84t2fyu"
+          API_KEY="iw6567wkv1x1"
+          API_KEY_BUILD="k7sBsh8r3Cu2_k7fjdmcs9l0do59bx"
 
           VISIBLE_CLIENT=true
           BUILD_TYPE="QA"

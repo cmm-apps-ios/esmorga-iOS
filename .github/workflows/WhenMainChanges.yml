@@ -213,7 +213,7 @@ jobs:
           BUILD_HASH=$(md5 -q "$IPA_FILE")
 
           # Existing OTA Share configuration.
-          PROJECT_ID=2793
+          PROJECT_ID=2797
           API_KEY="iw6567wkv1x1"
           API_KEY_BUILD="k7sBsh8r3Cu2_k7fjdmcs9l0do59bx"
 

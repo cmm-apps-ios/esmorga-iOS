@@ -47,6 +47,279 @@
         }
       }
     },
+    "button_create_event" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Create event" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Crear evento" } }
+      }
+    },
+    "button_delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Eliminar" } }
+      }
+    },
+    "button_preview" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Preview" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Previsualizar" } }
+      }
+    },
+    "create_event_date_row_date" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Date" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Fecha" } }
+      }
+    },
+    "create_event_date_row_time" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Time" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Hora" } }
+      }
+    },
+    "create_event_date_screen_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "When is your event?" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "¿Cuándo es tu evento?" } }
+      }
+    },
+    "create_event_type_charity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Charity" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Solidario" } }
+      }
+    },
+    "create_event_type_food" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Food" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Comida" } }
+      }
+    },
+    "create_event_type_games" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Games" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Juegos" } }
+      }
+    },
+    "create_event_type_party" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Party" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Fiesta" } }
+      }
+    },
+    "create_event_type_screen_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "What type of event is it?" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "¿Qué tipo de evento es?" } }
+      }
+    },
+    "create_event_type_sport" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Sport" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Deporte" } }
+      }
+    },
+    "field_title_event_coordinates" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Coordinates (optional)" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Coordenadas (opcional)" } }
+      }
+    },
+    "field_title_event_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Description" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Descripción" } }
+      }
+    },
+    "field_title_event_image" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Image URL (optional)" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "URL de imagen (opcional)" } }
+      }
+    },
+    "field_title_event_location" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Location" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ubicación" } }
+      }
+    },
+    "field_title_event_max_capacity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Max capacity (optional)" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Aforo máximo (opcional)" } }
+      }
+    },
+    "field_title_event_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Event name" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Nombre del evento" } }
+      }
+    },
+    "field_title_join_deadline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Set a join deadline" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Establecer fecha límite de inscripción" } }
+      }
+    },
+    "field_title_join_deadline_time" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Deadline time" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Hora límite" } }
+      }
+    },
+    "inline_error_coordinates_invalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Invalid coordinates format. Use lat, long" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Formato de coordenadas no válido. Usa lat, long" } }
+      }
+    },
+    "inline_error_coordinates_out_of_bounds" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Coordinates are out of bounds" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Las coordenadas están fuera de rango" } }
+      }
+    },
+    "inline_error_event_date_past" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "The date cannot be in the past" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "La fecha no puede ser pasada" } }
+      }
+    },
+    "inline_error_event_time_past" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "The time cannot be in the past" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "La hora no puede ser pasada" } }
+      }
+    },
+    "inline_error_image_url_required" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Enter a valid image URL (jpg, png, webp)" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Introduce una URL de imagen válida (jpg, png, webp)" } }
+      }
+    },
+    "inline_error_invalid_length_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "The description must be between 20 and 5000 characters" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "La descripción debe tener entre 20 y 5000 caracteres" } }
+      }
+    },
+    "inline_error_invalid_length_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "The name must be between 3 and 100 characters" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "El nombre debe tener entre 3 y 100 caracteres" } }
+      }
+    },
+    "inline_error_join_deadline_exceeded" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "The deadline cannot be after the event" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "La fecha límite no puede ser posterior al evento" } }
+      }
+    },
+    "inline_error_location_invalid_chars" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "The location contains invalid characters" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "La ubicación contiene caracteres no válidos" } }
+      }
+    },
+    "inline_error_location_required" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "The location is required" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "La ubicación es obligatoria" } }
+      }
+    },
+    "inline_error_max_capacity_invalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Max capacity must be between 1 and 5000" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "El aforo debe estar entre 1 y 5000" } }
+      }
+    },
+    "placeholder_event_coordinates" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "e.g. 43.3623, -8.4115" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "p.ej. 43.3623, -8.4115" } }
+      }
+    },
+    "placeholder_event_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Describe your event" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Describe tu evento" } }
+      }
+    },
+    "placeholder_event_image" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "https://..." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "https://..." } }
+      }
+    },
+    "placeholder_event_location" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Where is your event?" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "¿Dónde es tu evento?" } }
+      }
+    },
+    "placeholder_event_max_capacity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "e.g. 50" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "p.ej. 50" } }
+      }
+    },
+    "placeholder_event_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Name your event" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Nombra tu evento" } }
+      }
+    },
+    "screen_create_event_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Create event" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Crear evento" } }
+      }
+    },
+    "step_continue_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Continue" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Continuar" } }
+      }
+    },
     "bottom_bar_explore" : {
       "extractionState" : "manual",
       "localizations" : {

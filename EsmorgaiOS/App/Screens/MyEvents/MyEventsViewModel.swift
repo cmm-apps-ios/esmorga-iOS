@@ -72,7 +72,7 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
             if events.error {
                 self.snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(),
                                       isShown: true)
-                self.reportErrorToCrashlytics() 
+                self.reportErrorToCrashlytics()
             }
         case .failure:
             self.changeState(.error)
@@ -81,6 +81,10 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
 
     func loginButtonTapped() {
         coordinator?.push(destination: .login)
+    }
+
+    func createEventTapped() {
+        coordinator?.push(destination: .createEvent)
     }
 
     func retryButtonTapped() async {

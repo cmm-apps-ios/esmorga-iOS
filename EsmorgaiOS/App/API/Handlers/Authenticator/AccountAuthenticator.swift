@@ -48,6 +48,7 @@ class AccountAuthenticator: Authenticator {
                 completion(.success(credential))
             } else if responseCode == 401 {
                 NotificationCenter.default.post(name: .forceLogout, object: nil)
+                completion(.failure(AccountAuthenticatorError.refresh))
             } else {
                 completion(.failure(AccountAuthenticatorError.refresh))
             }

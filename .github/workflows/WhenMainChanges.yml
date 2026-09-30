@@ -209,9 +209,6 @@ jobs:
           VERSION_NAME=$(grep "VERSION" "$CONFIG_FILE" | awk '{print $3}')
           VERSION_CODE=$(grep "PROJECT_BUILD" "$QA_CONFIG_FILE" | awk '{print $3}')
 
-          # Calculate the MD5 checksum of the generated QA IPA.
-          BUILD_HASH=$(md5 -q "$IPA_FILE")
-
           # Existing OTA Share configuration.
           PROJECT_ID=2797
           API_KEY="iw6567wkv1x1"
@@ -223,15 +220,14 @@ jobs:
 
           # Log some context to help debugging (no secrets are printed).
           echo "IPA: $IPA_FILE ($(ls -lh "$IPA_FILE" | awk '{print $5}'))"
-          echo "Version: $VERSION_NAME  Build: $VERSION_CODE  Hash: $BUILD_HASH"
+          echo "Version: $VERSION_NAME  Build: $VERSION_CODE"
 
           # Upload the IPA to OTA Share.
           # Capture body and HTTP status separately, and DON'T let curl's exit
           # code abort the step silently (we want to inspect the response).
           # NOTE: the file part (buiFile) is sent LAST, after all metadata
           # fields. Some multipart parsers only read fields until they reach the
-          # file stream; if buiFile goes first, buiHash/buiUser are never parsed
-          # and OTA replies "Build Hash not exists.".
+          # file stream; if buiFile goes first, later fields are never parsed.
           HTTP_STATUS=$(curl --silent --show-error \
             -o "$RUNNER_TEMP/ota_response.txt" \
             -w "%{http_code}" \
@@ -240,7 +236,6 @@ jobs:
             -F "buiBuildNum=${VERSION_CODE}" \
             -F "buiBuildType=${BUILD_TYPE}" \
             -F "buiTemplate=0" \
-            -F "buiHash=${BUILD_HASH}" \
             -F "buiVisibleClient=${VISIBLE_CLIENT}" \
             -F "buiChangeLog=none" \
             -F "buiUser=${BUI_USER}" \
@@ -289,9 +284,6 @@ jobs:
           VERSION_NAME=$(grep "VERSION" "$CONFIG_FILE" | awk '{print $3}')
           VERSION_CODE=$(grep "PROJECT_BUILD" "$PROD_CONFIG_FILE" | awk '{print $3}')
 
-          # Calculate the MD5 checksum of the generated PROD IPA.
-          BUILD_HASH=$(md5 -q "$IPA_FILE")
-
           # Existing OTA Share configuration.
           PROJECT_ID=2793
           API_KEY="inml59pangaa"
@@ -309,7 +301,6 @@ jobs:
             -F "buiBuildNum=${VERSION_CODE}" \
             -F "buiBuildType=${BUILD_TYPE}" \
             -F "buiTemplate=0" \
-            -F "buiHash=${BUILD_HASH}" \
             -F "buiVisibleClient=${VISIBLE_CLIENT}" \
             -F "buiChangeLog=none" \
             -F "buiUser=${BUI_USER}" \

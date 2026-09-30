@@ -13,6 +13,7 @@ protocol EventsRepositoryProtocol {
     func leaveEvent(id: String) async throws
     func getEventAttendees(id: String) async throws -> [EventAttendee]
     func saveAttendees(_ attendees: [EventAttendee], for eventId: String) async throws
+    func createEvent(params: CreateEventParams) async throws
 }
 
 class EventsRepository: EventsRepositoryProtocol {
@@ -156,5 +157,16 @@ class EventsRepository: EventsRepositoryProtocol {
     
     func saveAttendees(_ attendees: [EventAttendee], for eventId: String) async throws {
         try await localEventsDataSource.saveAttendees(attendees, for: eventId)
+    }
+
+    func createEvent(params: CreateEventParams) async throws {
+        do {
+            try await remoteDataSource.createEvent(params: params)
+            // Invalidate the local cache so the next event list request bypasses
+            // the CacheRule (30 min) and fetches the freshly created event from remote.
+            localEventsDataSource.clearAll()
+        } catch {
+            throw error
+        }
     }
 }

@@ -46,7 +46,7 @@ final class EventsRepositoryTests {
     private func buidRemoteEvent(eventId: String) -> RemoteEventListModel.Event {
         return RemoteEventListModel.Event(eventId: eventId,
                                           eventName: "Event name",
-                                          eventDate: "2025-03-08T10:05:30.915Z",
+                                          eventDate: "2025-03-08T10:05:30.915Z", joinDeadline: "2026-03-08T10:05:30.915Z",
                                           description: "Event description",
                                           eventType: "Party",
                                           imageUrl: nil,
@@ -269,5 +269,46 @@ final class EventsRepositoryTests {
 
         #expect(self.mockRemoteMyEventsDataSource.eventIdJoined == id)
         #expect(self.mockLocalEventsDataSource.updateEventIdCalled == id)
+    }
+
+    @Test
+    func test_given_create_event_when_success_then_local_cache_is_cleared() async {
+
+        let params = buildCreateEventParams()
+
+        try? await sut.createEvent(params: params)
+
+        #expect(self.mockRemoteEventsDataSource.createdEventParams?.eventName == "New event")
+        #expect(self.mockLocalEventsDataSource.clearAllCalled == true)
+    }
+
+    @Test
+    func test_given_create_event_when_remote_fail_then_local_cache_is_not_cleared() async {
+
+        mockRemoteEventsDataSource.createEventShouldThrow = true
+        let params = buildCreateEventParams()
+
+        do {
+            try await sut.createEvent(params: params)
+            Issue.record("Expected error to be thrown")
+        } catch {
+            let expectedError = error as? NetworkError
+            #expect(expectedError == NetworkError.generalError(code: 500))
+        }
+
+        #expect(self.mockLocalEventsDataSource.clearAllCalled == false)
+    }
+
+    private func buildCreateEventParams() -> CreateEventParams {
+        CreateEventParams(eventName: "New event",
+                          eventDate: "2026-10-13T14:10:00.000Z",
+                          description: "A brand new event description",
+                          eventType: .party,
+                          imageUrl: nil,
+                          locationName: "A Coruña",
+                          locationLat: nil,
+                          locationLong: nil,
+                          maxCapacity: nil,
+                          joinDeadline: nil)
     }
 }

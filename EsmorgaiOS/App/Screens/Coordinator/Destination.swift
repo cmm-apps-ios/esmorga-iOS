@@ -22,6 +22,11 @@ enum Destination: Hashable, Identifiable {
     case eventAttendees(eventId: String)
     case pollDetails(Poll)
     case dashboard
+    case createEvent
+    case createEventType
+    case createEventDate
+    case createEventLocation
+    case createEventImage
 
     public var id: Self { self }
 

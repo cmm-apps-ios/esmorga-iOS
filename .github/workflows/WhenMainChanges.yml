@@ -213,17 +213,28 @@ jobs:
           BUILD_HASH=$(md5 -q "$IPA_FILE")
 
           # Existing OTA Share configuration.
-          PROJECT_ID=2793
-          API_KEY="inml59pangaa"
-          API_KEY_BUILD="rqFyHkwuA12sUrq9mvxa2be84t2fyu"
+          PROJECT_ID=2797
+          API_KEY="iw6567wkv1x1"
+          API_KEY_BUILD="k7sBsh8r3Cu2_k7fjdmcs9l0do59bx"
 
           VISIBLE_CLIENT=true
           BUILD_TYPE="QA"
           NAME="Esmorga [QA]"
 
+          # Log some context to help debugging (no secrets are printed).
+          echo "IPA: $IPA_FILE ($(ls -lh "$IPA_FILE" | awk '{print $5}'))"
+          echo "Version: $VERSION_NAME  Build: $VERSION_CODE  Hash: $BUILD_HASH"
+
           # Upload the IPA to OTA Share.
-          RESPONSE=$(curl --fail-with-body --silent --show-error \
-            -F "buiFile=@${IPA_FILE}" \
+          # Capture body and HTTP status separately, and DON'T let curl's exit
+          # code abort the step silently (we want to inspect the response).
+          # NOTE: the file part (buiFile) is sent LAST, after all metadata
+          # fields. Some multipart parsers only read fields until they reach the
+          # file stream; if buiFile goes first, buiHash/buiUser are never parsed
+          # and OTA replies "Build Hash not exists.".
+          HTTP_STATUS=$(curl --silent --show-error \
+            -o "$RUNNER_TEMP/ota_response.txt" \
+            -w "%{http_code}" \
             -F "buiName=${NAME}" \
             -F "buiVersion=${VERSION_NAME}" \
             -F "buiBuildNum=${VERSION_CODE}" \
@@ -234,15 +245,20 @@ jobs:
             -F "buiChangeLog=none" \
             -F "buiUser=${BUI_USER}" \
             -F "buiPassword=${BUI_PASSWORD}" \
-            "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${PROJECT_ID}/${API_KEY}/${API_KEY_BUILD}")
+            -F "buiFile=@${IPA_FILE};type=application/octet-stream" \
+            "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${PROJECT_ID}/${API_KEY}/${API_KEY_BUILD}") || true
 
-          # Extract the generated OTA URL from the response.
-          BUILD_URL=$(echo "$RESPONSE" \
-            | grep -oE 'https?://[^"[:space:]]+' \
-            | head -1)
+          RESPONSE="$(cat "$RUNNER_TEMP/ota_response.txt" 2>/dev/null || true)"
+
+          echo "OTA HTTP status: $HTTP_STATUS"
+          echo "OTA raw response: $RESPONSE"
+
+          # Extract the generated OTA URL from the response WITHOUT letting a
+          # non-matching grep (exit 1) kill the step under 'set -e / pipefail'.
+          BUILD_URL="$(printf '%s' "$RESPONSE" | grep -oE 'https?://[^"[:space:]]+' | head -1 || true)"
 
           if [[ -z "$BUILD_URL" ]]; then
-            echo "::error::OTA Share did not return a build URL."
+            echo "::error::OTA Share did not return a build URL (HTTP $HTTP_STATUS). See raw response above."
             exit 1
           fi
 
@@ -286,8 +302,8 @@ jobs:
           NAME="Esmorga [PROD]"
 
           # Upload the IPA to OTA Share.
+          # (buiFile sent LAST, after all metadata fields — see QA step note.)
           curl --fail-with-body --silent --show-error \
-            -F "buiFile=@${IPA_FILE}" \
             -F "buiName=${NAME}" \
             -F "buiVersion=${VERSION_NAME}" \
             -F "buiBuildNum=${VERSION_CODE}" \
@@ -298,6 +314,7 @@ jobs:
             -F "buiChangeLog=none" \
             -F "buiUser=${BUI_USER}" \
             -F "buiPassword=${BUI_PASSWORD}" \
+            -F "buiFile=@${IPA_FILE};type=application/octet-stream" \
             "https://otashare-api.mobgen.com/v1/builds/registernewbuild/${PROJECT_ID}/${API_KEY}/${API_KEY_BUILD}"
 
       # -----------------------------------------------------------------------

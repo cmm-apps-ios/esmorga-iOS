@@ -9,10 +9,9 @@ import Foundation
 
 enum VoteState: ViewStateProtocol {
     case ready
-    case idle
     case loading
     case success
-    case failure(String)
+    case failure
 }
 
 enum PollDetails {
@@ -32,7 +31,6 @@ final class PollDetailsViewModel: BaseViewModel<VoteState> {
 
     @Published private(set) var poll: Poll
     @Published private(set) var currentSelection: Set<String>
-    @Published private(set) var voteState: VoteState = .idle
     @Published var model: PollDetails.Model
 
     private let sendVoteUseCase: SendVotePollUseCaseAlias
@@ -67,7 +65,7 @@ final class PollDetailsViewModel: BaseViewModel<VoteState> {
     }
 
     var isLoading: Bool {
-        voteState == .loading
+        state == .loading
     }
 
     var isButtonEnabled: Bool {
@@ -103,7 +101,7 @@ final class PollDetailsViewModel: BaseViewModel<VoteState> {
             return
         }
 
-        voteState = .loading
+        state = .loading
         model.voteButton.isLoading = true
 
         let result = await sendVoteUseCase.execute(
@@ -117,7 +115,7 @@ final class PollDetailsViewModel: BaseViewModel<VoteState> {
         case .success(let poll):
             self.poll = poll
             currentSelection = Set(poll.userSelectedOptions)
-            voteState = .success
+            state = .success
             updateVoteButton()
             NotificationCenter.default.post(
                 name: .pollUpdated,
@@ -126,18 +124,12 @@ final class PollDetailsViewModel: BaseViewModel<VoteState> {
             )
             self.snackBar = .init(message: LocalizationKeys.Snackbar.voteSubmitted.localize(),
                                   isShown: true)
-        case .failure(let error):
-            voteState = .failure(
-                error.localizedDescription
-            )
+        case .failure:
+            state = .failure
             model.voteButton.isLoading = false
             self.reportErrorToCrashlytics()
             self.showErrorDialog(type: .commonError)
         }
-    }
-
-    func clearMessage() {
-        voteState = .idle
     }
 
     private func updateVoteButton() {

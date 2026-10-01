@@ -39,6 +39,9 @@ class ExploreHomeViewModel: BaseViewModel<ExploreHomeViewStates> {
 
     var polls: [Poll] { pollListViewModel?.polls ?? [] }
 
+    // Derived from whether a PollListViewModel was injected at build time (ExploreHomeBuilder
+    // decides based on AccountSession.isLogged). It does NOT track login/logout changes while
+    // this screen is alive; it stays consistent only because Dashboard is rebuilt after login.
     var isUserLogged: Bool { pollListViewModel != nil }
 
     func eventTapped(_ event: EventModels.Event) {

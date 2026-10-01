@@ -147,7 +147,7 @@ final class PollDetailsViewModelTests {
 
         await self.sut.vote()
 
-        #expect(self.sut.voteState == .idle)
+        #expect(self.sut.state == .ready)
         #expect(!self.sut.isLoading)
     }
 
@@ -164,7 +164,7 @@ final class PollDetailsViewModelTests {
         await self.sut.vote()
         self.flushMainQueue()
 
-        #expect(self.sut.voteState == .success)
+        #expect(self.sut.state == .success)
         #expect(self.sut.poll == votedPoll)
         #expect(self.sut.currentSelection == ["opt1"])
         #expect(self.sut.hasVoted)
@@ -184,9 +184,7 @@ final class PollDetailsViewModelTests {
         self.sut.toggleOption("opt1")
         await self.sut.vote()
 
-        #expect(self.sut.voteState != .idle)
-        #expect(self.sut.voteState != .success)
-        #expect(self.sut.voteState != .loading)
+        #expect(self.sut.state == .failure)
         #expect(!self.sut.isLoading)
         #expect(self.sut.model.voteButton.isLoading == false)
         #expect(self.spyCoordinator.destination == .dialog(ErrorDialogModelBuilder.build(type: .commonError)))
@@ -194,11 +192,9 @@ final class PollDetailsViewModelTests {
 
     @MainActor
     @Test
-    func test_given_message_cleared_then_state_returns_to_idle() {
+    func test_given_init_then_state_is_ready() {
         makeSut(poll: singlePoll)
 
-        self.sut.clearMessage()
-
-        #expect(self.sut.voteState == .idle)
+        #expect(self.sut.state == .ready)
     }
 }

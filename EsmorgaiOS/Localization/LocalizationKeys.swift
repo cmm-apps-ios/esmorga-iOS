@@ -8,6 +8,10 @@
 import SwiftUI
 
 class LocalizationKeys {
+    
+    enum Explore {
+        static let title: String = "screen_explore_title"
+    }
 
     enum EventList {
         static let title: String = "screen_event_list_title"
@@ -15,6 +19,19 @@ class LocalizationKeys {
         static let empty: String = "screen_event_list_empty_text"
     }
 
+    enum PollList {
+        static let title: String = "screen_poll_list_title"
+        static let loading: String = "screen_poll_list_loading"
+        static let empty: String = "screen_poll_list_empty_text"
+    }
+
+    enum PollDetails {
+        static let information: String = "screen_poll_details_information"
+        static let deadline: String = "screen_poll_details_deadline"
+        static let countVotes: String = "screen_poll_details_option_count_votes"
+        
+    }
+    
     enum MyEventList {
         static let title: String = "screen_my_events_title"
         static let empty: String = "screen_my_events_empty_text"
@@ -113,6 +130,8 @@ class LocalizationKeys {
         static let seeAttendees: String = "button_see_attendees"
         static let ok: String = "button_ok"
         static let cancel: String = "register_confirmation_button_cancel"
+        static let vote: String = "button_vote"
+        static let updateVote: String = "button_update_vote"
 
     }
 
@@ -200,6 +219,7 @@ class LocalizationKeys {
         static let noInternet: String = "snackbar_no_internet"
         static let eventJoined: String = "snackbar_event_joined"
         static let eventLeft: String = "snackbar_event_left"
+        static let voteSubmitted: String = "snackbar_vote_submitted"
         static let resendEmail: String = "register_resend_code_success"
         static let resendEmailFailed: String = "register_resend_code_error"
         static let passwordReset: String = "forgot_password_snackbar_success"

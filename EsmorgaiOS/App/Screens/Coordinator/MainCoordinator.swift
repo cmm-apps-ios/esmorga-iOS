@@ -70,12 +70,12 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
         case .dialog(let model):
             let viewModel = ErrorDialogViewModel(coordinator: self)
             ErrorDialog(viewModel: viewModel, model: model)
-        case .eventList:
-            EventListBuilder().build(coordinator: self)
         case .eventDetails(let event):
             EventDetailsBuilder().build(coordinator: self, event: event)
         case .eventAttendees(let eventId):
             EventAttendeesBuilder().build(coordinator: self, eventId: eventId)
+        case .pollDetails(let poll):
+            PollDetailsBuilder().build(coordinator: self, poll: poll)
         case .dashboard:
             DashboardBuilder().build(coordinator: self)
         case .createEvent:

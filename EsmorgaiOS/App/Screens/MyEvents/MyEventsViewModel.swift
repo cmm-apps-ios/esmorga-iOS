@@ -29,6 +29,9 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
     private let getEventListUseCase: GetEventListUseCaseAlias
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
     @Published var events: [EventModels.Event] = []
+    /// Only admin users are allowed to create events, so the create-event entry
+    /// point (FAB) is only exposed when the logged-in user has admin rights.
+    @Published var isAdmin: Bool = false
 
     init(coordinator: (any CoordinatorProtocol)?,
          networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,
@@ -54,10 +57,13 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
 
         let isUserLogged = await getLocalUserUseCase.execute()
 
-        guard case .success = isUserLogged else {
+        guard case .success(let user) = isUserLogged else {
+            self.isAdmin = false
             self.changeState(.loggedOut)
             return
         }
+
+        self.isAdmin = user.role == .admin
 
         let result = await getEventListUseCase.execute(input: forceRefresh)
         switch result {
@@ -84,6 +90,8 @@ class MyEventsViewModel: BaseViewModel<MyEventsViewStates> {
     }
 
     func createEventTapped() {
+        // Guard: event creation is restricted to admin users only.
+        guard isAdmin else { return }
         coordinator?.push(destination: .createEvent)
     }
 

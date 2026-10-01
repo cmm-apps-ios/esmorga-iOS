@@ -16,7 +16,6 @@ struct MyEventsView: View {
         static let loadingView: String = "MyEventsView.loadingView"
         static let emptyView: String = "MyEventsView.emptyView"
         static let eventsList: String = "MyEventsView.eventsList"
-        static let createEventButton: String = "MyEventsView.createEventButton"
     }
 
     @StateObject var viewModel: MyEventsViewModel
@@ -53,10 +52,8 @@ struct MyEventsView: View {
                 }
             }
             .overlay(alignment: .bottomTrailing) {
-                // Only offer event creation when the user is authenticated and the
-                // list is in a usable state (avoids starting a wizard that would
-                // fail for logged-out users or during loading/error).
-                if viewModel.state == .loaded || viewModel.state == .empty {
+                // Event creation is restricted to admin users only.
+                if viewModel.isAdmin {
                     Button {
                         viewModel.createEventTapped()
                     } label: {
@@ -70,8 +67,6 @@ struct MyEventsView: View {
                     }
                     .padding(.trailing, 16)
                     .padding(.bottom, 16)
-                    .accessibilityIdentifier(AccessibilityIds.createEventButton)
-                    .accessibilityLabel(Text(LocalizationKeys.CreateEvent.title.localize()))
                 }
             }
         }.navigationBarBackButtonHidden(true)

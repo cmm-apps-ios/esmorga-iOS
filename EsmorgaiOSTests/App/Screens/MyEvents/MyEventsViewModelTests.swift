@@ -182,4 +182,69 @@ final class MyEventsViewModelTests {
         #expect(self.sut.state == .loaded)
         #expect(self.sut.snackBar.isShown == false)
     }
+
+    @MainActor
+    @Test
+    func test_given_get_event_list_when_user_is_admin_then_is_admin_is_true() async {
+
+        let events = [EventBuilder().with(eventId: "1").with(isUserJoined: true).build()]
+        mockGetEventListUseCase.mockResponse = (events, false)
+        mockGetLocalUserUseCase.mockUser = UserModelBuilder().with(role: .admin).build()
+
+        await TestHelper.fullfillTask {
+            await self.sut.getEventList(forceRefresh: false)
+        }
+
+        #expect(self.sut.isAdmin)
+    }
+
+    @MainActor
+    @Test
+    func test_given_get_event_list_when_user_is_not_admin_then_is_admin_is_false() async {
+
+        let events = [EventBuilder().with(eventId: "1").with(isUserJoined: true).build()]
+        mockGetEventListUseCase.mockResponse = (events, false)
+        mockGetLocalUserUseCase.mockUser = UserModelBuilder().with(role: .user).build()
+
+        await TestHelper.fullfillTask {
+            await self.sut.getEventList(forceRefresh: false)
+        }
+
+        #expect(!self.sut.isAdmin)
+    }
+
+    @MainActor
+    @Test
+    func test_given_create_event_tapped_when_user_is_admin_then_navigate_to_create_event() async {
+
+        let events = [EventBuilder().with(eventId: "1").with(isUserJoined: true).build()]
+        mockGetEventListUseCase.mockResponse = (events, false)
+        mockGetLocalUserUseCase.mockUser = UserModelBuilder().with(role: .admin).build()
+
+        await TestHelper.fullfillTask {
+            await self.sut.getEventList(forceRefresh: false)
+        }
+
+        sut.createEventTapped()
+
+        #expect(self.spyCoordinator.pushCalled == true)
+        #expect(self.spyCoordinator.destination == .createEvent)
+    }
+
+    @MainActor
+    @Test
+    func test_given_create_event_tapped_when_user_is_not_admin_then_no_navigation_is_called() async {
+
+        let events = [EventBuilder().with(eventId: "1").with(isUserJoined: true).build()]
+        mockGetEventListUseCase.mockResponse = (events, false)
+        mockGetLocalUserUseCase.mockUser = UserModelBuilder().with(role: .user).build()
+
+        await TestHelper.fullfillTask {
+            await self.sut.getEventList(forceRefresh: false)
+        }
+
+        sut.createEventTapped()
+
+        #expect(self.spyCoordinator.pushCalled == false)
+    }
 }

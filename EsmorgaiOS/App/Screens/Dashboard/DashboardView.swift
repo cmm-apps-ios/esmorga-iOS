@@ -11,7 +11,7 @@ struct DashboardView: View {
     
     enum AccessibilityIds {
         static let bottomBar: String = "DashboardView.bottomBar"
-        static let eventList: String = "DashboardView.eventList"
+        static let exploreHome: String = "DashboardView.exploreHome"
         static let myEvents: String = "DashboardView.myEvents"
         static let profile: String = "DashboardView.profile"
     }
@@ -27,7 +27,7 @@ struct DashboardView: View {
             VStack(spacing: 0) {
                 TabView(selection: $viewModel.selectedTab) {
                     ExploreHomeBuilder().build(coordinator: viewModel.coordinator)
-                        .accessibilityIdentifier(AccessibilityIds.eventList)
+                        .accessibilityIdentifier(AccessibilityIds.exploreHome)
                         .tag(0)
                     MyEventsBuilder().build(coordinator: viewModel.coordinator)
                         .accessibilityIdentifier(AccessibilityIds.myEvents)

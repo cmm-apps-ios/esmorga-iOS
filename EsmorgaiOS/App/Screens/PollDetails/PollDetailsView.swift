@@ -1,5 +1,5 @@
 //
-//  Untitled.swift
+//  PollDetailsView.swift
 //  EsmorgaiOS
 //
 //  Created by marcelo.moran on 23/09/2026.

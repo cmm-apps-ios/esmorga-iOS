@@ -80,15 +80,18 @@ class ExploreHomeViewModel: BaseViewModel<ExploreHomeViewStates> {
         await pollListViewModel.getPollList(forceRefresh: forceRefresh)
     }
 
+    @MainActor
     private func updateState() {
+        // Deferred to the main queue so the child ViewModels' pending
+        // changeState blocks have run before their states are read here.
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             let eventsError = self.eventListViewModel.state == .error
             let pollsError = self.pollListViewModel.map { $0.state == .error } ?? false
             if !eventsError && !pollsError {
-                self.changeState(.loaded)
+                self.state = .loaded
             } else {
-                self.changeState(.error)
+                self.state = .error
                 self.reportErrorToCrashlytics()
             }
         }

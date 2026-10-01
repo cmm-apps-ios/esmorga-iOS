@@ -21,8 +21,7 @@ class PollsRepository: PollsRepositoryProtocol {
     func fetchPolls() async throws -> [Poll] {
         do {
             let polls = try await remoteDataSource.fetchPolls()
-            let domainEvents = polls.compactMap { $0.toDomain() }
-            return domainEvents
+            return polls.map { $0.toDomain() }
         } catch {
             throw error
         }

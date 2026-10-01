@@ -9,6 +9,10 @@ import SwiftUI
 
 struct PollListView: View {
 
+    enum AccessibilityIds {
+        static let pollCell: String = "PollListView.pollCell"
+    }
+
     @StateObject var viewModel: PollListViewModel
 
     init(viewModel: PollListViewModel) {
@@ -45,6 +49,7 @@ struct PollListView: View {
                                                      subtitle: poll.voteDeadline.string(format: .dayMonthHour),
                                                      secondary: "")
                                     }
+                                    .accessibilityIdentifier("\(AccessibilityIds.pollCell)\(poll.id)")
                                 }
                             }
                         case .empty:

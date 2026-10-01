@@ -9,6 +9,13 @@ import SwiftUI
 
 struct ExploreHomeView: View {
 
+    enum AccessibilityIds {
+        static let pollsSection: String = "ExploreHomeView.pollsSection"
+        static let eventsSection: String = "ExploreHomeView.eventsSection"
+        static let pollCell: String = "ExploreHomeView.pollCell"
+        static let eventCell: String = "ExploreHomeView.eventCell"
+    }
+
     @StateObject var viewModel: ExploreHomeViewModel
 
     init(viewModel: ExploreHomeViewModel) {
@@ -87,10 +94,12 @@ struct ExploreHomeView: View {
                                           subtitle: event.date.string(format: .dayMonthHour),
                                           secondary: event.location)
                         }
+                        .accessibilityIdentifier("\(AccessibilityIds.eventCell)\(event.id)")
                     }
                 }
             }
         }
+        .accessibilityIdentifier(AccessibilityIds.eventsSection)
     }
 
     private var pollsSection: some View {
@@ -111,10 +120,12 @@ struct ExploreHomeView: View {
                                          subtitle: poll.voteDeadline.string(format: .dayMonthHour),
                                          secondary: "")
                         }
+                        .accessibilityIdentifier("\(AccessibilityIds.pollCell)\(poll.id)")
                     }
                 }
             }
         }
+        .accessibilityIdentifier(AccessibilityIds.pollsSection)
     }
 
     private var pollsTitle: some View {

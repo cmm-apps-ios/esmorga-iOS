@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PollListCell: View {
 
-    var centerTitle: Bool = false
     var title: String
     var subtitle: String?
     var secondary: String?

@@ -113,10 +113,6 @@ final class RemotePollsDataSourceTests: XCTestCase {
                                                              options: [])
     }
 
-    private static func mockFilePath(_ name: String) -> URL {
-        return Bundle(for: RemotePollsDataSourceTests.self).url(forResource: name, withExtension: nil, subdirectory: nil)!
-    }
-
     private func stubRequest(path: String, data: Data) {
 
         stub(condition: isHost("qa.api.esmorgaevents.com") && isPath(path)) { _ in

@@ -108,7 +108,7 @@
 		C0FFEE1000000000000000AC /* PollListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AC /* PollListViewModelTests.swift */; };
 		C0FFEE1000000000000000AD /* PollDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */; };
 		C0FFEE1000000000000000AE /* ExploreHomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */; };
-		C0FFEE1000000000000000AF /* mock_polls.json in Resources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AF /* mock_polls.json */; };
+
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -445,7 +445,7 @@
 		C0FFEE2000000000000000AC /* PollListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListViewModelTests.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeViewModelTests.swift; sourceTree = "<group>"; };
-		C0FFEE2000000000000000AF /* mock_polls.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_polls.json; sourceTree = "<group>"; };
+
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -1230,7 +1230,6 @@
 				EF3158792C5A78B900DE157A /* mock_event_list.json */,
 				EFE34DB22C7C95B600724DDC /* mock_account_login.json */,
 				EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */,
-				C0FFEE2000000000000000AF /* mock_polls.json */,
 			);
 			path = MockFiles;
 			sourceTree = "<group>";
@@ -2351,7 +2350,6 @@
 				EF31587A2C5A78B900DE157A /* mock_event_list.json in Resources */,
 				EF65D16B2CB82F13005078D9 /* mock_empty_file.json in Resources */,
 				EFF9C88C2C99C88C00DE50BC /* mock_refresh_token.json in Resources */,
-				C0FFEE1000000000000000AF /* mock_polls.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

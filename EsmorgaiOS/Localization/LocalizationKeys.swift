@@ -26,7 +26,6 @@ class LocalizationKeys {
     }
 
     enum PollDetails {
-        static let description: String = "screen_event_details_description"
         static let information: String = "screen_poll_details_information"
         static let deadline: String = "screen_poll_details_deadline"
         static let countVotes: String = "screen_poll_details_option_count_votes"

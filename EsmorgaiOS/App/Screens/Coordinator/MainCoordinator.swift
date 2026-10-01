@@ -26,6 +26,13 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
     private var createEventViewModel: CreateEventViewModel?
 
     func push(destination: Destination) {
+        // Starting the create-event flow anew must not reuse a previous shared
+        // ViewModel (otherwise re-entering the wizard shows stale fields/errors).
+        // The back button uses SwiftUI's dismiss(), so pop() is not guaranteed to
+        // run when the user abandons the flow — resetting on entry is reliable.
+        if destination == .createEvent {
+            createEventViewModel = nil
+        }
         path.append(destination)
     }
 

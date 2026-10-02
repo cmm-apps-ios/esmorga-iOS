@@ -13,8 +13,14 @@ final class UserModelBuilder {
     var name: String = "Ted"
     var lastName: String = "Mosby"
     var email: String = "test@email.com"
+    var role: UserModels.RoleType = .user
+
+    func with(role: UserModels.RoleType) -> UserModelBuilder {
+        self.role = role
+        return self
+    }
 
     func build() -> UserModels.User {
-        return UserModels.User(name: name, lastName: lastName, email: email, role: .user)
+        return UserModels.User(name: name, lastName: lastName, email: email, role: role)
     }
 }

@@ -173,11 +173,16 @@ class CreateEventViewModel: BaseViewModel<CreateEventViewState> {
 
     // MARK: - Step 4 validation
     private static let coordinatesRegex = "^\\s*-?\\d+\\.?\\d*\\s*,\\s*-?\\d+\\.?\\d*\\s*$"
+    // Mirrors the Flutter rule: letters, numbers, spaces and a small set of punctuation.
+    private static let locationRegex = "^[\\p{L}\\p{N}\\s.,\\-'\\/#ºª°]+$"
 
     func validateLocation() {
         let trimmed = location.trimmingCharacters(in: .whitespacesAndNewlines)
         if trimmed.isEmpty {
             locationError = LocalizationKeys.CreateEvent.InlineError.locationRequired.localize()
+        } else if trimmed.count > Constants.maximumLocationLength ||
+                    trimmed.range(of: Self.locationRegex, options: .regularExpression) == nil {
+            locationError = LocalizationKeys.CreateEvent.InlineError.locationInvalidChars.localize()
         } else {
             locationError = nil
         }
@@ -285,13 +290,31 @@ class CreateEventViewModel: BaseViewModel<CreateEventViewState> {
             return
         }
 
+        // Resolve the image URL from the field itself, not from the (possibly
+        // stale) preview: empty -> no image; valid -> send it; invalid -> block
+        // submission with an inline error instead of silently dropping it.
+        let trimmedImageUrl = eventImageUrl.trimmingCharacters(in: .whitespacesAndNewlines)
+        let imageUrlToSend: String?
+        if trimmedImageUrl.isEmpty {
+            imageUrlToSend = nil
+            previewImageUrl = nil
+            eventImageUrlError = nil
+        } else if trimmedImageUrl.range(of: Self.imageUrlRegex, options: [.regularExpression, .caseInsensitive]) != nil {
+            imageUrlToSend = trimmedImageUrl
+            previewImageUrl = URL(string: trimmedImageUrl)
+            eventImageUrlError = nil
+        } else {
+            eventImageUrlError = LocalizationKeys.CreateEvent.InlineError.imageUrlRequired.localize()
+            return
+        }
+
         isSubmitting = true
 
         let params = CreateEventParams(eventName: eventName.trimmingCharacters(in: .whitespacesAndNewlines),
                                        eventDate: isoString(date: eventDate, time: eventTime),
                                        description: description.trimmingCharacters(in: .whitespacesAndNewlines),
                                        eventType: eventType,
-                                       imageUrl: previewImageUrl?.absoluteString,
+                                       imageUrl: imageUrlToSend,
                                        locationName: location.trimmingCharacters(in: .whitespacesAndNewlines),
                                        locationLat: parsedLatitude,
                                        locationLong: parsedLongitude,
@@ -304,7 +327,9 @@ class CreateEventViewModel: BaseViewModel<CreateEventViewState> {
 
         switch result {
         case .success:
-            coordinator?.popToRoot()
+            // Match the app convention (Login/Registration/Activate) and land on
+            // the Dashboard without the popToRoot() splash flash.
+            coordinator?.push(destination: .dashboard)
         case .failure(let error):
             if case NetworkError.noInternetConnection = error {
                 snackBar = .init(message: LocalizationKeys.Snackbar.noInternet.localize(), isShown: true)

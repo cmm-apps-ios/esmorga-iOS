@@ -52,19 +52,22 @@ struct MyEventsView: View {
                 }
             }
             .overlay(alignment: .bottomTrailing) {
-                Button {
-                    viewModel.createEventTapped()
-                } label: {
-                    Image(systemName: "plus")
-                        .font(.system(size: 24, weight: .bold))
-                        .foregroundColor(.white)
-                        .frame(width: 56, height: 56)
-                        .background(Color.claret)
-                        .clipShape(Circle())
-                        .shadow(radius: 4)
+                // Event creation is restricted to admin users only.
+                if viewModel.isAdmin {
+                    Button {
+                        viewModel.createEventTapped()
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.system(size: 24, weight: .bold))
+                            .foregroundColor(.white)
+                            .frame(width: 56, height: 56)
+                            .background(Color.claret)
+                            .clipShape(Circle())
+                            .shadow(radius: 4)
+                    }
+                    .padding(.trailing, 16)
+                    .padding(.bottom, 16)
                 }
-                .padding(.trailing, 16)
-                .padding(.bottom, 16)
             }
         }.navigationBarBackButtonHidden(true)
     }

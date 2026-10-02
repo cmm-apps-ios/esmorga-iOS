@@ -30,6 +30,13 @@ struct MainCoordinatorView: View {
             }
             deepLinkManager.deepLink = nil
         }
+        // A forced logout (e.g. an expired session surfaced while creating an
+        // event) must take the user back to Welcome instead of trapping them in
+        // the retry dialog. The notification is posted from a background network
+        // callback, so deliver it on the main thread before mutating navigation.
+        .onReceive(NotificationCenter.default.publisher(for: .forceLogout).receive(on: DispatchQueue.main)) { _ in
+            coordinator.handleForcedLogout()
+        }
     }
 }
 

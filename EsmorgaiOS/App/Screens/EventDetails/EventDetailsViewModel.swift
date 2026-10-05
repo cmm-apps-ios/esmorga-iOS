@@ -109,45 +109,45 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
         }
     }
 
-    private func leaveEvent() async{
+    @MainActor
+    private func leaveEvent() async {
 
-        await MainActor.run { model.primaryButton.isLoading = true }
+        model.primaryButton.isLoading = true
 
         let result = await leaveEventUseCase.execute(input: event.eventId)
-        await MainActor.run {
-            switch result {
-            case .success:
-                self.event.isUserJoined = false
-                self.showEventModel()
-                self.snackBar = .init(message: LocalizationKeys.Snackbar.eventLeft.localize(),
-                                      isShown: true)
-                await self.loadAttendeesCount()
-            case .failure:
-                self.showErrorDialog(type: .commonError)
-            }
-            self.model.primaryButton.isLoading = false
+        switch result {
+        case .success:
+            self.event.isUserJoined = false
+            self.showEventModel()
+            self.snackBar = .init(message: LocalizationKeys.Snackbar.eventLeft.localize(),
+                                  isShown: true)
+            await self.loadAttendeesCount()
+        case .failure:
+            self.showErrorDialog(type: .commonError)
         }
+        self.model.primaryButton.isLoading = false
+        
     }
 
+    @MainActor
     private func joinEvent() async {
 
-        await MainActor.run { model.primaryButton.isLoading = true }
+        model.primaryButton.isLoading = true
 
         let result = await joinEventUseCase.execute(input: event.eventId)
 
-        await MainActor.run {
-            switch result {
-            case .success:
-                self.event.isUserJoined = true
-                self.showEventModel()
-                self.snackBar = .init(message: LocalizationKeys.Snackbar.eventJoined.localize(),
-                                      isShown: true)
-                await self.loadAttendeesCount()
-            case .failure:
-                self.showErrorDialog(type: .commonError)
-            }
-            self.model.primaryButton.isLoading = false
+        switch result {
+        case .success:
+            self.event.isUserJoined = true
+            self.showEventModel()
+            self.snackBar = .init(message: LocalizationKeys.Snackbar.eventJoined.localize(),
+                                  isShown: true)
+            await self.loadAttendeesCount()
+        case .failure:
+            self.showErrorDialog(type: .commonError)
         }
+        self.model.primaryButton.isLoading = false
+        
     }
 
     private func showErrorDialog(type: ErrorDialog.DialogType) {

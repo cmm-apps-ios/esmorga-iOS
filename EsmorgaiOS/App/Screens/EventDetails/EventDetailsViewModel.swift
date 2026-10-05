@@ -28,6 +28,7 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
 
     @Published var attendeesText: String = ""
     @Published var showSeeAttendeesButton: Bool = false
+    @Published var showSeeAttendeesCount: Bool = false
 
     init(coordinator: (any CoordinatorProtocol)?,
          networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,
@@ -66,7 +67,8 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
             count = 0
         }
         self.attendeesText = LocalizationKeys.EventDetails.attendeesCount.localize(count, event.maxCapacity)
-        self.showSeeAttendeesButton = (count > 0) && (user?.role == .admin)
+        self.showSeeAttendeesButton = (count > 0)
+        self.showSeeAttendeesCount = event.maxCapacity > 0
     }
 
     private func showEventModel() {

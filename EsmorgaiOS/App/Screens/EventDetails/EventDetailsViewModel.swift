@@ -59,6 +59,8 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
 
     @MainActor
     private func loadAttendeesCount() async {
+        guard user != nil else { return }
+        
         let result = await getEventAttendeesUseCase.execute(input: event.eventId)
         let count: Int
         if case .success(let attendees) = result {

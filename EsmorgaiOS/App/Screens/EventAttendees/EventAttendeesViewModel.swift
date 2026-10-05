@@ -48,6 +48,7 @@ class EventAttendeesViewModel: BaseViewModel<EventAttendeesViewStates> {
     
     @MainActor
     func getEventAttendees() async {
+        guard user != nil else { return }
         let result = await getEventAttendeesUseCase.execute(input: eventId)
         
         await MainActor.run {
@@ -63,6 +64,8 @@ class EventAttendeesViewModel: BaseViewModel<EventAttendeesViewStates> {
     
     @MainActor
     func updateAttendeeHasPayed() async {
+        guard user?.role == .admin else { return }
+        
         let inputSaveEventAttendeesUseCase: SaveEventAttendeesUseCaseInput = .init(
             eventId: self.eventId,
             attendees: self.attendees

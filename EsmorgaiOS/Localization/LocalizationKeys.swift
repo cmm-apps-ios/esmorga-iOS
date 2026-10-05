@@ -25,7 +25,7 @@ class LocalizationKeys {
         static let description: String = "screen_event_details_description"
         static let location: String = "screen_event_details_location"
         static let deadline: String = "screen_event_details_deadline"
-        static let attendeesInfo: String = "screen_event_details_attendees_info"
+        static let attendeesCount: String = "screen_event_details_attendees_count"
     }
 
     enum CreateEvent {

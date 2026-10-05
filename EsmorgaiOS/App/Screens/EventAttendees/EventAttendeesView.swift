@@ -29,7 +29,7 @@ struct EventAttendeesView: View {
                             VStack(alignment: .center) {
                                 Divider()
                                 HStack(spacing: 0) {
-                                    Text("\(i). \(viewModel.attendees[i].name)")
+                                    Text("\(i + 1). \(viewModel.attendees[i].name)")
                                         .style(.body1)
                                     Spacer()
                                     CheckBoxView(checked: $viewModel.attendees[i].hasPayed)

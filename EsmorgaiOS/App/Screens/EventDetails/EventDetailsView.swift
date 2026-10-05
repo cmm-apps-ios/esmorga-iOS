@@ -113,5 +113,5 @@ struct EventDetailsView: View {
 }
 
 #Preview {
-    EventDetailsView(viewModel: EventDetailsViewModel(coordinator: MainCoordinator(), event: EventModels.Event(eventId: "", name: "Fiesta del eclipse", date: Date(), details: "", eventType: "", imageURL: nil, latitude: nil, longitude: nil, location: "", creationDate: Date(), isUserJoined: true, joinDeadline: Date(), currentAttendeeCount: 2, maxCapacity: 12)))
+    EventDetailsView(viewModel: EventDetailsViewModel(coordinator: MainCoordinator(), event: EventModels.Event(eventId: "", name: "Fiesta del eclipse", date: Date(), details: "", eventType: "", imageURL: nil, latitude: nil, longitude: nil, location: "", creationDate: Date(), isUserJoined: true, joinDeadline: Date(), maxCapacity: 12)))
 }

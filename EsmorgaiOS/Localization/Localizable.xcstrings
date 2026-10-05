@@ -1096,9 +1096,15 @@
         }
       }
     },
-    "screen_event_details_attendees_info" : {
+    "screen_event_details_attendees_count" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d/%d attendees"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",

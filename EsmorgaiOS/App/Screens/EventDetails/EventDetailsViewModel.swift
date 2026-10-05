@@ -18,13 +18,14 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
     private let joinEventUseCase: JoinEventUseCaseAlias
     private let leaveEventUseCase: LeaveEventUseCaseAlias
+    private let getEventAttendeesUseCase: GetEventAttendeesUseCaseAlias
     private var event: EventModels.Event
     private var user: UserModels.User?
 
     @Published var showMethodsAlert: Bool = false
     @Published var model: EventDetails.Model = .empty
     var navigationMethods = [DeepLinkModels.Method]()
-    
+
     @Published var attendeesText: String = ""
     @Published var showSeeAttendeesButton: Bool = false
 
@@ -34,12 +35,14 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
          navigationManager: ExternalAppsManagerProtocol = ExternalAppsManager(),
          getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
          joinEventUseCase: JoinEventUseCaseAlias = JoinEventUseCase(),
-         leaveEventUseCase: LeaveEventUseCaseAlias = LeaveEventUseCase()) {
+         leaveEventUseCase: LeaveEventUseCaseAlias = LeaveEventUseCase(),
+         getEventAttendeesUseCase: GetEventAttendeesUseCaseAlias = GetEventAttendeesUseCase()) {
         self.deepLinkManager = navigationManager
         self.event = event
         self.getLocalUserUseCase = getLocalUserUseCase
         self.joinEventUseCase = joinEventUseCase
         self.leaveEventUseCase = leaveEventUseCase
+        self.getEventAttendeesUseCase = getEventAttendeesUseCase
         super.init(coordinator: coordinator,
                    networkMonitor: networkMonitor)
     }
@@ -50,13 +53,20 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
         let isUserLogged = user != nil
         showEventModel()
         changeState(.loaded(isLogged: isUserLogged))
-        setupAttendeesInfo()
+        await loadAttendeesCount()
     }
-    
-    private func setupAttendeesInfo() {
-        self.attendeesText = LocalizationKeys.EventDetails.attendeesInfo.localize(event.currentAttendeeCount, event.maxCapacity)
-        
-        self.showSeeAttendeesButton = (event.currentAttendeeCount >= 0) && (user?.role == .admin)
+
+    @MainActor
+    private func loadAttendeesCount() async {
+        let result = await getEventAttendeesUseCase.execute(input: event.eventId)
+        let count: Int
+        if case .success(let attendees) = result {
+            count = attendees.count
+        } else {
+            count = 0
+        }
+        self.attendeesText = LocalizationKeys.EventDetails.attendeesCount.localize(count, event.maxCapacity)
+        self.showSeeAttendeesButton = (count > 0) && (user?.role == .admin)
     }
 
     private func showEventModel() {
@@ -111,6 +121,7 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
                 self.showEventModel()
                 self.snackBar = .init(message: LocalizationKeys.Snackbar.eventLeft.localize(),
                                       isShown: true)
+                await self.loadAttendeesCount()
             case .failure:
                 self.showErrorDialog(type: .commonError)
             }
@@ -131,6 +142,7 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
                 self.showEventModel()
                 self.snackBar = .init(message: LocalizationKeys.Snackbar.eventJoined.localize(),
                                       isShown: true)
+                await self.loadAttendeesCount()
             case .failure:
                 self.showErrorDialog(type: .commonError)
             }

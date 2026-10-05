@@ -106,7 +106,7 @@ struct EventDetailsView: View {
                     viewModel.seeEventAttendees()
                 } label: {
                     Text(LocalizationKeys.Buttons.seeAttendees.localize())
-                        .style(.button, textColor: TextStyle.body1Accent.fontColor)
+                        .style(.body1Bold, textColor: TextStyle.body1.fontColor)
                 }
             }
         }

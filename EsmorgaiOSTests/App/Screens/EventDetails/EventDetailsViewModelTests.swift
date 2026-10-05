@@ -314,20 +314,6 @@ final class EventDetailsViewModelTests {
 
     @MainActor
     @Test
-    func test_given_view_load_when_non_admin_then_see_attendees_button_is_not_shown() async {
-        mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
-        mockGetEventAttendeesUseCase.mockAttendees = [EventAttendee(name: "Alice", hasPayed: false)]
-        giveSut(event: EventBuilder().with(maxCapacity: 12).build())
-
-        await TestHelper.fullfillTask {
-            await self.sut.viewLoad()
-        }
-
-        #expect(self.sut.showSeeAttendeesButton == false)
-    }
-
-    @MainActor
-    @Test
     func test_given_joined_event_when_join_succeeds_then_attendees_count_is_incremented() async {
         mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
         mockJoinEventUseCase.mockResult = true

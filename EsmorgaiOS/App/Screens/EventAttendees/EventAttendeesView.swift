@@ -32,8 +32,10 @@ struct EventAttendeesView: View {
                                     Text("\(i + 1). \(viewModel.attendees[i].name)")
                                         .style(.body1)
                                     Spacer()
-                                    CheckBoxView(checked: $viewModel.attendees[i].hasPayed)
-                                        .padding(.trailing, 15)
+                                    if viewModel.showPaymentCheckBox {
+                                        CheckBoxView(checked: $viewModel.attendees[i].hasPayed)
+                                            .padding(.trailing, 15)
+                                    }
  
                                         
                                 }
@@ -49,7 +51,7 @@ struct EventAttendeesView: View {
             dismiss()
         }
         .task {
-            await viewModel.getEventAttendees()
+            await viewModel.viewLoad()
         }
         .onDisappear {
             Task {

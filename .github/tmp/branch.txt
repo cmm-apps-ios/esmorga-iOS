@@ -1,1 +1,1 @@
-feature/MOB-create-event-fixes
+fix/MOB-attendee-count

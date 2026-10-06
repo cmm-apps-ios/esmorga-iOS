@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -65,6 +65,7 @@
 		31EAF7CC2DEF3138003A6984 /* RecoverPasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CB2DEF312D003A6984 /* RecoverPasswordModels.swift */; };
 		31EAF7CE2DF04D3C003A6984 /* RecoverPasswordUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */; };
 		31EAF7D02DF04D5E003A6984 /* RecoverPasswordUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */; };
+		3D0F62CC306577A800B8599E /* VotePollRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0F62CB306577A800B8599E /* VotePollRequest.swift */; };
 		3D22E317304049570054D8C0 /* ChangePasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E312304049570054D8C0 /* ChangePasswordModels.swift */; };
 		3D22E318304049570054D8C0 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E313304049570054D8C0 /* ChangePasswordViewModel.swift */; };
 		3D22E319304049570054D8C0 /* ChangePasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E314304049570054D8C0 /* ChangePasswordBuilder.swift */; };
@@ -72,6 +73,16 @@
 		3D22E31C3041BC420054D8C0 /* ChangePasswordUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E31B3041BC420054D8C0 /* ChangePasswordUserUseCase.swift */; };
 		3D22E31E30456F850054D8C0 /* ChangePasswordDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22E31D30456F850054D8C0 /* ChangePasswordDataSource.swift */; };
 		3D33D091304F11DA00EB4C21 /* SaveEventAttendeesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D33D090304F11DA00EB4C21 /* SaveEventAttendeesUseCase.swift */; };
+		3DA0FBCE3061532A007674F0 /* PollsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBCD30615323007674F0 /* PollsRepository.swift */; };
+		3DA0FBD43061554B007674F0 /* RemotePollList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBD33061554B007674F0 /* RemotePollList.swift */; };
+		3DA0FBD63061556B007674F0 /* RemotePoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBD53061556B007674F0 /* RemotePoll.swift */; };
+		3DA0FBD830615595007674F0 /* RemotePollOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBD730615595007674F0 /* RemotePollOption.swift */; };
+		3DA0FBDD306155D2007674F0 /* PollOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBD9306155D2007674F0 /* PollOption.swift */; };
+		3DA0FBDF306155D2007674F0 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBDA306155D2007674F0 /* Poll.swift */; };
+		3DA0FBE230615DA4007674F0 /* GetPollsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBE130615DA4007674F0 /* GetPollsNetworkService.swift */; };
+		3DA0FBE530615EA2007674F0 /* RemotePollsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBE430615E98007674F0 /* RemotePollsDataSource.swift */; };
+		3DA0FBEA30616963007674F0 /* GetPollsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBE930616963007674F0 /* GetPollsUseCase.swift */; };
+		3DCBD5F430657B35006A3CD0 /* SendVotePollUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCBD5F330657B35006A3CD0 /* SendVotePollUseCase.swift */; };
 		3DCC738D30486B5C00EA1FA0 /* EventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */; };
 		3DCC738F30486E6100EA1FA0 /* RemoteEventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */; };
 		3DCC73913048702800EA1FA0 /* GetEventAttendeesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */; };
@@ -80,6 +91,24 @@
 		3DCC739A3048730E00EA1FA0 /* EventAttendeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC73993048730C00EA1FA0 /* EventAttendeesView.swift */; };
 		3DCC739D30498DD900EA1FA0 /* PasswordValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC739C30498DD900EA1FA0 /* PasswordValidationError.swift */; };
 		3DCC739F304AE08E00EA1FA0 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC739E304AE08E00EA1FA0 /* CheckBoxView.swift */; };
+		3DD647953063F9AB0053B900 /* PollListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD647933063F9AB0053B900 /* PollListBuilder.swift */; };
+		3DD647963063F9AB0053B900 /* PollListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD647903063F9AB0053B900 /* PollListView.swift */; };
+		3DD647973063F9AB0053B900 /* PollListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD647913063F9AB0053B900 /* PollListViewModel.swift */; };
+		3DD647983063F9AB0053B900 /* PollListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD647923063F9AB0053B900 /* PollListCell.swift */; };
+		C0FFEE1000000000000000A1 /* PollBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A1 /* PollBuilder.swift */; };
+		C0FFEE1000000000000000A2 /* RemotePollBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A2 /* RemotePollBuilder.swift */; };
+		C0FFEE1000000000000000A4 /* MockPollsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A4 /* MockPollsRepository.swift */; };
+		C0FFEE1000000000000000A5 /* MockRemotePollsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A5 /* MockRemotePollsDataSource.swift */; };
+		C0FFEE1000000000000000A6 /* MockGetPollsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A6 /* MockGetPollsUseCase.swift */; };
+		C0FFEE1000000000000000A7 /* MockSendVotePollUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A7 /* MockSendVotePollUseCase.swift */; };
+		C0FFEE1000000000000000A8 /* PollsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A8 /* PollsRepositoryTests.swift */; };
+		C0FFEE1000000000000000A9 /* RemotePollsDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A9 /* RemotePollsDataSourceTests.swift */; };
+		C0FFEE1000000000000000AA /* GetPollsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AA /* GetPollsUseCaseTests.swift */; };
+		C0FFEE1000000000000000AB /* SendVotePollUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AB /* SendVotePollUseCaseTests.swift */; };
+		C0FFEE1000000000000000AC /* PollListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AC /* PollListViewModelTests.swift */; };
+		C0FFEE1000000000000000AD /* PollDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */; };
+		C0FFEE1000000000000000AE /* ExploreHomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */; };
+
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -289,6 +318,10 @@
 		EFF9C8872C999C8600DE50BC /* AccountCredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8862C999C8300DE50BC /* AccountCredentialTests.swift */; };
 		EFF9C88A2C99C7D300DE50BC /* AccountTokensRefresherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9C8892C99C7CA00DE50BC /* AccountTokensRefresherTests.swift */; };
 		EFF9C88C2C99C88C00DE50BC /* mock_refresh_token.json in Resources */ = {isa = PBXBuildFile; fileRef = EFF9C88B2C99C88000DE50BC /* mock_refresh_token.json */; };
+		FA3D9A000000000000000031 /* ExploreHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000024 /* ExploreHomeView.swift */; };
+		FA3D9A000000000000000032 /* ExploreHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000022 /* ExploreHomeViewModel.swift */; };
+		FA3D9A000000000000000033 /* ExploreHomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000023 /* ExploreHomeBuilder.swift */; };
+		FA3D9A000000000000000034 /* ExploreHomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9A000000000000000021 /* ExploreHomeModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -369,6 +402,7 @@
 		31EAF7CB2DEF312D003A6984 /* RecoverPasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordModels.swift; sourceTree = "<group>"; };
 		31EAF7CD2DF04D29003A6984 /* RecoverPasswordUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUserUseCase.swift; sourceTree = "<group>"; };
 		31EAF7CF2DF04D49003A6984 /* RecoverPasswordUserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUserDataSource.swift; sourceTree = "<group>"; };
+		3D0F62CB306577A800B8599E /* VotePollRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotePollRequest.swift; sourceTree = "<group>"; };
 		3D22E312304049570054D8C0 /* ChangePasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordModels.swift; sourceTree = "<group>"; };
 		3D22E313304049570054D8C0 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		3D22E314304049570054D8C0 /* ChangePasswordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordBuilder.swift; sourceTree = "<group>"; };
@@ -376,6 +410,16 @@
 		3D22E31B3041BC420054D8C0 /* ChangePasswordUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordUserUseCase.swift; sourceTree = "<group>"; };
 		3D22E31D30456F850054D8C0 /* ChangePasswordDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordDataSource.swift; sourceTree = "<group>"; };
 		3D33D090304F11DA00EB4C21 /* SaveEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveEventAttendeesUseCase.swift; sourceTree = "<group>"; };
+		3DA0FBCD30615323007674F0 /* PollsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsRepository.swift; sourceTree = "<group>"; };
+		3DA0FBD33061554B007674F0 /* RemotePollList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollList.swift; sourceTree = "<group>"; };
+		3DA0FBD53061556B007674F0 /* RemotePoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePoll.swift; sourceTree = "<group>"; };
+		3DA0FBD730615595007674F0 /* RemotePollOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollOption.swift; sourceTree = "<group>"; };
+		3DA0FBD9306155D2007674F0 /* PollOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollOption.swift; sourceTree = "<group>"; };
+		3DA0FBDA306155D2007674F0 /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
+		3DA0FBE130615DA4007674F0 /* GetPollsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPollsNetworkService.swift; sourceTree = "<group>"; };
+		3DA0FBE430615E98007674F0 /* RemotePollsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollsDataSource.swift; sourceTree = "<group>"; };
+		3DA0FBE930616963007674F0 /* GetPollsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPollsUseCase.swift; sourceTree = "<group>"; };
+		3DCBD5F330657B35006A3CD0 /* SendVotePollUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVotePollUseCase.swift; sourceTree = "<group>"; };
 		3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendee.swift; sourceTree = "<group>"; };
 		3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEventAttendee.swift; sourceTree = "<group>"; };
 		3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventAttendeesUseCase.swift; sourceTree = "<group>"; };
@@ -384,6 +428,24 @@
 		3DCC73993048730C00EA1FA0 /* EventAttendeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesView.swift; sourceTree = "<group>"; };
 		3DCC739C30498DD900EA1FA0 /* PasswordValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationError.swift; sourceTree = "<group>"; };
 		3DCC739E304AE08E00EA1FA0 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		3DD647903063F9AB0053B900 /* PollListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListView.swift; sourceTree = "<group>"; };
+		3DD647913063F9AB0053B900 /* PollListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListViewModel.swift; sourceTree = "<group>"; };
+		3DD647923063F9AB0053B900 /* PollListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListCell.swift; sourceTree = "<group>"; };
+		3DD647933063F9AB0053B900 /* PollListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListBuilder.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A1 /* PollBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollBuilder.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A2 /* RemotePollBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollBuilder.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A4 /* MockPollsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPollsRepository.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A5 /* MockRemotePollsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRemotePollsDataSource.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A6 /* MockGetPollsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetPollsUseCase.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A7 /* MockSendVotePollUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSendVotePollUseCase.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A8 /* PollsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsRepositoryTests.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000A9 /* RemotePollsDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollsDataSourceTests.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000AA /* GetPollsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPollsUseCaseTests.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000AB /* SendVotePollUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVotePollUseCaseTests.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000AC /* PollListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListViewModelTests.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeViewModelTests.swift; sourceTree = "<group>"; };
+
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -589,7 +651,15 @@
 		EFF9C8862C999C8300DE50BC /* AccountCredentialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialTests.swift; sourceTree = "<group>"; };
 		EFF9C8892C99C7CA00DE50BC /* AccountTokensRefresherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTokensRefresherTests.swift; sourceTree = "<group>"; };
 		EFF9C88B2C99C88000DE50BC /* mock_refresh_token.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_refresh_token.json; sourceTree = "<group>"; };
+		FA3D9A000000000000000021 /* ExploreHomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeModels.swift; sourceTree = "<group>"; };
+		FA3D9A000000000000000022 /* ExploreHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeViewModel.swift; sourceTree = "<group>"; };
+		FA3D9A000000000000000023 /* ExploreHomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeBuilder.swift; sourceTree = "<group>"; };
+		FA3D9A000000000000000024 /* ExploreHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3DD64799306409A70053B900 /* PollDetails */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = PollDetails; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EF0811AD2C9093C400DE4887 /* Frameworks */ = {
@@ -743,6 +813,51 @@
 			path = ChangePassword;
 			sourceTree = "<group>";
 		};
+		3DA0FBD230615543007674F0 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				3DA0FBD730615595007674F0 /* RemotePollOption.swift */,
+				3DA0FBD53061556B007674F0 /* RemotePoll.swift */,
+				3DA0FBD33061554B007674F0 /* RemotePollList.swift */,
+			);
+			path = Polls;
+			sourceTree = "<group>";
+		};
+		3DA0FBDC306155D2007674F0 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				3DA0FBD9306155D2007674F0 /* PollOption.swift */,
+				3DA0FBDA306155D2007674F0 /* Poll.swift */,
+				3D0F62CB306577A800B8599E /* VotePollRequest.swift */,
+			);
+			path = Polls;
+			sourceTree = "<group>";
+		};
+		3DA0FBE030615D83007674F0 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				3DA0FBE130615DA4007674F0 /* GetPollsNetworkService.swift */,
+			);
+			path = Polls;
+			sourceTree = "<group>";
+		};
+		3DA0FBE330615E70007674F0 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				3DA0FBE430615E98007674F0 /* RemotePollsDataSource.swift */,
+			);
+			path = Polls;
+			sourceTree = "<group>";
+		};
+		3DA0FBE83061695B007674F0 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				3DA0FBE930616963007674F0 /* GetPollsUseCase.swift */,
+				3DCBD5F330657B35006A3CD0 /* SendVotePollUseCase.swift */,
+			);
+			path = Polls;
+			sourceTree = "<group>";
+		};
 		3DCC73923048711E00EA1FA0 /* EventAttendees */ = {
 			isa = PBXGroup;
 			children = (
@@ -759,6 +874,86 @@
 				3DCC739C30498DD900EA1FA0 /* PasswordValidationError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		3DD647943063F9AB0053B900 /* PollList */ = {
+			isa = PBXGroup;
+			children = (
+				3DD647903063F9AB0053B900 /* PollListView.swift */,
+				3DD647913063F9AB0053B900 /* PollListViewModel.swift */,
+				3DD647923063F9AB0053B900 /* PollListCell.swift */,
+				3DD647933063F9AB0053B900 /* PollListBuilder.swift */,
+			);
+			path = PollList;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B0 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000AA /* GetPollsUseCaseTests.swift */,
+				C0FFEE2000000000000000AB /* SendVotePollUseCaseTests.swift */,
+				C0FFEE3000000000000000B1 /* Mocks */,
+			);
+			path = Polls;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000A6 /* MockGetPollsUseCase.swift */,
+				C0FFEE2000000000000000A7 /* MockSendVotePollUseCase.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B2 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000A4 /* MockPollsRepository.swift */,
+				C0FFEE2000000000000000A8 /* PollsRepositoryTests.swift */,
+			);
+			path = Polls;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B3 /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000A9 /* RemotePollsDataSourceTests.swift */,
+				C0FFEE3000000000000000B4 /* Mock */,
+			);
+			path = Polls;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B4 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000A5 /* MockRemotePollsDataSource.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B5 /* PollList */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000AC /* PollListViewModelTests.swift */,
+			);
+			path = PollList;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B6 /* PollDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */,
+			);
+			path = PollDetails;
+			sourceTree = "<group>";
+		};
+		C0FFEE3000000000000000B7 /* ExploreHome */ = {
+			isa = PBXGroup;
+			children = (
+				C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */,
+			);
+			path = ExploreHome;
 			sourceTree = "<group>";
 		};
 		EF0811B12C9093C500DE4887 /* EsmorgaiOSSnapshotTests */ = {
@@ -994,6 +1189,7 @@
 			children = (
 				EFE34DC32C7CBC4A00724DDC /* User */,
 				EFE34DC22C7CBC3E00724DDC /* Events */,
+				C0FFEE3000000000000000B0 /* Polls */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1011,6 +1207,7 @@
 			children = (
 				EFE34DB72C7C99A800724DDC /* User */,
 				EFE34DB62C7C999C00724DDC /* Events */,
+				C0FFEE3000000000000000B2 /* Polls */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1020,6 +1217,7 @@
 			children = (
 				EFE34DAF2C7C94AA00724DDC /* User */,
 				EFE34DAE2C7C94A000724DDC /* Events */,
+				C0FFEE3000000000000000B3 /* Polls */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -1052,6 +1250,9 @@
 				EFBBE6EF2C7489A90085632A /* WelcomeScreen */,
 				EF2983F82C6B986200C2393E /* EventDetails */,
 				EF31587E2C5A7E5900DE157A /* EventList */,
+				C0FFEE3000000000000000B5 /* PollList */,
+				C0FFEE3000000000000000B6 /* PollDetails */,
+				C0FFEE3000000000000000B7 /* ExploreHome */,
 				CE0000000000000000000601 /* CreateEvent */,
 			);
 			path = Screens;
@@ -1119,6 +1320,7 @@
 		EF4213BE2C3EC9AC00686033 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3DA0FBDC306155D2007674F0 /* Polls */,
 				3DCC739B30498DD300EA1FA0 /* Errors */,
 				EFF9C8802C99939700DE50BC /* Session */,
 				EFE34D992C74A7CA00724DDC /* User */,
@@ -1342,6 +1544,8 @@
 		EFD7EEF12C3C415F00C8CE70 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FA3D9A000000000000000035 /* ExploreHome */,
+				3DD64799306409A70053B900 /* PollDetails */,
 				3DCC73923048711E00EA1FA0 /* EventAttendees */,
 				3175042C2DF71B3D00CE072F /* ResetPassword */,
 				3D22E316304049570054D8C0 /* ChangePassword */,
@@ -1359,6 +1563,7 @@
 				EF3158852C5BD61800DE157A /* Base */,
 				EF3158542C53DC6800DE157A /* EventDetails */,
 				EFD7EEF22C3C417900C8CE70 /* EventList */,
+				3DD647943063F9AB0053B900 /* PollList */,
 				CE0000000000000000000301 /* CreateEvent */,
 				EF31589A2C63751600DE157A /* WelcomeScreen */,
 			);
@@ -1400,6 +1605,7 @@
 		EFD7EF002C3D3B8A00C8CE70 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				3DA0FBE330615E70007674F0 /* Polls */,
 				EFE34DAD2C7C948F00724DDC /* User */,
 				EFE34DAC2C7C948300724DDC /* Events */,
 			);
@@ -1409,6 +1615,7 @@
 		EFD7EF052C3D41D800C8CE70 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				3DA0FBCD30615323007674F0 /* PollsRepository.swift */,
 				EFD7EF062C3D41EC00C8CE70 /* EventsRepository.swift */,
 				EFE34D972C74A6FB00724DDC /* UserRepository.swift */,
 			);
@@ -1418,6 +1625,7 @@
 		EFD7EF082C3D447300C8CE70 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				3DA0FBE83061695B007674F0 /* Polls */,
 				EF65D16F2CB91F70005078D9 /* User */,
 				EF65D16E2CB91F62005078D9 /* Event */,
 			);
@@ -1427,6 +1635,7 @@
 		EFD7EF0E2C3D72B000C8CE70 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				3DA0FBE030615D83007674F0 /* Polls */,
 				EF503C062C98749B00EE9128 /* Handlers */,
 				EFE34D902C74956300724DDC /* Account */,
 				EFD7EF212C3D8F0100C8CE70 /* RemoteModels */,
@@ -1478,6 +1687,7 @@
 		EFD7EF212C3D8F0100C8CE70 /* RemoteModels */ = {
 			isa = PBXGroup;
 			children = (
+				3DA0FBD230615543007674F0 /* Polls */,
 				3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */,
 				EFD7EF222C3D8F2400C8CE70 /* RemoteEventListModel.swift */,
 				CE0000000000000000000102 /* CreateEventRequestModel.swift */,
@@ -1663,6 +1873,7 @@
 			children = (
 				EFD6100B2CA2C40400E3DB1E /* EventBuilder.swift */,
 				EFA646412C8B09E700D528F9 /* UserModelBuilder.swift */,
+				C0FFEE2000000000000000A1 /* PollBuilder.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1680,6 +1891,7 @@
 			isa = PBXGroup;
 			children = (
 				EFE34DC02C7CBB9300724DDC /* AccountLoginModel.swift */,
+				C0FFEE2000000000000000A2 /* RemotePollBuilder.swift */,
 			);
 			path = RemoteModels;
 			sourceTree = "<group>";
@@ -1939,6 +2151,17 @@
 			path = Refresher;
 			sourceTree = "<group>";
 		};
+		FA3D9A000000000000000035 /* ExploreHome */ = {
+			isa = PBXGroup;
+			children = (
+				FA3D9A000000000000000024 /* ExploreHomeView.swift */,
+				FA3D9A000000000000000022 /* ExploreHomeViewModel.swift */,
+				FA3D9A000000000000000021 /* ExploreHomeModels.swift */,
+				FA3D9A000000000000000023 /* ExploreHomeBuilder.swift */,
+			);
+			path = ExploreHome;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1976,6 +2199,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3DD64799306409A70053B900 /* PollDetails */,
 			);
 			name = EsmorgaiOS;
 			packageProductDependencies = (
@@ -2190,6 +2416,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3D9A000000000000000031 /* ExploreHomeView.swift in Sources */,
+				FA3D9A000000000000000032 /* ExploreHomeViewModel.swift in Sources */,
+				FA3D9A000000000000000033 /* ExploreHomeBuilder.swift in Sources */,
+				FA3D9A000000000000000034 /* ExploreHomeModels.swift in Sources */,
 				EFF9C8782C9992EF00DE50BC /* URLRequest+BearerToken.swift in Sources */,
 				313D57452D61272C001F4E95 /* ProfileBuilder.swift in Sources */,
 				EFD7EF232C3D8F2400C8CE70 /* RemoteEventListModel.swift in Sources */,
@@ -2208,7 +2438,9 @@
 				EFD7EF022C3D3BB100C8CE70 /* RemoteEventsDataSource.swift in Sources */,
 				3175042E2DF71BC900CE072F /* ResetPasswordView.swift in Sources */,
 				EF0811DA2C9328CE00DE4887 /* MainCoordinator.swift in Sources */,
+				3DA0FBEA30616963007674F0 /* GetPollsUseCase.swift in Sources */,
 				EFE34DE22C81CDA500724DDC /* NavigationBar.swift in Sources */,
+				3DA0FBD830615595007674F0 /* RemotePollOption.swift in Sources */,
 				31E2B0782DDCC20900DC9A5E /* ActivateUserDataSource.swift in Sources */,
 				EF2A6DC82CAAE2CC00164FD5 /* ErrorDialogModelBuilder.swift in Sources */,
 				31EAF7BB2DEEF4DE003A6984 /* RecoverPasswordView.swift in Sources */,
@@ -2216,6 +2448,7 @@
 				313D57432D6126E6001F4E95 /* ProfileModels.swift in Sources */,
 				311FA20F2DB7A18200C4EC99 /* RegistrationConfirmView.swift in Sources */,
 				EF2983CD2C6A162A00C2393E /* SplashViewModel.swift in Sources */,
+				3DD647983063F9AB0053B900 /* PollListCell.swift in Sources */,
 				EF0811D52C93260800DE4887 /* DashboardModels.swift in Sources */,
 				EFE34DD12C7DE0D300724DDC /* RegisterUserDataSource.swift in Sources */,
 				EF2983F52C6B95D500C2393E /* BaseViewModel.swift in Sources */,
@@ -2230,6 +2463,7 @@
 				31E2B0742DDB32E800DC9A5E /* ActivateAccountBuilder.swift in Sources */,
 				317504362DF86D2E00CE072F /* ResetPasswordUserUseCase.swift in Sources */,
 				EFF8B8282CBFC982007470A9 /* LeaveEventUseCase.swift in Sources */,
+				3DD647953063F9AB0053B900 /* PollListBuilder.swift in Sources */,
 				EF4213D62C413FC800686033 /* SnackbarView.swift in Sources */,
 				EF2983E72C6B729A00C2393E /* WelcomeScreenBuilder.swift in Sources */,
 				EFE0A9792C3D925600E28953 /* TextStyles.swift in Sources */,
@@ -2244,6 +2478,7 @@
 				31518AC92D6BC54D00363A3C /* LogOutUserUseCase.swift in Sources */,
 				3D22E317304049570054D8C0 /* ChangePasswordModels.swift in Sources */,
 				EFE34DA22C74ABC200724DDC /* LoginViewModel.swift in Sources */,
+				3DD647973063F9AB0053B900 /* PollListViewModel.swift in Sources */,
 				EF2A6DD32CAEA75A00164FD5 /* EventDetailsModels.swift in Sources */,
 				EFE34D9B2C74A7DC00724DDC /* UserModels.swift in Sources */,
 				3D22E318304049570054D8C0 /* ChangePasswordViewModel.swift in Sources */,
@@ -2259,6 +2494,9 @@
 				EFD7EF152C3D740700C8CE70 /* EventsNetworkService.swift in Sources */,
 				EF9CDB842C89C0920044FB29 /* ExternalAppsManager.swift in Sources */,
 				EFA6463D2C8B02B200D528F9 /* DomainError.swift in Sources */,
+				3DA0FBDD306155D2007674F0 /* PollOption.swift in Sources */,
+				3DA0FBE530615EA2007674F0 /* RemotePollsDataSource.swift in Sources */,
+				3DA0FBDF306155D2007674F0 /* Poll.swift in Sources */,
 				31518AD52D6CC57300363A3C /* ConfirmationDialog.swift in Sources */,
 				EF2A6DD62CAEA7B600164FD5 /* EventDetailsMapper.swift in Sources */,
 				3DCC738D30486B5C00EA1FA0 /* EventAttendee.swift in Sources */,
@@ -2271,6 +2509,8 @@
 				EFD377082CA1A34C0090B90A /* MyEventsViewModel.swift in Sources */,
 				EFD7EF0A2C3D44A300C8CE70 /* GetEventListUseCase.swift in Sources */,
 				31E2B0702DDB32C700DC9A5E /* ActivateAccountViewModel.swift in Sources */,
+				3DA0FBD63061556B007674F0 /* RemotePoll.swift in Sources */,
+				3DD647963063F9AB0053B900 /* PollListView.swift in Sources */,
 				EF2983ED2C6B758100C2393E /* EventListBuilder.swift in Sources */,
 				CE0000000000000000000201 /* CreateEventModels.swift in Sources */,
 				CE0000000000000000000202 /* CreateEventRequestModel.swift in Sources */,
@@ -2291,6 +2531,7 @@
 				EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */,
 				EF7DF9542C9C0DC1005908B7 /* FirstAppearModifier.swift in Sources */,
 				311FA2092DB79CA500C4EC99 /* RegistrationConfirmViewModel.swift in Sources */,
+				3DA0FBCE3061532A007674F0 /* PollsRepository.swift in Sources */,
 				317504382DF86D8B00CE072F /* ResetPasswordDataSource.swift in Sources */,
 				EFF7A1AF2C354BCD0024704A /* EsmorgaiOSApp.swift in Sources */,
 				EF31589C2C63755E00DE157A /* WelcomeScreenView.swift in Sources */,
@@ -2305,6 +2546,7 @@
 				3DCC739D30498DD900EA1FA0 /* PasswordValidationError.swift in Sources */,
 				EFE34DA92C77859D00724DDC /* ErrorDialog.swift in Sources */,
 				EFF9C8752C99921100DE50BC /* TokensRefresher.swift in Sources */,
+				3D0F62CC306577A800B8599E /* VotePollRequest.swift in Sources */,
 				3DCC739A3048730E00EA1FA0 /* EventAttendeesView.swift in Sources */,
 				EFE3E9762CBE7F2300C975D0 /* WelcomeScreenModels.swift in Sources */,
 				EF3158872C5BD63400DE157A /* BaseView.swift in Sources */,
@@ -2314,11 +2556,14 @@
 				EFD7EEF62C3C41A500C8CE70 /* EventListViewModel.swift in Sources */,
 				3DCC739F304AE08E00EA1FA0 /* CheckBoxView.swift in Sources */,
 				EFF9C87F2C99936400DE50BC /* AccountCredential.swift in Sources */,
+				3DA0FBD43061554B007674F0 /* RemotePollList.swift in Sources */,
 				EFD377062CA1A2FB0090B90A /* MyEventsView.swift in Sources */,
+				3DCBD5F430657B35006A3CD0 /* SendVotePollUseCase.swift in Sources */,
 				EFE34DA62C77790900724DDC /* CustomTextField.swift in Sources */,
 				3175043A2E04530E00CE072F /* EsmorgaRow.swift in Sources */,
 				EFE0A9842C3E8CCB00E28953 /* LocalEventsDataSource.swift in Sources */,
 				31EAF7CE2DF04D3C003A6984 /* RecoverPasswordUserUseCase.swift in Sources */,
+				3DA0FBE230615DA4007674F0 /* GetPollsNetworkService.swift in Sources */,
 				31D232932DA68B230084057E /* CrashEventManager.swift in Sources */,
 				EFF7A1E82C36DECC0024704A /* LoadingBar.swift in Sources */,
 				31518AD12D6C8C3400363A3C /* ConfirmationDialogView.swift in Sources */,
@@ -2436,6 +2681,19 @@
 				EF31585B2C59384800DE157A /* GetEventListUseCaseTests.swift in Sources */,
 				EF0811C72C91915700DE4887 /* RegistrationViewTests.swift in Sources */,
 				EF2A6DC32CA6BBC000164FD5 /* MyEventsViewModelTests.swift in Sources */,
+				C0FFEE1000000000000000A1 /* PollBuilder.swift in Sources */,
+				C0FFEE1000000000000000A2 /* RemotePollBuilder.swift in Sources */,
+				C0FFEE1000000000000000A4 /* MockPollsRepository.swift in Sources */,
+				C0FFEE1000000000000000A5 /* MockRemotePollsDataSource.swift in Sources */,
+				C0FFEE1000000000000000A6 /* MockGetPollsUseCase.swift in Sources */,
+				C0FFEE1000000000000000A7 /* MockSendVotePollUseCase.swift in Sources */,
+				C0FFEE1000000000000000A8 /* PollsRepositoryTests.swift in Sources */,
+				C0FFEE1000000000000000A9 /* RemotePollsDataSourceTests.swift in Sources */,
+				C0FFEE1000000000000000AA /* GetPollsUseCaseTests.swift in Sources */,
+				C0FFEE1000000000000000AB /* SendVotePollUseCaseTests.swift in Sources */,
+				C0FFEE1000000000000000AC /* PollListViewModelTests.swift in Sources */,
+				C0FFEE1000000000000000AD /* PollDetailsViewModelTests.swift in Sources */,
+				C0FFEE1000000000000000AE /* ExploreHomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2985,7 +3243,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = EsmorgaiOS/EsmorgaiOS.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3012,7 +3270,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ent: com.mobilestudio.esmorga";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Dev: com.mobilestudio.esmorga";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3233,7 +3491,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = EsmorgaiOS/EsmorgaiOS.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3260,7 +3518,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ent: com.mobilestudio.esmorga";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Dev: com.mobilestudio.esmorga";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

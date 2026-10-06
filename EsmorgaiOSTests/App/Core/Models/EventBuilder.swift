@@ -22,6 +22,7 @@ final class EventBuilder {
     private var creationDate: Date = Date(timeIntervalSince1970: 10000)
     private var isUserJoined: Bool = false
     private var joinDeadline: Date = Date(timeIntervalSince1970: 10000)
+    private var currentAttendeeCount: Int32 = 0
     private var maxCapacity: Int32 = 0
 
     func with(eventId: String) -> Self {
@@ -79,6 +80,11 @@ final class EventBuilder {
         return self
     }
     
+    func with(currentAttendeeCount: Int32) -> Self {
+        self.currentAttendeeCount = currentAttendeeCount
+        return self
+    }
+    
     func with(maxCapacity: Int32) -> Self {
         self.maxCapacity = maxCapacity
         return self
@@ -96,8 +102,9 @@ final class EventBuilder {
                                  location: location,
                                  creationDate: creationDate,
                                  isUserJoined: isUserJoined,
-                                  joinDeadline: joinDeadline,
-                                  maxCapacity: Int(maxCapacity)
+                                 joinDeadline: joinDeadline,
+                                 currentAttendeeCount: Int(currentAttendeeCount),
+                                 maxCapacity: Int(maxCapacity)
         )
     }
 }

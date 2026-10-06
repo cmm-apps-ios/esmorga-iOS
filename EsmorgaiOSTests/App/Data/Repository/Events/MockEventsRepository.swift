@@ -60,4 +60,8 @@ final class MockEventsRepository: EventsRepositoryProtocol {
             throw NetworkError.generalError(code: 500)
         }
     }
+    
+    func updateEventOnLocal(event: EsmorgaiOS.EventModels.Event) async throws {
+        return
+    }
 }

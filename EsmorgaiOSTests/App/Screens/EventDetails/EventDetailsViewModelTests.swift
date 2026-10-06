@@ -18,7 +18,6 @@ final class EventDetailsViewModelTests {
     private var mockGetLocalUserUseCase: MockGetLocalUserUseCase!
     private var mockJoinEventUseCase: MockJoinEventUseCase!
     private var mockLeaveEventUseCase: MockLeaveEventUseCase!
-    private var mockGetEventAttendeesUseCase: MockGetEventAttendeesUseCase!
     private var mockNetworkMonitor: MockNetworkMonitor!
 
     init() {
@@ -27,7 +26,6 @@ final class EventDetailsViewModelTests {
         mockGetLocalUserUseCase = MockGetLocalUserUseCase()
         mockJoinEventUseCase = MockJoinEventUseCase()
         mockLeaveEventUseCase = MockLeaveEventUseCase()
-        mockGetEventAttendeesUseCase = MockGetEventAttendeesUseCase()
         mockNetworkMonitor = MockNetworkMonitor()
     }
 
@@ -37,7 +35,6 @@ final class EventDetailsViewModelTests {
         mockGetLocalUserUseCase = nil
         mockJoinEventUseCase = nil
         mockLeaveEventUseCase = nil
-        mockGetEventAttendeesUseCase = nil
         mockNetworkMonitor = nil
         sut = nil
     }
@@ -284,40 +281,9 @@ final class EventDetailsViewModelTests {
 
     @MainActor
     @Test
-    func test_given_view_load_when_logged_in_then_attendees_count_comes_from_attendees_list() async {
-        mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
-        mockGetEventAttendeesUseCase.mockAttendees = [EventAttendee(name: "Alice", hasPayed: false),
-                                                    EventAttendee(name: "Bob", hasPayed: true)]
-        let event = EventBuilder().with(maxCapacity: 12).build()
-        giveSut(event: event)
-
-        await TestHelper.fullfillTask {
-            await self.sut.viewLoad()
-        }
-
-        #expect(self.sut.attendeesText == LocalizationKeys.EventDetails.attendeesCount.localize(2, 12))
-    }
-
-    @MainActor
-    @Test
-    func test_given_view_load_when_admin_and_attendees_exist_then_see_attendees_button_is_shown() async {
-        mockGetLocalUserUseCase.mockUser = UserModelBuilder().with(role: .admin).build()
-        mockGetEventAttendeesUseCase.mockAttendees = [EventAttendee(name: "Alice", hasPayed: false)]
-        giveSut(event: EventBuilder().with(maxCapacity: 12).build())
-
-        await TestHelper.fullfillTask {
-            await self.sut.viewLoad()
-        }
-
-        #expect(self.sut.showSeeAttendeesButton == true)
-    }
-
-    @MainActor
-    @Test
     func test_given_joined_event_when_join_succeeds_then_attendees_count_is_incremented() async {
         mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
         mockJoinEventUseCase.mockResult = true
-        mockGetEventAttendeesUseCase.mockAttendees = [EventAttendee(name: "Alice", hasPayed: false)]
         giveSut(event: EventBuilder().with(maxCapacity: 12).build())
 
         await TestHelper.fullfillTask {
@@ -339,7 +305,6 @@ final class EventDetailsViewModelTests {
                                     navigationManager: mockNavigationManager,
                                      getLocalUserUseCase: mockGetLocalUserUseCase,
                                      joinEventUseCase: mockJoinEventUseCase,
-                                     leaveEventUseCase: mockLeaveEventUseCase,
-                                     getEventAttendeesUseCase: mockGetEventAttendeesUseCase)
+                                     leaveEventUseCase: mockLeaveEventUseCase)
     }
 }

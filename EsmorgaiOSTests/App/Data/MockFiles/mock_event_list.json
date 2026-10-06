@@ -12,7 +12,10 @@
                 "lat": 8.41937931298951,
                 "long": -8.41937931298951,
                 "name": "asdasdads"
-            },            "maxCapacity": 10,
+                
+            },
+            "currentAttendeeCount": 1,
+            "maxCapacity": 10,
             "tags": [
                 "M1S",
                 "M2S",
@@ -37,7 +40,9 @@
                 "lat": 43.35525182148881,
                 "long": -8.41937931298951,
                 "name": "A Coruña"
-            },            "maxCapacity": 10
+            },
+            "currentAttendeeCount": 1,
+            "maxCapacity": 10
         },
         {
             "eventId": "666a8b86749531913abd572d",
@@ -50,7 +55,9 @@
                 "lat": 43.355251,
                 "long": -8.419379,
                 "name": "Vigo"
-            },            "maxCapacity": 10
+            },
+            "currentAttendeeCount": 1,
+            "maxCapacity": 10
         },
         {
             "eventId": "666bdbd1749531913abd5740",
@@ -63,7 +70,9 @@
                 "lat": 43.355251,
                 "long": -8.419379,
                 "name": "Vigo"
-            },            "maxCapacity": 10
+            },
+            "currentAttendeeCount": 1,
+            "maxCapacity": 10
         },
         {
             "eventId": "666bdbec749531913abd5743",
@@ -76,7 +85,9 @@
                 "lat": 43.355251,
                 "long": -8.419379,
                 "name": "Vigo"
-            },            "maxCapacity": 10
+            },
+            "currentAttendeeCount": 1,
+            "maxCapacity": 10
         },
         {
             "eventId": "666bdda2749531913abd574c",
@@ -89,7 +100,9 @@
                 "lat": 43.355251,
                 "long": -8.419379,
                 "name": "Vigo"
-            },            "maxCapacity": 10
+            },
+            "currentAttendeeCount": 1,
+            "maxCapacity": 10
         },
         {
             "eventId": "666be73d749531913abd5756",
@@ -102,7 +115,9 @@
                 "lat": 43.355251,
                 "long": -8.419379,
                 "name": "Vigo"
-            },            "maxCapacity": 10
+            },
+            "currentAttendeeCount": 1,
+            "maxCapacity": 10
         },
         {
             "eventId": "666bfdc6339302a3ac87b740",
@@ -115,7 +130,9 @@
                 "lat": 43.355251,
                 "long": -8.419379,
                 "name": "Vigo"
-            },            "maxCapacity": 10
+            },
+            "currentAttendeeCount": 1,
+            "maxCapacity": 10
         },
         {
             "eventId": "666c0eb4339302a3ac87b75e",
@@ -128,7 +145,9 @@
                 "lat": 43.355251,
                 "long": -8.419379,
                 "name": "Vigo"
-            },            "maxCapacity": 10
+            },
+            "currentAttendeeCount": 1,
+            "maxCapacity": 10
         }
     ]
 }

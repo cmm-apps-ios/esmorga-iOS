@@ -222,6 +222,16 @@ final class CreateEventViewModelTests {
         #expect(self.spyCoordinator.destination == .createEventImage)
     }
 
+    @Test
+    func test_given_location_with_invalid_chars_when_validate_then_invalid_chars_error_is_shown() {
+
+        sut.location = "A Coruña *@!"
+
+        sut.validateLocation()
+
+        #expect(self.sut.locationError == LocalizationKeys.CreateEvent.InlineError.locationInvalidChars.localize())
+    }
+
     // MARK: - Step 5: Image
 
     @Test
@@ -246,11 +256,48 @@ final class CreateEventViewModelTests {
         #expect(self.sut.previewImageUrl == URL(string: "https://example.com/image.png"))
     }
 
+    @MainActor
+    @Test
+    func test_given_valid_image_url_not_previewed_when_submit_then_image_is_sent() async {
+
+        sut.eventName = "Valid event name"
+        sut.description = "This is a valid long enough description"
+        sut.location = "A Coruña"
+        sut.eventImageUrl = "https://example.com/image.png"
+        // Note: previewImage() is intentionally NOT called.
+        mockCreateEventUseCase.mockResult = .success(())
+
+        await TestHelper.fullfillTask {
+            await self.sut.submit()
+        }
+
+        #expect(self.mockCreateEventUseCase.receivedParams?.imageUrl == "https://example.com/image.png")
+    }
+
+    @MainActor
+    @Test
+    func test_given_invalid_image_url_when_submit_then_error_is_shown_and_use_case_not_called() async {
+
+        sut.eventName = "Valid event name"
+        sut.description = "This is a valid long enough description"
+        sut.location = "A Coruña"
+        sut.eventImageUrl = "http://invalid"
+        mockCreateEventUseCase.mockResult = .success(())
+
+        await TestHelper.fullfillTask {
+            await self.sut.submit()
+        }
+
+        #expect(self.mockCreateEventUseCase.executeCalled == false)
+        #expect(self.sut.eventImageUrlError == LocalizationKeys.CreateEvent.InlineError.imageUrlRequired.localize())
+        #expect(self.sut.isSubmitting == false)
+    }
+
     // MARK: - Submit
 
     @MainActor
     @Test
-    func test_given_submit_when_success_then_use_case_is_called_and_pop_to_root() async {
+    func test_given_submit_when_success_then_use_case_is_called_and_navigates_to_dashboard() async {
 
         sut.eventName = "  Valid event name  "
         sut.description = "This is a valid long enough description"
@@ -267,7 +314,8 @@ final class CreateEventViewModelTests {
         #expect(self.mockCreateEventUseCase.receivedParams?.eventType == .sport)
         #expect(self.mockCreateEventUseCase.receivedParams?.locationName == "A Coruña")
         #expect(self.sut.isSubmitting == false)
-        #expect(self.spyCoordinator.popToRootCalled == true)
+        #expect(self.spyCoordinator.pushCalled == true)
+        #expect(self.spyCoordinator.destination == .dashboard)
     }
 
     @MainActor

@@ -25,7 +25,27 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
     /// when the flow starts and released when the flow returns to the root.
     private var createEventViewModel: CreateEventViewModel?
 
+    /// Use case that clears the local session when the user is forced out (e.g. an
+    /// expired/invalid refresh token returns 401 while performing an authenticated
+    /// request such as creating an event).
+    private let logoutUserUseCase: LogoutUserUseCaseAlias
+
+    /// Prevents stacking multiple logout navigations when several authenticated
+    /// requests fail with 401 at once (each one posts `.forceLogout`).
+    private var isHandlingForcedLogout = false
+
+    init(logoutUserUseCase: LogoutUserUseCaseAlias = LogoutUserUseCase()) {
+        self.logoutUserUseCase = logoutUserUseCase
+    }
+
     func push(destination: Destination) {
+        // Starting the create-event flow anew must not reuse a previous shared
+        // ViewModel (otherwise re-entering the wizard shows stale fields/errors).
+        // The back button uses SwiftUI's dismiss(), so pop() is not guaranteed to
+        // run when the user abandons the flow — resetting on entry is reliable.
+        if destination == .createEvent {
+            createEventViewModel = nil
+        }
         path.append(destination)
     }
 
@@ -36,6 +56,25 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
     func popToRoot() {
         path.removeLast(path.count)
         createEventViewModel = nil
+    }
+
+    /// Handles a forced logout triggered by `.forceLogout`. Without this, an
+    /// authenticated request that fails to refresh its token (e.g. submitting the
+    /// create-event form with an expired session) would only show the generic
+    /// retry dialog on a loop, trapping the user. Here we clear the session and
+    /// reset navigation to the Welcome screen so the user can log in again.
+    @MainActor
+    func handleForcedLogout() {
+        guard !isHandlingForcedLogout else { return }
+        isHandlingForcedLogout = true
+
+        Task {
+            _ = await logoutUserUseCase.execute()
+            createEventViewModel = nil
+            path.removeLast(path.count)
+            path.append(Destination.welcome)
+            isHandlingForcedLogout = false
+        }
     }
 
     private func sharedCreateEventViewModel() -> CreateEventViewModel {

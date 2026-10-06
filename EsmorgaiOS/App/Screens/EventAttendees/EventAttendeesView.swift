@@ -70,8 +70,10 @@ struct EventAttendeesView: View {
             Text(LocalizationKeys.Attendees.columnName.localize())
                 .style(.heading2)
             Spacer()
-            Text(LocalizationKeys.Attendees.columnPaid.localize())
-                .style(.heading2)
+            if viewModel.showPaymentCheckBox {
+                Text(LocalizationKeys.Attendees.columnPaid.localize())
+                    .style(.heading2)
+            }
         }
     }
     

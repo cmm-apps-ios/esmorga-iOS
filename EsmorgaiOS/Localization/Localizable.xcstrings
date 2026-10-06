@@ -485,6 +485,28 @@
         }
       }
     },
+    "button_update_vote" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambiar mi voto"
+          }
+        }
+      }
+    },
+    "button_vote" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votar"
+          }
+        }
+      }
+    },
     "Cancelar" : {
 
     },
@@ -627,6 +649,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Email de recuperación enviado"
+          }
+        }
+      }
+    },
+    "Information" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información"
           }
         }
       }
@@ -1179,6 +1212,17 @@
         }
       }
     },
+    "screen_explore_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Está pasando…"
+          }
+        }
+      }
+    },
     "screen_homescreen_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1245,6 +1289,72 @@
         }
       }
     },
+    "screen_poll_details_deadline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vota antes de %@"
+          }
+        }
+      }
+    },
+    "screen_poll_details_information" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información"
+          }
+        }
+      }
+    },
+    "screen_poll_details_option_count_votes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ (%d votos)"
+          }
+        }
+      }
+    },
+    "screen_poll_list_empty_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay votaciones disponibles. ¡Vuelve más tarde!"
+          }
+        }
+      }
+    },
+    "screen_poll_list_loading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando votaciones…"
+          }
+        }
+      }
+    },
+    "screen_poll_list_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votaciones"
+          }
+        }
+      }
+    },
     "screen_registration_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1288,6 +1398,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hay conexión a internet."
+          }
+        }
+      }
+    },
+    "snackbar_vote_submitted" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se ha registrado tu voto correctamente"
           }
         }
       }

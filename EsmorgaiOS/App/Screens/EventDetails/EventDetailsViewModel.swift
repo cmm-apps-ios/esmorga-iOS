@@ -18,7 +18,6 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
     private let getLocalUserUseCase: GetLocalUserUseCaseAlias
     private let joinEventUseCase: JoinEventUseCaseAlias
     private let leaveEventUseCase: LeaveEventUseCaseAlias
-    private let getEventAttendeesUseCase: GetEventAttendeesUseCaseAlias
     private var event: EventModels.Event
     private var user: UserModels.User?
 
@@ -36,14 +35,12 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
          navigationManager: ExternalAppsManagerProtocol = ExternalAppsManager(),
          getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
          joinEventUseCase: JoinEventUseCaseAlias = JoinEventUseCase(),
-         leaveEventUseCase: LeaveEventUseCaseAlias = LeaveEventUseCase(),
-         getEventAttendeesUseCase: GetEventAttendeesUseCaseAlias = GetEventAttendeesUseCase()) {
+         leaveEventUseCase: LeaveEventUseCaseAlias = LeaveEventUseCase()) {
         self.deepLinkManager = navigationManager
         self.event = event
         self.getLocalUserUseCase = getLocalUserUseCase
         self.joinEventUseCase = joinEventUseCase
         self.leaveEventUseCase = leaveEventUseCase
-        self.getEventAttendeesUseCase = getEventAttendeesUseCase
         super.init(coordinator: coordinator,
                    networkMonitor: networkMonitor)
     }
@@ -54,23 +51,25 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
         let isUserLogged = user != nil
         showEventModel()
         changeState(.loaded(isLogged: isUserLogged))
-        await loadAttendeesCount()
+        setupAttendeesCountText()
     }
 
     @MainActor
-    private func loadAttendeesCount() async {
-        guard user != nil else { return }
-        
-        let result = await getEventAttendeesUseCase.execute(input: event.eventId)
-        let count: Int
-        if case .success(let attendees) = result {
-            count = attendees.count
-        } else {
-            count = 0
-        }
-        self.attendeesText = LocalizationKeys.EventDetails.attendeesCount.localize(count, event.maxCapacity)
-        self.showSeeAttendeesButton = (count > 0)
+    private func setupAttendeesCountText() {
+        self.attendeesText = LocalizationKeys.EventDetails.attendeesCount.localize(self.event.currentAttendeeCount, event.maxCapacity)
+        self.showSeeAttendeesButton = (self.event.currentAttendeeCount > 0)
         self.showSeeAttendeesCount = event.maxCapacity > 0
+    }
+    
+    @MainActor
+    private func updateAttendeesCount() {
+        NotificationCenter.default.post(
+            name: .eventUpdated,
+            object: nil,
+            userInfo: ["event": self.event]
+        )
+        
+        setupAttendeesCountText()
     }
 
     private func showEventModel() {
@@ -125,7 +124,8 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
             self.showEventModel()
             self.snackBar = .init(message: LocalizationKeys.Snackbar.eventLeft.localize(),
                                   isShown: true)
-            await self.loadAttendeesCount()
+            self.event.currentAttendeeCount -= 1
+            self.updateAttendeesCount()
         case .failure:
             self.showErrorDialog(type: .commonError)
         }
@@ -146,7 +146,8 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
             self.showEventModel()
             self.snackBar = .init(message: LocalizationKeys.Snackbar.eventJoined.localize(),
                                   isShown: true)
-            await self.loadAttendeesCount()
+            self.event.currentAttendeeCount += 1
+            self.updateAttendeesCount()
         case .failure:
             self.showErrorDialog(type: .commonError)
         }

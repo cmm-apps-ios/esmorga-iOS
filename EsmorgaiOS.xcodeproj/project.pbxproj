@@ -82,6 +82,8 @@
 		3DA0FBE230615DA4007674F0 /* GetPollsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBE130615DA4007674F0 /* GetPollsNetworkService.swift */; };
 		3DA0FBE530615EA2007674F0 /* RemotePollsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBE430615E98007674F0 /* RemotePollsDataSource.swift */; };
 		3DA0FBEA30616963007674F0 /* GetPollsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0FBE930616963007674F0 /* GetPollsUseCase.swift */; };
+		3DA891AD30750B8100378D88 /* MOEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA891AC30750B7C00378D88 /* MOEventExtension.swift */; };
+		3DA891AF3075371A00378D88 /* UpdateEventOnLocalUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA891AE3075371A00378D88 /* UpdateEventOnLocalUseCase.swift */; };
 		3DCBD5F430657B35006A3CD0 /* SendVotePollUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCBD5F330657B35006A3CD0 /* SendVotePollUseCase.swift */; };
 		3DCC738D30486B5C00EA1FA0 /* EventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */; };
 		3DCC738F30486E6100EA1FA0 /* RemoteEventAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */; };
@@ -108,7 +110,22 @@
 		C0FFEE1000000000000000AC /* PollListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AC /* PollListViewModelTests.swift */; };
 		C0FFEE1000000000000000AD /* PollDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */; };
 		C0FFEE1000000000000000AE /* ExploreHomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */; };
-
+		CE0000000000000000000201 /* CreateEventModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000101 /* CreateEventModels.swift */; };
+		CE0000000000000000000202 /* CreateEventRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000102 /* CreateEventRequestModel.swift */; };
+		CE0000000000000000000203 /* CreateEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000103 /* CreateEventUseCase.swift */; };
+		CE0000000000000000000204 /* CreateEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000104 /* CreateEventViewModel.swift */; };
+		CE0000000000000000000205 /* CreateEventBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000105 /* CreateEventBuilder.swift */; };
+		CE0000000000000000000206 /* CreateEventNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000106 /* CreateEventNameView.swift */; };
+		CE0000000000000000000207 /* CreateEventTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000107 /* CreateEventTypeView.swift */; };
+		CE0000000000000000000208 /* CreateEventDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000108 /* CreateEventDateView.swift */; };
+		CE0000000000000000000209 /* CreateEventLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000109 /* CreateEventLocationView.swift */; };
+		CE000000000000000000020A /* CreateEventImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE000000000000000000010A /* CreateEventImageView.swift */; };
+		CE0000000000000000000501 /* CreateEventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000401 /* CreateEventViewModelTests.swift */; };
+		CE0000000000000000000502 /* MockCreateEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000402 /* MockCreateEventUseCase.swift */; };
+		CE0000000000000000000503 /* MockGetEventAttendeesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000403 /* MockGetEventAttendeesUseCase.swift */; };
+		CE0000000000000000000504 /* MockSaveEventAttendeesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000404 /* MockSaveEventAttendeesUseCase.swift */; };
+		CE0000000000000000000505 /* GetEventAttendeesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000405 /* GetEventAttendeesUseCaseTests.swift */; };
+		CE0000000000000000000506 /* EventAttendeesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000406 /* EventAttendeesViewModelTests.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -144,16 +161,6 @@
 		EF2983CD2C6A162A00C2393E /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983CC2C6A162A00C2393E /* SplashViewModel.swift */; };
 		EF2983E72C6B729A00C2393E /* WelcomeScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983E62C6B729A00C2393E /* WelcomeScreenBuilder.swift */; };
 		EF2983ED2C6B758100C2393E /* EventListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983EC2C6B758100C2393E /* EventListBuilder.swift */; };
-		CE0000000000000000000201 /* CreateEventModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000101 /* CreateEventModels.swift */; };
-		CE0000000000000000000202 /* CreateEventRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000102 /* CreateEventRequestModel.swift */; };
-		CE0000000000000000000203 /* CreateEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000103 /* CreateEventUseCase.swift */; };
-		CE0000000000000000000204 /* CreateEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000104 /* CreateEventViewModel.swift */; };
-		CE0000000000000000000205 /* CreateEventBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000105 /* CreateEventBuilder.swift */; };
-		CE0000000000000000000206 /* CreateEventNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000106 /* CreateEventNameView.swift */; };
-		CE0000000000000000000207 /* CreateEventTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000107 /* CreateEventTypeView.swift */; };
-		CE0000000000000000000208 /* CreateEventDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000108 /* CreateEventDateView.swift */; };
-		CE0000000000000000000209 /* CreateEventLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000109 /* CreateEventLocationView.swift */; };
-		CE000000000000000000020A /* CreateEventImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE000000000000000000010A /* CreateEventImageView.swift */; };
 		EF2983EF2C6B762600C2393E /* EventDetailsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983EE2C6B762600C2393E /* EventDetailsBuilder.swift */; };
 		EF2983F52C6B95D500C2393E /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983F42C6B95D500C2393E /* BaseViewModel.swift */; };
 		EF2983F72C6B95F500C2393E /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983F62C6B95F500C2393E /* ViewState.swift */; };
@@ -190,12 +197,6 @@
 		EF31587A2C5A78B900DE157A /* mock_event_list.json in Resources */ = {isa = PBXBuildFile; fileRef = EF3158792C5A78B900DE157A /* mock_event_list.json */; };
 		EF31587C2C5A7DA800DE157A /* mock_dummy_file.json in Resources */ = {isa = PBXBuildFile; fileRef = EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */; };
 		EF3158802C5A7E7100DE157A /* EventListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31587F2C5A7E7100DE157A /* EventListViewModelTests.swift */; };
-		CE0000000000000000000501 /* CreateEventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000401 /* CreateEventViewModelTests.swift */; };
-		CE0000000000000000000502 /* MockCreateEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000402 /* MockCreateEventUseCase.swift */; };
-		CE0000000000000000000503 /* MockGetEventAttendeesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000403 /* MockGetEventAttendeesUseCase.swift */; };
-		CE0000000000000000000504 /* MockSaveEventAttendeesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000404 /* MockSaveEventAttendeesUseCase.swift */; };
-		CE0000000000000000000505 /* GetEventAttendeesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000405 /* GetEventAttendeesUseCaseTests.swift */; };
-		CE0000000000000000000506 /* EventAttendeesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000406 /* EventAttendeesViewModelTests.swift */; };
 		EF3158822C5A80AC00DE157A /* MockGetEventListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */; };
 		EF3158872C5BD63400DE157A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158862C5BD63400DE157A /* BaseView.swift */; };
 		EF3158892C5CF0A700DE157A /* EventDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158882C5CF0A700DE157A /* EventDetailsViewModel.swift */; };
@@ -423,6 +424,8 @@
 		3DA0FBE130615DA4007674F0 /* GetPollsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPollsNetworkService.swift; sourceTree = "<group>"; };
 		3DA0FBE430615E98007674F0 /* RemotePollsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollsDataSource.swift; sourceTree = "<group>"; };
 		3DA0FBE930616963007674F0 /* GetPollsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPollsUseCase.swift; sourceTree = "<group>"; };
+		3DA891AC30750B7C00378D88 /* MOEventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOEventExtension.swift; sourceTree = "<group>"; };
+		3DA891AE3075371A00378D88 /* UpdateEventOnLocalUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEventOnLocalUseCase.swift; sourceTree = "<group>"; };
 		3DCBD5F330657B35006A3CD0 /* SendVotePollUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVotePollUseCase.swift; sourceTree = "<group>"; };
 		3DCC738C30486B5300EA1FA0 /* EventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendee.swift; sourceTree = "<group>"; };
 		3DCC738E30486E5900EA1FA0 /* RemoteEventAttendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEventAttendee.swift; sourceTree = "<group>"; };
@@ -449,7 +452,22 @@
 		C0FFEE2000000000000000AC /* PollListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListViewModelTests.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeViewModelTests.swift; sourceTree = "<group>"; };
-
+		CE0000000000000000000101 /* CreateEventModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventModels.swift; sourceTree = "<group>"; };
+		CE0000000000000000000102 /* CreateEventRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventRequestModel.swift; sourceTree = "<group>"; };
+		CE0000000000000000000103 /* CreateEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventUseCase.swift; sourceTree = "<group>"; };
+		CE0000000000000000000104 /* CreateEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModel.swift; sourceTree = "<group>"; };
+		CE0000000000000000000105 /* CreateEventBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventBuilder.swift; sourceTree = "<group>"; };
+		CE0000000000000000000106 /* CreateEventNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventNameView.swift; sourceTree = "<group>"; };
+		CE0000000000000000000107 /* CreateEventTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventTypeView.swift; sourceTree = "<group>"; };
+		CE0000000000000000000108 /* CreateEventDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventDateView.swift; sourceTree = "<group>"; };
+		CE0000000000000000000109 /* CreateEventLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventLocationView.swift; sourceTree = "<group>"; };
+		CE000000000000000000010A /* CreateEventImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventImageView.swift; sourceTree = "<group>"; };
+		CE0000000000000000000401 /* CreateEventViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModelTests.swift; sourceTree = "<group>"; };
+		CE0000000000000000000402 /* MockCreateEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCreateEventUseCase.swift; sourceTree = "<group>"; };
+		CE0000000000000000000403 /* MockGetEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetEventAttendeesUseCase.swift; sourceTree = "<group>"; };
+		CE0000000000000000000404 /* MockSaveEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSaveEventAttendeesUseCase.swift; sourceTree = "<group>"; };
+		CE0000000000000000000405 /* GetEventAttendeesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventAttendeesUseCaseTests.swift; sourceTree = "<group>"; };
+		CE0000000000000000000406 /* EventAttendeesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesViewModelTests.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -485,16 +503,6 @@
 		EF2983CC2C6A162A00C2393E /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		EF2983E62C6B729A00C2393E /* WelcomeScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenBuilder.swift; sourceTree = "<group>"; };
 		EF2983EC2C6B758100C2393E /* EventListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListBuilder.swift; sourceTree = "<group>"; };
-		CE0000000000000000000101 /* CreateEventModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventModels.swift; sourceTree = "<group>"; };
-		CE0000000000000000000102 /* CreateEventRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventRequestModel.swift; sourceTree = "<group>"; };
-		CE0000000000000000000103 /* CreateEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventUseCase.swift; sourceTree = "<group>"; };
-		CE0000000000000000000104 /* CreateEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModel.swift; sourceTree = "<group>"; };
-		CE0000000000000000000105 /* CreateEventBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventBuilder.swift; sourceTree = "<group>"; };
-		CE0000000000000000000106 /* CreateEventNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventNameView.swift; sourceTree = "<group>"; };
-		CE0000000000000000000107 /* CreateEventTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventTypeView.swift; sourceTree = "<group>"; };
-		CE0000000000000000000108 /* CreateEventDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventDateView.swift; sourceTree = "<group>"; };
-		CE0000000000000000000109 /* CreateEventLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventLocationView.swift; sourceTree = "<group>"; };
-		CE000000000000000000010A /* CreateEventImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventImageView.swift; sourceTree = "<group>"; };
 		EF2983EE2C6B762600C2393E /* EventDetailsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsBuilder.swift; sourceTree = "<group>"; };
 		EF2983F42C6B95D500C2393E /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		EF2983F62C6B95F500C2393E /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
@@ -525,12 +533,6 @@
 		EF3158792C5A78B900DE157A /* mock_event_list.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_event_list.json; sourceTree = "<group>"; };
 		EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_dummy_file.json; sourceTree = "<group>"; };
 		EF31587F2C5A7E7100DE157A /* EventListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModelTests.swift; sourceTree = "<group>"; };
-		CE0000000000000000000401 /* CreateEventViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModelTests.swift; sourceTree = "<group>"; };
-		CE0000000000000000000402 /* MockCreateEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCreateEventUseCase.swift; sourceTree = "<group>"; };
-		CE0000000000000000000403 /* MockGetEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetEventAttendeesUseCase.swift; sourceTree = "<group>"; };
-		CE0000000000000000000404 /* MockSaveEventAttendeesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSaveEventAttendeesUseCase.swift; sourceTree = "<group>"; };
-		CE0000000000000000000405 /* GetEventAttendeesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventAttendeesUseCaseTests.swift; sourceTree = "<group>"; };
-		CE0000000000000000000406 /* EventAttendeesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendeesViewModelTests.swift; sourceTree = "<group>"; };
 		EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetEventListUseCase.swift; sourceTree = "<group>"; };
 		EF3158832C5B872100DE157A /* Config-QA.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-QA.xcconfig"; sourceTree = "<group>"; };
 		EF3158862C5BD63400DE157A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -964,6 +966,36 @@
 			path = ExploreHome;
 			sourceTree = "<group>";
 		};
+		CE0000000000000000000301 /* CreateEvent */ = {
+			isa = PBXGroup;
+			children = (
+				CE0000000000000000000104 /* CreateEventViewModel.swift */,
+				CE0000000000000000000105 /* CreateEventBuilder.swift */,
+				CE0000000000000000000106 /* CreateEventNameView.swift */,
+				CE0000000000000000000107 /* CreateEventTypeView.swift */,
+				CE0000000000000000000108 /* CreateEventDateView.swift */,
+				CE0000000000000000000109 /* CreateEventLocationView.swift */,
+				CE000000000000000000010A /* CreateEventImageView.swift */,
+			);
+			path = CreateEvent;
+			sourceTree = "<group>";
+		};
+		CE0000000000000000000601 /* CreateEvent */ = {
+			isa = PBXGroup;
+			children = (
+				CE0000000000000000000401 /* CreateEventViewModelTests.swift */,
+			);
+			path = CreateEvent;
+			sourceTree = "<group>";
+		};
+		CE0000000000000000000602 /* EventAttendees */ = {
+			isa = PBXGroup;
+			children = (
+				CE0000000000000000000406 /* EventAttendeesViewModelTests.swift */,
+			);
+			path = EventAttendees;
+			sourceTree = "<group>";
+		};
 		EF0811B12C9093C500DE4887 /* EsmorgaiOSSnapshotTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1275,36 +1307,6 @@
 			path = EventList;
 			sourceTree = "<group>";
 		};
-		CE0000000000000000000601 /* CreateEvent */ = {
-			isa = PBXGroup;
-			children = (
-				CE0000000000000000000401 /* CreateEventViewModelTests.swift */,
-			);
-			path = CreateEvent;
-			sourceTree = "<group>";
-		};
-		CE0000000000000000000602 /* EventAttendees */ = {
-			isa = PBXGroup;
-			children = (
-				CE0000000000000000000406 /* EventAttendeesViewModelTests.swift */,
-			);
-			path = EventAttendees;
-			sourceTree = "<group>";
-		};
-		CE0000000000000000000301 /* CreateEvent */ = {
-			isa = PBXGroup;
-			children = (
-				CE0000000000000000000104 /* CreateEventViewModel.swift */,
-				CE0000000000000000000105 /* CreateEventBuilder.swift */,
-				CE0000000000000000000106 /* CreateEventNameView.swift */,
-				CE0000000000000000000107 /* CreateEventTypeView.swift */,
-				CE0000000000000000000108 /* CreateEventDateView.swift */,
-				CE0000000000000000000109 /* CreateEventLocationView.swift */,
-				CE000000000000000000010A /* CreateEventImageView.swift */,
-			);
-			path = CreateEvent;
-			sourceTree = "<group>";
-		};
 		EF3158852C5BD61800DE157A /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -1368,6 +1370,7 @@
 		EF4213C32C3ECB2400686033 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3DA891AC30750B7C00378D88 /* MOEventExtension.swift */,
 				EF4213C42C3ECB4400686033 /* DataConvertible.swift */,
 				EF4213C62C3ECBC400686033 /* NSManagedObject+Helpers.swift */,
 			);
@@ -1404,6 +1407,7 @@
 			isa = PBXGroup;
 			children = (
 				EFF8B8272CBFC97B007470A9 /* LeaveEventUseCase.swift */,
+				3DA891AE3075371A00378D88 /* UpdateEventOnLocalUseCase.swift */,
 				EFD7EF092C3D44A300C8CE70 /* GetEventListUseCase.swift */,
 				EF65D16C2CB91F56005078D9 /* JoinEventUseCase.swift */,
 				3DCC73903048702800EA1FA0 /* GetEventAttendeesUseCase.swift */,
@@ -2523,6 +2527,7 @@
 				EF4213D02C3FF9E500686033 /* CacheRule.swift in Sources */,
 				EFD7EEFE2C3D387800C8CE70 /* LocalizationKeys.swift in Sources */,
 				31EAF7CC2DEF3138003A6984 /* RecoverPasswordModels.swift in Sources */,
+				3DA891AD30750B8100378D88 /* MOEventExtension.swift in Sources */,
 				EF2983CB2C6A15D800C2393E /* SplashView.swift in Sources */,
 				EFA646382C8AFC9500D528F9 /* LocalUserDataSource.swift in Sources */,
 				EFD7EF102C3D72CA00C8CE70 /* NetworkService.swift in Sources */,
@@ -2546,6 +2551,7 @@
 				3D22E31A304049570054D8C0 /* ChangePasswordView.swift in Sources */,
 				EFE34DD62C7DE6D900724DDC /* RegistrationView.swift in Sources */,
 				3D33D091304F11DA00EB4C21 /* SaveEventAttendeesUseCase.swift in Sources */,
+				3DA891AF3075371A00378D88 /* UpdateEventOnLocalUseCase.swift in Sources */,
 				EFE34DD92C7DE6F300724DDC /* RegistrationViewModel.swift in Sources */,
 				EFD7EEF42C3C419100C8CE70 /* EventListView.swift in Sources */,
 				EF3158562C53DC8200DE157A /* EventDetailsView.swift in Sources */,

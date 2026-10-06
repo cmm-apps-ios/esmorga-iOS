@@ -24,11 +24,37 @@ class EventListViewModel: BaseViewModel<EventListViewStates> {
                                                            buttonText: LocalizationKeys.Buttons.retry.localize())
     @Published var events: [EventModels.Event] = []
     private let getEventListUseCase: GetEventListUseCaseAlias
+    private let updateEventOnLocalUseCase: UpdateEventOnLocalUseCaseAlias
 
     init(coordinator: (any CoordinatorProtocol)?,
-         getEventListUseCase: GetEventListUseCaseAlias = GetEventListUseCase()) {
+         getEventListUseCase: GetEventListUseCaseAlias = GetEventListUseCase(),
+         updateEventOnLocalUseCase: UpdateEventOnLocalUseCaseAlias = UpdateEventOnLocalUseCase()) {
         self.getEventListUseCase = getEventListUseCase
+        self.updateEventOnLocalUseCase = updateEventOnLocalUseCase
         super.init(coordinator: coordinator)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleEventUpdated(notification:)),
+            name: .eventUpdated,
+            object: nil
+        )
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc
+    private func handleEventUpdated(notification: Notification) {
+        guard let updatedEvent = notification.userInfo?["event"] as? EventModels.Event,
+              let index = events.firstIndex(where: { $0.id == updatedEvent.id }) else {
+            return
+        }
+        events[index] = updatedEvent
+        
+        Task {
+            _ = await updateEventOnLocalUseCase.execute(input: updatedEvent)
+        }
     }
 
     func eventTapped(_ event: EventModels.Event) {

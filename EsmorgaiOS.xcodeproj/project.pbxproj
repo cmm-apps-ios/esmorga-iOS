@@ -108,7 +108,18 @@
 		C0FFEE1000000000000000AC /* PollListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AC /* PollListViewModelTests.swift */; };
 		C0FFEE1000000000000000AD /* PollDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */; };
 		C0FFEE1000000000000000AE /* ExploreHomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */; };
-
+		CE0000000000000000000201 /* CreateEventModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000101 /* CreateEventModels.swift */; };
+		CE0000000000000000000202 /* CreateEventRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000102 /* CreateEventRequestModel.swift */; };
+		CE0000000000000000000203 /* CreateEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000103 /* CreateEventUseCase.swift */; };
+		CE0000000000000000000204 /* CreateEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000104 /* CreateEventViewModel.swift */; };
+		CE0000000000000000000205 /* CreateEventBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000105 /* CreateEventBuilder.swift */; };
+		CE0000000000000000000206 /* CreateEventNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000106 /* CreateEventNameView.swift */; };
+		CE0000000000000000000207 /* CreateEventTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000107 /* CreateEventTypeView.swift */; };
+		CE0000000000000000000208 /* CreateEventDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000108 /* CreateEventDateView.swift */; };
+		CE0000000000000000000209 /* CreateEventLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000109 /* CreateEventLocationView.swift */; };
+		CE000000000000000000020A /* CreateEventImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE000000000000000000010A /* CreateEventImageView.swift */; };
+		CE0000000000000000000501 /* CreateEventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000401 /* CreateEventViewModelTests.swift */; };
+		CE0000000000000000000502 /* MockCreateEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000402 /* MockCreateEventUseCase.swift */; };
 		EF0811B32C9093C500DE4887 /* LoginSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */; };
 		EF0811BD2C9093F900DE4887 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BC2C9093F900DE4887 /* InlineSnapshotTesting */; };
 		EF0811BF2C9093F900DE4887 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF0811BE2C9093F900DE4887 /* SnapshotTesting */; };
@@ -144,16 +155,6 @@
 		EF2983CD2C6A162A00C2393E /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983CC2C6A162A00C2393E /* SplashViewModel.swift */; };
 		EF2983E72C6B729A00C2393E /* WelcomeScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983E62C6B729A00C2393E /* WelcomeScreenBuilder.swift */; };
 		EF2983ED2C6B758100C2393E /* EventListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983EC2C6B758100C2393E /* EventListBuilder.swift */; };
-		CE0000000000000000000201 /* CreateEventModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000101 /* CreateEventModels.swift */; };
-		CE0000000000000000000202 /* CreateEventRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000102 /* CreateEventRequestModel.swift */; };
-		CE0000000000000000000203 /* CreateEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000103 /* CreateEventUseCase.swift */; };
-		CE0000000000000000000204 /* CreateEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000104 /* CreateEventViewModel.swift */; };
-		CE0000000000000000000205 /* CreateEventBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000105 /* CreateEventBuilder.swift */; };
-		CE0000000000000000000206 /* CreateEventNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000106 /* CreateEventNameView.swift */; };
-		CE0000000000000000000207 /* CreateEventTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000107 /* CreateEventTypeView.swift */; };
-		CE0000000000000000000208 /* CreateEventDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000108 /* CreateEventDateView.swift */; };
-		CE0000000000000000000209 /* CreateEventLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000109 /* CreateEventLocationView.swift */; };
-		CE000000000000000000020A /* CreateEventImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE000000000000000000010A /* CreateEventImageView.swift */; };
 		EF2983EF2C6B762600C2393E /* EventDetailsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983EE2C6B762600C2393E /* EventDetailsBuilder.swift */; };
 		EF2983F52C6B95D500C2393E /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983F42C6B95D500C2393E /* BaseViewModel.swift */; };
 		EF2983F72C6B95F500C2393E /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2983F62C6B95F500C2393E /* ViewState.swift */; };
@@ -190,8 +191,6 @@
 		EF31587A2C5A78B900DE157A /* mock_event_list.json in Resources */ = {isa = PBXBuildFile; fileRef = EF3158792C5A78B900DE157A /* mock_event_list.json */; };
 		EF31587C2C5A7DA800DE157A /* mock_dummy_file.json in Resources */ = {isa = PBXBuildFile; fileRef = EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */; };
 		EF3158802C5A7E7100DE157A /* EventListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31587F2C5A7E7100DE157A /* EventListViewModelTests.swift */; };
-		CE0000000000000000000501 /* CreateEventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000401 /* CreateEventViewModelTests.swift */; };
-		CE0000000000000000000502 /* MockCreateEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0000000000000000000402 /* MockCreateEventUseCase.swift */; };
 		EF3158822C5A80AC00DE157A /* MockGetEventListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */; };
 		EF3158872C5BD63400DE157A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158862C5BD63400DE157A /* BaseView.swift */; };
 		EF3158892C5CF0A700DE157A /* EventDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3158882C5CF0A700DE157A /* EventDetailsViewModel.swift */; };
@@ -445,7 +444,18 @@
 		C0FFEE2000000000000000AC /* PollListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListViewModelTests.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000AD /* PollDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000AE /* ExploreHomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHomeViewModelTests.swift; sourceTree = "<group>"; };
-
+		CE0000000000000000000101 /* CreateEventModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventModels.swift; sourceTree = "<group>"; };
+		CE0000000000000000000102 /* CreateEventRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventRequestModel.swift; sourceTree = "<group>"; };
+		CE0000000000000000000103 /* CreateEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventUseCase.swift; sourceTree = "<group>"; };
+		CE0000000000000000000104 /* CreateEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModel.swift; sourceTree = "<group>"; };
+		CE0000000000000000000105 /* CreateEventBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventBuilder.swift; sourceTree = "<group>"; };
+		CE0000000000000000000106 /* CreateEventNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventNameView.swift; sourceTree = "<group>"; };
+		CE0000000000000000000107 /* CreateEventTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventTypeView.swift; sourceTree = "<group>"; };
+		CE0000000000000000000108 /* CreateEventDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventDateView.swift; sourceTree = "<group>"; };
+		CE0000000000000000000109 /* CreateEventLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventLocationView.swift; sourceTree = "<group>"; };
+		CE000000000000000000010A /* CreateEventImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventImageView.swift; sourceTree = "<group>"; };
+		CE0000000000000000000401 /* CreateEventViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModelTests.swift; sourceTree = "<group>"; };
+		CE0000000000000000000402 /* MockCreateEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCreateEventUseCase.swift; sourceTree = "<group>"; };
 		EF0811B02C9093C400DE4887 /* EsmorgaiOSSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EsmorgaiOSSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0811B22C9093C500DE4887 /* LoginSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSnapshotTests.swift; sourceTree = "<group>"; };
 		EF0811C22C90943300DE4887 /* View+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+UIViewController.swift"; sourceTree = "<group>"; };
@@ -481,16 +491,6 @@
 		EF2983CC2C6A162A00C2393E /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		EF2983E62C6B729A00C2393E /* WelcomeScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenBuilder.swift; sourceTree = "<group>"; };
 		EF2983EC2C6B758100C2393E /* EventListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListBuilder.swift; sourceTree = "<group>"; };
-		CE0000000000000000000101 /* CreateEventModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventModels.swift; sourceTree = "<group>"; };
-		CE0000000000000000000102 /* CreateEventRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventRequestModel.swift; sourceTree = "<group>"; };
-		CE0000000000000000000103 /* CreateEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventUseCase.swift; sourceTree = "<group>"; };
-		CE0000000000000000000104 /* CreateEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModel.swift; sourceTree = "<group>"; };
-		CE0000000000000000000105 /* CreateEventBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventBuilder.swift; sourceTree = "<group>"; };
-		CE0000000000000000000106 /* CreateEventNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventNameView.swift; sourceTree = "<group>"; };
-		CE0000000000000000000107 /* CreateEventTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventTypeView.swift; sourceTree = "<group>"; };
-		CE0000000000000000000108 /* CreateEventDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventDateView.swift; sourceTree = "<group>"; };
-		CE0000000000000000000109 /* CreateEventLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventLocationView.swift; sourceTree = "<group>"; };
-		CE000000000000000000010A /* CreateEventImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventImageView.swift; sourceTree = "<group>"; };
 		EF2983EE2C6B762600C2393E /* EventDetailsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsBuilder.swift; sourceTree = "<group>"; };
 		EF2983F42C6B95D500C2393E /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		EF2983F62C6B95F500C2393E /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
@@ -521,8 +521,6 @@
 		EF3158792C5A78B900DE157A /* mock_event_list.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_event_list.json; sourceTree = "<group>"; };
 		EF31587B2C5A7DA800DE157A /* mock_dummy_file.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_dummy_file.json; sourceTree = "<group>"; };
 		EF31587F2C5A7E7100DE157A /* EventListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModelTests.swift; sourceTree = "<group>"; };
-		CE0000000000000000000401 /* CreateEventViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModelTests.swift; sourceTree = "<group>"; };
-		CE0000000000000000000402 /* MockCreateEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCreateEventUseCase.swift; sourceTree = "<group>"; };
 		EF3158812C5A80AC00DE157A /* MockGetEventListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetEventListUseCase.swift; sourceTree = "<group>"; };
 		EF3158832C5B872100DE157A /* Config-QA.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-QA.xcconfig"; sourceTree = "<group>"; };
 		EF3158862C5BD63400DE157A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -956,6 +954,28 @@
 			path = ExploreHome;
 			sourceTree = "<group>";
 		};
+		CE0000000000000000000301 /* CreateEvent */ = {
+			isa = PBXGroup;
+			children = (
+				CE0000000000000000000104 /* CreateEventViewModel.swift */,
+				CE0000000000000000000105 /* CreateEventBuilder.swift */,
+				CE0000000000000000000106 /* CreateEventNameView.swift */,
+				CE0000000000000000000107 /* CreateEventTypeView.swift */,
+				CE0000000000000000000108 /* CreateEventDateView.swift */,
+				CE0000000000000000000109 /* CreateEventLocationView.swift */,
+				CE000000000000000000010A /* CreateEventImageView.swift */,
+			);
+			path = CreateEvent;
+			sourceTree = "<group>";
+		};
+		CE0000000000000000000601 /* CreateEvent */ = {
+			isa = PBXGroup;
+			children = (
+				CE0000000000000000000401 /* CreateEventViewModelTests.swift */,
+			);
+			path = CreateEvent;
+			sourceTree = "<group>";
+		};
 		EF0811B12C9093C500DE4887 /* EsmorgaiOSSnapshotTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1264,28 +1284,6 @@
 				EF31587F2C5A7E7100DE157A /* EventListViewModelTests.swift */,
 			);
 			path = EventList;
-			sourceTree = "<group>";
-		};
-		CE0000000000000000000601 /* CreateEvent */ = {
-			isa = PBXGroup;
-			children = (
-				CE0000000000000000000401 /* CreateEventViewModelTests.swift */,
-			);
-			path = CreateEvent;
-			sourceTree = "<group>";
-		};
-		CE0000000000000000000301 /* CreateEvent */ = {
-			isa = PBXGroup;
-			children = (
-				CE0000000000000000000104 /* CreateEventViewModel.swift */,
-				CE0000000000000000000105 /* CreateEventBuilder.swift */,
-				CE0000000000000000000106 /* CreateEventNameView.swift */,
-				CE0000000000000000000107 /* CreateEventTypeView.swift */,
-				CE0000000000000000000108 /* CreateEventDateView.swift */,
-				CE0000000000000000000109 /* CreateEventLocationView.swift */,
-				CE000000000000000000010A /* CreateEventImageView.swift */,
-			);
-			path = CreateEvent;
 			sourceTree = "<group>";
 		};
 		EF3158852C5BD61800DE157A /* Base */ = {
@@ -3101,7 +3099,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = EsmorgaiOS/EsmorgaiOS.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3128,7 +3126,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Dev: com.mobilestudio.esmorga";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ent: com.mobilestudio.esmorga";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3243,7 +3241,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = EsmorgaiOS/EsmorgaiOS.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3270,7 +3268,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Dev: com.mobilestudio.esmorga";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ent: com.mobilestudio.esmorga";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3449,7 +3447,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = EsmorgaiOS/EsmorgaiOS.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3476,7 +3474,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Dev: com.mobilestudio.esmorga";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ent: com.mobilestudio.esmorga";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3491,7 +3489,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = EsmorgaiOS/EsmorgaiOS.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(PROJECT_BUILD)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3518,7 +3516,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilestudio.esmorga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Dev: com.mobilestudio.esmorga";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ent: com.mobilestudio.esmorga";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

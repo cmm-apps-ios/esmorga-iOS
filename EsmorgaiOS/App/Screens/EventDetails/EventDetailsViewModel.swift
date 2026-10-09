@@ -58,6 +58,8 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
 
     @MainActor
     private func setupAttendeesCountText() {
+        let isUserLogged = user != nil
+        guard isUserLogged else { return }
         self.attendeesText = LocalizationKeys.EventDetails.attendeesCount.localize(self.event.currentAttendeeCount, event.maxCapacity)
         self.showSeeAttendeesButton = (self.event.currentAttendeeCount > 0)
         self.showSeeAttendeesCount = event.maxCapacity > 0

@@ -87,7 +87,7 @@ class CreateEventViewModel: BaseViewModel<CreateEventViewState> {
     func validateDescription() {
         let value = description.trimmingCharacters(in: .whitespacesAndNewlines)
         if value.isEmpty {
-            descriptionError = LocalizationKeys.TextField.InlineError.emptyField.localize()
+            descriptionError = nil
         } else if value.count < Constants.minimumDescriptionLength || value.count > Constants.maximumDescriptionLength {
             descriptionError = LocalizationKeys.CreateEvent.InlineError.invalidLengthDescription.localize()
         } else {
@@ -106,7 +106,7 @@ class CreateEventViewModel: BaseViewModel<CreateEventViewState> {
 
     private func validateDescriptionSilently() -> Bool {
         let value = description.trimmingCharacters(in: .whitespacesAndNewlines)
-        return !value.isEmpty && value.count >= Constants.minimumDescriptionLength && value.count <= Constants.maximumDescriptionLength
+        return value.isEmpty || (!value.isEmpty && value.count >= Constants.minimumDescriptionLength && value.count <= Constants.maximumDescriptionLength)
     }
 
     // MARK: - Step 3 validation

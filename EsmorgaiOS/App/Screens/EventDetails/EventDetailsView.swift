@@ -44,12 +44,7 @@ struct EventDetailsView: View {
                         Text(viewModel.model.deadline)
                             .style(.body1)
                             .padding(.bottom, 29)
-                        Text(viewModel.model.descriptionTitle)
-                            .style(.heading1)
-                            .padding(.bottom, 16)
-                        Text(viewModel.model.descriptionBody)
-                            .style(.body1)
-                            .padding(.bottom, 32)
+                        description
                         Text(viewModel.model.locationTitle)
                             .style(.heading1)
                             .padding(.bottom, 16)
@@ -111,6 +106,19 @@ struct EventDetailsView: View {
             }
         }
         .padding(.bottom, (viewModel.showSeeAttendeesCount || viewModel.showSeeAttendeesButton) ? 16 : 0)
+    }
+    
+    var description: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            if viewModel.showDescription {
+                Text(viewModel.model.descriptionTitle)
+                    .style(.heading1)
+                    .padding(.bottom, 16)
+                Text(viewModel.model.descriptionBody)
+                    .style(.body1)
+                    .padding(.bottom, 32)
+            }
+        }
     }
 }
 

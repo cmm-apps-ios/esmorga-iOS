@@ -28,6 +28,7 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
     @Published var attendeesText: String = ""
     @Published var showSeeAttendeesButton: Bool = false
     @Published var showSeeAttendeesCount: Bool = false
+    @Published var showDescription: Bool = false
 
     init(coordinator: (any CoordinatorProtocol)?,
          networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,
@@ -52,6 +53,7 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
         showEventModel()
         changeState(.loaded(isLogged: isUserLogged))
         setupAttendeesCountText()
+        showDescription = !event.details.isEmpty
     }
 
     @MainActor

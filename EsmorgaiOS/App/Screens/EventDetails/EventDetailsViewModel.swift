@@ -24,9 +24,10 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
     @Published var showMethodsAlert: Bool = false
     @Published var model: EventDetails.Model = .empty
     var navigationMethods = [DeepLinkModels.Method]()
-    
+
     @Published var attendeesText: String = ""
     @Published var showSeeAttendeesButton: Bool = false
+    @Published var showSeeAttendeesCount: Bool = false
 
     init(coordinator: (any CoordinatorProtocol)?,
          networkMonitor: NetworkMonitorProtocol = NetworkMonitor.shared,
@@ -50,13 +51,25 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
         let isUserLogged = user != nil
         showEventModel()
         changeState(.loaded(isLogged: isUserLogged))
-        setupAttendeesInfo()
+        setupAttendeesCountText()
+    }
+
+    @MainActor
+    private func setupAttendeesCountText() {
+        self.attendeesText = LocalizationKeys.EventDetails.attendeesCount.localize(self.event.currentAttendeeCount, event.maxCapacity)
+        self.showSeeAttendeesButton = (self.event.currentAttendeeCount > 0)
+        self.showSeeAttendeesCount = event.maxCapacity > 0
     }
     
-    private func setupAttendeesInfo() {
-        self.attendeesText = LocalizationKeys.EventDetails.attendeesInfo.localize(event.currentAttendeeCount, event.maxCapacity)
+    @MainActor
+    private func updateAttendeesCount() {
+        NotificationCenter.default.post(
+            name: .eventUpdated,
+            object: nil,
+            userInfo: ["event": self.event]
+        )
         
-        self.showSeeAttendeesButton = (event.currentAttendeeCount >= 0) && (user?.role == .admin)
+        setupAttendeesCountText()
     }
 
     private func showEventModel() {
@@ -99,43 +112,47 @@ class EventDetailsViewModel: BaseViewModel<EventDetailsViewState> {
         }
     }
 
-    private func leaveEvent() async{
+    @MainActor
+    private func leaveEvent() async {
 
-        await MainActor.run { model.primaryButton.isLoading = true }
+        model.primaryButton.isLoading = true
 
         let result = await leaveEventUseCase.execute(input: event.eventId)
-        await MainActor.run {
-            switch result {
-            case .success:
-                self.event.isUserJoined = false
-                self.showEventModel()
-                self.snackBar = .init(message: LocalizationKeys.Snackbar.eventLeft.localize(),
-                                      isShown: true)
-            case .failure:
-                self.showErrorDialog(type: .commonError)
-            }
-            self.model.primaryButton.isLoading = false
+        switch result {
+        case .success:
+            self.event.isUserJoined = false
+            self.showEventModel()
+            self.snackBar = .init(message: LocalizationKeys.Snackbar.eventLeft.localize(),
+                                  isShown: true)
+            self.event.currentAttendeeCount -= 1
+            self.updateAttendeesCount()
+        case .failure:
+            self.showErrorDialog(type: .commonError)
         }
+        self.model.primaryButton.isLoading = false
+        
     }
 
+    @MainActor
     private func joinEvent() async {
 
-        await MainActor.run { model.primaryButton.isLoading = true }
+        model.primaryButton.isLoading = true
 
         let result = await joinEventUseCase.execute(input: event.eventId)
 
-        await MainActor.run {
-            switch result {
-            case .success:
-                self.event.isUserJoined = true
-                self.showEventModel()
-                self.snackBar = .init(message: LocalizationKeys.Snackbar.eventJoined.localize(),
-                                      isShown: true)
-            case .failure:
-                self.showErrorDialog(type: .commonError)
-            }
-            self.model.primaryButton.isLoading = false
+        switch result {
+        case .success:
+            self.event.isUserJoined = true
+            self.showEventModel()
+            self.snackBar = .init(message: LocalizationKeys.Snackbar.eventJoined.localize(),
+                                  isShown: true)
+            self.event.currentAttendeeCount += 1
+            self.updateAttendeesCount()
+        case .failure:
+            self.showErrorDialog(type: .commonError)
         }
+        self.model.primaryButton.isLoading = false
+        
     }
 
     private func showErrorDialog(type: ErrorDialog.DialogType) {

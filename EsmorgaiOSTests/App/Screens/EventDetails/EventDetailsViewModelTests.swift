@@ -279,13 +279,32 @@ final class EventDetailsViewModelTests {
         #expect(self.spyCoordinator.destination == .dialog(ErrorDialogModelBuilder.build(type: .noInternet)))
     }
 
+    @MainActor
+    @Test
+    func test_given_joined_event_when_join_succeeds_then_attendees_count_is_incremented() async {
+        mockGetLocalUserUseCase.mockUser = UserModelBuilder().build()
+        mockJoinEventUseCase.mockResult = true
+        giveSut(event: EventBuilder().with(maxCapacity: 12).build())
+
+        await TestHelper.fullfillTask {
+            await self.sut.viewLoad()
+        }
+
+        await TestHelper.fullfillTask {
+            await self.sut.primaryButtonTapped()
+        }
+
+        #expect(self.sut.model.primaryButton.title == LocalizationKeys.Buttons.leaveEvent.localize())
+        #expect(self.sut.attendeesText == LocalizationKeys.EventDetails.attendeesCount.localize(1, 12))
+    }
+
     private func giveSut(event: EventModels.Event) {
         sut = EventDetailsViewModel(coordinator: spyCoordinator,
                                     networkMonitor: mockNetworkMonitor,
                                     event: event,
                                     navigationManager: mockNavigationManager,
-                                    getLocalUserUseCase: mockGetLocalUserUseCase,
-                                    joinEventUseCase: mockJoinEventUseCase,
-                                    leaveEventUseCase: mockLeaveEventUseCase)
+                                     getLocalUserUseCase: mockGetLocalUserUseCase,
+                                     joinEventUseCase: mockJoinEventUseCase,
+                                     leaveEventUseCase: mockLeaveEventUseCase)
     }
 }

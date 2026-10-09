@@ -55,4 +55,8 @@ final class MockLocalEventsDataSource: LocalEventsDataSourceProtocol {
         savedEvents = nil
         clearAllCalled = true
     }
+    
+    func saveEvent(_ event: EsmorgaiOS.EventModels.Event) async throws {
+        return
+    }
 }

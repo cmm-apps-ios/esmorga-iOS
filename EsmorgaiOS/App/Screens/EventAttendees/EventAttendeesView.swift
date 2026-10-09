@@ -29,11 +29,13 @@ struct EventAttendeesView: View {
                             VStack(alignment: .center) {
                                 Divider()
                                 HStack(spacing: 0) {
-                                    Text("\(i). \(viewModel.attendees[i].name)")
+                                    Text("\(i + 1). \(viewModel.attendees[i].name)")
                                         .style(.body1)
                                     Spacer()
-                                    CheckBoxView(checked: $viewModel.attendees[i].hasPayed)
-                                        .padding(.trailing, 15)
+                                    if viewModel.showPaymentCheckBox {
+                                        CheckBoxView(checked: $viewModel.attendees[i].hasPayed)
+                                            .padding(.trailing, 15)
+                                    }
  
                                         
                                 }
@@ -49,7 +51,7 @@ struct EventAttendeesView: View {
             dismiss()
         }
         .task {
-            await viewModel.getEventAttendees()
+            await viewModel.viewLoad()
         }
         .onDisappear {
             Task {
@@ -68,8 +70,10 @@ struct EventAttendeesView: View {
             Text(LocalizationKeys.Attendees.columnName.localize())
                 .style(.heading2)
             Spacer()
-            Text(LocalizationKeys.Attendees.columnPaid.localize())
-                .style(.heading2)
+            if viewModel.showPaymentCheckBox {
+                Text(LocalizationKeys.Attendees.columnPaid.localize())
+                    .style(.heading2)
+            }
         }
     }
     

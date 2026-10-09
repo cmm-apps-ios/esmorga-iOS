@@ -11,6 +11,7 @@ import CoreData
 protocol LocalEventsDataSourceProtocol {
     func getEvents() async -> [EventModels.Event]
     func saveEvents(_ events: [EventModels.Event]) async throws -> ()
+    func saveEvent(_ event: EventModels.Event) async throws
     func updateIsUserJoinedEvent(id: String, isUserJoined: Bool) async throws
     func getAttendees(eventId: String) async throws -> [EventAttendee]
     func saveAttendees(_ attendees: [EventAttendee], for eventId: String) async throws
@@ -47,6 +48,34 @@ class LocalEventsDataSource: LocalEventsDataSourceProtocol {
         try? container.viewContext.save()
         return ()
     }
+    
+    func saveEvent(_ event: EventModels.Event) async throws {
+        let context = container.viewContext
+
+        try await context.perform {
+            let request = NSFetchRequest<MOEvent>(entityName: "MOEvent")
+            request.predicate = NSPredicate(
+                format: "eventId == %@",
+                event.id
+            )
+            request.fetchLimit = 1
+
+            let moEvent: MOEvent
+
+            if let existingEvent = try context.fetch(request).first {
+                moEvent = existingEvent
+            } else {
+                moEvent = MOEvent(context: context)
+            }
+
+            moEvent.update(from: event)
+
+            if context.hasChanges {
+                try context.save()
+            }
+        }
+    }
+    
 
     func updateIsUserJoinedEvent(id: String, isUserJoined: Bool) async throws {
         let request = NSFetchRequest<MOEvent>(entityName: "MOEvent")

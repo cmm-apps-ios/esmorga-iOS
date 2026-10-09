@@ -18,23 +18,37 @@ enum EventAttendeesViewStates: ViewStateProtocol {
 
 class EventAttendeesViewModel: BaseViewModel<EventAttendeesViewStates> {
     
+    @Published var attendees: [EventAttendee] = []
+    @Published var showPaymentCheckBox: Bool = false
+    
     private let getEventAttendeesUseCase: GetEventAttendeesUseCaseAlias
     private let saveEventAttendeesUseCase: SaveEventAttendeesUseCaseAlias
+    private let getLocalUserUseCase: GetLocalUserUseCaseAlias
     private let eventId: String
-    @Published var attendees: [EventAttendee] = []
+    private var user: UserModels.User?
     
     init(coordinator: (any CoordinatorProtocol)?,
          getEventAttendeesUseCase: GetEventAttendeesUseCaseAlias = GetEventAttendeesUseCase(),
          saveEventAttendeesUseCase: SaveEventAttendeesUseCaseAlias = SaveEventAttendeesUseCase(),
+         getLocalUserUseCase: GetLocalUserUseCaseAlias = GetLocalUserUseCase(),
          eventId: String) {
         self.getEventAttendeesUseCase = getEventAttendeesUseCase
         self.saveEventAttendeesUseCase = saveEventAttendeesUseCase
+        self.getLocalUserUseCase = getLocalUserUseCase
         self.eventId = eventId
         super.init(coordinator: coordinator)
     }
     
     @MainActor
+    func viewLoad() async {
+        user = try? await getLocalUserUseCase.execute().get()
+        showPaymentCheckBox = user?.role == .admin
+        await getEventAttendees()
+    }
+    
+    @MainActor
     func getEventAttendees() async {
+        guard user != nil else { return }
         let result = await getEventAttendeesUseCase.execute(input: eventId)
         
         await MainActor.run {
@@ -50,6 +64,8 @@ class EventAttendeesViewModel: BaseViewModel<EventAttendeesViewStates> {
     
     @MainActor
     func updateAttendeeHasPayed() async {
+        guard user?.role == .admin else { return }
+        
         let inputSaveEventAttendeesUseCase: SaveEventAttendeesUseCaseInput = .init(
             eventId: self.eventId,
             attendees: self.attendees

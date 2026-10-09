@@ -15,7 +15,7 @@ final class UserModelBuilder {
     var email: String = "test@email.com"
     var role: UserModels.RoleType = .user
 
-    func with(role: UserModels.RoleType) -> UserModelBuilder {
+    func with(role: UserModels.RoleType) -> Self {
         self.role = role
         return self
     }

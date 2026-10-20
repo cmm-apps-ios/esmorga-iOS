@@ -1,0 +1,13 @@
+{
+    "Simulator Target Bundle": "com.mobilestudio.esmorga",
+    "aps": {
+        "alert": {
+            "title": "Push Notification",
+            "subtitle": "Test Push Notifications",
+            "body": "Testing Push Notifications on iOS Simulator",
+        }
+    },
+    "custom": {
+        "instructionsToTestThisFileOnSimulator": "run xcrun simctl push booted com.mobilestudio.esmorga notification.apns"
+    }
+}

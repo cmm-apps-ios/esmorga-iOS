@@ -17,7 +17,7 @@ final class OneSignalManager {
     /// The OneSignal App ID used to initialize the SDK.
     /// TODO: Replace with the real 32-character App ID from the OneSignal
     /// dashboard (Settings -> Keys & IDs -> App ID).
-    let appId: String = "TODO_ONESIGNAL_APP_ID"
+    let appId: String = "0115e97b-297b-4eec-bd1a-130fe1e6a960"
 
     private init() {}
 

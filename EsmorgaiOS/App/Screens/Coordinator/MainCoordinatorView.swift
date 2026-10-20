@@ -21,7 +21,7 @@ struct MainCoordinatorView: View {
                 }
         }
         .onAppear {
-            OneSignalManager.shared.requestPushPermission()
+            NotificationServiceManager.shared.requestPushPermission()
         }
         .onChange(of: deepLinkManager.deepLink) { newDeepLink in
             guard let deepLink = newDeepLink else { return }

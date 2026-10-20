@@ -102,7 +102,7 @@
 		A1B2C3D4A1B2C3D400000009 /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4A1B2C3D400000005 /* OneSignalInAppMessages */; };
 		A1B2C3D4A1B2C3D40000000A /* OneSignalLocation in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4A1B2C3D400000006 /* OneSignalLocation */; };
 		A1B2C3D4A1B2C3D40000000B /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A1B2C3D4A1B2C3D400000002 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A1B2C3D4A1B2C3D40000001A /* OneSignalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4A1B2C3D400000019 /* OneSignalManager.swift */; };
+		A1B2C3D4A1B2C3D40000001A /* NotificationServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4A1B2C3D400000019 /* NotificationServiceManager.swift */; };
 		C0FFEE1000000000000000A1 /* PollBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A1 /* PollBuilder.swift */; };
 		C0FFEE1000000000000000A2 /* RemotePollBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A2 /* RemotePollBuilder.swift */; };
 		C0FFEE1000000000000000A4 /* MockPollsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE2000000000000000A4 /* MockPollsRepository.swift */; };
@@ -466,7 +466,7 @@
 		3DD647923063F9AB0053B900 /* PollListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListCell.swift; sourceTree = "<group>"; };
 		3DD647933063F9AB0053B900 /* PollListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListBuilder.swift; sourceTree = "<group>"; };
 		A1B2C3D4A1B2C3D400000002 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1B2C3D4A1B2C3D400000019 /* OneSignalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSignalManager.swift; sourceTree = "<group>"; };
+		A1B2C3D4A1B2C3D400000019 /* NotificationServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceManager.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000A1 /* PollBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollBuilder.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000A2 /* RemotePollBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePollBuilder.swift; sourceTree = "<group>"; };
 		C0FFEE2000000000000000A4 /* MockPollsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPollsRepository.swift; sourceTree = "<group>"; };
@@ -2023,7 +2023,7 @@
 				EFEECD272D7F4944002BBF66 /* FirstLaunchManager.swift */,
 				31E2B0752DDB798500DC9A5E /* DeepLinkManager.swift */,
 				31D232922DA68B060084057E /* CrashEventManager.swift */,
-				A1B2C3D4A1B2C3D400000019 /* OneSignalManager.swift */,
+				A1B2C3D4A1B2C3D400000019 /* NotificationServiceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -2535,7 +2535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1B2C3D4A1B2C3D40000001A /* OneSignalManager.swift in Sources */,
+				A1B2C3D4A1B2C3D40000001A /* NotificationServiceManager.swift in Sources */,
 				FA3D9A000000000000000031 /* ExploreHomeView.swift in Sources */,
 				FA3D9A000000000000000032 /* ExploreHomeViewModel.swift in Sources */,
 				FA3D9A000000000000000033 /* ExploreHomeBuilder.swift in Sources */,

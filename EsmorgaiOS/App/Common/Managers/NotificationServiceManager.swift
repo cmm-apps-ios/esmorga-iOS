@@ -10,9 +10,9 @@ import OneSignalFramework
 
 /// Single entry point for every OneSignal SDK interaction. All OneSignal calls
 /// must go through this manager so the SDK stays isolated and easy to test.
-final class OneSignalManager {
+final class NotificationServiceManager {
 
-    static let shared = OneSignalManager()
+    static let shared = NotificationServiceManager()
 
     /// The OneSignal App ID used to initialize the SDK.
     /// TODO: Replace with the real 32-character App ID from the OneSignal

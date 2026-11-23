@@ -84,6 +84,11 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol, PushNavigationDele
         return viewModel
     }
 
+    /// Intent id most recently pushed by navigate(to:), used to swallow
+    /// consecutive duplicates (double tap or a flushed cold-start intent racing
+    /// a live click) without relying on NavigationPath inspection.
+    private var lastPushEventId: String?
+
     /// PushNotificationDelegate entry point: a notification tap (foreground,
     /// background, or flushed cold-start intent) navigates to the event-details
     /// loading boundary, which resolves the current event before presentation.
@@ -91,11 +96,9 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol, PushNavigationDele
     func navigate(to intent: PushNotificationIntent) {
         switch intent {
         case .eventDetails(let eventId):
-            let destination = Destination.eventDetailsById(eventId: eventId)
-            // Avoid stacking the same destination twice (double tap or a flushed
-            // intent racing a live click).
-            if let last = path.last as? Destination, last == destination { return }
-            path.append(destination)
+            guard eventId != lastPushEventId else { return }
+            lastPushEventId = eventId
+            path.append(Destination.eventDetailsById(eventId: eventId))
         }
     }
 

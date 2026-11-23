@@ -1,5 +1,5 @@
 //
-//  OneSignalManager.swift
+//  NotificationServiceManager.swift
 //  EsmorgaiOS
 //
 //  Created by Marcelo Morán on 19/10/26.
@@ -14,37 +14,69 @@ final class NotificationServiceManager {
 
     static let shared = NotificationServiceManager()
 
-    /// The OneSignal App ID used to initialize the SDK.
-    /// TODO: Replace with the real 32-character App ID from the OneSignal
-    /// dashboard (Settings -> Keys & IDs -> App ID).
-    let appId: String = "0115e97b-297b-4eec-bd1a-130fe1e6a960"
+    static let platformTag = "ios"
+
+    private var pushListener: OneSignalPushListener?
+    private var isInitialized = false
 
     private init() {}
 
-    /// Initializes the OneSignal SDK. Call once during app launch, passing the
+    // MARK: - Configuration
+
+    /// Pure tag mapping (xcconfig environment + app version -> OneSignal tags).
+    /// Values must match the backend `APP_ENV` so QA and PROD subscriptions are
+    /// separable in the OneSignal dashboard.
+    static func buildTags(appEnvironment: String?, appVersion: String) -> [String: String] {
+        var tags: [String: String] = [
+            "platform": platformTag,
+            "version": appVersion
+        ]
+        if let appEnvironment, !appEnvironment.isEmpty {
+            tags["environment"] = appEnvironment
+        }
+        return tags
+    }
+
+    // MARK: - Initialization
+
+    /// Initializes the OneSignal SDK, applies environment tags and starts
+    /// listening for notifications. Call once during app launch, passing the
     /// launch options from `AppDelegate.application(_:didFinishLaunchingWithOptions:)`.
-    func initialize(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        OneSignal.initialize(appId, withLaunchOptions: launchOptions)
-    }
-
-    // MARK: - Push subscription (verification)
-
-    /// Retain the observer for the lifetime of the view that creates it
-    /// (OneSignal keeps observers weakly). The observer only fires once, and
-    /// only for a real, server-assigned subscription ID.
     ///
-    /// The subscription ID may already be assigned before the observer is
-    /// attached, so it is evaluated both on change and immediately on add.
-    func observePushSubscription(completion: @escaping () -> Void) -> PushSubscriptionObserver {
-        let observer = PushSubscriptionObserver(completion: completion)
-        OneSignal.User.pushSubscription.addObserver(observer)
-        observer.evaluate(OneSignal.User.pushSubscription.id)
-        return observer
+    /// The App ID comes from the xcconfig -> Info.plist configuration path
+    /// (`kOneSignalAppID`). It is required: debug/CI builds assert when it is
+    /// missing; release builds skip initialization instead of crashing the app.
+    func initialize(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        guard let appId = Bundle.oneSignalAppID else {
+            assertionFailure("Missing OneSignal App ID (set ONE_SIGNAL_APP_ID in the active xcconfig)")
+            return
+        }
+
+        #if DEBUG
+        OneSignal.Debug.setLogLevel(.LL_VERBOSE)
+        #endif
+
+        OneSignal.initialize(appId, withLaunchOptions: launchOptions)
+
+        OneSignal.User.addTags(Self.buildTags(appEnvironment: Bundle.appEnvironment,
+                                              appVersion: Bundle.shortVersion))
+
+        let listener = OneSignalPushListener(router: .shared)
+        listener.register()
+        pushListener = listener
+
+        isInitialized = true
     }
 
-    /// Requests push permission. This is the only place permission is requested,
-    /// and it happens only after the user taps the verification dialog button.
-    func requestPushPermission() {
+    // MARK: - Permission
+
+    /// Requests push permission only when the system status is still
+    /// `notDetermined` (the SDK reports `canRequestPermission` as false once the
+    /// user has answered). Denial never blocks the app; the fallback opens the
+    /// system settings on subsequent product-side taps.
+    func requestPushPermissionIfNeeded() {
+        guard isInitialized else { return }
+        guard OneSignal.Notifications.canRequestPermission else { return }
         OneSignal.Notifications.requestPermission({ accepted in
             #if DEBUG
             print("User accepted notifications: \(accepted)")
@@ -52,65 +84,17 @@ final class NotificationServiceManager {
         }, fallbackToSettings: true)
     }
 
-    // MARK: - Identity / subscriptions / tags
+    // MARK: - Identity
 
+    /// External-ID hooks kept available for future targeted notifications.
+    /// Never pass emails, phone numbers or access tokens as public tags.
     func login(externalId: String) {
+        guard isInitialized else { return }
         OneSignal.login(externalId)
     }
 
     func logout() {
+        guard isInitialized else { return }
         OneSignal.logout()
-    }
-
-    func addEmail(_ email: String) {
-        OneSignal.User.addEmail(email)
-    }
-
-    func addSms(_ number: String) {
-        OneSignal.User.addSms(number)
-    }
-
-    func addTag(key: String, value: String) {
-        OneSignal.User.addTag(key: key, value: value)
-    }
-
-    // MARK: - Logging
-
-    func setLogLevel(_ level: ONE_S_LOG_LEVEL) {
-        OneSignal.Debug.setLogLevel(level)
-    }
-}
-
-/// Observes push subscription changes and reports the current subscription ID
-/// so the caller can confirm the device registered with OneSignal's servers.
-final class PushSubscriptionObserver: NSObject, OSPushSubscriptionObserver {
-
-    private let completion: () -> Void
-    private var hasFired = false
-
-    init(completion: @escaping () -> Void) {
-        self.completion = completion
-    }
-
-    func onPushSubscriptionDidChange(state: OSPushSubscriptionChangedState) {
-        evaluate(state.current.id)
-    }
-
-    /// Fires `completion` exactly once, and only when the subscription ID is a
-    /// real, server-assigned value (non-empty and without the `local-` prefix).
-    func evaluate(_ subscriptionId: String?) {
-        guard Self.isRegistered(subscriptionId) else { return }
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self, !self.hasFired else { return }
-            self.hasFired = true
-            self.completion()
-        }
-    }
-
-    /// A real subscription ID is non-empty and not the `local-` placeholder the
-    /// SDK assigns before the device registers with OneSignal.
-    private static func isRegistered(_ subscriptionId: String?) -> Bool {
-        guard let id = subscriptionId else { return false }
-        return !id.isEmpty && !id.hasPrefix("local-")
     }
 }

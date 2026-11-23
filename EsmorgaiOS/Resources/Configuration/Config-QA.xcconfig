@@ -11,3 +11,11 @@
 
 PROJECT_BUILD = 20101
 APP_BASE_URL = https:/$()/qa.api.esmorgaevents.com
+
+// Push notifications (OneSignal). APP_ENV must match the backend APP_ENV so the
+// OneSignal environment tag separates QA from PROD subscriptions.
+APP_ENV = qa
+ONE_SIGNAL_APP_ID = 0115e97b-297b-4eec-bd1a-130fe1e6a960
+// Kept as `development` to preserve the current QA signing behavior; revisit
+// if QA ships through TestFlight (then it should be `production`).
+APS_ENVIRONMENT = development

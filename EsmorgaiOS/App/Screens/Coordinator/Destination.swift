@@ -19,6 +19,9 @@ enum Destination: Hashable, Identifiable {
     case changePassword
     case dialog(ErrorDialog.Model)
     case eventDetails(EventModels.Event)
+    /// Loading boundary used by push taps: resolves the event by id (cache +
+    /// refresh) before presenting the real details screen.
+    case eventDetailsById(eventId: String)
     case eventAttendees(eventId: String)
     case pollDetails(Poll)
     case dashboard

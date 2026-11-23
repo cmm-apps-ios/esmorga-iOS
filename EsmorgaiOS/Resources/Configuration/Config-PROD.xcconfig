@@ -12,3 +12,10 @@
 
 PROJECT_BUILD = 20102
 APP_BASE_URL = https:/$()/api.esmorgaevents.com
+
+// Push notifications (OneSignal). APP_ENV must match the backend APP_ENV.
+APP_ENV = prod
+// TODO(on-call): set the PROD OneSignal App ID (dashboard -> Keys & IDs).
+// Debug builds assert when it is missing; release builds simply skip push init.
+ONE_SIGNAL_APP_ID = 
+APS_ENVIRONMENT = production

@@ -19,6 +19,7 @@ final class SpyPushNavigationDelegate: PushNavigationDelegate {
 }
 
 @Suite(.serialized)
+@MainActor
 final class PushNotificationRouterTests {
 
     init() {

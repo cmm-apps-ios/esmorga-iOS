@@ -19,7 +19,7 @@ final class SpyPushNavigationDelegate: PushNavigationDelegate {
 }
 
 @Suite(.serialized)
-struct PushNotificationRouterTests {
+final class PushNotificationRouterTests {
 
     init() {
         PushNotificationRouter.shared.resetForTesting()

@@ -53,7 +53,7 @@ final class NotificationServiceManager {
         }
 
         #if DEBUG
-        OneSignal.Debug.setLogLevel(.verbose)
+        OneSignal.Debug.setLogLevel(.LL_VERBOSE)
         #endif
 
         OneSignal.initialize(appId, withLaunchOptions: launchOptions)

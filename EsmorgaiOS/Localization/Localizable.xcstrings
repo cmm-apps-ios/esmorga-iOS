@@ -1146,6 +1146,57 @@
         }
       }
     },
+    "screen_event_details_by_id_unavailable_action" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back to events"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver a eventos"
+          }
+        }
+      }
+    },
+    "screen_event_details_by_id_unavailable_body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This event no longer exists or you do not have access to it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este evento ya no existe o no tienes acceso a él."
+          }
+        }
+      }
+    },
+    "screen_event_details_by_id_unavailable_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Event not available"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Evento no disponible"
+          }
+        }
+      }
+    },
     "screen_event_details_deadline" : {
       "extractionState" : "manual",
       "localizations" : {

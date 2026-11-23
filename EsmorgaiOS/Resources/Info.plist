@@ -6,6 +6,10 @@
 	<dict>
 		<key>kBaseURL</key>
 		<string>$(APP_BASE_URL)</string>
+		<key>kOneSignalAppID</key>
+		<string>$(ONE_SIGNAL_APP_ID)</string>
+		<key>kAppEnvironment</key>
+		<string>$(APP_ENV)</string>
 	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>

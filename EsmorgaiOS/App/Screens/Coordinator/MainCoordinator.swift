@@ -17,7 +17,7 @@ protocol CoordinatorProtocol: AnyObject {
     func openExtrenalApp(_ method: DeepLinkModels.Method)
 }
 
-class MainCoordinator: ObservableObject, CoordinatorProtocol {
+class MainCoordinator: ObservableObject, CoordinatorProtocol, PushNavigationDelegate {
     @Published var path: NavigationPath = NavigationPath()
 
     /// Shared ViewModel that lives for the whole create-event flow so state is
@@ -84,6 +84,30 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
         return viewModel
     }
 
+    /// PushNotificationDelegate entry point: a notification tap (foreground,
+    /// background, or flushed cold-start intent) navigates to the event-details
+    /// loading boundary, which resolves the current event before presentation.
+    /// Always called on the main thread (see PushNotificationRouter).
+    func navigate(to intent: PushNotificationIntent) {
+        switch intent {
+        case .eventDetails(let eventId):
+            let destination = Destination.eventDetailsById(eventId: eventId)
+            // Avoid stacking the same destination twice (double tap or a flushed
+            // intent racing a live click).
+            if let last = path.last as? Destination, last == destination { return }
+            path.append(destination)
+        }
+    }
+
+    /// Replaces the top of the stack (used by the event-details-by-id loading
+    /// boundary to swap itself for the resolved screen without a back hop).
+    func replaceTop(with destination: Destination) {
+        if !path.isEmpty {
+            path.removeLast()
+        }
+        path.append(destination)
+    }
+
     @ViewBuilder
     func build(destination: Destination) -> some View {
         switch destination {
@@ -111,6 +135,8 @@ class MainCoordinator: ObservableObject, CoordinatorProtocol {
             ErrorDialog(viewModel: viewModel, model: model)
         case .eventDetails(let event):
             EventDetailsBuilder().build(coordinator: self, event: event)
+        case .eventDetailsById(let eventId):
+            EventDetailsByIdBuilder().build(coordinator: self, eventId: eventId)
         case .eventAttendees(let eventId):
             EventAttendeesBuilder().build(coordinator: self, eventId: eventId)
         case .pollDetails(let poll):

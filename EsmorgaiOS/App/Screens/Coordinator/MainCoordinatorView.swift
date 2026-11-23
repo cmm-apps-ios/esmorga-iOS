@@ -11,8 +11,6 @@ struct MainCoordinatorView: View {
     @StateObject private var coordinator = MainCoordinator()
     @EnvironmentObject var deepLinkManager: DeepLinkManager
 
-    @State private var pushSubscriptionObserver: PushSubscriptionObserver?
-
     var body: some View {
         NavigationStack(path: $coordinator.path) {
             coordinator.build(destination: .splash)
@@ -21,7 +19,9 @@ struct MainCoordinatorView: View {
                 }
         }
         .onAppear {
-            NotificationServiceManager.shared.requestPushPermission()
+            // Root navigation is ready: deliver any push tap that arrived during
+            // cold start (consumed once, see PushNotificationRouter).
+            PushNotificationRouter.shared.attach(delegate: coordinator)
         }
         .onChange(of: deepLinkManager.deepLink) { newDeepLink in
             guard let deepLink = newDeepLink else { return }

@@ -40,6 +40,10 @@ struct ExploreHomeView: View {
                     Task {
                         await viewModel.load(forceRefresh: false)
                     }
+                    // Product context for push permission: the events feed is
+                    // where event notifications matter. Only prompts while the
+                    // system status is notDetermined (see the manager).
+                    NotificationServiceManager.shared.requestPushPermissionIfNeeded()
                 }
             }
             .navigationBarBackButtonHidden(true)
